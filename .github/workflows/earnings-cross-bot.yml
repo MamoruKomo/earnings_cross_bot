@@ -1,0 +1,98 @@
+name: Earnings Cross Bot
+
+on:
+  schedule:
+    # 08:30 JST on Monday-Friday (23:30 UTC on Sunday-Thursday)
+    - cron: "30 23 * * 0-4"
+    # 15:45 JST on Monday-Friday
+    - cron: "45 6 * * 1-5"
+    # 18:00 JST on Friday
+    - cron: "0 9 * * 5"
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job to run"
+        required: true
+        default: "morning"
+        type: choice
+        options:
+          - morning
+          - evaluate
+          - weekly
+
+permissions:
+  contents: write
+
+jobs:
+  morning:
+    if: github.event_name == 'workflow_dispatch' && inputs.job == 'morning' || github.event.schedule == '30 23 * * 0-4'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python -m src.main_morning
+        env:
+          JQUANTS_EMAIL: ${{ secrets.JQUANTS_EMAIL }}
+          JQUANTS_PASSWORD: ${{ secrets.JQUANTS_PASSWORD }}
+          JQUANTS_REFRESH_TOKEN: ${{ secrets.JQUANTS_REFRESH_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          TIMEZONE: Asia/Tokyo
+      - name: Persist data changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/earnings_cross_bot.db data/lessons.jsonl config/rules_suggestion.yaml || true
+          git diff --cached --quiet || git commit -m "Update earnings cross bot data"
+          git push || true
+
+  evaluate:
+    if: github.event_name == 'workflow_dispatch' && inputs.job == 'evaluate' || github.event.schedule == '45 6 * * 1-5'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python -m src.main_evaluate
+        env:
+          JQUANTS_EMAIL: ${{ secrets.JQUANTS_EMAIL }}
+          JQUANTS_PASSWORD: ${{ secrets.JQUANTS_PASSWORD }}
+          JQUANTS_REFRESH_TOKEN: ${{ secrets.JQUANTS_REFRESH_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          TIMEZONE: Asia/Tokyo
+      - name: Persist data changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/earnings_cross_bot.db data/lessons.jsonl config/rules_suggestion.yaml || true
+          git diff --cached --quiet || git commit -m "Update earnings cross bot outcomes"
+          git push || true
+
+  weekly:
+    if: github.event_name == 'workflow_dispatch' && inputs.job == 'weekly' || github.event.schedule == '0 9 * * 5'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python -m src.main_weekly_review
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          TIMEZONE: Asia/Tokyo
+      - name: Persist weekly review
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/earnings_cross_bot.db data/lessons.jsonl config/rules_suggestion.yaml || true
+          git diff --cached --quiet || git commit -m "Update earnings cross bot weekly review"
+          git push || true
+

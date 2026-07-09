@@ -1,0 +1,6 @@
+date,code,name,announcement_time,fiscal_quarter,source
+2026-07-09,7203,トヨタ自動車,15:00,Q1,mock
+2026-07-09,6758,ソニーグループ,15:30,Q1,mock
+2026-07-09,9984,ソフトバンクグループ,不明,Q1,mock
+2026-07-09,1514,住石ホールディングス,14:00,Q1,mock_intraday
+

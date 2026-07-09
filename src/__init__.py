@@ -1,0 +1,2 @@
+"""Earnings cross bot package."""
+
