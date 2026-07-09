@@ -12,6 +12,7 @@
 - 翌営業日 15:45 以降の推奨結果検証
 - SQLite への特徴量、推奨、結果、反省ログ保存
 - 週次レビューと `config/rules_suggestion.yaml` への改善案保存
+- 精度確認用のネイティブ HTML/CSS/JS ダッシュボード
 
 ## セットアップ
 
@@ -66,13 +67,34 @@ python -m src.main_evaluate
 python -m src.main_weekly_review
 ```
 
+精度ダッシュボード生成:
+
+```bash
+python -m src.main_dashboard
+```
+
 日付を指定する場合:
 
 ```bash
 python -m src.main_morning --date 2026-07-09
 python -m src.main_evaluate --date 2026-07-10
 python -m src.main_weekly_review --date 2026-07-10
+python -m src.main_dashboard
 ```
+
+## 精度ダッシュボード
+
+`docs/dashboard/index.html` をブラウザで開くと、以下を確認できます。
+
+- 勝率、負けない率、平均翌日始値/終値リターン
+- win / neutral / lose の内訳
+- 累積翌日終値リターン
+- 週次推移
+- 銘柄別成績
+- 最近の検証結果
+- 未検証の推奨
+
+データは `data/earnings_cross_bot.db` から `docs/dashboard/data/dashboard.json` と `docs/dashboard/data/dashboard-data.js` に出力します。GitHub Pages を使う場合は、Pages の公開元を `main` branch の `/docs` に設定してください。
 
 ## Slack連携
 
@@ -111,4 +133,3 @@ data/earnings_cross_bot.db
 ## 注意事項
 
 これは投資助言ではなく、検証用の意思決定支援ツールです。推奨結果はルールベースのスコアと LLM による説明生成であり、利益や株価反応を保証するものではありません。実運用前にデータ品質、J-Quants プランの取得可能範囲、Slack 投稿先、評価閾値を確認してください。
-

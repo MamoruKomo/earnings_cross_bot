@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -146,7 +146,7 @@ def init_db(conn: sqlite3.Connection) -> None:
 
 
 def now_iso() -> str:
-    return datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    return datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 def to_json(value: Any) -> str:
@@ -400,4 +400,3 @@ def insert_weekly_review(conn: sqlite3.Connection, week_start: str, week_end: st
         "INSERT INTO weekly_reviews(week_start, week_end, review_json, created_at) VALUES (?, ?, ?, ?)",
         (week_start, week_end, to_json(review), now_iso()),
     )
-

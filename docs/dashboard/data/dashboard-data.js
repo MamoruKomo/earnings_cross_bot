@@ -1,0 +1,144 @@
+window.EARNINGS_DASHBOARD_DATA = {
+  "by_action": [
+    {
+      "action": "cross",
+      "avg_next_close_return": 0.028890244878361004,
+      "evaluated_count": 2,
+      "hit_rate": 0.5,
+      "lose": 0,
+      "neutral": 1,
+      "recommendation_count": 2,
+      "win": 1
+    }
+  ],
+  "by_code": [
+    {
+      "avg_next_close_return": 0.03281249999999991,
+      "code": "7203",
+      "evaluated_count": 1,
+      "hit_rate": 1.0,
+      "last_recommendation_date": "2026-07-09",
+      "lose": 0,
+      "name": "トヨタ自動車",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 1
+    },
+    {
+      "avg_next_close_return": 0.024967989756722098,
+      "code": "6758",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-07-09",
+      "lose": 0,
+      "name": "ソニーグループ",
+      "neutral": 1,
+      "recommendation_count": 1,
+      "win": 0
+    }
+  ],
+  "equity_curve": [
+    {
+      "code": "6758",
+      "cumulative_return": 0.024967989756722098,
+      "date": "2026-07-10",
+      "next_close_return": 0.024967989756722098,
+      "result": "neutral"
+    },
+    {
+      "code": "7203",
+      "cumulative_return": 0.05859975192061451,
+      "date": "2026-07-10",
+      "next_close_return": 0.03281249999999991,
+      "result": "win"
+    }
+  ],
+  "generated_at": "2026-07-09T14:58:10Z",
+  "no_trade_days": [],
+  "pending_recommendations": [],
+  "recent_outcomes": [
+    {
+      "action": "cross",
+      "code": "7203",
+      "evaluation_date": "2026-07-10",
+      "event_date": "2026-07-09",
+      "max_drawdown": 0.009374999999999911,
+      "name": "トヨタ自動車",
+      "next_close_return": 0.03281249999999991,
+      "next_open_return": 0.018750000000000044,
+      "recommendation_date": "2026-07-09",
+      "result": "win",
+      "score": 73
+    },
+    {
+      "action": "cross",
+      "code": "6758",
+      "evaluation_date": "2026-07-10",
+      "event_date": "2026-07-09",
+      "max_drawdown": 0.010883482714468595,
+      "name": "ソニーグループ",
+      "next_close_return": 0.024967989756722098,
+      "next_open_return": 0.016645326504481472,
+      "recommendation_date": "2026-07-09",
+      "result": "neutral",
+      "score": 78
+    }
+  ],
+  "result_distribution": {
+    "lose": 0,
+    "neutral": 1,
+    "win": 1
+  },
+  "summary": {
+    "avg_next_close_return": 0.028890244878361004,
+    "avg_next_open_return": 0.01769766325224076,
+    "best": {
+      "action": "cross",
+      "code": "7203",
+      "evaluation_date": "2026-07-10",
+      "event_date": "2026-07-09",
+      "max_drawdown": 0.009374999999999911,
+      "name": "トヨタ自動車",
+      "next_close_return": 0.03281249999999991,
+      "next_open_return": 0.018750000000000044,
+      "recommendation_date": "2026-07-09",
+      "result": "win",
+      "score": 73
+    },
+    "evaluated_count": 2,
+    "hit_rate": 0.5,
+    "lose_count": 0,
+    "lose_rate": 0.0,
+    "neutral_count": 1,
+    "no_trade_day_count": 0,
+    "non_loss_rate": 1.0,
+    "pending_count": 0,
+    "positive_close_rate": 1.0,
+    "recommendation_count": 2,
+    "win_count": 1,
+    "worst": {
+      "action": "cross",
+      "code": "6758",
+      "evaluation_date": "2026-07-10",
+      "event_date": "2026-07-09",
+      "max_drawdown": 0.010883482714468595,
+      "name": "ソニーグループ",
+      "next_close_return": 0.024967989756722098,
+      "next_open_return": 0.016645326504481472,
+      "recommendation_date": "2026-07-09",
+      "result": "neutral",
+      "score": 78
+    }
+  },
+  "weekly": [
+    {
+      "avg_next_close_return": 0.028890244878361004,
+      "count": 2,
+      "hit_rate": 0.5,
+      "lose": 0,
+      "neutral": 1,
+      "week_start": "2026-07-06",
+      "win": 1
+    }
+  ]
+};

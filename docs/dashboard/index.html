@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>決算跨ぎ精度ダッシュボード</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Earnings Cross Bot</p>
+          <h1>決算跨ぎ精度ダッシュボード</h1>
+        </div>
+        <div class="status">
+          <span id="generatedAt">更新中</span>
+        </div>
+      </header>
+
+      <section class="summary-grid" id="summaryGrid"></section>
+
+      <section class="layout">
+        <article class="panel chart-panel">
+          <div class="panel-head">
+            <h2>累積翌日終値リターン</h2>
+            <span id="curveCount"></span>
+          </div>
+          <svg id="equityChart" viewBox="0 0 720 260" role="img" aria-label="累積リターンチャート"></svg>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>結果内訳</h2>
+          </div>
+          <div id="distributionBars" class="bars"></div>
+        </article>
+      </section>
+
+      <section class="layout">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>週次推移</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>週</th>
+                  <th>件数</th>
+                  <th>勝率</th>
+                  <th>平均終値</th>
+                </tr>
+              </thead>
+              <tbody id="weeklyRows"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>銘柄別</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>銘柄</th>
+                  <th>検証</th>
+                  <th>勝率</th>
+                  <th>平均終値</th>
+                </tr>
+              </thead>
+              <tbody id="codeRows"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>最近の検証結果</h2>
+        </div>
+        <div class="table-wrap wide">
+          <table>
+            <thead>
+              <tr>
+                <th>検証日</th>
+                <th>銘柄</th>
+                <th>スコア</th>
+                <th>判定</th>
+                <th>翌日始値</th>
+                <th>翌日終値</th>
+                <th>最大下落</th>
+              </tr>
+            </thead>
+            <tbody id="recentRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="layout compact">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>判断別</h2>
+          </div>
+          <div id="actionRows" class="mini-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>未検証</h2>
+          </div>
+          <div id="pendingRows" class="mini-list"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./data/dashboard-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
+
