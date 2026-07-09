@@ -2,13 +2,23 @@ window.EARNINGS_DASHBOARD_DATA = {
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.028890244878361004,
-      "evaluated_count": 2,
-      "hit_rate": 0.5,
+      "avg_next_close_return": 0.01879306485594519,
+      "evaluated_count": 3,
+      "hit_rate": 0.3333333333333333,
+      "lose": 0,
+      "neutral": 2,
+      "recommendation_count": 4,
+      "win": 1
+    },
+    {
+      "action": "strong_cross",
+      "avg_next_close_return": 0.004087121379127812,
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
       "lose": 0,
       "neutral": 1,
-      "recommendation_count": 2,
-      "win": 1
+      "recommendation_count": 1,
+      "win": 0
     }
   ],
   "by_code": [
@@ -35,27 +45,86 @@ window.EARNINGS_DASHBOARD_DATA = {
       "neutral": 1,
       "recommendation_count": 1,
       "win": 0
+    },
+    {
+      "avg_next_close_return": 0.004087121379127812,
+      "code": "7974",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-07-07",
+      "lose": 0,
+      "name": "任天堂",
+      "neutral": 1,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": -0.0014012951888864311,
+      "code": "6501",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-07-08",
+      "lose": 0,
+      "name": "日立製作所",
+      "neutral": 1,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "8306",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-07-10",
+      "lose": 0,
+      "name": "三菱UFJフィナンシャル・グループ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
     }
   ],
   "equity_curve": [
     {
+      "code": "7974",
+      "cumulative_return": 0.004087121379127812,
+      "date": "2026-07-08",
+      "next_close_return": 0.004087121379127812,
+      "result": "neutral"
+    },
+    {
+      "code": "6501",
+      "cumulative_return": 0.00268009892671639,
+      "date": "2026-07-09",
+      "next_close_return": -0.0014012951888864311,
+      "result": "neutral"
+    },
+    {
       "code": "6758",
-      "cumulative_return": 0.024967989756722098,
+      "cumulative_return": 0.02771500536598781,
       "date": "2026-07-10",
       "next_close_return": 0.024967989756722098,
       "result": "neutral"
     },
     {
       "code": "7203",
-      "cumulative_return": 0.05859975192061451,
+      "cumulative_return": 0.061436903979559254,
       "date": "2026-07-10",
       "next_close_return": 0.03281249999999991,
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-09T14:58:10Z",
+  "generated_at": "2026-07-09T16:24:22Z",
   "no_trade_days": [],
-  "pending_recommendations": [],
+  "pending_recommendations": [
+    {
+      "action": "cross",
+      "code": "8306",
+      "event_date": "2026-07-10",
+      "name": "三菱UFJフィナンシャル・グループ",
+      "recommendation_date": "2026-07-10",
+      "score": 71
+    }
+  ],
   "recent_outcomes": [
     {
       "action": "cross",
@@ -82,16 +151,42 @@ window.EARNINGS_DASHBOARD_DATA = {
       "recommendation_date": "2026-07-09",
       "result": "neutral",
       "score": 78
+    },
+    {
+      "action": "cross",
+      "code": "6501",
+      "evaluation_date": "2026-07-09",
+      "event_date": "2026-07-08",
+      "max_drawdown": -0.014451217050821419,
+      "name": "日立製作所",
+      "next_close_return": -0.0014012951888864311,
+      "next_open_return": -0.002479658153173636,
+      "recommendation_date": "2026-07-08",
+      "result": "neutral",
+      "score": 76
+    },
+    {
+      "action": "strong_cross",
+      "code": "7974",
+      "evaluation_date": "2026-07-08",
+      "event_date": "2026-07-07",
+      "max_drawdown": -0.009038402186852479,
+      "name": "任天堂",
+      "next_close_return": 0.004087121379127812,
+      "next_open_return": 0.002998104140029101,
+      "recommendation_date": "2026-07-07",
+      "result": "neutral",
+      "score": 82
     }
   ],
   "result_distribution": {
     "lose": 0,
-    "neutral": 1,
+    "neutral": 3,
     "win": 1
   },
   "summary": {
-    "avg_next_close_return": 0.028890244878361004,
-    "avg_next_open_return": 0.01769766325224076,
+    "avg_next_close_return": 0.015116578986740847,
+    "avg_next_open_return": 0.008978443122834245,
     "best": {
       "action": "cross",
       "code": "7203",
@@ -105,38 +200,38 @@ window.EARNINGS_DASHBOARD_DATA = {
       "result": "win",
       "score": 73
     },
-    "evaluated_count": 2,
-    "hit_rate": 0.5,
+    "evaluated_count": 4,
+    "hit_rate": 0.25,
     "lose_count": 0,
     "lose_rate": 0.0,
-    "neutral_count": 1,
+    "neutral_count": 3,
     "no_trade_day_count": 0,
     "non_loss_rate": 1.0,
-    "pending_count": 0,
-    "positive_close_rate": 1.0,
-    "recommendation_count": 2,
+    "pending_count": 1,
+    "positive_close_rate": 0.75,
+    "recommendation_count": 5,
     "win_count": 1,
     "worst": {
       "action": "cross",
-      "code": "6758",
-      "evaluation_date": "2026-07-10",
-      "event_date": "2026-07-09",
-      "max_drawdown": 0.010883482714468595,
-      "name": "ソニーグループ",
-      "next_close_return": 0.024967989756722098,
-      "next_open_return": 0.016645326504481472,
-      "recommendation_date": "2026-07-09",
+      "code": "6501",
+      "evaluation_date": "2026-07-09",
+      "event_date": "2026-07-08",
+      "max_drawdown": -0.014451217050821419,
+      "name": "日立製作所",
+      "next_close_return": -0.0014012951888864311,
+      "next_open_return": -0.002479658153173636,
+      "recommendation_date": "2026-07-08",
       "result": "neutral",
-      "score": 78
+      "score": 76
     }
   },
   "weekly": [
     {
-      "avg_next_close_return": 0.028890244878361004,
-      "count": 2,
-      "hit_rate": 0.5,
+      "avg_next_close_return": 0.015116578986740847,
+      "count": 4,
+      "hit_rate": 0.25,
       "lose": 0,
-      "neutral": 1,
+      "neutral": 3,
       "week_start": "2026-07-06",
       "win": 1
     }
