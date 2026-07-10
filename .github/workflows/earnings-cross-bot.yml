@@ -19,11 +19,46 @@ on:
           - morning
           - evaluate
           - weekly
+          - learn
+          - slack-test
 
 permissions:
   contents: write
 
 jobs:
+  slack-test:
+    if: github.event_name == 'workflow_dispatch' && inputs.job == 'slack-test'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python -m src.main_slack_test
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          TIMEZONE: Asia/Tokyo
+
+  learn:
+    if: github.event_name == 'workflow_dispatch' && inputs.job == 'learn'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python -m src.main_learn
+      - run: python -m src.main_dashboard
+      - name: Persist learning profile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/earnings_cross_bot.db data/learning_profile.json docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
+          git diff --cached --quiet || git commit -m "Update earnings cross learning profile"
+          git push || true
+
   morning:
     if: github.event_name == 'workflow_dispatch' && inputs.job == 'morning' || github.event.schedule == '30 23 * * 0-4'
     runs-on: ubuntu-latest
@@ -46,7 +81,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/earnings_cross_bot.db data/lessons.jsonl config/rules_suggestion.yaml docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
+          git add data/earnings_cross_bot.db data/lessons.jsonl data/learning_profile.json config/rules_suggestion.yaml docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
           git diff --cached --quiet || git commit -m "Update earnings cross bot data"
           git push || true
 
@@ -72,7 +107,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/earnings_cross_bot.db data/lessons.jsonl config/rules_suggestion.yaml docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
+          git add data/earnings_cross_bot.db data/lessons.jsonl data/learning_profile.json config/rules_suggestion.yaml docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
           git diff --cached --quiet || git commit -m "Update earnings cross bot outcomes"
           git push || true
 
@@ -95,6 +130,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/earnings_cross_bot.db data/lessons.jsonl config/rules_suggestion.yaml docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
+          git add data/earnings_cross_bot.db data/lessons.jsonl data/learning_profile.json config/rules_suggestion.yaml docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
           git diff --cached --quiet || git commit -m "Update earnings cross bot weekly review"
           git push || true

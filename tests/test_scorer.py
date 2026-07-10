@@ -18,8 +18,9 @@ def rules():
             "low_overheat": 15,
             "historical_reaction": 15,
             "liquidity": 10,
-            "theme": 10,
-            "low_risk": 10,
+            "theme": 5,
+            "supply_demand": 10,
+            "low_risk": 5,
         },
         "recommendation": {"minimum_post_score": 70, "max_recommendations": 3},
     }
@@ -53,6 +54,7 @@ class ScorerTest(unittest.TestCase):
                 "positive_reaction_ratio": 0.75,
                 "avg_next_close_return": 0.025,
             },
+            supply_demand_features={"margin_ratio": 2.5, "long_weekly_change": -0.04},
             missing_data=[],
             rules=rules(),
         )
@@ -81,6 +83,7 @@ class ScorerTest(unittest.TestCase):
                 "positive_reaction_ratio": 1.0,
                 "avg_next_close_return": 0.05,
             },
+            supply_demand_features={"margin_ratio": 12.0, "long_weekly_change": 0.15},
             missing_data=[],
             rules=rules(),
         )

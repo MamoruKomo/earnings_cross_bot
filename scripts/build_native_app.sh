@@ -13,4 +13,5 @@ swift build --disable-sandbox -c release
 mkdir -p "$APP_DIR/Contents/MacOS" "$APP_DIR/Contents/Resources"
 cp "$NATIVE_DIR/.build/release/EarningsCrossManager" "$APP_DIR/Contents/MacOS/EarningsCrossManager"
 cp "$NATIVE_DIR/Info.plist" "$APP_DIR/Contents/Info.plist"
+cp "$NATIVE_DIR/Resources/AppIcon.png" "$APP_DIR/Contents/Resources/AppIcon.png"
 echo "$APP_DIR"

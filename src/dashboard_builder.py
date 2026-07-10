@@ -32,6 +32,8 @@ def build_dashboard_data(conn: sqlite3.Connection) -> dict[str, Any]:
         "by_action": build_by_action(recommendations),
         "recent_outcomes": build_recent_outcomes(evaluated),
         "pending_recommendations": build_pending(pending),
+        "stock_snapshots": build_stock_snapshots(conn, recommendations),
+        "learning": fetch_learning_status(conn),
         "no_trade_days": sorted(no_trade_days),
     }
 
@@ -256,6 +258,37 @@ def build_pending(rows: list[dict[str, Any]], limit: int = 20) -> list[dict[str,
         }
         for row in ordered[:limit]
     ]
+
+
+def build_stock_snapshots(conn: sqlite3.Connection, recommendations: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    output = []
+    latest_by_code = {row["code"]: row for row in recommendations}
+    for code, recommendation in latest_by_code.items():
+        financial = conn.execute(
+            "SELECT features_json, source, as_of_date FROM financial_features WHERE code=? ORDER BY as_of_date DESC LIMIT 1", (code,)
+        ).fetchone()
+        demand = conn.execute(
+            "SELECT * FROM supply_demand_features WHERE code=? ORDER BY as_of_date DESC LIMIT 1", (code,)
+        ).fetchone()
+        features = parse_json_object(financial["features_json"]) if financial else {}
+        output.append({
+            "code": code, "name": recommendation.get("name", ""),
+            "revenue_yoy": features.get("revenue_yoy"), "operating_profit_yoy": features.get("operating_profit_yoy"),
+            "operating_margin": features.get("operating_margin"), "revenue_progress_rate": features.get("revenue_progress_rate"),
+            "financial_source": financial["source"] if financial else None,
+            "margin_as_of_date": demand["as_of_date"] if demand else None,
+            "long_margin_outstanding": demand["long_margin_outstanding"] if demand else None,
+            "short_margin_outstanding": demand["short_margin_outstanding"] if demand else None,
+            "margin_ratio": demand["margin_ratio"] if demand else None,
+            "long_weekly_change": demand["long_weekly_change"] if demand else None,
+            "supply_demand_source": demand["source"] if demand else None,
+        })
+    return sorted(output, key=lambda row: row["code"])
+
+
+def fetch_learning_status(conn: sqlite3.Connection) -> dict[str, Any]:
+    row = conn.execute("SELECT profile_json FROM learning_runs ORDER BY id DESC LIMIT 1").fetchone()
+    return parse_json_object(row["profile_json"]) if row else {"status": "not_run", "sample_count": 0, "minimum_samples": 30, "message": "未実行"}
 
 
 def write_dashboard_files(data: dict[str, Any], dashboard_dir: Path) -> None:

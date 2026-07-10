@@ -113,7 +113,17 @@ window.EARNINGS_DASHBOARD_DATA = {
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-10T12:11:00Z",
+  "generated_at": "2026-07-10T12:22:23Z",
+  "learning": {
+    "feature_evidence": {},
+    "message": "学習開始まであと26件",
+    "minimum_samples": 30,
+    "sample_count": 4,
+    "status": "observing",
+    "trained_at": "2026-07-10T12:19:53Z",
+    "version": 1,
+    "weight_multipliers": {}
+  },
   "no_trade_days": [],
   "pending_recommendations": [
     {
@@ -184,6 +194,83 @@ window.EARNINGS_DASHBOARD_DATA = {
     "neutral": 3,
     "win": 1
   },
+  "stock_snapshots": [
+    {
+      "code": "6501",
+      "financial_source": "mock",
+      "long_margin_outstanding": 15100000.0,
+      "long_weekly_change": 0.08633093525179847,
+      "margin_as_of_date": "2026-07-03",
+      "margin_ratio": 3.026052104208417,
+      "name": "日立製作所",
+      "operating_margin": 0.096,
+      "operating_profit_yoy": 0.26,
+      "revenue_progress_rate": 0.25257731958762886,
+      "revenue_yoy": 0.11,
+      "short_margin_outstanding": 4990000.0,
+      "supply_demand_source": "mock"
+    },
+    {
+      "code": "6758",
+      "financial_source": "mock",
+      "long_margin_outstanding": 11200000.0,
+      "long_weekly_change": -0.05084745762711862,
+      "margin_as_of_date": "2026-07-03",
+      "margin_ratio": 2.2266401590457257,
+      "name": "ソニーグループ",
+      "operating_margin": 0.127,
+      "operating_profit_yoy": 0.22,
+      "revenue_progress_rate": 0.2578125,
+      "revenue_yoy": 0.12,
+      "short_margin_outstanding": 5030000.0,
+      "supply_demand_source": "mock"
+    },
+    {
+      "code": "7203",
+      "financial_source": "mock",
+      "long_margin_outstanding": 27400000.0,
+      "long_weekly_change": -0.02491103202846978,
+      "margin_as_of_date": "2026-07-03",
+      "margin_ratio": 2.860125260960334,
+      "name": "トヨタ自動車",
+      "operating_margin": 0.108,
+      "operating_profit_yoy": 0.18,
+      "revenue_progress_rate": 0.2608695652173913,
+      "revenue_yoy": 0.09,
+      "short_margin_outstanding": 9580000.0,
+      "supply_demand_source": "mock"
+    },
+    {
+      "code": "7974",
+      "financial_source": "mock",
+      "long_margin_outstanding": 3090000.0,
+      "long_weekly_change": -0.05214723926380371,
+      "margin_as_of_date": "2026-07-03",
+      "margin_ratio": 2.1914893617021276,
+      "name": "任天堂",
+      "operating_margin": 0.347,
+      "operating_profit_yoy": 0.28,
+      "revenue_progress_rate": 0.29523809523809524,
+      "revenue_yoy": 0.16,
+      "short_margin_outstanding": 1410000.0,
+      "supply_demand_source": "mock"
+    },
+    {
+      "code": "8306",
+      "financial_source": "mock",
+      "long_margin_outstanding": 72100000.0,
+      "long_weekly_change": 0.05409356725146197,
+      "margin_as_of_date": "2026-07-03",
+      "margin_ratio": 4.073446327683616,
+      "name": "三菱UFJフィナンシャル・グループ",
+      "operating_margin": 0.35,
+      "operating_profit_yoy": 0.19,
+      "revenue_progress_rate": 0.25,
+      "revenue_yoy": 0.08,
+      "short_margin_outstanding": 17700000.0,
+      "supply_demand_source": "mock"
+    }
+  ],
   "summary": {
     "avg_next_close_return": 0.015116578986740847,
     "avg_next_open_return": 0.008978443122834245,

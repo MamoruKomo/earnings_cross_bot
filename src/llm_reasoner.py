@@ -55,7 +55,7 @@ def build_recommendation_prompt(
         "投資助言ではなく、ルールスコアの理由をJSONだけで返してください。"
         "必ず候補なしを許可し、無理に銘柄を選ばないでください。"
         "観点: 決算が良さそうか、織り込み済みか、決算前に上がりすぎていないか、"
-        "流動性、過去決算後反応、相場テーマ、悪材料や出尽くしリスク。"
+        "流動性、過去決算後反応、相場テーマ、信用買残・売残・信用倍率、悪材料や出尽くしリスク。"
         "\n\n"
         f"日付: {target_date.isoformat()}\n"
         f"投稿候補: {json.dumps(selected_candidates, ensure_ascii=False)}\n"
@@ -173,6 +173,7 @@ def positive_factors(item: dict[str, Any]) -> list[str]:
     financial = item.get("financial_features", {})
     price = item.get("price_features", {})
     reaction = item.get("reaction_features", {})
+    demand = item.get("supply_demand_features", {})
     factors = []
     if financial.get("operating_profit_yoy") is not None:
         factors.append(f"営業利益前年同期比が{financial['operating_profit_yoy']:.1%}で成長評価がある")
@@ -182,11 +183,18 @@ def positive_factors(item: dict[str, Any]) -> list[str]:
         factors.append(f"決算前20営業日リターンは{price['return_20d']:.1%}で過熱感を確認済み")
     if reaction.get("positive_reaction_ratio") is not None:
         factors.append(f"過去決算後の陽性反応比率は{reaction['positive_reaction_ratio']:.0%}")
+    if demand.get("margin_ratio") is not None and demand["margin_ratio"] <= 3:
+        factors.append(f"信用倍率は{demand['margin_ratio']:.2f}倍で需給負担が比較的軽い")
     return factors[:3] or ["ルールスコアが基準を上回った"]
 
 
 def risk_factors(item: dict[str, Any]) -> list[str]:
     flags = list(item.get("risk_flags") or [])
+    demand = item.get("supply_demand_features", {})
+    if demand.get("margin_ratio") is not None and demand["margin_ratio"] >= 8:
+        flags.append(f"信用倍率が{demand['margin_ratio']:.2f}倍と高く、戻り売りリスク")
+    if demand.get("long_weekly_change") is not None and demand["long_weekly_change"] >= 0.10:
+        flags.append(f"信用買残が前週比{demand['long_weekly_change']:.1%}増加")
     if item.get("missing_data"):
         flags.append("不足データがあるため確信度を抑制")
     if not flags:
@@ -218,4 +226,3 @@ def analyze_outcome_lesson(recommendation: dict[str, Any], outcome: dict[str, An
         "features_to_watch_next": ["return_20d", "avg_turnover_20d", "historical_reaction", "revision_expectation_score"],
         "rule_change_idea": "週次レビューで閾値変更を検討し、本番rules.yamlは自動変更しない。",
     }
-

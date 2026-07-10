@@ -24,6 +24,8 @@ import SwiftUI
     func runMorning() { run(module: "src.main_morning", label: "朝の候補生成", includesDate: true) }
     func runEvaluation() { run(module: "src.main_evaluate", label: "結果評価", includesDate: true) }
     func runWeeklyReview() { run(module: "src.main_weekly_review", label: "週次レビュー", includesDate: true) }
+    func runLearning() { run(module: "src.main_learn", label: "自己学習", includesDate: false) }
+    func runSlackTest() { run(module: "src.main_slack_test", label: "Slack接続テスト", includesDate: false) }
     func rebuildDashboard() { run(module: "src.main_dashboard", label: "データ更新", includesDate: false) }
 
     private func run(module: String, label: String, includesDate: Bool) {

@@ -19,6 +19,8 @@ class AppConfig:
     mock_prices_path: Path
     mock_financials_path: Path
     mock_reactions_path: Path
+    margin_interest_path: Path
+    learning_profile_path: Path
     lessons_path: Path
     rules_path: Path
     rules_suggestion_path: Path
@@ -118,6 +120,8 @@ def load_config() -> AppConfig:
         mock_prices_path=data_dir / "mock_prices.csv",
         mock_financials_path=data_dir / "mock_financials.csv",
         mock_reactions_path=data_dir / "mock_earnings_reactions.csv",
+        margin_interest_path=data_dir / "margin_interest_manual.csv",
+        learning_profile_path=data_dir / "learning_profile.json",
         lessons_path=data_dir / "lessons.jsonl",
         rules_path=rules_path,
         rules_suggestion_path=ROOT_DIR / "config" / "rules_suggestion.yaml",

@@ -13,6 +13,8 @@ from src.jquants_client import JQuantsClient
 from src.llm_reasoner import generate_recommendation_payload
 from src.price_loader import fetch_or_load_prices
 from src.scorer import score_candidate, select_recommendations
+from src.supply_demand_loader import fetch_or_load_supply_demand
+from src.adaptive_learner import apply_learned_weights
 from src.slack_notifier import format_recommendation_message, post_message
 from src.trading_calendar import is_trading_day, parse_date, today_jst
 
@@ -22,6 +24,7 @@ def main() -> None:
     parser.add_argument("--date", help="Target date in YYYY-MM-DD")
     args = parser.parse_args()
     cfg = load_config()
+    cfg.rules["scoring_weights"] = apply_learned_weights(cfg.rules, cfg.learning_profile_path)
     target_date = parse_date(args.date) if args.date else today_jst(cfg.timezone)
 
     conn = db.connect(cfg.db_path)
@@ -62,10 +65,13 @@ def main() -> None:
         db.upsert_earnings_reactions(conn, reactions)
         reaction_features, reaction_missing = aggregate_reactions(reactions)
 
-        missing = price_missing + financial_missing + reaction_missing
+        supply_demand, supply_missing = fetch_or_load_supply_demand(event["code"], target_date, cfg.margin_interest_path, client)
+        db.upsert_supply_demand(conn, supply_demand)
+
+        missing = price_missing + financial_missing + reaction_missing + supply_missing
         if event_risk:
             missing.append(event_risk)
-        scored.append(score_candidate(event, price_features, financial_features, reaction_features, missing, cfg.rules))
+        scored.append(score_candidate(event, price_features, financial_features, reaction_features, supply_demand, missing, cfg.rules))
 
     selected = select_recommendations(scored, cfg.rules)
     payload = generate_recommendation_payload(conn, target_date, selected, scored, cfg.rules)
@@ -92,4 +98,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

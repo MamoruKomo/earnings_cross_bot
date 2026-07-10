@@ -12,6 +12,8 @@
 - 翌営業日 15:45 以降の推奨結果検証
 - SQLite への特徴量、推奨、結果、反省ログ保存
 - 週次レビューと `config/rules_suggestion.yaml` への改善案保存
+- 評価30件から有効になる、変更幅を制限した自己学習プロファイル
+- J-Quants / CSVによる信用買残・売残・信用倍率の需給分析
 - SwiftUI製macOSネイティブ管理アプリ
 
 ## セットアップ
@@ -29,6 +31,7 @@ cp .env.example .env
 JQUANTS_EMAIL=
 JQUANTS_PASSWORD=
 JQUANTS_REFRESH_TOKEN=
+JQUANTS_PRO_ACCESS_TOKEN=
 OPENAI_API_KEY=
 SLACK_WEBHOOK_URL=
 TIMEZONE=Asia/Tokyo
@@ -71,6 +74,7 @@ python -m src.main_weekly_review
 
 ```bash
 python -m src.main_dashboard
+python -m src.main_supply_demand
 ```
 
 日付を指定する場合:
@@ -94,6 +98,10 @@ open build/EarningsCrossManager.app
 
 アプリでは、精度サマリー、累積リターン、推奨履歴、銘柄別成績、未評価候補を確認できます。「運用」画面から日付を指定し、朝の候補生成、翌日評価、週次レビューを実行できます。処理後はダッシュボードデータも自動更新されます。
 
+「ファンダ・需給」画面では売上/営業利益成長率と、信用買残・売残・信用倍率・買残前週比を比較できます。J-Quantsで信用残高を取得できない契約では `data/margin_interest_manual.csv` を利用します。
+
+自己学習は評価済み30件未満では重みを変更しません。30件以降、各特徴量の成績差に基づく補正を `data/learning_profile.json` に保存し、1回の変更幅を最大±10%に制限します。元の `config/rules.yaml` は保持されます。
+
 認証情報は従来どおりリポジトリ直下の `.env` を使います。アプリ自体には秘密情報を保存しません。
 
 ## ブラウザ版ダッシュボード
@@ -113,6 +121,12 @@ open build/EarningsCrossManager.app
 ## Slack連携
 
 Slack Incoming Webhook URL を `.env` の `SLACK_WEBHOOK_URL` に設定してください。未設定の場合は Slack 送信せず、投稿予定の本文を標準出力に表示します。
+
+接続テスト:
+
+```bash
+python -m src.main_slack_test
+```
 
 ## GitHub Actions
 

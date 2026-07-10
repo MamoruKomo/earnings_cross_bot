@@ -9,11 +9,14 @@ struct DashboardData: Codable {
     let byCode: [CodeResult]
     let recentOutcomes: [Outcome]
     let pendingRecommendations: [PendingRecommendation]
+    let stockSnapshots: [StockSnapshot]
+    let learning: LearningStatus
     enum CodingKeys: String, CodingKey {
         case generatedAt = "generated_at"; case summary
         case resultDistribution = "result_distribution"; case weekly
         case equityCurve = "equity_curve"; case byCode = "by_code"
         case recentOutcomes = "recent_outcomes"; case pendingRecommendations = "pending_recommendations"
+        case stockSnapshots = "stock_snapshots"; case learning
     }
 }
 
@@ -82,8 +85,30 @@ struct PendingRecommendation: Codable, Identifiable {
     }
 }
 
+struct StockSnapshot: Codable, Identifiable {
+    var id: String { code }
+    let code, name: String
+    let revenueYoy, operatingProfitYoy, operatingMargin, revenueProgressRate: Double?
+    let financialSource, marginAsOfDate: String?
+    let longMarginOutstanding, shortMarginOutstanding, marginRatio, longWeeklyChange: Double?
+    let supplyDemandSource: String?
+    enum CodingKeys: String, CodingKey {
+        case code, name; case revenueYoy = "revenue_yoy"; case operatingProfitYoy = "operating_profit_yoy"
+        case operatingMargin = "operating_margin"; case revenueProgressRate = "revenue_progress_rate"
+        case financialSource = "financial_source"; case marginAsOfDate = "margin_as_of_date"
+        case longMarginOutstanding = "long_margin_outstanding"; case shortMarginOutstanding = "short_margin_outstanding"
+        case marginRatio = "margin_ratio"; case longWeeklyChange = "long_weekly_change"
+        case supplyDemandSource = "supply_demand_source"
+    }
+}
+
+struct LearningStatus: Codable {
+    let status: String; let sampleCount: Int; let minimumSamples: Int?; let message: String?
+    enum CodingKeys: String, CodingKey { case status, message; case sampleCount = "sample_count"; case minimumSamples = "minimum_samples" }
+}
+
 enum AppSection: String, CaseIterable, Identifiable {
-    case overview = "概要"; case history = "推奨履歴"; case stocks = "銘柄別成績"; case operations = "運用"
+    case overview = "概要"; case history = "推奨履歴"; case stocks = "銘柄別成績"; case analysis = "ファンダ・需給"; case operations = "運用"
     var id: String { rawValue }
-    var icon: String { switch self { case .overview: "chart.xyaxis.line"; case .history: "clock.arrow.circlepath"; case .stocks: "building.2"; case .operations: "gearshape.2" } }
+    var icon: String { switch self { case .overview: "chart.xyaxis.line"; case .history: "clock.arrow.circlepath"; case .stocks: "building.2"; case .analysis: "scale.3d"; case .operations: "gearshape.2" } }
 }

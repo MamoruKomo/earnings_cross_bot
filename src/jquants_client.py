@@ -14,6 +14,7 @@ class JQuantsError(RuntimeError):
 
 @dataclass
 class JQuantsClient:
+    access_token: str | None = None
     refresh_token: str | None = None
     id_token: str | None = None
     email: str | None = None
@@ -23,16 +24,21 @@ class JQuantsClient:
 
     @classmethod
     def from_env(cls) -> "JQuantsClient":
+        access_token = os.environ.get("JQUANTS_PRO_ACCESS_TOKEN") or None
         return cls(
+            access_token=access_token,
             refresh_token=os.environ.get("JQUANTS_REFRESH_TOKEN") or None,
             email=os.environ.get("JQUANTS_EMAIL") or None,
             password=os.environ.get("JQUANTS_PASSWORD") or None,
+            base_url="https://api.jquants-pro.com/v2" if access_token else "https://api.jquants.com/v1",
         )
 
     def enabled(self) -> bool:
-        return bool(self.refresh_token or (self.email and self.password))
+        return bool(self.access_token or self.refresh_token or (self.email and self.password))
 
     def ensure_id_token(self) -> str:
+        if self.access_token:
+            return self.access_token
         if self.id_token:
             return self.id_token
         if not self.refresh_token:
@@ -100,6 +106,10 @@ class JQuantsClient:
         data = self.get("/fins/statements", params)
         return data.get("statements") or data.get("Statements") or []
 
+    def fetch_weekly_margin_interest(self, code: str) -> list[dict[str, Any]]:
+        data = self.get("/markets/weekly_margin_interest", {"code": code})
+        return data.get("weekly_margin_interest") or data.get("WeeklyMarginInterest") or []
+
     @staticmethod
     def _normalize_announcement(row: dict[str, Any], target_date: date) -> dict[str, Any]:
         return {
@@ -138,4 +148,3 @@ def _float(value: Any) -> float | None:
         return float(value)
     except (TypeError, ValueError):
         return None
-

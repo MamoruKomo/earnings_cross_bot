@@ -8,3 +8,4 @@ logs/
 native/.build/
 build/
 .swift-cache/
+.DS_Store

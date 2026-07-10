@@ -52,3 +52,6 @@ def post_message(message: str, webhook_url: str | None = None) -> bool:
         print(f"[slack] post failed: {exc}")
         return False
 
+
+def webhook_configured() -> bool:
+    return bool(os.environ.get("SLACK_WEBHOOK_URL"))

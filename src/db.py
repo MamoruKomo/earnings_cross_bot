@@ -65,6 +65,28 @@ def init_db(conn: sqlite3.Connection) -> None:
             PRIMARY KEY(code, event_date)
         );
 
+        CREATE TABLE IF NOT EXISTS supply_demand_features (
+            code TEXT NOT NULL,
+            as_of_date TEXT NOT NULL,
+            long_margin_outstanding REAL,
+            short_margin_outstanding REAL,
+            margin_ratio REAL,
+            long_weekly_change REAL,
+            short_weekly_change REAL,
+            source TEXT,
+            created_at TEXT NOT NULL,
+            PRIMARY KEY(code, as_of_date)
+        );
+
+        CREATE TABLE IF NOT EXISTS learning_runs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            trained_at TEXT NOT NULL,
+            sample_count INTEGER NOT NULL,
+            status TEXT NOT NULL,
+            profile_json TEXT NOT NULL,
+            created_at TEXT NOT NULL
+        );
+
         CREATE TABLE IF NOT EXISTS recommendations (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             recommendation_date TEXT NOT NULL,
@@ -230,6 +252,34 @@ def upsert_earnings_reactions(conn: sqlite3.Connection, rows: Iterable[dict[str,
             source=excluded.source
         """,
         [{**row, "created_at": now_iso()} for row in rows],
+    )
+
+
+def upsert_supply_demand(conn: sqlite3.Connection, row: dict[str, Any]) -> None:
+    conn.execute(
+        """
+        INSERT INTO supply_demand_features(
+            code, as_of_date, long_margin_outstanding, short_margin_outstanding, margin_ratio,
+            long_weekly_change, short_weekly_change, source, created_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT(code, as_of_date) DO UPDATE SET
+            long_margin_outstanding=excluded.long_margin_outstanding,
+            short_margin_outstanding=excluded.short_margin_outstanding,
+            margin_ratio=excluded.margin_ratio,
+            long_weekly_change=excluded.long_weekly_change,
+            short_weekly_change=excluded.short_weekly_change,
+            source=excluded.source
+        """,
+        (row["code"], row["as_of_date"], row.get("long_margin_outstanding"),
+         row.get("short_margin_outstanding"), row.get("margin_ratio"), row.get("long_weekly_change"),
+         row.get("short_weekly_change"), row.get("source", ""), now_iso()),
+    )
+
+
+def insert_learning_run(conn: sqlite3.Connection, profile: dict[str, Any]) -> None:
+    conn.execute(
+        "INSERT INTO learning_runs(trained_at, sample_count, status, profile_json, created_at) VALUES (?, ?, ?, ?, ?)",
+        (profile["trained_at"], profile["sample_count"], profile["status"], to_json(profile), now_iso()),
     )
 
 

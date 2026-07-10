@@ -8,6 +8,7 @@ def score_candidate(
     price_features: dict[str, Any],
     financial_features: dict[str, Any],
     reaction_features: dict[str, Any],
+    supply_demand_features: dict[str, Any] | None,
     missing_data: list[str],
     rules: dict[str, Any],
 ) -> dict[str, Any]:
@@ -16,14 +17,16 @@ def score_candidate(
     missing = sorted(set(missing_data))
     risk_flags = list(financial_features.get("risk_flags") or [])
 
+    supply_demand_features = supply_demand_features or {}
     components = {
         "earnings_growth": _earnings_growth(financial_features, weights.get("earnings_growth", 20)),
         "progress_revision": _progress_revision(financial_features, weights.get("progress_revision", 20)),
         "low_overheat": _low_overheat(price_features, weights.get("low_overheat", 15), thresholds),
         "historical_reaction": _historical_reaction(reaction_features, weights.get("historical_reaction", 15)),
         "liquidity": _liquidity(price_features, weights.get("liquidity", 10), thresholds),
-        "theme": _theme(financial_features, weights.get("theme", 10)),
-        "low_risk": _low_risk(missing, risk_flags, event, weights.get("low_risk", 10), thresholds),
+        "theme": _theme(financial_features, weights.get("theme", 5)),
+        "supply_demand": _supply_demand(supply_demand_features, weights.get("supply_demand", 10)),
+        "low_risk": _low_risk(missing, risk_flags, event, weights.get("low_risk", 5), thresholds),
     }
 
     total = int(round(sum(components.values())))
@@ -45,6 +48,7 @@ def score_candidate(
         "price_features": price_features,
         "financial_features": financial_features,
         "reaction_features": reaction_features,
+        "supply_demand_features": supply_demand_features,
     }
 
 
@@ -154,6 +158,17 @@ def _theme(financial: dict[str, Any], weight: float) -> float:
     return weight * max(0.0, min(1.0, float(value) / 10.0))
 
 
+def _supply_demand(features: dict[str, Any], weight: float) -> float:
+    ratio = features.get("margin_ratio")
+    long_change = features.get("long_weekly_change")
+    if ratio is None:
+        return weight * 0.35
+    ratio = float(ratio)
+    ratio_score = 1.0 if ratio <= 2 else 0.8 if ratio <= 4 else 0.55 if ratio <= 8 else 0.25
+    change_score = 0.6 if long_change is None else max(0.0, min(1.0, 0.6 - float(long_change) * 2.0))
+    return weight * (ratio_score * 0.7 + change_score * 0.3)
+
+
 def _low_risk(
     missing_data: list[str],
     risk_flags: list[str],
@@ -181,4 +196,3 @@ def _progress_score(value: Any) -> float | None:
         return None
     value = float(value)
     return max(0.0, min(1.0, (value - 0.18) / 0.30))
-

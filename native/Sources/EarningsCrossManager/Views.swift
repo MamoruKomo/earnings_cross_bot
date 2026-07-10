@@ -22,6 +22,7 @@ struct RootView: View {
                 case .overview: OverviewView()
                 case .history: HistoryView()
                 case .stocks: StocksView()
+                case .analysis: AnalysisView()
                 case .operations: OperationsView()
                 }
             }.frame(minWidth: 760, minHeight: 560).background(Color(nsColor: .windowBackgroundColor))
@@ -108,6 +109,27 @@ struct StocksView: View {
     }
 }
 
+struct AnalysisView: View {
+    @EnvironmentObject private var model: AppModel
+    var body: some View {
+        VStack(alignment: .leading, spacing: 18) {
+            PageHeading(title: "ファンダ・需給", subtitle: "決算成長と信用残高を同じ画面で比較")
+            NoticeView(text: "信用残高は通常週次データです。倍率が高く買残が増えている銘柄は、好決算でも戻り売りが出やすい点に注意してください。")
+            Table(model.data?.stockSnapshots ?? []) {
+                TableColumn("銘柄") { row in StockName(name: row.name, code: row.code) }.width(min: 160, ideal: 220)
+                TableColumn("売上成長") { row in Text(signedPercent(row.revenueYoy)).monospacedDigit() }.width(80)
+                TableColumn("営利成長") { row in Text(signedPercent(row.operatingProfitYoy)).monospacedDigit() }.width(80)
+                TableColumn("営利率") { row in Text(percent1(row.operatingMargin)).monospacedDigit() }.width(70)
+                TableColumn("信用買残") { row in Text(compactNumber(row.longMarginOutstanding)).monospacedDigit() }.width(90)
+                TableColumn("信用売残") { row in Text(compactNumber(row.shortMarginOutstanding)).monospacedDigit() }.width(90)
+                TableColumn("信用倍率") { row in Text(ratioText(row.marginRatio)).monospacedDigit().foregroundStyle(marginColor(row.marginRatio)) }.width(75)
+                TableColumn("買残前週比") { row in Text(signedPercent(row.longWeeklyChange)).monospacedDigit() }.width(90)
+                TableColumn("基準日") { row in Text(row.marginAsOfDate ?? "--") }.width(90)
+            }
+        }.padding(26)
+    }
+}
+
 struct OperationsView: View {
     @EnvironmentObject private var model: AppModel
     var body: some View {
@@ -119,11 +141,16 @@ struct OperationsView: View {
                     Spacer(); Button { model.rebuildDashboard() } label: { Label("表示を更新", systemImage: "arrow.clockwise") }.disabled(model.isRunning)
                 }
                 Divider()
-                HStack(spacing: 12) {
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
                     OperationButton(title: "候補を生成", detail: "スコアリングしてSlackへ投稿", icon: "sparkles", tint: .blue, action: model.runMorning)
                     OperationButton(title: "結果を評価", detail: "翌営業日の値動きを判定", icon: "checkmark.seal", tint: .green, action: model.runEvaluation)
                     OperationButton(title: "週次レビュー", detail: "改善案をルール候補へ保存", icon: "calendar.badge.clock", tint: .orange, action: model.runWeeklyReview)
+                    OperationButton(title: "今すぐ学習", detail: "蓄積結果から重み補正を更新", icon: "brain.head.profile", tint: .purple, action: model.runLearning)
+                    OperationButton(title: "Slackテスト", detail: "Webhookへ接続確認を投稿", icon: "paperplane", tint: .cyan, action: model.runSlackTest)
                 }.disabled(model.isRunning)
+                if let learning = model.data?.learning {
+                    NoticeView(text: "学習状態: \(learning.status) / \(learning.sampleCount)件。\(learning.message ?? "")")
+                }
                 Panel(title: "実行ログ", subtitle: model.repositoryURL.path) {
                     ScrollView { Text(model.commandLog.isEmpty ? "まだこのアプリから処理を実行していません。" : model.commandLog).font(.system(.caption, design: .monospaced)).textSelection(.enabled).frame(maxWidth: .infinity, alignment: .leading) }.frame(minHeight: 150, maxHeight: 280)
                 }
@@ -149,3 +176,7 @@ func percent(_ value: Double?) -> String { guard let value else { return "--" };
 func signedPercent(_ value: Double?) -> String { guard let value else { return "--" }; return value.formatted(.percent.precision(.fractionLength(1)).sign(strategy: .always())) }
 func resultColor(_ result: String) -> Color { result == "win" ? .green : result == "lose" ? .red : .gray }
 func returnColor(_ value: Double?) -> Color { guard let value else { return .secondary }; return value > 0 ? .green : value < 0 ? .red : .secondary }
+func percent1(_ value: Double?) -> String { guard let value else { return "--" }; return value.formatted(.percent.precision(.fractionLength(1))) }
+func compactNumber(_ value: Double?) -> String { guard let value else { return "--" }; return value >= 10_000 ? String(format: "%.1f万", value / 10_000) : String(format: "%.0f", value) }
+func ratioText(_ value: Double?) -> String { guard let value else { return "--" }; return String(format: "%.2f倍", value) }
+func marginColor(_ value: Double?) -> Color { guard let value else { return .secondary }; return value >= 8 ? .red : value <= 3 ? .green : .primary }

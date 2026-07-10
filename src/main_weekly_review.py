@@ -6,6 +6,7 @@ from src import db
 from src.config import load_config
 from src.trading_calendar import parse_date, today_jst
 from src.weekly_reviewer import render_rules_suggestion, summarize_week, week_range
+from src.adaptive_learner import train_profile, write_profile
 
 
 def main() -> None:
@@ -24,9 +25,12 @@ def main() -> None:
     conn.commit()
 
     cfg.rules_suggestion_path.write_text(render_rules_suggestion(review), encoding="utf-8")
+    profile = train_profile(conn, cfg.rules)
+    write_profile(profile, cfg.learning_profile_path)
+    db.insert_learning_run(conn, profile)
+    conn.commit()
     print(f"[weekly] recommendations={review['recommendation_count']} win={review['win']} lose={review['lose']} neutral={review['neutral']}")
 
 
 if __name__ == "__main__":
     main()
-
