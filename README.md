@@ -12,7 +12,7 @@
 - 翌営業日 15:45 以降の推奨結果検証
 - SQLite への特徴量、推奨、結果、反省ログ保存
 - 週次レビューと `config/rules_suggestion.yaml` への改善案保存
-- 精度確認用のネイティブ HTML/CSS/JS ダッシュボード
+- SwiftUI製macOSネイティブ管理アプリ
 
 ## セットアップ
 
@@ -82,7 +82,21 @@ python -m src.main_weekly_review --date 2026-07-10
 python -m src.main_dashboard
 ```
 
-## 精度ダッシュボード
+## macOSネイティブ管理アプリ
+
+macOS 14以降で、次のコマンドからアプリをビルドできます。
+
+```bash
+chmod +x scripts/build_native_app.sh
+./scripts/build_native_app.sh
+open build/EarningsCrossManager.app
+```
+
+アプリでは、精度サマリー、累積リターン、推奨履歴、銘柄別成績、未評価候補を確認できます。「運用」画面から日付を指定し、朝の候補生成、翌日評価、週次レビューを実行できます。処理後はダッシュボードデータも自動更新されます。
+
+認証情報は従来どおりリポジトリ直下の `.env` を使います。アプリ自体には秘密情報を保存しません。
+
+## ブラウザ版ダッシュボード
 
 `docs/dashboard/index.html` をブラウザで開くと、以下を確認できます。
 

@@ -113,7 +113,7 @@ window.EARNINGS_DASHBOARD_DATA = {
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-10T11:45:44Z",
+  "generated_at": "2026-07-10T12:11:00Z",
   "no_trade_days": [],
   "pending_recommendations": [
     {
