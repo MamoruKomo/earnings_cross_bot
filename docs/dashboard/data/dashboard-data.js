@@ -113,7 +113,7 @@ window.EARNINGS_DASHBOARD_DATA = {
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-10T12:22:23Z",
+  "generated_at": "2026-07-11T10:23:36Z",
   "learning": {
     "feature_evidence": {},
     "message": "学習開始まであと26件",

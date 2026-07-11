@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from statistics import mean
 from typing import Any
@@ -16,7 +16,7 @@ def train_profile(conn: sqlite3.Connection, rules: dict[str, Any]) -> dict[str, 
     """).fetchall()
     minimum = int(rules.get("learning", {}).get("minimum_samples", 30))
     profile: dict[str, Any] = {
-        "version": 1, "trained_at": datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "version": 1, "trained_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "sample_count": len(rows), "minimum_samples": minimum, "status": "observing",
         "weight_multipliers": {}, "feature_evidence": {},
     }
