@@ -42,7 +42,7 @@ struct MorningBriefView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
                 HStack(alignment: .top) {
-                    PageHeading(title: "朝刊", subtitle: "寄り前の市場環境と注目銘柄")
+                    PageHeading(title: "市況・朝刊", subtitle: "market-morning-briefの市場環境と注目銘柄")
                     Spacer()
                     Button { model.runMarketBrief() } label: { Label("朝刊を更新", systemImage: "arrow.clockwise") }
                         .disabled(model.isRunning)
@@ -142,6 +142,7 @@ struct TodayView: View {
                     RunBanner()
                     MarketHealthBand()
                     NoticeView(icon: "shield.lefthalf.filled", text: "このアプリは判断支援用です。注文は行いません。発表時刻、データ欠損、損失リスクを確認して最終判断してください。", color: .indigo)
+                    MarketOverviewPanel(market: data.marketIntelligence)
                     NotificationBand(status: data.latestNotification)
                     TodayCandidates(items: data.pendingRecommendations)
                     HStack(spacing: 12) {
@@ -155,6 +156,61 @@ struct TodayView: View {
                 }.padding(26)
             } else { LoadErrorView() }
         }
+    }
+}
+
+struct MarketOverviewPanel: View {
+    @EnvironmentObject private var model: AppModel
+    let market: MarketIntelligence?
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack {
+                Label("今日の市況", systemImage: "chart.line.uptrend.xyaxis").font(.title2.bold())
+                Spacer()
+                Button("市況・朝刊を開く") { model.selectedSection = .morningBrief }.buttonStyle(.borderless)
+            }
+            if let brief = market?.latestBrief {
+                HStack(alignment: .firstTextBaseline) {
+                    Text(brief.headline).font(.headline)
+                    Spacer()
+                    Text(brief.date).font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                }
+                ForEach(brief.summaryBullets, id: \.self) { bullet in
+                    Label(bullet, systemImage: "circle.fill").font(.callout).symbolRenderingMode(.hierarchical)
+                }
+                if !brief.tickers.isEmpty {
+                    HStack(alignment: .top, spacing: 8) {
+                        Text("注目コード").font(.caption.bold()).foregroundStyle(.secondary)
+                        Text(brief.tickers.prefix(8).joined(separator: "  ")).font(.caption.monospacedDigit()).textSelection(.enabled)
+                    }
+                }
+            } else {
+                Text("市況データがありません。市況・朝刊を更新してください。").foregroundStyle(.secondary)
+            }
+            Divider()
+            HStack(spacing: 20) {
+                MarketFact(icon: "bell.badge", title: "適時開示", value: "\(market?.disclosures.count ?? 0)件") { model.selectedSection = .disclosures }
+                MarketFact(icon: "list.bullet.rectangle", title: "ウォッチ", value: market?.latestWatchlist.map { shortDateTime($0.datetimeJst) } ?? "未取得") { model.selectedSection = .watchlist }
+                Spacer()
+                Button { model.runMarketBrief() } label: { Label("市況を更新", systemImage: "arrow.clockwise") }.disabled(model.isRunning)
+            }
+        }.padding(16).panelStyle()
+    }
+}
+
+struct MarketFact: View {
+    let icon, title, value: String
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 8) {
+                Image(systemName: icon).foregroundStyle(.blue)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title).font(.caption).foregroundStyle(.secondary)
+                    Text(value).font(.callout.bold()).monospacedDigit()
+                }
+            }
+        }.buttonStyle(.plain)
     }
 }
 

@@ -193,7 +193,7 @@ struct NotificationStatus: Codable {
 }
 
 enum AppSection: String, CaseIterable, Identifiable {
-    case overview = "今日"; case morningBrief = "朝刊"; case disclosures = "適時開示"; case watchlist = "ウォッチ"
+    case overview = "今日"; case morningBrief = "市況・朝刊"; case disclosures = "適時開示"; case watchlist = "ウォッチ"
     case history = "検証"; case analysis = "銘柄調査"; case operations = "設定・接続"
     var id: String { rawValue }
     var icon: String { switch self {
