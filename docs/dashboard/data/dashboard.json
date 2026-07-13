@@ -7,7 +7,7 @@
       "hit_rate": 0.3333333333333333,
       "lose": 0,
       "neutral": 2,
-      "recommendation_count": 4,
+      "recommendation_count": 5,
       "win": 1
     },
     {
@@ -81,6 +81,18 @@
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "4443",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-07-13",
+      "lose": 0,
+      "name": "Ｓａｎｓａｎ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
     }
   ],
   "equity_curve": [
@@ -113,7 +125,7 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-13T00:49:32Z",
+  "generated_at": "2026-07-13T00:59:31Z",
   "learning": {
     "feature_evidence": {},
     "message": "学習開始まであと26件",
@@ -124,10 +136,16 @@
     "version": 1,
     "weight_multipliers": {}
   },
-  "no_trade_days": [
-    "2026-07-13"
-  ],
+  "no_trade_days": [],
   "pending_recommendations": [
+    {
+      "action": "cross",
+      "code": "4443",
+      "event_date": "2026-07-13",
+      "name": "Ｓａｎｓａｎ",
+      "recommendation_date": "2026-07-13",
+      "score": 70
+    },
     {
       "action": "cross",
       "code": "8306",
@@ -197,6 +215,21 @@
     "win": 1
   },
   "stock_snapshots": [
+    {
+      "code": "4443",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-07-13",
+      "margin_ratio": null,
+      "name": "Ｓａｎｓａｎ",
+      "operating_margin": null,
+      "operating_profit_yoy": null,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.24,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
     {
       "code": "6501",
       "financial_source": "mock",
@@ -294,11 +327,11 @@
     "lose_count": 0,
     "lose_rate": 0.0,
     "neutral_count": 3,
-    "no_trade_day_count": 1,
+    "no_trade_day_count": 0,
     "non_loss_rate": 1.0,
-    "pending_count": 1,
+    "pending_count": 2,
     "positive_close_rate": 0.75,
-    "recommendation_count": 5,
+    "recommendation_count": 6,
     "win_count": 1,
     "worst": {
       "action": "cross",
