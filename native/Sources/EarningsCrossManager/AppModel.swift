@@ -10,7 +10,7 @@ import SwiftUI
     @Published var commandLog = ""
     @Published var lastError: String?
     let repositoryURL: URL
-    private static let snapshotURL = URL(string: "https://raw.githubusercontent.com/MamoruKomo/earnings_cross_bot/main/data/manager_snapshot.json")!
+    nonisolated private static let snapshotURL = URL(string: "https://raw.githubusercontent.com/MamoruKomo/earnings_cross_bot/main/data/manager_snapshot.json")!
 
     init() { repositoryURL = Self.findRepositoryURL(); reload() }
 
