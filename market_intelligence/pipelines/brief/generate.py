@@ -709,6 +709,7 @@ def main() -> int:
     ap.add_argument("--date", default="", help="JST date YYYY-MM-DD (default: today JST)")
     ap.add_argument("--cache-dir", default="", help="Optional cache directory for fetched sources (HTML/JSON).")
     ap.add_argument("--offline", action="store_true", help="Read sources from --cache-dir only (no network).")
+    ap.add_argument("--manager-only", action="store_true", help="Update Manager data without generating GitHub Pages HTML.")
     ap.add_argument("--print-cache-plan", action="store_true", help="Print required source URLs as JSON and exit.")
     ap.add_argument("--out", default=os.environ.get("GITHUB_OUTPUT", ""), help="GitHub Actions output file path")
     args = ap.parse_args()
@@ -726,7 +727,7 @@ def main() -> int:
     date_iso = args.date.strip() or now_jst.date().isoformat()
 
     cfg = load_json(Path(args.config), {})
-    pages_base_url = str(cfg.get("pages_base_url") or "").strip()
+    pages_base_url = "" if args.manager_only else str(cfg.get("pages_base_url") or "").strip()
     base = pages_base_url.rstrip("/") + "/" if pages_base_url else ""
     page_url = f"{base}archive/{date_iso}.html" if base else ""
 
@@ -1028,8 +1029,9 @@ def main() -> int:
         ],
         sources=dedup_sources[:40],
     )
-    archive_path.parent.mkdir(parents=True, exist_ok=True)
-    archive_path.write_text(archive_html, encoding="utf-8")
+    if not args.manager_only:
+        archive_path.parent.mkdir(parents=True, exist_ok=True)
+        archive_path.write_text(archive_html, encoding="utf-8")
 
     # Upsert briefs index for archive/search/ticker pages.
     summary_bullets: list[str] = []
@@ -1051,7 +1053,7 @@ def main() -> int:
 
     entry = {
         "date": date_iso,
-        "url": f"archive/{date_iso}.html",
+        "url": "" if args.manager_only else f"archive/{date_iso}.html",
         "headline": headline,
         "summary_bullets": summary_bullets,
         "tickers": watch_codes[:12],

@@ -15,7 +15,7 @@ import SwiftUI
 
     func reload() {
         do {
-            let raw = try Data(contentsOf: repositoryURL.appendingPathComponent("docs/dashboard/data/dashboard.json"))
+            let raw = try Data(contentsOf: repositoryURL.appendingPathComponent("data/manager_snapshot.json"))
             data = try JSONDecoder().decode(DashboardData.self, from: raw)
             statusMessage = "最新データを表示中"; lastError = nil
         } catch { lastError = "ダッシュボードデータを読み込めません: \(error.localizedDescription)"; statusMessage = "読み込みエラー" }
@@ -26,6 +26,9 @@ import SwiftUI
     func runWeeklyReview() { runGitHubJob(job: "weekly", label: "週次レビュー") }
     func runLearning() { runGitHubJob(job: "learn", label: "自己学習") }
     func runSlackTest() { runGitHubJob(job: "slack-test", label: "Slack接続テスト") }
+    func runMarketBrief() { runGitHubJob(job: "market-brief", label: "朝刊生成") }
+    func runDisclosures() { runGitHubJob(job: "tdnet", label: "適時開示更新") }
+    func runWatchlist() { runGitHubJob(job: "watchlist-close", label: "ウォッチ更新") }
     func syncLatest() {
         guard !isRunning else { return }
         isRunning = true; lastError = nil; statusMessage = "最新データを同期中"

@@ -1,20 +1,19 @@
-name: Earnings Cross Bot
+name: Earnings Cross Manager Operations
 
 on:
   schedule:
-    # 08:30 JST on Monday-Friday (23:30 UTC on Sunday-Thursday)
-    - cron: "30 23 * * 0-4"
-    # Fallback retries at 08:45 and 09:00 JST. Successful dates are deduplicated in SQLite.
-    - cron: "45 23 * * 0-4"
-    - cron: "0 0 * * 1-5"
-    # 15:45 JST on Monday-Friday
-    - cron: "45 6 * * 1-5"
-    # 18:00 JST on Friday
-    - cron: "0 9 * * 5"
+    - cron: "*/15 * * * *"       # TDnet
+    - cron: "5 23 * * 0-4"       # 08:05 JST fundamentals
+    - cron: "20 23 * * 0-4"      # 08:20 JST market brief
+    - cron: "30 23 * * 0-4"      # 08:30 JST earnings candidates
+    - cron: "30 0 * * 1-5"       # 09:30 JST watchlist open
+    - cron: "45 6 * * 1-5"       # 15:45 JST evaluation
+    - cron: "0 7 * * 1-5"        # 16:00 JST watchlist close
+    - cron: "0 9 * * 5"          # 18:00 JST weekly review
   workflow_dispatch:
     inputs:
       job:
-        description: "Job to run"
+        description: "Operation to run"
         required: true
         default: "morning"
         type: choice
@@ -24,115 +23,121 @@ on:
           - weekly
           - learn
           - slack-test
+          - market-brief
+          - tdnet
+          - watchlist-open
+          - watchlist-close
+          - fundamentals
+          - refresh-manager
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  TIMEZONE: Asia/Tokyo
 
 permissions:
   contents: write
 
+concurrency:
+  group: earnings-cross-manager-operations
+  cancel-in-progress: false
+
 jobs:
-  slack-test:
-    if: github.event_name == 'workflow_dispatch' && inputs.job == 'slack-test'
+  operate:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-      - run: pip install -r requirements.txt
-      - run: python -m src.main_slack_test
+          python-version: "3.12"
+          cache: pip
+
+      - name: Select operation
+        id: task
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          TIMEZONE: Asia/Tokyo
-
-  learn:
-    if: github.event_name == 'workflow_dispatch' && inputs.job == 'learn'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - run: pip install -r requirements.txt
-      - run: python -m src.main_learn
-      - run: python -m src.main_dashboard
-      - name: Persist learning profile
+          REQUESTED_JOB: ${{ inputs.job }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/earnings_cross_bot.db data/learning_profile.json docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
-          git diff --cached --quiet || git commit -m "Update earnings cross learning profile"
-          git push || true
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            task="$REQUESTED_JOB"
+          else
+            case "$EVENT_SCHEDULE" in
+              "*/15 * * * *") task="tdnet" ;;
+              "5 23 * * 0-4") task="fundamentals" ;;
+              "20 23 * * 0-4") task="market-brief" ;;
+              "30 23 * * 0-4") task="morning" ;;
+              "30 0 * * 1-5") task="watchlist-open" ;;
+              "45 6 * * 1-5") task="evaluate" ;;
+              "0 7 * * 1-5") task="watchlist-close" ;;
+              "0 9 * * 5") task="weekly" ;;
+              *) task="refresh-manager" ;;
+            esac
+          fi
+          echo "task=$task" >> "$GITHUB_OUTPUT"
 
-  morning:
-    if: github.event_name == 'workflow_dispatch' && inputs.job == 'morning' || github.event.schedule == '30 23 * * 0-4' || github.event.schedule == '45 23 * * 0-4' || github.event.schedule == '0 0 * * 1-5'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - run: pip install -r requirements.txt
-      - run: python -m src.main_morning ${{ github.event_name == 'workflow_dispatch' && '--force-post' || '' }}
-        env:
-          JQUANTS_EMAIL: ${{ secrets.JQUANTS_EMAIL }}
-          JQUANTS_PASSWORD: ${{ secrets.JQUANTS_PASSWORD }}
-          JQUANTS_REFRESH_TOKEN: ${{ secrets.JQUANTS_REFRESH_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          TIMEZONE: Asia/Tokyo
-      - run: python -m src.main_dashboard
-      - name: Persist data changes
+      - name: Install earnings dependencies
+        if: contains(fromJSON('["morning","evaluate","weekly","learn","slack-test"]'), steps.task.outputs.task)
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Run unit tests
+        if: github.event_name == 'workflow_dispatch'
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/earnings_cross_bot.db data/lessons.jsonl data/learning_profile.json config/rules_suggestion.yaml docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
-          git diff --cached --quiet || git commit -m "Update earnings cross bot data"
-          git push || true
+          python3 -m unittest discover -s tests -q
+          cd market_intelligence
+          python3 -m unittest discover -s tests -q
 
-  evaluate:
-    if: github.event_name == 'workflow_dispatch' && inputs.job == 'evaluate' || github.event.schedule == '45 6 * * 1-5'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - run: pip install -r requirements.txt
-      - run: python -m src.main_evaluate
+      - name: Run earnings operation
+        if: contains(fromJSON('["morning","evaluate","weekly","learn","slack-test"]'), steps.task.outputs.task)
         env:
           JQUANTS_EMAIL: ${{ secrets.JQUANTS_EMAIL }}
           JQUANTS_PASSWORD: ${{ secrets.JQUANTS_PASSWORD }}
           JQUANTS_REFRESH_TOKEN: ${{ secrets.JQUANTS_REFRESH_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          TIMEZONE: Asia/Tokyo
-      - run: python -m src.main_dashboard
-      - name: Persist data changes
+          TASK: ${{ steps.task.outputs.task }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/earnings_cross_bot.db data/lessons.jsonl data/learning_profile.json config/rules_suggestion.yaml docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
-          git diff --cached --quiet || git commit -m "Update earnings cross bot outcomes"
-          git push || true
+          case "$TASK" in
+            morning) python3 -m src.main_morning ${{ github.event_name == 'workflow_dispatch' && '--force-post' || '' }} ;;
+            evaluate) python3 -m src.main_evaluate ;;
+            weekly) python3 -m src.main_weekly_review ;;
+            learn) python3 -m src.main_learn ;;
+            slack-test) python3 -m src.main_slack_test ;;
+          esac
 
-  weekly:
-    if: github.event_name == 'workflow_dispatch' && inputs.job == 'weekly' || github.event.schedule == '0 9 * * 5'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - run: pip install -r requirements.txt
-      - run: python -m src.main_weekly_review
+      - name: Run market intelligence operation
+        id: market
+        if: contains(fromJSON('["market-brief","tdnet","watchlist-open","watchlist-close","fundamentals"]'), steps.task.outputs.task)
+        working-directory: market_intelligence
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TASK: ${{ steps.task.outputs.task }}
+          EDINETDB_API_KEY: ${{ secrets.EDINETDB_API_KEY }}
+        run: |
+          case "$TASK" in
+            market-brief) python3 scripts/morning_brief.py --manager-only ;;
+            tdnet) python3 scripts/tdnet_alert.py ;;
+            watchlist-open) python3 scripts/watchlist_snapshot.py --phase open ;;
+            watchlist-close) python3 scripts/watchlist_snapshot.py --phase close ;;
+            fundamentals)
+              if [ -n "$EDINETDB_API_KEY" ]; then python3 scripts/fundamentals_edinetdb_rankings.py; fi
+              ;;
+          esac
+
+      - name: Post market message to Slack
+        if: steps.market.outputs.should_notify == 'true' || steps.task.outputs.task == 'market-brief'
+        env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          TIMEZONE: Asia/Tokyo
-      - run: python -m src.main_dashboard
-      - name: Persist weekly review
+          SLACK_MESSAGE: ${{ steps.market.outputs.message || steps.market.outputs.slack_message }}
+        run: |
+          python3 -c 'import json,os,urllib.request; u=os.getenv("SLACK_WEBHOOK_URL","").strip(); m=os.getenv("SLACK_MESSAGE","").strip(); req=urllib.request.Request(u,data=json.dumps({"text":m},ensure_ascii=False).encode(),headers={"Content-Type":"application/json"}); urllib.request.urlopen(req,timeout=20).read() if u and m else None'
+
+      - name: Build Manager snapshot
+        run: python3 -m src.main_dashboard
+
+      - name: Persist operational data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/earnings_cross_bot.db data/lessons.jsonl data/learning_profile.json config/rules_suggestion.yaml docs/dashboard/data/dashboard.json docs/dashboard/data/dashboard-data.js || true
-          git diff --cached --quiet || git commit -m "Update earnings cross bot weekly review"
-          git push || true
+          git add data/earnings_cross_bot.db data/lessons.jsonl data/learning_profile.json data/manager_snapshot.json config/rules_suggestion.yaml market_intelligence/docs/data || true
+          git diff --cached --quiet || git commit -m "Update Earnings Cross Manager data"
+          git push

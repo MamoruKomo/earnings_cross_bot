@@ -318,13 +318,10 @@ def fetch_latest_notification(conn: sqlite3.Connection) -> dict[str, Any] | None
     }
 
 
-def write_dashboard_files(data: dict[str, Any], dashboard_dir: Path) -> None:
-    data_dir = dashboard_dir / "data"
-    data_dir.mkdir(parents=True, exist_ok=True)
+def write_dashboard_files(data: dict[str, Any], output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     json_text = json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True)
-    (data_dir / "dashboard.json").write_text(json_text + "\n", encoding="utf-8")
-    js_text = "window.EARNINGS_DASHBOARD_DATA = " + json_text + ";\n"
-    (data_dir / "dashboard-data.js").write_text(js_text, encoding="utf-8")
+    output_path.write_text(json_text + "\n", encoding="utf-8")
 
 
 def parse_json_array(value: str | None) -> list[Any]:

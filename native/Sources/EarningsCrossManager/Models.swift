@@ -12,13 +12,67 @@ struct DashboardData: Codable {
     let stockSnapshots: [StockSnapshot]
     let learning: LearningStatus
     let latestNotification: NotificationStatus?
+    let marketIntelligence: MarketIntelligence?
     enum CodingKeys: String, CodingKey {
         case generatedAt = "generated_at"; case summary
         case resultDistribution = "result_distribution"; case weekly
         case equityCurve = "equity_curve"; case byCode = "by_code"
         case recentOutcomes = "recent_outcomes"; case pendingRecommendations = "pending_recommendations"
         case stockSnapshots = "stock_snapshots"; case learning; case latestNotification = "latest_notification"
+        case marketIntelligence = "market_intelligence"
     }
+}
+
+struct MarketIntelligence: Codable {
+    let updatedAt: String?
+    let latestBrief: MarketBrief?
+    let recentBriefs: [MarketBrief]
+    let disclosures: [DisclosureItem]
+    let latestWatchlist: WatchlistSnapshot?
+    let fundamentals: FundamentalsSummary?
+    enum CodingKeys: String, CodingKey {
+        case updatedAt = "updated_at"; case latestBrief = "latest_brief"; case recentBriefs = "recent_briefs"
+        case disclosures; case latestWatchlist = "latest_watchlist"; case fundamentals
+    }
+}
+
+struct MarketBrief: Codable, Identifiable {
+    var id: String { date }
+    let date, headline: String
+    let summaryBullets, tickers, tags: [String]
+    enum CodingKeys: String, CodingKey {
+        case date, headline, tickers, tags; case summaryBullets = "summary_bullets"
+    }
+}
+
+struct DisclosureItem: Codable, Identifiable {
+    let id, code: String
+    let company, title, titleJa, datetimeJst, pdfURL: String?
+    let pointsJa, tags: [String]?
+    enum CodingKeys: String, CodingKey {
+        case id, code, company, title, tags; case titleJa = "title_ja"; case datetimeJst = "datetime_jst"
+        case pdfURL = "pdf_url"; case pointsJa = "points_ja"
+    }
+}
+
+struct WatchlistSnapshot: Codable {
+    let datetimeJst, phase: String
+    let items: [WatchlistItem]
+    enum CodingKeys: String, CodingKey { case datetimeJst = "datetime_jst"; case phase, items }
+}
+
+struct WatchlistItem: Codable, Identifiable {
+    var id: String { code }
+    let code, name, sector: String
+    let previousClose, open, close, volume: Double?
+    enum CodingKeys: String, CodingKey {
+        case code, name, sector, open, close, volume; case previousClose = "prev_close"
+    }
+}
+
+struct FundamentalsSummary: Codable {
+    let month, generatedAt: String?
+    enum CodingKeys: String, CodingKey { case month; case generatedAt = "generated_at" }
 }
 
 struct Summary: Codable {
@@ -122,7 +176,12 @@ struct NotificationStatus: Codable {
 }
 
 enum AppSection: String, CaseIterable, Identifiable {
-    case overview = "今日"; case history = "検証"; case analysis = "銘柄調査"; case operations = "設定・接続"
+    case overview = "今日"; case morningBrief = "朝刊"; case disclosures = "適時開示"; case watchlist = "ウォッチ"
+    case history = "検証"; case analysis = "銘柄調査"; case operations = "設定・接続"
     var id: String { rawValue }
-    var icon: String { switch self { case .overview: "sun.max"; case .history: "checkmark.seal"; case .analysis: "magnifyingglass"; case .operations: "gearshape" } }
+    var icon: String { switch self {
+        case .overview: "sun.max"; case .morningBrief: "newspaper"; case .disclosures: "bell.badge"
+        case .watchlist: "list.bullet.rectangle"; case .history: "checkmark.seal"
+        case .analysis: "magnifyingglass"; case .operations: "gearshape"
+    } }
 }

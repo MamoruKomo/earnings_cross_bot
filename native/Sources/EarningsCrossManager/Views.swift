@@ -7,8 +7,8 @@ struct RootView: View {
         NavigationSplitView {
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("EARNINGS CROSS").font(.caption.bold()).foregroundStyle(.secondary)
-                    Text("決算跨ぎ 管理").font(.title2.weight(.semibold))
+                    Text("MARKET OPERATIONS").font(.caption.bold()).foregroundStyle(.secondary)
+                    Text("Earnings Cross Manager").font(.title3.weight(.semibold))
                 }.frame(maxWidth: .infinity, alignment: .leading).padding(18)
                 List(AppSection.allCases, selection: $model.selectedSection) { item in
                     Label(item.rawValue, systemImage: item.icon).tag(item)
@@ -19,6 +19,9 @@ struct RootView: View {
             Group {
                 switch model.selectedSection ?? .overview {
                 case .overview: TodayView()
+                case .morningBrief: MorningBriefView()
+                case .disclosures: DisclosuresView()
+                case .watchlist: WatchlistView()
                 case .history: ReviewView()
                 case .analysis: ResearchView()
                 case .operations: SettingsView()
@@ -29,6 +32,95 @@ struct RootView: View {
             if model.isRunning { ProgressView().controlSize(.small) }
             Button { model.syncLatest() } label: { Image(systemName: "arrow.triangle.2.circlepath") }.help("最新データを同期")
         }
+    }
+}
+
+struct MorningBriefView: View {
+    @EnvironmentObject private var model: AppModel
+    var briefs: [MarketBrief] { model.data?.marketIntelligence?.recentBriefs ?? [] }
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
+                HStack(alignment: .top) {
+                    PageHeading(title: "朝刊", subtitle: "寄り前の市場環境と注目銘柄")
+                    Spacer()
+                    Button { model.runMarketBrief() } label: { Label("朝刊を更新", systemImage: "arrow.clockwise") }
+                        .disabled(model.isRunning)
+                }
+                RunBanner()
+                if briefs.isEmpty {
+                    ContentUnavailableView("朝刊がありません", systemImage: "newspaper", description: Text("朝刊生成ジョブを実行してください。"))
+                } else {
+                    ForEach(briefs) { brief in
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack { Text(brief.date).font(.caption.monospacedDigit()).foregroundStyle(.secondary); Spacer(); Text(brief.tags.joined(separator: " / ")).font(.caption).foregroundStyle(.secondary) }
+                            Text(brief.headline).font(.headline)
+                            ForEach(brief.summaryBullets, id: \.self) { Text($0).font(.callout) }
+                            if !brief.tickers.isEmpty { Text("注目: " + brief.tickers.joined(separator: ", ")).font(.caption.monospacedDigit()).foregroundStyle(.blue) }
+                        }.padding(16).panelStyle()
+                    }
+                }
+            }.padding(26)
+        }
+    }
+}
+
+struct DisclosuresView: View {
+    @EnvironmentObject private var model: AppModel
+    @State private var search = ""
+    var rows: [DisclosureItem] {
+        let all = model.data?.marketIntelligence?.disclosures ?? []
+        return search.isEmpty ? all : all.filter { $0.code.contains(search) || ($0.titleJa ?? $0.title ?? "").localizedCaseInsensitiveContains(search) }
+    }
+    var body: some View {
+        VStack(alignment: .leading, spacing: 18) {
+            HStack(alignment: .top) {
+                PageHeading(title: "適時開示", subtitle: "決算・業績修正・配当・自己株を一元確認")
+                Spacer()
+                Button { model.runDisclosures() } label: { Label("開示を更新", systemImage: "arrow.clockwise") }.disabled(model.isRunning)
+            }
+            RunBanner()
+            Table(rows) {
+                TableColumn("時刻") { Text(shortDateTime($0.datetimeJst)).monospacedDigit() }.width(115)
+                TableColumn("コード", value: \.code).width(62)
+                TableColumn("開示") { item in
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(item.titleJa ?? item.title ?? "--").lineLimit(2)
+                        Text((item.tags ?? []).joined(separator: " / ")).font(.caption).foregroundStyle(.secondary)
+                    }
+                }.width(min: 320, ideal: 520)
+                TableColumn("PDF") { item in
+                    if let value = item.pdfURL, let url = URL(string: value) { Link(destination: url) { Image(systemName: "doc.text") }.help("PDFを開く") }
+                }.width(45)
+            }.searchable(text: $search, prompt: "コード・開示タイトル")
+        }.padding(26)
+    }
+}
+
+struct WatchlistView: View {
+    @EnvironmentObject private var model: AppModel
+    @State private var search = ""
+    var snapshot: WatchlistSnapshot? { model.data?.marketIntelligence?.latestWatchlist }
+    var rows: [WatchlistItem] {
+        let all = snapshot?.items ?? []
+        return search.isEmpty ? all : all.filter { $0.code.contains(search) || $0.name.localizedCaseInsensitiveContains(search) || $0.sector.localizedCaseInsensitiveContains(search) }
+    }
+    var body: some View {
+        VStack(alignment: .leading, spacing: 18) {
+            HStack(alignment: .top) {
+                PageHeading(title: "ウォッチ", subtitle: snapshot.map { "\(shortDateTime($0.datetimeJst)) / \(watchPhaseLabel($0.phase))" } ?? "スナップショット未取得")
+                Spacer()
+                Button { model.runWatchlist() } label: { Label("引け値を更新", systemImage: "arrow.clockwise") }.disabled(model.isRunning)
+            }
+            RunBanner()
+            Table(rows) {
+                TableColumn("セクター", value: \.sector).width(90)
+                TableColumn("銘柄") { StockName(name: $0.name, code: $0.code) }.width(min: 150, ideal: 210)
+                TableColumn("価格") { Text(priceText($0.close ?? $0.open)).monospacedDigit() }.width(90)
+                TableColumn("前日比") { Text(watchChange($0)).monospacedDigit().foregroundStyle(watchChangeColor($0)) }.width(90)
+                TableColumn("出来高") { Text(compactNumber($0.volume)).monospacedDigit() }.width(100)
+            }.searchable(text: $search, prompt: "銘柄・コード・セクター")
+        }.padding(26)
     }
 }
 
@@ -173,6 +265,9 @@ struct SettingsView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("自動スケジュール").font(.headline)
                     ScheduleRow(icon: "sun.max", title: "候補生成とSlack通知", schedule: "平日 8:30 / 失敗時 8:45・9:00", action: model.runMorning)
+                    ScheduleRow(icon: "newspaper", title: "市場朝刊", schedule: "平日 8:20", action: model.runMarketBrief)
+                    ScheduleRow(icon: "bell.badge", title: "適時開示", schedule: "15分ごと", action: model.runDisclosures)
+                    ScheduleRow(icon: "list.bullet.rectangle", title: "ウォッチ", schedule: "平日 9:30・16:00", action: model.runWatchlist)
                     ScheduleRow(icon: "checkmark.seal", title: "翌営業日の結果評価", schedule: "平日 15:45", action: model.runEvaluation)
                     ScheduleRow(icon: "calendar", title: "週次レビュー", schedule: "金曜 18:00", action: model.runWeeklyReview)
                 }
@@ -221,6 +316,12 @@ func resultColor(_ result: String) -> Color { result == "win" ? .green : result 
 func returnColor(_ value: Double?) -> Color { guard let value else { return .secondary }; return value > 0 ? .green : value < 0 ? .red : .secondary }
 func compactNumber(_ value: Double?) -> String { guard let value else { return "--" }; return value >= 10_000 ? String(format: "%.1f万", value / 10_000) : String(format: "%.0f", value) }
 func ratioText(_ value: Double?) -> String { guard let value else { return "--" }; return String(format: "%.2f倍", value) }
+func shortDateTime(_ value: String?) -> String { guard let value, !value.isEmpty else { return "--" }; return String(value.prefix(16)).replacingOccurrences(of: "T", with: " ") }
+func priceText(_ value: Double?) -> String { guard let value else { return "--" }; return value.formatted(.number.precision(.fractionLength(value.rounded() == value ? 0 : 1))) }
+func watchChangeValue(_ item: WatchlistItem) -> Double? { guard let price = item.close ?? item.open, let previous = item.previousClose, previous != 0 else { return nil }; return price / previous - 1 }
+func watchChange(_ item: WatchlistItem) -> String { signedPercent(watchChangeValue(item)) }
+func watchChangeColor(_ item: WatchlistItem) -> Color { returnColor(watchChangeValue(item)) }
+func watchPhaseLabel(_ value: String) -> String { value == "open" ? "寄り" : "引け" }
 func marginColor(_ value: Double?) -> Color { guard let value else { return .secondary }; return value >= 8 ? .red : value <= 3 ? .green : .primary }
 func todayISO() -> String { let f = DateFormatter(); f.calendar = Calendar(identifier: .gregorian); f.locale = Locale(identifier: "en_US_POSIX"); f.timeZone = TimeZone(identifier: "Asia/Tokyo"); f.dateFormat = "yyyy-MM-dd"; return f.string(from: Date()) }
 func todayDisplay() -> String { let f = DateFormatter(); f.locale = Locale(identifier: "ja_JP"); f.timeZone = TimeZone(identifier: "Asia/Tokyo"); f.dateFormat = "M月d日（E）"; return f.string(from: Date()) }

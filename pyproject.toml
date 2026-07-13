@@ -1,7 +1,7 @@
 [project]
-name = "earnings-cross-bot"
-version = "0.1.0"
-description = "Japanese earnings-cross candidate scoring bot with Slack notifications."
+name = "earnings-cross-manager"
+version = "0.2.0"
+description = "Unified Japanese market operations manager for earnings, briefs, disclosures, and watchlists."
 requires-python = ">=3.11"
 dependencies = [
   "requests>=2.31.0",
@@ -14,4 +14,3 @@ test = ["pytest>=8.0.0"]
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
-
