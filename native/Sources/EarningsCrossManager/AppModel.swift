@@ -10,14 +10,20 @@ import SwiftUI
     @Published var commandLog = ""
     @Published var lastError: String?
     let repositoryURL: URL
+    private static let snapshotURL = URL(string: "https://raw.githubusercontent.com/MamoruKomo/earnings_cross_bot/main/data/manager_snapshot.json")!
 
     init() { repositoryURL = Self.findRepositoryURL(); reload() }
 
     func reload() {
         do {
-            let raw = try Data(contentsOf: repositoryURL.appendingPathComponent("data/manager_snapshot.json"))
+            guard let source = Self.snapshotLocations(repository: repositoryURL).first(where: { FileManager.default.fileExists(atPath: $0.path) }) else {
+                throw RunnerError.commandFailed("表示用データがありません。インターネット接続後に同期してください。")
+            }
+            let raw = try Data(contentsOf: source)
             data = try JSONDecoder().decode(DashboardData.self, from: raw)
-            statusMessage = "最新データを表示中"; lastError = nil
+            let overall = data?.marketIntelligence?.health?.overall
+            statusMessage = overall == "stale" ? "期限切れデータがあります" : overall == "warning" ? "更新時刻を確認してください" : "最新データを表示中"
+            lastError = nil
         } catch { lastError = "ダッシュボードデータを読み込めません: \(error.localizedDescription)"; statusMessage = "読み込みエラー" }
     }
 
@@ -32,19 +38,17 @@ import SwiftUI
     func syncLatest() {
         guard !isRunning else { return }
         isRunning = true; lastError = nil; statusMessage = "最新データを同期中"
-        commandLog = "$ git pull --rebase origin main"
-        let repo = repositoryURL
-        Task.detached {
+        commandLog = "$ 最新スナップショットを取得"
+        Task {
             do {
-                let output = try Self.pullLatest(in: repo)
-                await MainActor.run {
-                    self.commandLog = output; self.isRunning = false; self.statusMessage = "最新データへ更新しました"; self.reload()
-                }
+                let (raw, response) = try await URLSession.shared.data(from: Self.snapshotURL)
+                guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw RunnerError.commandFailed("最新データの取得に失敗しました") }
+                try Self.saveCachedSnapshot(raw)
+                self.commandLog = "GitHubから最新スナップショットを取得しました"
+                self.isRunning = false; self.statusMessage = "最新データへ更新しました"; self.reload()
             } catch {
-                await MainActor.run {
-                    self.isRunning = false; self.statusMessage = "データ同期に失敗しました"
-                    self.lastError = error.localizedDescription; self.commandLog += "\n\(error.localizedDescription)"
-                }
+                self.isRunning = false; self.statusMessage = "データ同期に失敗しました"
+                self.lastError = error.localizedDescription; self.commandLog += "\n\(error.localizedDescription)"
             }
         }
     }
@@ -52,19 +56,20 @@ import SwiftUI
     private func runGitHubJob(job: String, label: String) {
         guard !isRunning else { return }
         isRunning = true; lastError = nil; statusMessage = "\(label)を実行中"
-        commandLog = "$ gh workflow run \"Earnings Cross Bot\" -f job=\(job)"
+        commandLog = "$ gh workflow run \"Earnings Cross Manager Operations\" -f job=\(job)"
         let repo = repositoryURL
         Task.detached {
             do {
                 let gh = try Self.githubExecutable()
-                let dispatch = try Self.execute(gh, arguments: ["workflow", "run", "Earnings Cross Bot", "-R", "MamoruKomo/earnings_cross_bot", "-f", "job=\(job)"], in: repo)
+                let dispatch = try Self.execute(gh, arguments: ["workflow", "run", "Earnings Cross Manager Operations", "-R", "MamoruKomo/earnings_cross_bot", "-f", "job=\(job)"], in: repo)
                 guard let url = dispatch.split(separator: "\n").last, let runID = url.split(separator: "/").last else {
                     throw RunnerError.commandFailed("GitHub Actionsの実行IDを取得できませんでした。\n\(dispatch)")
                 }
                 let watch = try Self.execute(gh, arguments: ["run", "watch", String(runID), "-R", "MamoruKomo/earnings_cross_bot", "--exit-status"], in: repo)
-                let sync = try Self.pullLatest(in: repo)
+                let raw = try Data(contentsOf: Self.snapshotURL)
+                try Self.saveCachedSnapshot(raw)
                 await MainActor.run {
-                    self.commandLog = "\(dispatch)\n\(watch)\n\(sync)"
+                    self.commandLog = "\(dispatch)\n\(watch)\n最新スナップショットを取得しました"
                     self.isRunning = false; self.statusMessage = "\(label)が完了しました"; self.reload()
                 }
             } catch {
@@ -89,8 +94,23 @@ import SwiftUI
         throw RunnerError.commandFailed("GitHub CLI（gh）が見つかりません。Homebrewで gh をインストールしてください。")
     }
 
-    nonisolated private static func pullLatest(in repository: URL) throws -> String {
-        try execute("/usr/bin/git", arguments: ["pull", "--rebase", "origin", "main"], in: repository)
+    nonisolated private static func saveCachedSnapshot(_ data: Data) throws {
+        let destination = try cacheSnapshotURL()
+        try FileManager.default.createDirectory(at: destination.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try data.write(to: destination, options: .atomic)
+    }
+
+    nonisolated private static func cacheSnapshotURL() throws -> URL {
+        let base = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        return base.appendingPathComponent("EarningsCrossManager/manager_snapshot.json")
+    }
+
+    private static func snapshotLocations(repository: URL) -> [URL] {
+        var locations: [URL] = []
+        if let cached = try? cacheSnapshotURL() { locations.append(cached) }
+        locations.append(repository.appendingPathComponent("data/manager_snapshot.json"))
+        if let bundled = Bundle.main.url(forResource: "manager_snapshot", withExtension: "json") { locations.append(bundled) }
+        return locations
     }
 
     private static func findRepositoryURL() -> URL {

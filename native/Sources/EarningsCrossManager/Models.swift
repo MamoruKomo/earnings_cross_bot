@@ -30,9 +30,26 @@ struct MarketIntelligence: Codable {
     let disclosures: [DisclosureItem]
     let latestWatchlist: WatchlistSnapshot?
     let fundamentals: FundamentalsSummary?
+    let health: MarketHealth?
     enum CodingKeys: String, CodingKey {
         case updatedAt = "updated_at"; case latestBrief = "latest_brief"; case recentBriefs = "recent_briefs"
-        case disclosures; case latestWatchlist = "latest_watchlist"; case fundamentals
+        case disclosures; case latestWatchlist = "latest_watchlist"; case fundamentals; case health
+    }
+}
+
+struct MarketHealth: Codable {
+    let overall: String
+    let sources: [SourceHealth]
+}
+
+struct SourceHealth: Codable, Identifiable {
+    var id: String { key }
+    let key, label, status: String
+    let updatedAt: String?
+    let ageHours: Double?
+    let message: String
+    enum CodingKeys: String, CodingKey {
+        case key, label, status, message; case updatedAt = "updated_at"; case ageHours = "age_hours"
     }
 }
 

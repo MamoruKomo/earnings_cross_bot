@@ -132,7 +132,7 @@
       "result": "neutral"
     }
   ],
-  "generated_at": "2026-07-13T13:03:34Z",
+  "generated_at": "2026-07-13T13:17:53Z",
   "latest_notification": {
     "candidate_count": 1,
     "created_at": "2026-07-13T02:42:40Z",
@@ -15489,6 +15489,43 @@
         ]
       },
       "month": "2026-07"
+    },
+    "health": {
+      "overall": "stale",
+      "sources": [
+        {
+          "age_hours": 14.0,
+          "key": "morning_brief",
+          "label": "市場朝刊",
+          "message": "更新済み",
+          "status": "fresh",
+          "updated_at": "2026-07-13T08:20:00+09:00"
+        },
+        {
+          "age_hours": 5.4,
+          "key": "tdnet",
+          "label": "適時開示",
+          "message": "更新済み",
+          "status": "fresh",
+          "updated_at": "2026-07-13T16:52:07+09:00"
+        },
+        {
+          "age_hours": 1611.9,
+          "key": "watchlist",
+          "label": "ウォッチリスト",
+          "message": "更新期限を超えています。判断に使用しないでください",
+          "status": "stale",
+          "updated_at": "2026-05-07T18:25:09+09:00"
+        },
+        {
+          "age_hours": 13.2,
+          "key": "fundamentals",
+          "label": "ファンダメンタルズ",
+          "message": "更新済み",
+          "status": "fresh",
+          "updated_at": "2026-07-13T09:03:38+09:00"
+        }
+      ]
     },
     "latest_brief": {
       "date": "2026-07-13",

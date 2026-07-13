@@ -29,6 +29,7 @@ on:
           - watchlist-close
           - fundamentals
           - refresh-manager
+          - build-native
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
@@ -43,6 +44,7 @@ concurrency:
 
 jobs:
   operate:
+    if: github.event_name != 'workflow_dispatch' || inputs.job != 'build-native'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -143,3 +145,22 @@ jobs:
           git add data/earnings_cross_bot.db data/lessons.jsonl data/learning_profile.json data/manager_snapshot.json config/rules_suggestion.yaml market_intelligence/docs/data || true
           git diff --cached --quiet || git commit -m "Update Earnings Cross Manager data"
           git push
+
+  build-native:
+    if: github.event_name == 'workflow_dispatch' && inputs.job == 'build-native'
+    runs-on: macos-14
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build desktop application
+        run: |
+          ./scripts/build_native_app.sh
+          codesign --force --deep --sign - build/EarningsCrossManager.app
+          ditto -c -k --keepParent build/EarningsCrossManager.app build/EarningsCrossManager.zip
+      - name: Upload desktop application
+        uses: actions/upload-artifact@v4
+        with:
+          name: EarningsCrossManager-macOS
+          path: build/EarningsCrossManager.zip
+          if-no-files-found: error
+          retention-days: 30

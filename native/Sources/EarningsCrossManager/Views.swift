@@ -48,6 +48,7 @@ struct MorningBriefView: View {
                         .disabled(model.isRunning)
                 }
                 RunBanner()
+                SourceHealthBanner(sourceKey: "morning_brief")
                 if briefs.isEmpty {
                     ContentUnavailableView("朝刊がありません", systemImage: "newspaper", description: Text("朝刊生成ジョブを実行してください。"))
                 } else {
@@ -80,6 +81,7 @@ struct DisclosuresView: View {
                 Button { model.runDisclosures() } label: { Label("開示を更新", systemImage: "arrow.clockwise") }.disabled(model.isRunning)
             }
             RunBanner()
+            SourceHealthBanner(sourceKey: "tdnet")
             Table(rows) {
                 TableColumn("時刻") { Text(shortDateTime($0.datetimeJst)).monospacedDigit() }.width(115)
                 TableColumn("コード", value: \.code).width(62)
@@ -113,6 +115,7 @@ struct WatchlistView: View {
                 Button { model.runWatchlist() } label: { Label("引け値を更新", systemImage: "arrow.clockwise") }.disabled(model.isRunning)
             }
             RunBanner()
+            SourceHealthBanner(sourceKey: "watchlist")
             Table(rows) {
                 TableColumn("セクター", value: \.sector).width(90)
                 TableColumn("銘柄") { StockName(name: $0.name, code: $0.code) }.width(min: 150, ideal: 210)
@@ -137,6 +140,8 @@ struct TodayView: View {
                             .buttonStyle(.borderedProminent).disabled(model.isRunning)
                     }
                     RunBanner()
+                    MarketHealthBand()
+                    NoticeView(icon: "shield.lefthalf.filled", text: "このアプリは判断支援用です。注文は行いません。発表時刻、データ欠損、損失リスクを確認して最終判断してください。", color: .indigo)
                     NotificationBand(status: data.latestNotification)
                     TodayCandidates(items: data.pendingRecommendations)
                     HStack(spacing: 12) {
@@ -262,6 +267,7 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: 20) {
                 PageHeading(title: "設定・接続", subtitle: "自動運転の状態確認と保守操作")
                 RunBanner()
+                MarketHealthBand(showSources: true)
                 VStack(alignment: .leading, spacing: 12) {
                     Text("自動スケジュール").font(.headline)
                     ScheduleRow(icon: "sun.max", title: "候補生成とSlack通知", schedule: "平日 8:30 / 失敗時 8:45・9:00", action: model.runMorning)
@@ -274,7 +280,7 @@ struct SettingsView: View {
                 HStack(alignment: .top, spacing: 12) {
                     MaintenanceButton(title: "Slack接続テスト", detail: "テスト通知を1件送信", icon: "paperplane", action: model.runSlackTest)
                     MaintenanceButton(title: "学習を更新", detail: "30件以上で重みを補正", icon: "brain.head.profile", action: model.runLearning)
-                    MaintenanceButton(title: "データを同期", detail: "GitHubの最新結果を取得", icon: "arrow.triangle.2.circlepath", action: model.syncLatest)
+                    MaintenanceButton(title: "データを同期", detail: "最新スナップショットを取得", icon: "arrow.triangle.2.circlepath", action: model.syncLatest)
                 }.disabled(model.isRunning)
                 if let learning = model.data?.learning {
                     NoticeView(icon: "brain", text: "学習状態: \(learningLabel(learning.status)) / \(learning.sampleCount)件。\(learning.message ?? "")")
@@ -288,8 +294,40 @@ struct SettingsView: View {
     }
 }
 
-struct StatusFooter: View { @EnvironmentObject private var model: AppModel; var body: some View { HStack(spacing: 8) { Circle().fill(model.lastError == nil ? Color.green : Color.red).frame(width: 8, height: 8); Text(model.statusMessage).font(.caption).lineLimit(2) }.frame(maxWidth: .infinity, alignment: .leading) } }
+struct StatusFooter: View { @EnvironmentObject private var model: AppModel; var body: some View { HStack(spacing: 8) { Circle().fill(statusColor(model.lastError == nil ? model.data?.marketIntelligence?.health?.overall : "error")).frame(width: 8, height: 8); Text(model.statusMessage).font(.caption).lineLimit(2) }.frame(maxWidth: .infinity, alignment: .leading) } }
 struct RunBanner: View { @EnvironmentObject private var model: AppModel; var body: some View { if model.isRunning { HStack(spacing: 10) { ProgressView(); Text(model.statusMessage).fontWeight(.medium); Spacer() }.padding(12).background(Color.blue.opacity(0.08), in: RoundedRectangle(cornerRadius: 6)) } else if let error = model.lastError { NoticeView(icon: "xmark.octagon.fill", text: error, color: .red) } } }
+struct MarketHealthBand: View {
+    @EnvironmentObject private var model: AppModel
+    var showSources = false
+    var body: some View {
+        if let health = model.data?.marketIntelligence?.health {
+            VStack(alignment: .leading, spacing: 10) {
+                Label(healthLabel(health.overall), systemImage: health.overall == "fresh" ? "checkmark.shield.fill" : "exclamationmark.triangle.fill")
+                    .font(.callout.bold()).foregroundStyle(statusColor(health.overall))
+                if showSources {
+                    ForEach(health.sources) { source in
+                        HStack(spacing: 10) {
+                            Circle().fill(statusColor(source.status)).frame(width: 7, height: 7)
+                            Text(source.label).fontWeight(.medium).frame(width: 125, alignment: .leading)
+                            Text(source.message).foregroundStyle(.secondary)
+                            Spacer()
+                            Text(shortDateTime(source.updatedAt)).font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                        }.font(.callout)
+                    }
+                }
+            }.padding(12).frame(maxWidth: .infinity, alignment: .leading).background(statusColor(health.overall).opacity(0.08), in: RoundedRectangle(cornerRadius: 6))
+        }
+    }
+}
+struct SourceHealthBanner: View {
+    @EnvironmentObject private var model: AppModel
+    let sourceKey: String
+    var body: some View {
+        if let source = model.data?.marketIntelligence?.health?.sources.first(where: { $0.key == sourceKey }), source.status != "fresh" {
+            NoticeView(icon: "exclamationmark.triangle.fill", text: "\(source.label): \(source.message)（最終更新 \(shortDateTime(source.updatedAt))）", color: statusColor(source.status))
+        }
+    }
+}
 struct NotificationBand: View { let status: NotificationStatus?; var body: some View { HStack(spacing: 10) { Image(systemName: status?.status == "sent" ? "paperplane.circle.fill" : "exclamationmark.circle.fill").foregroundStyle(status?.status == "sent" ? Color.green : Color.orange); Text(notificationText(status)).font(.callout); Spacer(); Text(status?.createdAt.prefix(16).replacingOccurrences(of: "T", with: " ") ?? "").font(.caption.monospacedDigit()).foregroundStyle(.secondary) }.padding(.vertical, 10).overlay(alignment: .bottom) { Divider() } } }
 struct PageHeading: View { let title, subtitle: String; var body: some View { VStack(alignment: .leading, spacing: 4) { Text(title).font(.largeTitle.bold()); Text(subtitle).foregroundStyle(.secondary) } } }
 struct NoticeView: View { let icon, text: String; var color: Color = .blue; var body: some View { Label(text, systemImage: icon).font(.callout).foregroundStyle(.secondary).padding(12).frame(maxWidth: .infinity, alignment: .leading).background(color.opacity(0.08), in: RoundedRectangle(cornerRadius: 6)) } }
@@ -325,3 +363,5 @@ func watchPhaseLabel(_ value: String) -> String { value == "open" ? "寄り" : "
 func marginColor(_ value: Double?) -> Color { guard let value else { return .secondary }; return value >= 8 ? .red : value <= 3 ? .green : .primary }
 func todayISO() -> String { let f = DateFormatter(); f.calendar = Calendar(identifier: .gregorian); f.locale = Locale(identifier: "en_US_POSIX"); f.timeZone = TimeZone(identifier: "Asia/Tokyo"); f.dateFormat = "yyyy-MM-dd"; return f.string(from: Date()) }
 func todayDisplay() -> String { let f = DateFormatter(); f.locale = Locale(identifier: "ja_JP"); f.timeZone = TimeZone(identifier: "Asia/Tokyo"); f.dateFormat = "M月d日（E）"; return f.string(from: Date()) }
+func statusColor(_ status: String?) -> Color { status == "fresh" ? .green : status == "warning" ? .orange : status == "stale" || status == "missing" || status == "error" ? .red : .gray }
+func healthLabel(_ status: String) -> String { status == "fresh" ? "市場データは更新済みです" : status == "warning" ? "更新時刻に注意が必要なデータがあります" : "期限切れまたは欠損データがあります。数値を判断に使用しないでください" }
