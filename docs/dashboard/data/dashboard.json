@@ -125,14 +125,14 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-13T02:42:40Z",
+  "generated_at": "2026-07-13T04:42:05Z",
   "learning": {
     "feature_evidence": {},
     "message": "学習開始まであと26件",
     "minimum_samples": 30,
     "sample_count": 4,
     "status": "observing",
-    "trained_at": "2026-07-10T12:19:53Z",
+    "trained_at": "2026-07-13T04:42:05Z",
     "version": 1,
     "weight_multipliers": {}
   },
