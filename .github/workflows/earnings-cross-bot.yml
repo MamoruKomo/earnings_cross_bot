@@ -148,7 +148,7 @@ jobs:
 
   build-native:
     if: github.event_name == 'workflow_dispatch' && inputs.job == 'build-native'
-    runs-on: macos-14
+    runs-on: macos-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
