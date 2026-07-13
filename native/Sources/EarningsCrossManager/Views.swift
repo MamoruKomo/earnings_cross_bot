@@ -27,7 +27,10 @@ struct RootView: View {
                 }
             }.frame(minWidth: 760, minHeight: 560).background(Color(nsColor: .windowBackgroundColor))
         }
-        .toolbar { if model.isRunning { ProgressView().controlSize(.small) }; Button { model.reload() } label: { Image(systemName: "arrow.clockwise") }.help("表示データを再読み込み") }
+        .toolbar {
+            if model.isRunning { ProgressView().controlSize(.small) }
+            Button { model.syncLatest() } label: { Image(systemName: "arrow.triangle.2.circlepath") }.help("GitHubから最新データを同期")
+        }
     }
 }
 
@@ -37,7 +40,13 @@ struct OverviewView: View {
         ScrollView {
             if let data = model.data {
                 VStack(alignment: .leading, spacing: 22) {
-                    PageHeading(title: "運用サマリー", subtitle: "推奨結果と翌営業日の反応をまとめて確認")
+                    HStack(alignment: .top) {
+                        PageHeading(title: "今日の判断", subtitle: "候補と運用状態をまとめて確認")
+                        Spacer()
+                        Button { model.runMorning() } label: { Label("今日の候補を更新", systemImage: "sparkles") }
+                            .buttonStyle(.borderedProminent).disabled(model.isRunning)
+                    }
+                    TodayDecisionView(items: data.pendingRecommendations)
                     if data.summary.evaluatedCount < 30 { NoticeView(text: "現在の評価母数は \(data.summary.evaluatedCount) 件です。勝率は参考値として扱い、30件以上たまってから傾向を判断してください。") }
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 4), spacing: 12) {
                         MetricTile(label: "勝率", value: percent(data.summary.hitRate), detail: "\(data.summary.winCount)勝 / \(data.summary.evaluatedCount)件", color: .green)
@@ -135,28 +144,62 @@ struct OperationsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
-                PageHeading(title: "運用", subtitle: "日付を指定してPythonパイプラインを実行")
-                HStack(alignment: .bottom) {
-                    VStack(alignment: .leading, spacing: 7) { Text("対象日").font(.caption.bold()).foregroundStyle(.secondary); DatePicker("対象日", selection: $model.selectedDate, displayedComponents: .date).labelsHidden() }
-                    Spacer(); Button { model.rebuildDashboard() } label: { Label("表示を更新", systemImage: "arrow.clockwise") }.disabled(model.isRunning)
+                HStack(alignment: .top) {
+                    PageHeading(title: "運用コントロール", subtitle: "GitHub Actionsで本番処理を安全に実行")
+                    Spacer()
+                    Button { model.syncLatest() } label: { Label("最新データを同期", systemImage: "arrow.triangle.2.circlepath") }
+                        .disabled(model.isRunning)
                 }
-                Divider()
+                if model.isRunning {
+                    HStack(spacing: 10) { ProgressView(); Text(model.statusMessage).fontWeight(.medium); Spacer() }
+                        .padding(13).background(Color.blue.opacity(0.08), in: RoundedRectangle(cornerRadius: 7))
+                }
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                    OperationButton(title: "候補を生成", detail: "スコアリングしてSlackへ投稿", icon: "sparkles", tint: .blue, action: model.runMorning)
-                    OperationButton(title: "結果を評価", detail: "翌営業日の値動きを判定", icon: "checkmark.seal", tint: .green, action: model.runEvaluation)
-                    OperationButton(title: "週次レビュー", detail: "改善案をルール候補へ保存", icon: "calendar.badge.clock", tint: .orange, action: model.runWeeklyReview)
-                    OperationButton(title: "今すぐ学習", detail: "蓄積結果から重み補正を更新", icon: "brain.head.profile", tint: .purple, action: model.runLearning)
-                    OperationButton(title: "Slackテスト", detail: "Webhookへ接続確認を投稿", icon: "paperplane", tint: .cyan, action: model.runSlackTest)
+                    OperationButton(title: "今日の候補を生成", detail: "決算予定を取得して採点し、Slackへ送信", icon: "sparkles", tint: .blue, badge: "毎朝 8:30", action: model.runMorning)
+                    OperationButton(title: "結果を評価", detail: "前営業日の候補を終値ベースで検証", icon: "checkmark.seal", tint: .green, badge: "平日 15:45", action: model.runEvaluation)
+                    OperationButton(title: "週次レビュー", detail: "1週間の成績と改善案を保存", icon: "calendar.badge.clock", tint: .orange, badge: "金曜 18:00", action: model.runWeeklyReview)
+                    OperationButton(title: "今すぐ学習", detail: "蓄積結果から重み補正を更新", icon: "brain.head.profile", tint: .purple, badge: "30件から有効", action: model.runLearning)
+                    OperationButton(title: "Slack接続テスト", detail: "テストメッセージを1件送信", icon: "paperplane", tint: .cyan, badge: "即時", action: model.runSlackTest)
                 }.disabled(model.isRunning)
                 if let learning = model.data?.learning {
                     NoticeView(text: "学習状態: \(learning.status) / \(learning.sampleCount)件。\(learning.message ?? "")")
                 }
-                Panel(title: "実行ログ", subtitle: model.repositoryURL.path) {
+                Panel(title: "直近の実行ログ", subtitle: model.statusMessage) {
                     ScrollView { Text(model.commandLog.isEmpty ? "まだこのアプリから処理を実行していません。" : model.commandLog).font(.system(.caption, design: .monospaced)).textSelection(.enabled).frame(maxWidth: .infinity, alignment: .leading) }.frame(minHeight: 150, maxHeight: 280)
                 }
-                NoticeView(text: "Slack WebhookやJ-Quantsの認証情報はリポジトリ直下の .env から読み込みます。未設定時はモック/CSVデータで動作し、Slack本文はログにプレビューされます。")
+                NoticeView(text: "すべての操作はGitHub Actionsで実行されます。Slackの秘密情報はMacへ保存せず、GitHub Secretsを利用します。")
             }.padding(26)
         }
+    }
+}
+
+struct TodayDecisionView: View {
+    let items: [PendingRecommendation]
+    private var todayItems: [PendingRecommendation] { items.filter { $0.eventDate == todayISO() } }
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack(spacing: 14) {
+                Image(systemName: todayItems.isEmpty ? "minus.circle.fill" : "checkmark.circle.fill")
+                    .font(.system(size: 28)).foregroundStyle(todayItems.isEmpty ? Color.secondary : Color.green)
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(todayItems.isEmpty ? "本日の候補はありません" : "本日の候補 \(todayItems.count)銘柄")
+                        .font(.title3.bold())
+                    Text(todayItems.isEmpty ? "候補生成後にここへ表示されます" : "Slack送信済み・翌営業日の評価待ち")
+                        .font(.caption).foregroundStyle(.secondary)
+                }
+                Spacer()
+                Text(todayISO()).font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+            }.padding(16)
+            ForEach(todayItems) { item in
+                Divider()
+                HStack(spacing: 12) {
+                    StockName(name: item.name, code: item.code)
+                    Spacer()
+                    ScoreBadge(score: item.score)
+                    Text(item.action).font(.caption.bold()).frame(width: 86)
+                }.padding(.horizontal, 16).padding(.vertical, 12)
+            }
+        }.panelStyle()
     }
 }
 
@@ -165,7 +208,7 @@ struct NoticeView: View { let text: String; var body: some View { Label(text, sy
 struct MetricTile: View { let label, value, detail: String; let color: Color; var body: some View { VStack(alignment: .leading, spacing: 8) { HStack { Text(label).font(.caption.bold()).foregroundStyle(.secondary); Spacer(); Circle().fill(color).frame(width: 7, height: 7) }; Text(value).font(.system(size: 28, weight: .bold, design: .rounded)).monospacedDigit(); Text(detail).font(.caption).foregroundStyle(.secondary) }.padding(15).frame(maxWidth: .infinity, alignment: .leading).panelStyle() } }
 struct Panel<Content: View>: View { let title, subtitle: String; @ViewBuilder let content: Content; init(title: String, subtitle: String, @ViewBuilder content: () -> Content) { self.title = title; self.subtitle = subtitle; self.content = content() }; var body: some View { VStack(alignment: .leading, spacing: 14) { VStack(alignment: .leading, spacing: 3) { Text(title).font(.headline); Text(subtitle).font(.caption).foregroundStyle(.secondary) }; content }.padding(16).frame(maxWidth: .infinity, alignment: .leading).panelStyle() } }
 struct PendingStrip: View { let items: [PendingRecommendation]; var body: some View { Panel(title: "未評価の推奨", subtitle: "翌営業日の評価待ち") { if items.isEmpty { EmptyState(text: "未評価の推奨はありません") } else { ForEach(items) { item in HStack { StockName(name: item.name, code: "\(item.code)  発表 \(item.eventDate)"); Spacer(); ScoreBadge(score: item.score); Text(item.action).font(.caption.bold()).frame(width: 82) }.padding(.vertical, 5); if item.id != items.last?.id { Divider() } } } } } }
-struct OperationButton: View { let title, detail, icon: String; let tint: Color; let action: () -> Void; var body: some View { Button(action: action) { VStack(alignment: .leading, spacing: 12) { Image(systemName: icon).font(.title2).foregroundStyle(tint); Text(title).font(.headline); Text(detail).font(.caption).foregroundStyle(.secondary).multilineTextAlignment(.leading) }.padding(16).frame(maxWidth: .infinity, minHeight: 120, alignment: .leading).panelStyle() }.buttonStyle(.plain) } }
+struct OperationButton: View { let title, detail, icon: String; let tint: Color; let badge: String; let action: () -> Void; var body: some View { Button(action: action) { VStack(alignment: .leading, spacing: 10) { HStack { Image(systemName: icon).font(.title2).foregroundStyle(tint); Spacer(); Text(badge).font(.caption2.bold()).foregroundStyle(.secondary) }; Text(title).font(.headline); Text(detail).font(.caption).foregroundStyle(.secondary).multilineTextAlignment(.leading) }.padding(16).frame(maxWidth: .infinity, minHeight: 124, alignment: .leading).panelStyle() }.buttonStyle(.plain) } }
 struct StockName: View { let name, code: String; var body: some View { VStack(alignment: .leading) { Text(name).fontWeight(.medium); Text(code).font(.caption).foregroundStyle(.secondary) } } }
 struct ScoreBadge: View { let score: Int; var body: some View { Text("\(score)").font(.caption.bold()).monospacedDigit().padding(.horizontal, 8).padding(.vertical, 4).background((score >= 80 ? Color.green : Color.blue).opacity(0.12), in: Capsule()).foregroundStyle(score >= 80 ? .green : .blue) } }
 struct ResultBadge: View { let result: String; var body: some View { Text(result == "win" ? "勝ち" : result == "lose" ? "負け" : "中立").font(.caption.bold()).padding(.horizontal, 8).padding(.vertical, 4).background(resultColor(result).opacity(0.12), in: Capsule()).foregroundStyle(resultColor(result)) } }
@@ -180,3 +223,4 @@ func percent1(_ value: Double?) -> String { guard let value else { return "--" }
 func compactNumber(_ value: Double?) -> String { guard let value else { return "--" }; return value >= 10_000 ? String(format: "%.1f万", value / 10_000) : String(format: "%.0f", value) }
 func ratioText(_ value: Double?) -> String { guard let value else { return "--" }; return String(format: "%.2f倍", value) }
 func marginColor(_ value: Double?) -> Color { guard let value else { return .secondary }; return value >= 8 ? .red : value <= 3 ? .green : .primary }
+func todayISO() -> String { let f = DateFormatter(); f.calendar = Calendar(identifier: .gregorian); f.locale = Locale(identifier: "en_US_POSIX"); f.timeZone = TimeZone(identifier: "Asia/Tokyo"); f.dateFormat = "yyyy-MM-dd"; return f.string(from: Date()) }

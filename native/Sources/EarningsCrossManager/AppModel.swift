@@ -21,50 +21,47 @@ import SwiftUI
         } catch { lastError = "ダッシュボードデータを読み込めません: \(error.localizedDescription)"; statusMessage = "読み込みエラー" }
     }
 
-    func runMorning() { run(module: "src.main_morning", label: "朝の候補生成", includesDate: true) }
-    func runEvaluation() { run(module: "src.main_evaluate", label: "結果評価", includesDate: true) }
-    func runWeeklyReview() { run(module: "src.main_weekly_review", label: "週次レビュー", includesDate: true) }
-    func runLearning() { run(module: "src.main_learn", label: "自己学習", includesDate: false) }
-    func runSlackTest() {
+    func runMorning() { runGitHubJob(job: "morning", label: "今日の候補生成") }
+    func runEvaluation() { runGitHubJob(job: "evaluate", label: "結果評価") }
+    func runWeeklyReview() { runGitHubJob(job: "weekly", label: "週次レビュー") }
+    func runLearning() { runGitHubJob(job: "learn", label: "自己学習") }
+    func runSlackTest() { runGitHubJob(job: "slack-test", label: "Slack接続テスト") }
+    func syncLatest() {
         guard !isRunning else { return }
-        isRunning = true; lastError = nil; statusMessage = "Slack接続テストを実行中"
-        commandLog = "$ gh workflow run \"Earnings Cross Bot\" -f job=slack-test"
+        isRunning = true; lastError = nil; statusMessage = "最新データを同期中"
+        commandLog = "$ git pull --rebase origin main"
         let repo = repositoryURL
         Task.detached {
             do {
-                let gh = try Self.githubExecutable()
-                let dispatch = try Self.execute(gh, arguments: ["workflow", "run", "Earnings Cross Bot", "-R", "MamoruKomo/earnings_cross_bot", "-f", "job=slack-test"], in: repo)
-                guard let url = dispatch.split(separator: "\n").last,
-                      let runID = url.split(separator: "/").last else {
-                    throw RunnerError.commandFailed("GitHub Actionsの実行IDを取得できませんでした。\n\(dispatch)")
-                }
-                let watch = try Self.execute(gh, arguments: ["run", "watch", String(runID), "-R", "MamoruKomo/earnings_cross_bot", "--exit-status"], in: repo)
+                let output = try Self.pullLatest(in: repo)
                 await MainActor.run {
-                    self.commandLog = "\(dispatch)\n\(watch)\n\nSlackへのテスト送信に成功しました。"
-                    self.isRunning = false; self.statusMessage = "Slack接続テストに成功しました"
+                    self.commandLog = output; self.isRunning = false; self.statusMessage = "最新データへ更新しました"; self.reload()
                 }
             } catch {
                 await MainActor.run {
-                    self.isRunning = false; self.statusMessage = "Slack接続テストに失敗しました"
+                    self.isRunning = false; self.statusMessage = "データ同期に失敗しました"
                     self.lastError = error.localizedDescription; self.commandLog += "\n\(error.localizedDescription)"
                 }
             }
         }
     }
-    func rebuildDashboard() { run(module: "src.main_dashboard", label: "データ更新", includesDate: false) }
 
-    private func run(module: String, label: String, includesDate: Bool) {
+    private func runGitHubJob(job: String, label: String) {
         guard !isRunning else { return }
-        isRunning = true; lastError = nil; statusMessage = "\(label)を実行中"; commandLog = "$ python3 -m \(module)"
-        let repo = repositoryURL; let dateValue = Self.isoDate.string(from: selectedDate)
+        isRunning = true; lastError = nil; statusMessage = "\(label)を実行中"
+        commandLog = "$ gh workflow run \"Earnings Cross Bot\" -f job=\(job)"
+        let repo = repositoryURL
         Task.detached {
             do {
-                var arguments = ["-m", module]; if includesDate { arguments += ["--date", dateValue] }
-                let python = Self.pythonExecutable(in: repo)
-                let first = try Self.execute(python, arguments: arguments, in: repo)
-                let dashboard = try Self.execute(python, arguments: ["-m", "src.main_dashboard"], in: repo)
+                let gh = try Self.githubExecutable()
+                let dispatch = try Self.execute(gh, arguments: ["workflow", "run", "Earnings Cross Bot", "-R", "MamoruKomo/earnings_cross_bot", "-f", "job=\(job)"], in: repo)
+                guard let url = dispatch.split(separator: "\n").last, let runID = url.split(separator: "/").last else {
+                    throw RunnerError.commandFailed("GitHub Actionsの実行IDを取得できませんでした。\n\(dispatch)")
+                }
+                let watch = try Self.execute(gh, arguments: ["run", "watch", String(runID), "-R", "MamoruKomo/earnings_cross_bot", "--exit-status"], in: repo)
+                let sync = try Self.pullLatest(in: repo)
                 await MainActor.run {
-                    self.commandLog = [first, dashboard].filter { !$0.isEmpty }.joined(separator: "\n")
+                    self.commandLog = "\(dispatch)\n\(watch)\n\(sync)"
                     self.isRunning = false; self.statusMessage = "\(label)が完了しました"; self.reload()
                 }
             } catch {
@@ -89,6 +86,10 @@ import SwiftUI
         throw RunnerError.commandFailed("GitHub CLI（gh）が見つかりません。Homebrewで gh をインストールしてください。")
     }
 
+    nonisolated private static func pullLatest(in repository: URL) throws -> String {
+        try execute("/usr/bin/git", arguments: ["pull", "--rebase", "origin", "main"], in: repository)
+    }
+
     private static func findRepositoryURL() -> URL {
         if let configured = ProcessInfo.processInfo.environment["EARNINGS_CROSS_REPO"] { return URL(fileURLWithPath: configured) }
         var candidate = Bundle.main.bundleURL; for _ in 0..<2 { candidate.deleteLastPathComponent() }
@@ -96,17 +97,6 @@ import SwiftUI
         return URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
     }
 
-    nonisolated private static func pythonExecutable(in repository: URL) -> String {
-        let candidates = [
-            repository.appendingPathComponent(".venv/bin/python3").path,
-            "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
-            "/opt/homebrew/bin/python3",
-            "/usr/bin/python3",
-        ]
-        return candidates.first(where: { FileManager.default.isExecutableFile(atPath: $0) }) ?? "/usr/bin/python3"
-    }
-
-    static let isoDate: DateFormatter = { let f = DateFormatter(); f.calendar = Calendar(identifier: .gregorian); f.locale = Locale(identifier: "en_US_POSIX"); f.dateFormat = "yyyy-MM-dd"; return f }()
 }
 
 enum RunnerError: LocalizedError {
