@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>寄り前ブリーフ</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div class="app-shell has-topbar">
+      <div class="app-topbar" aria-label="market-ticker">
+        <div class="app-topbar-inner">
+          <div class="tape">
+            <div class="tape-track js-kpi"></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <div class="brand">
+            <div class="brand-title"><a href="index.html">寄り前ブリーフ</a></div>
+            <div class="brand-sub">日本株デイトレ向け / 毎朝8:30配信</div>
+          </div>
+
+          <form class="sidebar-search" action="search.html" method="get">
+            <input class="js-gsearch" type="search" name="q" placeholder="材料 / コード / タグ（例: 9983, 円安, 決算）" />
+          </form>
+
+          <nav class="sidebar-nav" aria-label="navigation">
+            <div class="nav-group">
+              <div class="nav-label">ダッシュボード</div>
+              <a class="nav-link" href="index.html" aria-current="page">ホーム</a>
+              <a class="nav-link" href="watchlist/index.html">ウォッチ</a>
+              <a class="nav-link" href="fundamentals/index.html">探す（ファンダ）</a>
+              <a class="nav-link" href="tdnet/index.html">適時開示</a>
+            </div>
+            <div class="nav-group">
+              <div class="nav-label">ログ</div>
+              <a class="nav-link" href="archive/index.html">ブリーフ</a>
+              <a class="nav-link" href="search.html">検索</a>
+              <a class="nav-link" href="review/index.html">振り返り</a>
+            </div>
+            <div class="nav-group">
+              <div class="nav-label">設定</div>
+              <a class="nav-link" href="watchlist/manage.html">ウォッチ編集</a>
+            </div>
+          </nav>
+
+          <details class="sidebar-box" id="quicklinks">
+            <summary>クイックリンク</summary>
+            <div class="meta-line">このブラウザ内で編集（localStorage）</div>
+            <div class="controls" style="margin-top:10px">
+              <button class="go js-ql-edit" type="button">編集</button>
+              <button class="go js-ql-save" type="button" style="display:none">保存</button>
+              <button class="go js-ql-cancel" type="button" style="display:none">キャンセル</button>
+              <button class="go js-ql-reset" type="button" style="display:none">リセット</button>
+            </div>
+            <div class="js-quicklinks"></div>
+          </details>
+
+          <div class="sidebar-foot">
+            <div class="js-stats-brief">最新ブリーフ: —</div>
+            <div class="js-stats-tdnet">適時開示更新: —</div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="app-main">
+        <div class="app-main-inner">
+          <header class="page-head">
+            <div>
+              <h1 class="page-title">ダッシュボード</h1>
+              <div class="page-meta">ウォッチ / 開示 / 寄り前の材料を、最短で意思決定へ。</div>
+            </div>
+            <div class="page-actions">
+              <a class="go" href="watchlist/manage.html">ウォッチ編集</a>
+            </div>
+          </header>
+
+          <main class="page">
+            <div class="dash-grid">
+              <div class="maincol">
+                <section id="watch" class="watch-hero">
+                  <h2>ウォッチ（今日）</h2>
+                  <div class="js-watchlist-overview"></div>
+                  <div class="js-watchlist-highlights"></div>
+                  <div class="controls" style="margin-top:12px">
+                    <a class="go" href="watchlist/index.html">ウォッチを見る</a>
+                  </div>
+                </section>
+              </div>
+
+              <div class="sidecol">
+                <section id="today">
+                  <h2>寄り前ブリーフ（最新）</h2>
+                  <div class="js-today"></div>
+                  <div class="controls" style="margin-top:12px">
+                    <a class="go" href="archive/index.html">ブリーフ一覧</a>
+                  </div>
+                </section>
+
+                <section id="tdnet">
+                  <h2>適時開示（ウォッチ）</h2>
+                  <div class="js-tdnet-mini"></div>
+                  <div class="controls" style="margin-top:12px">
+                    <a class="go" href="tdnet/index.html">ログへ</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </main>
+
+          <footer>自動生成</footer>
+        </div>
+      </div>
+    </div>
+    <script src="assets/home.js"></script>
+  </body>
+</html>
