@@ -26,6 +26,20 @@ class TestCachedFetcher(unittest.TestCase):
 
 
 class TestParsers(unittest.TestCase):
+    def test_market_headline_reflects_current_inputs(self) -> None:
+        strong = brief.build_market_headline(0.8, 0.6, 1.0, 0.3, 220)
+        weak = brief.build_market_headline(-0.8, -0.6, -1.0, -0.4, -220)
+        mixed = brief.build_market_headline(0.2, -0.3, 0.2, 0.0, -20)
+
+        self.assertIn("強含み", strong)
+        self.assertIn("円安", strong)
+        self.assertIn("弱含み", weak)
+        self.assertIn("円高", weak)
+        self.assertIn("交錯", mixed)
+
+    def test_market_headline_flags_missing_inputs(self) -> None:
+        self.assertIn("取得不足", brief.build_market_headline(None, None, None, None, 10))
+
     def test_fetch_stooq_two_day_parses_quote_line(self) -> None:
         html = "<div>10 Apr , 23:00 6816.89 -7.77 (-0.11%)</div>"
         with tempfile.TemporaryDirectory() as tmp:

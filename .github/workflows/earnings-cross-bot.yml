@@ -2,7 +2,7 @@ name: Earnings Cross Manager Operations
 
 on:
   schedule:
-    - cron: "*/15 * * * *"       # TDnet
+    - cron: "*/5 * * * *"        # TDnet
     - cron: "5 23 * * 0-4"       # 08:05 JST fundamentals
     - cron: "20 23 * * 0-4"      # 08:20 JST market brief
     - cron: "30 23 * * 0-4"      # 08:30 JST earnings candidates
@@ -65,7 +65,7 @@ jobs:
             task="$REQUESTED_JOB"
           else
             case "$EVENT_SCHEDULE" in
-              "*/15 * * * *") task="tdnet" ;;
+              "*/5 * * * *") task="tdnet" ;;
               "5 23 * * 0-4") task="fundamentals" ;;
               "20 23 * * 0-4") task="market-brief" ;;
               "30 23 * * 0-4") task="morning" ;;
@@ -116,10 +116,13 @@ jobs:
         env:
           TASK: ${{ steps.task.outputs.task }}
           EDINETDB_API_KEY: ${{ secrets.EDINETDB_API_KEY }}
+          SLACK_CHANNEL_ID: C0ASFHVU94L
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
           case "$TASK" in
             market-brief) python3 scripts/morning_brief.py --manager-only ;;
-            tdnet) python3 scripts/tdnet_alert.py ;;
+            tdnet) python3 scripts/tdnet_slack_alert.py --state docs/data/tdnet.json ;;
             watchlist-open) python3 scripts/watchlist_snapshot.py --phase open ;;
             watchlist-close) python3 scripts/watchlist_snapshot.py --phase close ;;
             fundamentals)
@@ -128,7 +131,7 @@ jobs:
           esac
 
       - name: Post market message to Slack
-        if: steps.market.outputs.should_notify == 'true' || steps.task.outputs.task == 'market-brief'
+        if: steps.task.outputs.task == 'market-brief'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_MESSAGE: ${{ steps.market.outputs.message || steps.market.outputs.slack_message }}

@@ -161,6 +161,36 @@ def parse_percent(s: str) -> float | None:
         return None
 
 
+def build_market_headline(
+    nikkei_pct: float | None,
+    spx_pct: float | None,
+    ndq_pct: float | None,
+    usdjpy_pct: float | None,
+    futures_gap: float | None,
+) -> str:
+    available = [value for value in (nikkei_pct, spx_pct, ndq_pct, futures_gap) if value is not None]
+    if len(available) < 2:
+        return "主要指標の取得不足、更新時刻と寄り前データを確認"
+
+    score = 0
+    for value in (nikkei_pct, spx_pct, ndq_pct):
+        if value is not None:
+            score += 1 if value > 0.15 else -1 if value < -0.15 else 0
+    if futures_gap is not None:
+        score += 1 if futures_gap > 100 else -1 if futures_gap < -100 else 0
+
+    if score >= 2:
+        core = "米株・先物は強含み、東京市場の買い先行度を確認"
+    elif score <= -2:
+        core = "米株・先物は弱含み、東京市場の下値と戻りを確認"
+    else:
+        core = "主要指標は方向感が交錯、先物とセクター強弱を確認"
+
+    if usdjpy_pct is not None and abs(usdjpy_pct) >= 0.25:
+        core += "（円安進行）" if usdjpy_pct > 0 else "（円高進行）"
+    return core
+
+
 def parse_html_table_rows(html_text: str) -> list[list[str]]:
     rows: list[list[str]] = []
     for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", html_text, flags=re.S | re.I):
@@ -862,30 +892,6 @@ def main() -> int:
     if watch_codes:
         tags.append("適時開示")
 
-    # Fill remaining watchlist slots with macro-sensitive staples.
-    macro_slots = max(0, 8 - len(watch_lines))
-    macro_defaults = [
-        ("9983", "ファストリ", "値がさ/指数寄与（ギャップと寄与を確認）"),
-        ("8035", "東エレク", "半導体（米ハイテク動向・先物で方向確認）"),
-        ("6857", "アドバンテスト", "半導体（寄りの出来高とVWAP）"),
-        ("8306", "三菱UFJ", "金利（米10年/日銀材料で回転）"),
-        ("7203", "トヨタ", "為替（ドル円の方向で反応）"),
-        ("1605", "INPEX", "原油（WTIの方向で反応）"),
-    ]
-    for code, name, note in macro_defaults[:macro_slots]:
-        if code in seen_codes:
-            continue
-        watch_lines.append(f"{code} {name}: {note}")
-        watch_codes.append(code)
-    if any(c in {"8035", "6857"} for c in watch_codes):
-        tags.append("半導体")
-    if any(c in {"8306"} for c in watch_codes):
-        tags.append("金利")
-    if any(c in {"7203"} for c in watch_codes):
-        tags.append("円安")
-    if any(c in {"1605"} for c in watch_codes):
-        tags.append("原油")
-
     # Sector tags from Traders top movers.
     top3 = sorted(sectors, key=lambda x: x.pct, reverse=True)[:3]
     bot3 = sorted(sectors, key=lambda x: x.pct)[:3]
@@ -1000,8 +1006,14 @@ def main() -> int:
     synth_parts.append("寄りは先物ギャップ、セクター強弱、出来高（主役）を最優先で確認。")
     synthesis = "".join(synth_parts)[:240]
 
-    # Headline
-    headline = "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）"
+    futures_gap = nk_fut - float(cash_for_gap) if nk_fut is not None and cash_for_gap is not None else None
+    headline = build_market_headline(
+        nikkei_pct,
+        spx.pct_change if spx else None,
+        ndq.pct_change if ndq else None,
+        usdjpy.pct_change if usdjpy else None,
+        futures_gap,
+    )
 
     # HTML output
     archive_path = Path("docs/archive") / f"{date_iso}.html"
@@ -1047,9 +1059,11 @@ def main() -> int:
         )
     if nk_fut is not None and cash_for_gap is not None:
         summary_bullets.append(f"先物: {nk_fut:,.1f}（現物比 {format_signed(nk_fut - float(cash_for_gap),1)}）")
+    if top3 and bot3:
+        summary_bullets.append(f"業種: +{top3[0].name} / -{bot3[0].name}")
     if watch_codes:
-        summary_bullets.append("注目: " + ", ".join(watch_codes[:6]))
-    summary_bullets = summary_bullets[:4]
+        summary_bullets.append("直近開示: " + ", ".join(watch_codes[:6]))
+    summary_bullets = summary_bullets[:5]
 
     entry = {
         "date": date_iso,
