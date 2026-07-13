@@ -96,6 +96,8 @@ class TestTdnetFetchFailure(unittest.TestCase):
                 str(config_path),
                 "--watchlist",
                 str(watchlist_path),
+                "--out",
+                "",
             ]
             with patch("sys.argv", argv), patch(
                 "pipelines.tdnet.alert.fetch_html", side_effect=FetchUnavailable("HTTP Error 405")
