@@ -671,7 +671,6 @@ def render_html(
               <div class="nav-label">ページ</div>
               <a class="nav-link" href="../index.html">ホーム</a>
               <a class="nav-link" href="../watchlist/index.html">ウォッチリスト</a>
-              <a class="nav-link" href="../tdnet/index.html">適時開示</a>
               <a class="nav-link" href="../fundamentals/index.html">ファンダ</a>
               <a class="nav-link" href="../archive/index.html" aria-current="page">アーカイブ</a>
               <a class="nav-link" href="../stocks/index.html">銘柄</a>
@@ -734,7 +733,6 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Generate daily pre-market brief (Japan stocks) into docs/ + Slack message.")
     ap.add_argument("--config", default="brief.config.json")
     ap.add_argument("--briefs", default="docs/data/briefs.json")
-    ap.add_argument("--tdnet", default="docs/data/tdnet.json")
     ap.add_argument("--watchlist", default="docs/data/watchlist.json")
     ap.add_argument("--date", default="", help="JST date YYYY-MM-DD (default: today JST)")
     ap.add_argument("--cache-dir", default="", help="Optional cache directory for fetched sources (HTML/JSON).")
@@ -833,15 +831,7 @@ def main() -> int:
     except Exception:
         nk_fut = None
 
-    # Watchlist candidates: recent TDnet + configured watchlist.
-    tdnet = load_json(Path(args.tdnet), {"version": 1, "items": []})
-    td_items = tdnet.get("items") if isinstance(tdnet, dict) else []
-    if not isinstance(td_items, list):
-        td_items = []
-    td_items = [x for x in td_items if isinstance(x, dict)]
-    td_items.sort(key=lambda x: str(x.get("datetime_jst") or ""), reverse=True)
-
-    # Map code->name from watchlist config for nicer display when available.
+    # Use only explicitly configured watchlist names. Do not infer candidates from unrelated feeds.
     wl_cfg = load_json(Path(args.watchlist), {"version": 1, "groups": []})
     code_to_name: dict[str, str] = {}
     if isinstance(wl_cfg, dict):
@@ -860,37 +850,11 @@ def main() -> int:
     watch_codes: list[str] = []
     tags: list[str] = []
 
-    # Prefer up to 6 TDnet items (unique codes).
-    seen_codes: set[str] = set()
-    for it in td_items:
-        code = str(it.get("code") or "").strip()
-        if not code or code in seen_codes:
-            continue
-        seen_codes.add(code)
-        title_ja = str(it.get("title_ja") or it.get("title") or "").strip()
-        pdf = str(it.get("pdf_url_ja") or it.get("pdf_url") or "").strip()
-        src_url = str(it.get("source_url") or "").strip()
-        points = it.get("points_ja") or []
-        point = ""
-        if isinstance(points, list) and points:
-            point = str(points[0]).strip()
-        name = code_to_name.get(code, "").strip()
-        label = f"{code} {name}".strip()
-        # Keep the line compact; URLs go to sources section.
-        desc = point or (title_ja[:60] + ("…" if len(title_ja) > 60 else ""))
-        cite = pdf or src_url
-        if cite:
-            watch_lines.append(f"{label}: {desc}（出典: {cite}）")
-        else:
-            watch_lines.append(f"{label}: {desc}")
+    for code, name in list(code_to_name.items())[:8]:
         watch_codes.append(code)
-        if cite:
-            sources.append((f"TDnet（{code}）", cite))
-        if len(watch_lines) >= 6:
-            break
-
+        watch_lines.append(f"{code} {name}: 登録ウォッチ銘柄")
     if watch_codes:
-        tags.append("適時開示")
+        tags.append("ウォッチ")
 
     # Sector tags from Traders top movers.
     top3 = sorted(sectors, key=lambda x: x.pct, reverse=True)[:3]
@@ -981,13 +945,9 @@ def main() -> int:
     else:
         sec4.append("【海外】N/A")
     if schedule.earnings:
-        sec4.append("【決算/開示】" + " / ".join(schedule.earnings[:6]) + f"（出典: {TRADERS_JP_INDEX_URL}）")
+        sec4.append("【決算予定】" + " / ".join(schedule.earnings[:6]) + f"（出典: {TRADERS_JP_INDEX_URL}）")
     else:
-        # Fallback: show TDnet as "disclosures"
-        if watch_lines:
-            sec4.append("【開示】" + " / ".join([w.split(":")[0] for w in watch_lines[:6]]))
-        else:
-            sec4.append("【決算/開示】N/A")
+        sec4.append("【決算予定】N/A")
 
     sec5: list[str] = []
     sec5.extend(watch_lines[:10] if watch_lines else ["N/A"])
@@ -1062,7 +1022,7 @@ def main() -> int:
     if top3 and bot3:
         summary_bullets.append(f"業種: +{top3[0].name} / -{bot3[0].name}")
     if watch_codes:
-        summary_bullets.append("直近開示: " + ", ".join(watch_codes[:6]))
+        summary_bullets.append("ウォッチ: " + ", ".join(watch_codes[:6]))
     summary_bullets = summary_bullets[:5]
 
     entry = {

@@ -10,15 +10,11 @@ from zoneinfo import ZoneInfo
 def load_market_intelligence(root: Path, now: datetime | None = None) -> dict[str, Any]:
     data_dir = root / "docs" / "data"
     briefs_store = _load_json(data_dir / "briefs.json", {"briefs": []})
-    tdnet_store = _load_json(data_dir / "tdnet.json", {"items": []})
     watch_store = _load_json(data_dir / "watchlist_snapshots.json", {"snapshots": []})
     fundamentals_store = _load_json(data_dir / "fundamentals_rankings.json", {"months": {}})
 
     briefs = _dict_list(briefs_store.get("briefs"))
     briefs.sort(key=lambda item: str(item.get("date") or ""), reverse=True)
-
-    disclosures = _dict_list(tdnet_store.get("items"))
-    disclosures.sort(key=lambda item: str(item.get("datetime_jst") or ""), reverse=True)
 
     snapshots = _dict_list(watch_store.get("snapshots"))
     snapshots.sort(key=lambda item: str(item.get("datetime_jst") or ""), reverse=True)
@@ -31,17 +27,14 @@ def load_market_intelligence(root: Path, now: datetime | None = None) -> dict[st
     health = _market_health(
         now,
         latest_brief=briefs[0] if briefs else None,
-        tdnet_store=tdnet_store,
-        disclosures=disclosures,
         latest_snapshot=latest_snapshot,
         latest_fundamentals=latest_fundamentals if isinstance(latest_fundamentals, dict) else {},
     )
 
     return {
-        "updated_at": _latest_timestamp(briefs_store, tdnet_store, watch_store, fundamentals_store),
+        "updated_at": _latest_timestamp(briefs_store, watch_store, fundamentals_store),
         "latest_brief": briefs[0] if briefs else None,
         "recent_briefs": briefs[:30],
-        "disclosures": disclosures[:200],
         "latest_watchlist": latest_snapshot,
         "fundamentals": {
             "month": latest_month,
@@ -80,23 +73,17 @@ def _market_health(
     now: datetime,
     *,
     latest_brief: dict[str, Any] | None,
-    tdnet_store: dict[str, Any],
-    disclosures: list[dict[str, Any]],
     latest_snapshot: dict[str, Any] | None,
     latest_fundamentals: dict[str, Any],
 ) -> dict[str, Any]:
     brief_date = str((latest_brief or {}).get("date") or "")
     brief_updated = f"{brief_date}T08:20:00+09:00" if brief_date else None
-    disclosure_updated = tdnet_store.get("last_checked_jst") or (
-        disclosures[0].get("datetime_jst") if disclosures else None
-    )
     sources = [
         _source_health("morning_brief", "市場朝刊", brief_updated, now, 30, 72),
-        _source_health("tdnet", "適時開示", disclosure_updated, now, 6, 24),
         _source_health("watchlist", "ウォッチリスト", (latest_snapshot or {}).get("datetime_jst"), now, 36, 72),
         _source_health("fundamentals", "ファンダメンタルズ", latest_fundamentals.get("generated_at"), now, 840, 1200),
     ]
-    critical = {"morning_brief", "tdnet", "watchlist"}
+    critical = {"morning_brief", "watchlist"}
     if any(item["key"] in critical and item["status"] in {"stale", "missing"} for item in sources):
         overall = "stale"
     elif any(item["status"] != "fresh" for item in sources):

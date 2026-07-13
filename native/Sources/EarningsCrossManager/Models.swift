@@ -27,13 +27,12 @@ struct MarketIntelligence: Codable {
     let updatedAt: String?
     let latestBrief: MarketBrief?
     let recentBriefs: [MarketBrief]
-    let disclosures: [DisclosureItem]
     let latestWatchlist: WatchlistSnapshot?
     let fundamentals: FundamentalsSummary?
     let health: MarketHealth?
     enum CodingKeys: String, CodingKey {
         case updatedAt = "updated_at"; case latestBrief = "latest_brief"; case recentBriefs = "recent_briefs"
-        case disclosures; case latestWatchlist = "latest_watchlist"; case fundamentals; case health
+        case latestWatchlist = "latest_watchlist"; case fundamentals; case health
     }
 }
 
@@ -59,16 +58,6 @@ struct MarketBrief: Codable, Identifiable {
     let summaryBullets, tickers, tags: [String]
     enum CodingKeys: String, CodingKey {
         case date, headline, tickers, tags; case summaryBullets = "summary_bullets"
-    }
-}
-
-struct DisclosureItem: Codable, Identifiable {
-    let id, code: String
-    let company, title, titleJa, datetimeJst, pdfURL: String?
-    let pointsJa, tags: [String]?
-    enum CodingKeys: String, CodingKey {
-        case id, code, company, title, tags; case titleJa = "title_ja"; case datetimeJst = "datetime_jst"
-        case pdfURL = "pdf_url"; case pointsJa = "points_ja"
     }
 }
 
@@ -193,11 +182,11 @@ struct NotificationStatus: Codable {
 }
 
 enum AppSection: String, CaseIterable, Identifiable {
-    case overview = "今日"; case morningBrief = "市況・朝刊"; case disclosures = "適時開示"; case watchlist = "ウォッチ"
+    case overview = "今日"; case morningBrief = "市況・朝刊"; case watchlist = "ウォッチ"
     case history = "検証"; case analysis = "銘柄調査"; case operations = "設定・接続"
     var id: String { rawValue }
     var icon: String { switch self {
-        case .overview: "sun.max"; case .morningBrief: "newspaper"; case .disclosures: "bell.badge"
+        case .overview: "sun.max"; case .morningBrief: "newspaper"
         case .watchlist: "list.bullet.rectangle"; case .history: "checkmark.seal"
         case .analysis: "magnifyingglass"; case .operations: "gearshape"
     } }

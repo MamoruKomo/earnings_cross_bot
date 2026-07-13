@@ -20,7 +20,6 @@ struct RootView: View {
                 switch model.selectedSection ?? .overview {
                 case .overview: TodayView()
                 case .morningBrief: MorningBriefView()
-                case .disclosures: DisclosuresView()
                 case .watchlist: WatchlistView()
                 case .history: ReviewView()
                 case .analysis: ResearchView()
@@ -63,39 +62,6 @@ struct MorningBriefView: View {
                 }
             }.padding(26)
         }
-    }
-}
-
-struct DisclosuresView: View {
-    @EnvironmentObject private var model: AppModel
-    @State private var search = ""
-    var rows: [DisclosureItem] {
-        let all = model.data?.marketIntelligence?.disclosures ?? []
-        return search.isEmpty ? all : all.filter { $0.code.contains(search) || ($0.titleJa ?? $0.title ?? "").localizedCaseInsensitiveContains(search) }
-    }
-    var body: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            HStack(alignment: .top) {
-                PageHeading(title: "適時開示", subtitle: "決算・業績修正・配当・自己株を一元確認")
-                Spacer()
-                Button { model.runDisclosures() } label: { Label("開示を更新", systemImage: "arrow.clockwise") }.disabled(model.isRunning)
-            }
-            RunBanner()
-            SourceHealthBanner(sourceKey: "tdnet")
-            Table(rows) {
-                TableColumn("時刻") { Text(shortDateTime($0.datetimeJst)).monospacedDigit() }.width(115)
-                TableColumn("コード", value: \.code).width(62)
-                TableColumn("開示") { item in
-                    VStack(alignment: .leading, spacing: 3) {
-                        Text(item.titleJa ?? item.title ?? "--").lineLimit(2)
-                        Text((item.tags ?? []).joined(separator: " / ")).font(.caption).foregroundStyle(.secondary)
-                    }
-                }.width(min: 320, ideal: 520)
-                TableColumn("PDF") { item in
-                    if let value = item.pdfURL, let url = URL(string: value) { Link(destination: url) { Image(systemName: "doc.text") }.help("PDFを開く") }
-                }.width(45)
-            }.searchable(text: $search, prompt: "コード・開示タイトル")
-        }.padding(26)
     }
 }
 
@@ -189,7 +155,6 @@ struct MarketOverviewPanel: View {
             }
             Divider()
             HStack(spacing: 20) {
-                MarketFact(icon: "bell.badge", title: "適時開示", value: "\(market?.disclosures.count ?? 0)件") { model.selectedSection = .disclosures }
                 MarketFact(icon: "list.bullet.rectangle", title: "ウォッチ", value: market?.latestWatchlist.map { shortDateTime($0.datetimeJst) } ?? "未取得") { model.selectedSection = .watchlist }
                 Spacer()
                 Button { model.runMarketBrief() } label: { Label("市況を更新", systemImage: "arrow.clockwise") }.disabled(model.isRunning)
@@ -328,7 +293,6 @@ struct SettingsView: View {
                     Text("自動スケジュール").font(.headline)
                     ScheduleRow(icon: "sun.max", title: "候補生成とSlack通知", schedule: "平日 8:30 / 失敗時 8:45・9:00", action: model.runMorning)
                     ScheduleRow(icon: "newspaper", title: "市場朝刊", schedule: "平日 8:20", action: model.runMarketBrief)
-                    ScheduleRow(icon: "bell.badge", title: "適時開示", schedule: "15分ごと", action: model.runDisclosures)
                     ScheduleRow(icon: "list.bullet.rectangle", title: "ウォッチ", schedule: "平日 9:30・16:00", action: model.runWatchlist)
                     ScheduleRow(icon: "checkmark.seal", title: "翌営業日の結果評価", schedule: "平日 15:45", action: model.runEvaluation)
                     ScheduleRow(icon: "calendar", title: "週次レビュー", schedule: "金曜 18:00", action: model.runWeeklyReview)

@@ -132,7 +132,7 @@
       "result": "neutral"
     }
   ],
-  "generated_at": "2026-07-13T13:39:29Z",
+  "generated_at": "2026-07-13T14:09:10Z",
   "latest_notification": {
     "candidate_count": 1,
     "created_at": "2026-07-13T02:42:40Z",
@@ -152,1808 +152,6 @@
     "weight_multipliers": {}
   },
   "market_intelligence": {
-    "disclosures": [
-      {
-        "code": "8818",
-        "company": "京阪神ビ",
-        "datetime_jst": "2026-07-13 18:30 JST",
-        "id": "tdnet:8818:140120260713592486",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592486.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592486.pdf",
-        "title": "主要株主の異動に関するお知らせ"
-      },
-      {
-        "code": "2462",
-        "company": "ライク",
-        "datetime_jst": "2026-07-13 18:30 JST",
-        "id": "tdnet:2462:140120260713592514",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592514.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592514.pdf",
-        "title": "長期経営計画（2027年５月期～2035年５月期）の策定に関するお知らせ"
-      },
-      {
-        "code": "3236",
-        "company": "プロパスト",
-        "datetime_jst": "2026-07-13 18:20 JST",
-        "id": "tdnet:3236:140120260713592499",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592499.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592499.pdf",
-        "title": "(訂正)「取締役（監査等委員であるものを除く。）および監査等委員である取締役候補者ならびに補欠の監査等委員である取締役候補者等の決定に関するお知らせ」"
-      },
-      {
-        "code": "7870",
-        "company": "福島印",
-        "datetime_jst": "2026-07-13 18:00 JST",
-        "id": "tdnet:7870:140120260708589885",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260708589885.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260708589885.pdf",
-        "title": "従業員持株会に対する譲渡制限付株式としての自己株式処分に関するお知らせ"
-      },
-      {
-        "code": "7523",
-        "company": "アールビバン",
-        "datetime_jst": "2026-07-13 17:45 JST",
-        "id": "tdnet:7523:140120260713592502",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592502.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592502.pdf",
-        "title": "（訂正）ＭＢＯの実施及び応募の推奨に関するお知らせ"
-      },
-      {
-        "code": "7042",
-        "company": "アクセスグループ",
-        "datetime_jst": "2026-07-13 17:40 JST",
-        "id": "tdnet:7042:140120260713592020",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592020.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592020.pdf",
-        "title": "株式会社学生情報センターとの業務提携に関するお知らせ"
-      },
-      {
-        "code": "7042",
-        "company": "アクセスグループ",
-        "datetime_jst": "2026-07-13 17:30 JST",
-        "id": "tdnet:7042:140120260713592043",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592043.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592043.pdf",
-        "title": "取締役等に対する譲渡制限付株式報酬としての新株式発行に関するお知らせ"
-      },
-      {
-        "code": "6557",
-        "company": "Ｇ－ＡＩＡＩ",
-        "datetime_jst": "2026-07-13 17:30 JST",
-        "id": "tdnet:6557:140120260713592438",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592438.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592438.pdf",
-        "title": "取締役（監査等委員である取締役及び社外取締役を除く。）に対する新株予約権 （税制適格ストック・オプション）の発行内容確定に関するお知らせ"
-      },
-      {
-        "code": "589A",
-        "company": "Ｇ－ネイス",
-        "datetime_jst": "2026-07-13 17:30 JST",
-        "id": "tdnet:589A:140120260713591760",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591760.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591760.pdf",
-        "title": "第三者割当増資の結果に関するお知らせ"
-      },
-      {
-        "code": "5103",
-        "company": "昭和ＨＤ",
-        "datetime_jst": "2026-07-13 17:10 JST",
-        "id": "tdnet:5103:140120260713592472",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592472.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592472.pdf",
-        "title": "当社が保有する子会社株式等についての処分禁止の仮処分命令の発令に関するお知らせ"
-      },
-      {
-        "code": "9942",
-        "company": "ジョイフル",
-        "datetime_jst": "2026-07-13 17:00 JST",
-        "id": "tdnet:9942:140120260713591899",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591899.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591899.pdf",
-        "title": "資金調達に関するお知らせ"
-      },
-      {
-        "code": "9942",
-        "company": "ジョイフル",
-        "datetime_jst": "2026-07-13 17:00 JST",
-        "id": "tdnet:9942:140120260713591897",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591897.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591897.pdf",
-        "title": "固定資産の取得に関するお知らせ"
-      },
-      {
-        "code": "9644",
-        "company": "タナベコンサルＧ",
-        "datetime_jst": "2026-07-13 17:00 JST",
-        "id": "tdnet:9644:140120260713592360",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592360.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592360.pdf",
-        "title": "自己株式の取得状況および取得終了に関するお知らせ"
-      },
-      {
-        "code": "7185",
-        "company": "ヒロセ通商",
-        "datetime_jst": "2026-07-13 17:00 JST",
-        "id": "tdnet:7185:140120260713591878",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591878.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591878.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式処分に関するお知らせ"
-      },
-      {
-        "code": "7063",
-        "company": "Ｇ－Ｂｉｒｄｍａｎ",
-        "datetime_jst": "2026-07-13 17:00 JST",
-        "id": "tdnet:7063:140120260713592375",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592375.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592375.pdf",
-        "title": "第９回新株予約権の一部譲渡承認に関するお知らせ"
-      },
-      {
-        "code": "551A",
-        "company": "Ｐ－ＩＺＵＭＩ",
-        "datetime_jst": "2026-07-13 17:00 JST",
-        "id": "tdnet:551A:140120260709590424",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590424.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260709590424.pdf",
-        "title": "株式会社富士設計の株式の取得（子会社化）に関するお知らせ"
-      },
-      {
-        "code": "509A",
-        "company": "Ｉ－Ｇライト・再エネ",
-        "datetime_jst": "2026-07-13 17:00 JST",
-        "id": "tdnet:509A:140120260713592419",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592419.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592419.pdf",
-        "title": "太陽光発電所月次発電電力量実績及び出力制御に関するお知らせ（2026年6月）"
-      },
-      {
-        "code": "4345",
-        "company": "シーティーエス",
-        "datetime_jst": "2026-07-13 17:00 JST",
-        "id": "tdnet:4345:140120260713592443",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592443.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592443.pdf",
-        "title": "自己株式の取得状況に関するお知らせ"
-      },
-      {
-        "code": "1793",
-        "company": "大本組",
-        "datetime_jst": "2026-07-13 17:00 JST",
-        "id": "tdnet:1793:140120260713591860",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591860.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591860.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式処分に関するお知らせ"
-      },
-      {
-        "code": "7085",
-        "company": "カーブスＨＤ",
-        "datetime_jst": "2026-07-13 16:45 JST",
-        "id": "tdnet:7085:140120260713592350",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592350.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592350.pdf",
-        "title": "自己株式立会外買付取引（ToSTNeT-３）による自己株式の買付けに関するお知らせ"
-      },
-      {
-        "code": "7815",
-        "company": "東京ボード工業",
-        "datetime_jst": "2026-07-13 16:40 JST",
-        "id": "tdnet:7815:140120260713592415",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592415.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592415.pdf",
-        "title": "（開示事項の経過）特別損失の計上に関するお知らせ"
-      },
-      {
-        "code": "7815",
-        "company": "東京ボード工業",
-        "datetime_jst": "2026-07-13 16:40 JST",
-        "id": "tdnet:7815:140120260713592414",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592414.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592414.pdf",
-        "title": "2027年２月期連結業績予想の修正に関するお知らせ"
-      },
-      {
-        "code": "7815",
-        "company": "東京ボード工業",
-        "datetime_jst": "2026-07-13 16:40 JST",
-        "id": "tdnet:7815:140120260713592359",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592359.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592359.pdf",
-        "title": "2027年2月期 第1四半期決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "9643",
-        "company": "中日興",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:9643:140120260703587739",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260703587739.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260703587739.pdf",
-        "title": "映画鑑賞料金改定のお知らせ"
-      },
-      {
-        "code": "7185",
-        "company": "ヒロセ通商",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:7185:140120260710591329",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591329.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591329.pdf",
-        "title": "2026年６月度 月次概況（速報）に関するお知らせ"
-      },
-      {
-        "code": "6342",
-        "company": "太平製作所",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:6342:140120260713592318",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592318.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592318.pdf",
-        "title": "取締役会の実効性評価結果の概要について"
-      },
-      {
-        "code": "5974",
-        "company": "中国工",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:5974:140120260709590546",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590546.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260709590546.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ"
-      },
-      {
-        "code": "515A",
-        "company": "ｉＳ高格付日本円社債",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:515A:140120260713592405",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592405.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592405.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "488A",
-        "company": "ｉＳ円高フォーカス",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:488A:140120260713592404",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592404.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592404.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "4465",
-        "company": "ニイタカ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:4465:140120260713592357",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592357.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592357.pdf",
-        "title": "自己株式立会外買付取引（ＴｏＳＴＮｅＴ－３）による自己株式の買付けに関するお知らせ"
-      },
-      {
-        "code": "2857",
-        "company": "ｉＳドイツ国債ヘジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2857:140120260713592403",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592403.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592403.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2856",
-        "company": "ｉＳ米国債三七ヘジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2856:140120260713592402",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592402.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592402.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2853",
-        "company": "ｉＳ気候外国債券ヘジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2853:140120260713592401",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592401.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592401.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2649",
-        "company": "ｉＳＧＮＭＡ債ヘジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2649:140120260713592400",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592400.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592400.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2622",
-        "company": "ｉＳ新興国債券へジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2622:140120260713592399",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592399.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592399.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2621",
-        "company": "ｉＳ米国債二十へジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2621:140120260713592398",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592398.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592398.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2620",
-        "company": "ｉＳ米国債一三",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2620:140120260713592397",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592397.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592397.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2561",
-        "company": "ｉＳ日本国債",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2561:140120260713592396",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592396.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592396.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "238A",
-        "company": "ｉＳ米国債二十五ヘジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:238A:140120260713592395",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592395.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592395.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "237A",
-        "company": "ｉＳ米国債二十五",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:237A:140120260713592394",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592394.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592394.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "236A",
-        "company": "ｉＳ日本国債七十",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:236A:140120260713592393",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592393.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592393.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2259",
-        "company": "ｉＳフランス国債ヘジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2259:140120260713592392",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592392.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592392.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2258",
-        "company": "ｉＳ＄ＨＹ社債",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2258:140120260713592391",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592391.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592391.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2257",
-        "company": "ｉＳ＄ＩＧ社債",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2257:140120260713592390",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592390.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592390.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2256",
-        "company": "ｉＳ米国総合債券",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2256:140120260713592389",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592389.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592389.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2255",
-        "company": "ｉＳ米国債二十",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2255:140120260713592388",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592388.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592388.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "2012",
-        "company": "ｉＳ米国債０３月",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:2012:140120260713592387",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592387.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592387.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "1656",
-        "company": "ｉＳ米国債七十",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:1656:140120260713592386",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592386.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592386.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "1497",
-        "company": "ｉＳ米＄ＨＹ社債ヘジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:1497:140120260713592385",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592385.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592385.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "1496",
-        "company": "ｉＳ米＄ＩＧ社債ヘジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:1496:140120260713592384",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592384.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592384.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "1482",
-        "company": "ｉＳ米国債七十円へジ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:1482:140120260713592383",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592383.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592383.pdf",
-        "title": "ＥＴＦの収益分配のお知らせ"
-      },
-      {
-        "code": "131A",
-        "company": "Ｐ－ＣＣＮグループ",
-        "datetime_jst": "2026-07-13 16:30 JST",
-        "id": "tdnet:131A:140120260713592366",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592366.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592366.pdf",
-        "title": "自己株式の取得及び自己株式立会外買付取引(ToSTNeT-3)による自己株式の買付けに関するお知らせ"
-      },
-      {
-        "code": "7604",
-        "company": "梅の花グループ",
-        "datetime_jst": "2026-07-13 16:10 JST",
-        "id": "tdnet:7604:140120260713592308",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592308.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592308.pdf",
-        "title": "（訂正・数値データ訂正）「2026年４月期 決算短信〔日本基準〕（連結）」"
-      },
-      {
-        "code": "9661",
-        "company": "歌舞伎",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:9661:140120260710591623",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591623.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591623.pdf",
-        "title": "2027年２月期 第１四半期決算短信〔日本基準〕(連結)"
-      },
-      {
-        "code": "9418",
-        "company": "Ｕ－ＮＥＸＴ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:9418:140120260713592051",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592051.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592051.pdf",
-        "title": "2026年８月期 第３四半期決算説明資料"
-      },
-      {
-        "code": "9418",
-        "company": "Ｕ－ＮＥＸＴ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:9418:140120260713592044",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592044.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592044.pdf",
-        "title": "2026年８月期 第３四半期決算短信［日本基準］（連結）"
-      },
-      {
-        "code": "9265",
-        "company": "ヤマシタヘルスケア",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:9265:140120260713592116",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592116.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592116.pdf",
-        "title": "通期連結業績予想と実績値の差異に関するお知らせ"
-      },
-      {
-        "code": "9265",
-        "company": "ヤマシタヘルスケア",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:9265:140120260710591713",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591713.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591713.pdf",
-        "title": "剰余金の配当（記念配当の実施）に関するお知らせ"
-      },
-      {
-        "code": "9265",
-        "company": "ヤマシタヘルスケア",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:9265:140120260710591706",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591706.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591706.pdf",
-        "title": "2026年５月期決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "7725",
-        "company": "インターアクション",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:7725:140120260710591739",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591739.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591739.pdf",
-        "title": "株式給付信託（BBT）の改定に関するお知らせ"
-      },
-      {
-        "code": "7725",
-        "company": "インターアクション",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:7725:140120260710591737",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591737.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591737.pdf",
-        "title": "2026年5月期決算説明会資料"
-      },
-      {
-        "code": "7725",
-        "company": "インターアクション",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:7725:140120260710591481",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591481.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591481.pdf",
-        "title": "2026年5月期決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "6174",
-        "company": "Ｐ－デンタス",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:6174:140120260710591587",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591587.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591587.pdf",
-        "title": "第三者割当による新株式発行に関するお知らせ"
-      },
-      {
-        "code": "5244",
-        "company": "Ｇ－ｊｉｇ．ｊｐ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:5244:140120260713592141",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592141.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592141.pdf",
-        "title": "当社取締役による当社株式取得に関するお知らせ"
-      },
-      {
-        "code": "4935",
-        "company": "リベルタ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:4935:140120260713592267",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592267.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592267.pdf",
-        "title": "第７回新株予約権（行使価額修正条項付）の大量行使に関するお知らせ"
-      },
-      {
-        "code": "3907",
-        "company": "シリコンスタジオ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:3907:140120260713592064",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592064.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592064.pdf",
-        "title": "2026年11月期 通期業績予想の修正及び配当予想の修正に関するお知らせ"
-      },
-      {
-        "code": "3907",
-        "company": "シリコンスタジオ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:3907:140120260710591110",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591110.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591110.pdf",
-        "title": "2026年11月期 第２四半期（中間期）決算短信〔日本基準〕（非連結）"
-      },
-      {
-        "code": "3276",
-        "company": "ＪＰＭＣ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:3276:140120260713591859",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591859.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591859.pdf",
-        "title": "2026年12月期 6月度月次情報"
-      },
-      {
-        "code": "3121",
-        "company": "マーチャント",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:3121:140120260713592050",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592050.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592050.pdf",
-        "title": "株式会社TIGEREYE との合弁会社設立のお知らせ ～ＡＩ映像制作の展開～"
-      },
-      {
-        "code": "3103",
-        "company": "ユニチカ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:3103:140120260713592333",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592333.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592333.pdf",
-        "title": "和解による訴訟の解決に関するお知らせ"
-      },
-      {
-        "code": "3080",
-        "company": "ジェーソン",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:3080:140120260713591984",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591984.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591984.pdf",
-        "title": "2027年２月期 第１四半期決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "2736",
-        "company": "フェスタリアＨＤ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:2736:140120260713592172",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592172.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592172.pdf",
-        "title": "【フェスタリアHD】国内事業月次売上速報（6月速報）"
-      },
-      {
-        "code": "2736",
-        "company": "フェスタリアＨＤ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:2736:140120260713592171",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592171.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592171.pdf",
-        "title": "株主優待制度の拡充に関するお知らせ"
-      },
-      {
-        "code": "2736",
-        "company": "フェスタリアＨＤ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:2736:140120260713592159",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592159.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592159.pdf",
-        "title": "過年度法人税等の計上に関するお知らせ"
-      },
-      {
-        "code": "2736",
-        "company": "フェスタリアＨＤ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:2736:140120260713592145",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592145.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592145.pdf",
-        "title": "2026年８月期 第3四半期決算短信〔日本基準〕(連結)"
-      },
-      {
-        "code": "2654",
-        "company": "アスモ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:2654:140120260713592237",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592237.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592237.pdf",
-        "title": "2026年6月度 月次実績のお知らせ"
-      },
-      {
-        "code": "2429",
-        "company": "ワールドＨＤ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:2429:140120260713592314",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592314.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592314.pdf",
-        "title": "ｎｍｓホールディングス株式会社（証券コード：2162）に対する公開買付けの結果及び子会社の異動（特定子会社の異動）に関するお知らせ"
-      },
-      {
-        "code": "2338",
-        "company": "クオンタムＳ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:2338:140120260713591944",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591944.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591944.pdf",
-        "title": "上場維持基準（純資産基準）への適合に向けた計画の進捗状況について（第１回）"
-      },
-      {
-        "code": "2338",
-        "company": "クオンタムＳ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:2338:140120260713591943",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591943.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591943.pdf",
-        "title": "営業外収益及び営業外費用の計上に関するお知らせ"
-      },
-      {
-        "code": "2338",
-        "company": "クオンタムＳ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:2338:140120260707589258",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260707589258.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260707589258.pdf",
-        "title": "2027年２月期第１四半期決算短信〔日本基準〕(連結)"
-      },
-      {
-        "code": "2162",
-        "company": "ｎｍｓ ＨＤ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:2162:140120260709590540",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590540.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260709590540.pdf",
-        "title": "株式会社ワールドホールディングスによる当社株式に対する公開買付けの結果及び親会社の異動に関するお知らせ"
-      },
-      {
-        "code": "1963",
-        "company": "日揮ＨＤ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:1963:140120260713592203",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592203.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592203.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ"
-      },
-      {
-        "code": "1963",
-        "company": "日揮ＨＤ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:1963:140120260713591995",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591995.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591995.pdf",
-        "title": "業績連動型株式報酬としての自己株式の処分に関するお知らせ"
-      },
-      {
-        "code": "1679",
-        "company": "ＮＹダウ",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:1679:140120260713592204",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592204.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592204.pdf",
-        "title": "2026年12月期 中間決算短信（2025年12月7日～2026年6月6日）"
-      },
-      {
-        "code": "1573",
-        "company": "Ｈ株インバース",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:1573:140120260713592217",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592217.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592217.pdf",
-        "title": "2026年12月期 中間決算短信（2025年12月5日～2026年6月4日）"
-      },
-      {
-        "code": "1572",
-        "company": "Ｈ株レバレッジダブル",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:1572:140120260713592214",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592214.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592214.pdf",
-        "title": "2026年12月期 中間決算短信（2025年12月5日～2026年6月4日）"
-      },
-      {
-        "code": "146A",
-        "company": "コロンビア・ワークス",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:146A:140120260713591812",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591812.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591812.pdf",
-        "title": "自己株式の取得状況及び取得終了に関するお知らせ"
-      },
-      {
-        "code": "1401",
-        "company": "Ｇ－エムビーエス",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:1401:140120260713591890",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591890.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591890.pdf",
-        "title": "投資有価証券評価損(特別損失)の計上に関するお知らせ"
-      },
-      {
-        "code": "1401",
-        "company": "Ｇ－エムビーエス",
-        "datetime_jst": "2026-07-13 16:00 JST",
-        "id": "tdnet:1401:140120260713591882",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591882.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591882.pdf",
-        "title": "2026年５月期決算短信〔日本基準〕(非連結)"
-      },
-      {
-        "code": "3282",
-        "company": "Ｒ－コンフォリア",
-        "datetime_jst": "2026-07-13 15:50 JST",
-        "id": "tdnet:3282:140120260710591670",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591670.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591670.pdf",
-        "title": "2026年7月13日付で公表したプレスリリースに関する補足説明資料"
-      },
-      {
-        "code": "3282",
-        "company": "Ｒ－コンフォリア",
-        "datetime_jst": "2026-07-13 15:50 JST",
-        "id": "tdnet:3282:140120260710591664",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591664.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591664.pdf",
-        "title": "新投資口発行及び投資口売出しに関するお知らせ"
-      },
-      {
-        "code": "3282",
-        "company": "Ｒ－コンフォリア",
-        "datetime_jst": "2026-07-13 15:50 JST",
-        "id": "tdnet:3282:140120260710591660",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591660.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591660.pdf",
-        "title": "国内不動産信託受益権の取得に係る取得価格の決定に関するお知らせ"
-      },
-      {
-        "code": "3282",
-        "company": "Ｒ－コンフォリア",
-        "datetime_jst": "2026-07-13 15:50 JST",
-        "id": "tdnet:3282:140120260710591516",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591516.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591516.pdf",
-        "title": "2027年1月期の運用状況の予想の修正及び2027年7月期の運用状況の予想に関するお知らせ"
-      },
-      {
-        "code": "3282",
-        "company": "Ｒ－コンフォリア",
-        "datetime_jst": "2026-07-13 15:50 JST",
-        "id": "tdnet:3282:140120260710591302",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591302.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591302.pdf",
-        "title": "国内不動産及び不動産信託受益権の取得に関するお知らせ（コンフォリア志茂 他4物件）"
-      },
-      {
-        "code": "2340",
-        "company": "極楽湯ＨＤ",
-        "datetime_jst": "2026-07-13 15:50 JST",
-        "id": "tdnet:2340:140120260713592316",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592316.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592316.pdf",
-        "title": "株式報酬型ストック・オプション（新株予約権）の発行内容確定に関するお知らせ"
-      },
-      {
-        "code": "6159",
-        "company": "ミクロン精密",
-        "datetime_jst": "2026-07-13 15:40 JST",
-        "id": "tdnet:6159:140120260710591406",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591406.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591406.pdf",
-        "title": "2026年８月期 第３四半期決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "3236",
-        "company": "プロパスト",
-        "datetime_jst": "2026-07-13 15:40 JST",
-        "id": "tdnet:3236:140120260713592332",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592332.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592332.pdf",
-        "title": "2026年５月期 決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "3236",
-        "company": "プロパスト",
-        "datetime_jst": "2026-07-13 15:40 JST",
-        "id": "tdnet:3236:140120260713592158",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592158.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592158.pdf",
-        "title": "取締役（監査等委員であるものを除く。）および監査等委員である取締役候補者ならびに補欠の監査等委員である取締役候補者等の決定に関するお知らせ"
-      },
-      {
-        "code": "3236",
-        "company": "プロパスト",
-        "datetime_jst": "2026-07-13 15:40 JST",
-        "id": "tdnet:3236:140120260713592038",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592038.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592038.pdf",
-        "title": "剰余金の配当(増配)に関するお知らせ"
-      },
-      {
-        "code": "5250",
-        "company": "ＧＭＯプライム",
-        "datetime_jst": "2026-07-13 15:31 JST",
-        "id": "tdnet:5250:140120260713591810",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591810.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591810.pdf",
-        "title": "2026年12月期 第２四半期（中間期）決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "5250",
-        "company": "ＧＭＯプライム",
-        "datetime_jst": "2026-07-13 15:31 JST",
-        "id": "tdnet:5250:140120260709590737",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590737.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260709590737.pdf",
-        "title": "2026年12月期 第２四半期決算説明資料"
-      },
-      {
-        "code": "9956",
-        "company": "バローＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9956:140120260713591827",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591827.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591827.pdf",
-        "title": "2027年3月期 6月度月次営業情報に関するお知らせ"
-      },
-      {
-        "code": "9564",
-        "company": "ＦＣＥ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9564:140120260713592270",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592270.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592270.pdf",
-        "title": "子会社設立に関するお知らせ"
-      },
-      {
-        "code": "9278",
-        "company": "ブックオフＧＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9278:140120260713592262",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592262.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592262.pdf",
-        "title": "FACT BOOK 2026"
-      },
-      {
-        "code": "9278",
-        "company": "ブックオフＧＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9278:140120260713592260",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592260.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592260.pdf",
-        "title": "2026年5月期決算説明資料"
-      },
-      {
-        "code": "9278",
-        "company": "ブックオフＧＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9278:140120260713592256",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592256.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592256.pdf",
-        "title": "2026年5月期決算補足資料"
-      },
-      {
-        "code": "9278",
-        "company": "ブックオフＧＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9278:140120260713592248",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592248.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592248.pdf",
-        "title": "2026年５月期 決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "9278",
-        "company": "ブックオフＧＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9278:140120260713592219",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592219.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592219.pdf",
-        "title": "2026年5月期業績予想値と実績値との差異及び剰余金の配当に関するお知らせ"
-      },
-      {
-        "code": "9226",
-        "company": "Ｐ－アイガー",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9226:140120260713591815",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591815.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591815.pdf",
-        "title": "2026年11月期 中間決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "9216",
-        "company": "ビーウィズ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9216:140120260713592010",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592010.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592010.pdf",
-        "title": "2026年5月期 決算短信〔日本基準〕(連結)"
-      },
-      {
-        "code": "9216",
-        "company": "ビーウィズ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9216:140120260711591748",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260711591748.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260711591748.pdf",
-        "title": "剰余金の配当に関するお知らせ"
-      },
-      {
-        "code": "9068",
-        "company": "丸全運",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:9068:140120260710591608",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591608.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591608.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ"
-      },
-      {
-        "code": "8954",
-        "company": "Ｒ－オリックスＦ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:8954:140120260713592005",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592005.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592005.pdf",
-        "title": "資金の借入及び借入金の期限前弁済に関するお知らせ"
-      },
-      {
-        "code": "8750",
-        "company": "第一ライフグループ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:8750:140120260710591742",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591742.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591742.pdf",
-        "title": "株式報酬制度に関する新株式発行についての払込完了に関するお知らせ"
-      },
-      {
-        "code": "8595",
-        "company": "ジャフコ グループ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:8595:140120260713591922",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591922.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591922.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ"
-      },
-      {
-        "code": "8360",
-        "company": "山梨中銀",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:8360:140120260709590595",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590595.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260709590595.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ"
-      },
-      {
-        "code": "8247",
-        "company": "大和",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:8247:140120260712591751",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260712591751.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260712591751.pdf",
-        "title": "2027年２月期 第１四半期決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "8181",
-        "company": "東天紅",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:8181:140120260710590904",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710590904.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710590904.pdf",
-        "title": "2027年２月期 第１四半期決算短信［日本基準］（非連結）"
-      },
-      {
-        "code": "8142",
-        "company": "トーホー",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:8142:140120260713592143",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592143.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592143.pdf",
-        "title": "2026年６月度 月次売上高のお知らせ"
-      },
-      {
-        "code": "8089",
-        "company": "ナイス",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:8089:140120260713592189",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592189.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592189.pdf",
-        "title": "株式会社山大（証券コード：7426）に対する公開買付けに係る公開買付期間延長のお知らせ"
-      },
-      {
-        "code": "7979",
-        "company": "松風",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7979:140120260713591979",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591979.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591979.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ"
-      },
-      {
-        "code": "7875",
-        "company": "竹田ｉＰ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7875:140120260713592194",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592194.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592194.pdf",
-        "title": "（開示事項の経過）大英エレクトロニクス株式会社の株式取得（子会社化）完了のお知らせ"
-      },
-      {
-        "code": "7513",
-        "company": "コジマ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7513:140120260709590388",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590388.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260709590388.pdf",
-        "title": "自己株式取得に係る事項の決定に関するお知らせ"
-      },
-      {
-        "code": "7513",
-        "company": "コジマ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7513:140120260709590384",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590384.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260709590384.pdf",
-        "title": "株主優待制度の変更（拡充）に関するお知らせ"
-      },
-      {
-        "code": "7513",
-        "company": "コジマ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7513:140120260702586918",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260702586918.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260702586918.pdf",
-        "title": "配当方針の変更及び期末配当予想の修正（増配）に関するお知らせ"
-      },
-      {
-        "code": "7513",
-        "company": "コジマ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7513:140120260624578385",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260624578385.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260624578385.pdf",
-        "title": "2026年８月期 第３四半期決算補足説明資料"
-      },
-      {
-        "code": "7513",
-        "company": "コジマ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7513:140120260623577479",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260623577479.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260623577479.pdf",
-        "title": "2026年８月期 第３四半期決算短信〔日本基準〕（非連結）"
-      },
-      {
-        "code": "7426",
-        "company": "山大",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7426:140120260713592273",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592273.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592273.pdf",
-        "title": "（変更）「ナイス株式会社による当社株式に対する公開買付けに関する賛同の意見表明及び応募推奨のお知らせ」の一部変更について"
-      },
-      {
-        "code": "7389",
-        "company": "あいちＦＧ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7389:140120260709590747",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590747.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260709590747.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ"
-      },
-      {
-        "code": "7370",
-        "company": "Ｇ－Ｅｎｊｉｎ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7370:140120260713591902",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591902.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591902.pdf",
-        "title": "2026年５月期 通期決算説明資料（事業計画及び成長可能性に関する事項）"
-      },
-      {
-        "code": "7370",
-        "company": "Ｇ－Ｅｎｊｉｎ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7370:140120260713591876",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591876.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591876.pdf",
-        "title": "2026年５月期 決算短信〔日本基準〕(連結)"
-      },
-      {
-        "code": "7370",
-        "company": "Ｇ－Ｅｎｊｉｎ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7370:140120260713591873",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591873.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591873.pdf",
-        "title": "定款の一部変更に関するお知らせ"
-      },
-      {
-        "code": "7085",
-        "company": "カーブスＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7085:140120260713592071",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592071.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592071.pdf",
-        "title": "自己株式の取得に関するお知らせ"
-      },
-      {
-        "code": "7085",
-        "company": "カーブスＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7085:140120260713592065",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592065.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592065.pdf",
-        "title": "2026年８月期第３四半期 決算補足説明資料"
-      },
-      {
-        "code": "7085",
-        "company": "カーブスＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:7085:140120260713592007",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592007.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592007.pdf",
-        "title": "2026年８月期第３四半期決算短信〔日本基準〕(連結)"
-      },
-      {
-        "code": "6902",
-        "company": "デンソー",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:6902:140120260713591906",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591906.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591906.pdf",
-        "title": "完全子会社（株式会社デンソークリエイト）との吸収合併及び完全子会社（デンソーテクノ株式会社）との吸収分割に関する決議のお知らせ"
-      },
-      {
-        "code": "6584",
-        "company": "三桜工",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:6584:140120260713591818",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591818.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591818.pdf",
-        "title": "ステークホルダーの皆さまから頂戴した質問とそれに対する回答(2026年３月期通期決算)"
-      },
-      {
-        "code": "6522",
-        "company": "Ｇ－アスタリスク",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:6522:140120260630584733",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260630584733.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260630584733.pdf",
-        "title": "第三者割当による第９及び第10回新株予約権の発行価額の払込完了に関するお知らせ"
-      },
-      {
-        "code": "6454",
-        "company": "マックス",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:6454:140120260710591674",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591674.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591674.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ"
-      },
-      {
-        "code": "6093",
-        "company": "ミトラＧ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:6093:140120260713591871",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591871.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591871.pdf",
-        "title": "2027年2月期第1四半期 決算説明における想定質問と回答"
-      },
-      {
-        "code": "6037",
-        "company": "楽待",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:6037:140120260713592322",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592322.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592322.pdf",
-        "title": "（訂正）「自己株式の取得状況に関するお知らせ（会社法第165 条第２項の規定による定款の定めに基づく自己株式の取得）」の一部訂正について"
-      },
-      {
-        "code": "5536",
-        "company": "Ｐ－京橋アートレジ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:5536:140120260626581685",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260626581685.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260626581685.pdf",
-        "title": "2026年11月期 中間決算短信〔日本基準〕(連結)"
-      },
-      {
-        "code": "547A",
-        "company": "ムニノバＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:547A:140120260713592279",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592279.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592279.pdf",
-        "title": "会社分割（簡易吸収分割） 及び無担保社債の名称変更・連帯保証 に関するお知らせ"
-      },
-      {
-        "code": "5393",
-        "company": "ニチアス",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:5393:140120260713591945",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591945.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591945.pdf",
-        "title": "取締役および執行役員に対する譲渡制限付株式としての自己株式処分に関するお知らせ"
-      },
-      {
-        "code": "520A",
-        "company": "Ｇ－ジェイファーマ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:520A:140120260713592132",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592132.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592132.pdf",
-        "title": "取締役及び執行役員に対する譲渡制限付株式報酬としての新株式発行に関するお知らせ"
-      },
-      {
-        "code": "5075",
-        "company": "アップコン",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:5075:140120260713591828",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591828.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591828.pdf",
-        "title": "株式の立会外分売に関するお知らせ"
-      },
-      {
-        "code": "4985",
-        "company": "アース製薬",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4985:140120260713591938",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591938.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591938.pdf",
-        "title": "当社連結子会社によるシンガポール現地法人（Marvel Clean PTE. LTD.、Marvel Home PTE. LTD.）の株式取得に関するお知らせ"
-      },
-      {
-        "code": "4985",
-        "company": "アース製薬",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4985:140120260713591933",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591933.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591933.pdf",
-        "title": "機構の変更及び人事異動に関するお知らせ"
-      },
-      {
-        "code": "4886",
-        "company": "あすか製薬ＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4886:140120260713592283",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592283.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592283.pdf",
-        "title": "従業員持株会向け譲渡制限付株式インセンティブとしての自己株式の処分に関するお知らせ"
-      },
-      {
-        "code": "4886",
-        "company": "あすか製薬ＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4886:140120260713592233",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592233.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592233.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式の処分に関するお知らせ"
-      },
-      {
-        "code": "4761",
-        "company": "さくらＫＣＳ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4761:140120260713591868",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591868.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591868.pdf",
-        "title": "譲渡制限付株式報酬としての自己株式の処分の払込完了に関するお知らせ"
-      },
-      {
-        "code": "463A",
-        "company": "インテリックスＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:463A:140120260713592130",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592130.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592130.pdf",
-        "title": "2026年5月期 決算説明資料"
-      },
-      {
-        "code": "463A",
-        "company": "インテリックスＨＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:463A:140120260710591644",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591644.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591644.pdf",
-        "title": "2026年５月期 決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "4599",
-        "company": "Ｇ－ステムリム",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4599:140120260713592291",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592291.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592291.pdf",
-        "title": "再生誘導医薬レダセムチド（HMGB1 断片ペプチド）の心筋症、陳旧性心筋梗塞、およびそれらに起因する慢性心不全を適応症とした特許登録（カナダ）のお知らせ"
-      },
-      {
-        "code": "4569",
-        "company": "杏林製薬",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4569:140120260710591465",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591465.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591465.pdf",
-        "title": "アレルギー性結膜炎治療剤「アレジオン眼瞼クリーム0.5%」の日本における共同販売促進契約締結のお知らせ"
-      },
-      {
-        "code": "4465",
-        "company": "ニイタカ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4465:140120260713592246",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592246.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592246.pdf",
-        "title": "自己株式取得に係る事項の決定に関するお知らせ （会社法第459条第１項の規定による定款の定めに基づく自己株式の取得）"
-      },
-      {
-        "code": "4465",
-        "company": "ニイタカ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4465:140120260713592242",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592242.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592242.pdf",
-        "title": "配当予想の修正（増配）に関するお知らせ"
-      },
-      {
-        "code": "4465",
-        "company": "ニイタカ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4465:140120260713591880",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591880.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591880.pdf",
-        "title": "2026年５月期 決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "4443",
-        "company": "Ｓａｎｓａｎ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4443:140120260713592192",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592192.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592192.pdf",
-        "title": "2026年5月期 通期 決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "4443",
-        "company": "Ｓａｎｓａｎ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4443:140120260713592190",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592190.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592190.pdf",
-        "title": "2026年5月期 通期 決算説明資料"
-      },
-      {
-        "code": "4443",
-        "company": "Ｓａｎｓａｎ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4443:140120260713592183",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592183.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592183.pdf",
-        "title": "特別利益及び特別損失の計上、繰延税金資産の減少並びに通期連結業績と前期実績との差異に関するお知らせ"
-      },
-      {
-        "code": "4443",
-        "company": "Ｓａｎｓａｎ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4443:140120260713592181",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592181.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592181.pdf",
-        "title": "当社グループ従業員等に対する株価条件付ストックオプション（新株予約権）の発行に関するお知らせ"
-      },
-      {
-        "code": "4374",
-        "company": "Ｇ－ロボペイ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4374:140120260713591982",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591982.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591982.pdf",
-        "title": "2026年6月度 月次売上高のお知らせ"
-      },
-      {
-        "code": "4199",
-        "company": "Ｇ－ワンプラ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4199:140120260713592178",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592178.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592178.pdf",
-        "title": "株式会社サンリオとの新作ゲームの共同開発に関する合意のお知らせ"
-      },
-      {
-        "code": "4199",
-        "company": "Ｇ－ワンプラ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4199:140120260713592176",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592176.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592176.pdf",
-        "title": "2026年8月期 第3四半期決算説明資料"
-      },
-      {
-        "code": "4199",
-        "company": "Ｇ－ワンプラ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4199:140120260708589620",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260708589620.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260708589620.pdf",
-        "title": "2026年8月期 第3四半期決算短信〔日本基準〕（非連結）"
-      },
-      {
-        "code": "4171",
-        "company": "グローバルＩ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4171:140120260713592085",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592085.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592085.pdf",
-        "title": "譲渡制限付株式の無償取得及び自己株式の消却に関するお知らせ"
-      },
-      {
-        "code": "4171",
-        "company": "グローバルＩ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4171:140120260713592082",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592082.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592082.pdf",
-        "title": "（開示事項の経過）臨時株主総会の不開催及び基準日の取消しに関するお知らせ"
-      },
-      {
-        "code": "4171",
-        "company": "グローバルＩ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4171:140120260713592081",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592081.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592081.pdf",
-        "title": "株式会社ユーザベースによる当社株式に係る株式売渡請求を行うことの決定、当該株式売渡請求に係る承認及び当社株式の上場廃止に関するお知らせ"
-      },
-      {
-        "code": "4076",
-        "company": "Ｇ－シイエヌエス",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4076:140120260708589873",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260708589873.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260708589873.pdf",
-        "title": "2026年５月期 決算説明資料"
-      },
-      {
-        "code": "4076",
-        "company": "Ｇ－シイエヌエス",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4076:140120260708589872",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260708589872.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260708589872.pdf",
-        "title": "剰余金の配当（特別配当）に関するお知らせ"
-      },
-      {
-        "code": "4076",
-        "company": "Ｇ－シイエヌエス",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:4076:140120260708589871",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260708589871.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260708589871.pdf",
-        "title": "2026年５月期 決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "3994",
-        "company": "マネーフォワード",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3994:140120260713592274",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592274.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592274.pdf",
-        "title": "2026年11月期第2四半期（中間期）決算短信〔日本基準〕(連結)"
-      },
-      {
-        "code": "3994",
-        "company": "マネーフォワード",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3994:140120260713592129",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592129.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592129.pdf",
-        "title": "2026年11月期 第2四半期決算説明資料"
-      },
-      {
-        "code": "3994",
-        "company": "マネーフォワード",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3994:140120260713592093",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592093.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592093.pdf",
-        "title": "通期業績予想の修正に関するお知らせ"
-      },
-      {
-        "code": "3987",
-        "company": "Ｇ－エコモット",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3987:140120260713592123",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592123.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592123.pdf",
-        "title": "株主優待制度の変更(拡充)に関するお知らせ"
-      },
-      {
-        "code": "3987",
-        "company": "Ｇ－エコモット",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3987:140120260713592098",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592098.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592098.pdf",
-        "title": "特別利益（負ののれん発生益）の計上及び繰延税金資産計上に関するお知らせ"
-      },
-      {
-        "code": "3987",
-        "company": "Ｇ－エコモット",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3987:140120260713592092",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592092.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592092.pdf",
-        "title": "2026年8月期第3四半期決算説明資料"
-      },
-      {
-        "code": "3987",
-        "company": "Ｇ－エコモット",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3987:140120260713592090",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592090.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592090.pdf",
-        "title": "2026年８月期 第３四半期決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "3900",
-        "company": "Ｇ－クラウドワークス",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3900:140120260708589551",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260708589551.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260708589551.pdf",
-        "title": "2026年９月期通期連結業績予想の修正（上方修正）に関するお知らせ"
-      },
-      {
-        "code": "3856",
-        "company": "Ａｂａｌａｎｃｅ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3856:140120260713592009",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592009.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592009.pdf",
-        "title": "臨時株主総会招集のための基準日設定に関するお知らせ"
-      },
-      {
-        "code": "3856",
-        "company": "Ａｂａｌａｎｃｅ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3856:140120260713592006",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592006.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592006.pdf",
-        "title": "自己株式の取得状況に関するお知らせ"
-      },
-      {
-        "code": "3834",
-        "company": "朝日ネット",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3834:140120260713591998",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591998.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591998.pdf",
-        "title": "2026年6月末「ASAHIネット」インターネット接続契約数の状況"
-      },
-      {
-        "code": "3501",
-        "company": "ＳＵＭＩＮＯＥ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3501:140120260713591991",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591991.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591991.pdf",
-        "title": "繰延税金資産の取り崩し及び2026年５月期通期業績予想の修正に関するお知らせ"
-      },
-      {
-        "code": "3457",
-        "company": "Ａｎｄ Ｄｏ ＨＬＤ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3457:140120260710591735",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591735.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591735.pdf",
-        "title": "業績予想の修正に関するお知らせ"
-      },
-      {
-        "code": "3349",
-        "company": "コスモス薬品",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3349:140120260625579747",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260625579747.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260625579747.pdf",
-        "title": "剰余金の配当に関するお知らせ"
-      },
-      {
-        "code": "3349",
-        "company": "コスモス薬品",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3349:140120260625579741",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260625579741.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260625579741.pdf",
-        "title": "2026年５月期 決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "3317",
-        "company": "フライングＧ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3317:140120260713592299",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592299.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592299.pdf",
-        "title": "資本コストや株価を意識した経営の実現に向けた対応について（アップデート）"
-      },
-      {
-        "code": "3168",
-        "company": "ＭＥＲＦ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3168:140120260623576629",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260623576629.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260623576629.pdf",
-        "title": "2026年８月期 第３四半期決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "3168",
-        "company": "ＭＥＲＦ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3168:140120260618574058",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260618574058.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260618574058.pdf",
-        "title": "2026年8月期通期業績予想の修正に関するお知らせ"
-      },
-      {
-        "code": "3160",
-        "company": "大光",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3160:140120260710591621",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591621.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591621.pdf",
-        "title": "月次売上高及び前年比についてのお知らせ"
-      },
-      {
-        "code": "3148",
-        "company": "クリエイトＳＤＨ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3148:140120260710590997",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710590997.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710590997.pdf",
-        "title": "剰余金の配当（増配）に関するお知らせ"
-      },
-      {
-        "code": "3148",
-        "company": "クリエイトＳＤＨ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3148:140120260709590801",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260709590801.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260709590801.pdf",
-        "title": "2026年5月期 決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "3087",
-        "company": "ドトル日レス",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3087:140120260629583875",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260629583875.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260629583875.pdf",
-        "title": "2027年2月期 第1四半期決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "3075",
-        "company": "銚子丸",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:3075:140120260710591552",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260710591552.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260710591552.pdf",
-        "title": "2027年２月期 第１四半期決算短信［日本基準］（非連結）"
-      },
-      {
-        "code": "278A",
-        "company": "Ｇ－テラドローン",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:278A:140120260713592327",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592327.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592327.pdf",
-        "title": "第19回新株予約権（行使価額修正条項付）の大量行使に関するお知らせ"
-      },
-      {
-        "code": "278A",
-        "company": "Ｇ－テラドローン",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:278A:140120260713592325",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592325.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592325.pdf",
-        "title": "第23回新株予約権（行使価額固定型）の行使に関するお知らせ"
-      },
-      {
-        "code": "2462",
-        "company": "ライク",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:2462:140120260713591900",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591900.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591900.pdf",
-        "title": "配当方針の変更に関するお知らせ"
-      },
-      {
-        "code": "2462",
-        "company": "ライク",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:2462:140120260713591892",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713591892.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713591892.pdf",
-        "title": "2026年５月期 決算短信〔日本基準〕（連結）"
-      },
-      {
-        "code": "2334",
-        "company": "Ｇ－イオレ",
-        "datetime_jst": "2026-07-13 15:30 JST",
-        "id": "tdnet:2334:140120260713592002",
-        "pdf_url": "https://www.release.tdnet.info/inbs/140120260713592002.pdf",
-        "source_url": "https://www.release.tdnet.info/inbs/140120260713592002.pdf",
-        "title": "募集新株予約権（有償ストック・オプション）の発行内容確定に関するお知らせ"
-      }
-    ],
     "fundamentals": {
       "generated_at": "2026-07-13T09:03:38+09:00",
       "metrics": {
@@ -12782,7 +10980,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 14.3,
+          "age_hours": 14.8,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -12790,15 +10988,7 @@
           "updated_at": "2026-07-13T08:20:00+09:00"
         },
         {
-          "age_hours": 0.0,
-          "key": "tdnet",
-          "label": "適時開示",
-          "message": "更新済み",
-          "status": "fresh",
-          "updated_at": "2026-07-13T22:39:28+09:00"
-        },
-        {
-          "age_hours": 1612.2,
+          "age_hours": 1612.7,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -12806,7 +10996,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 13.6,
+          "age_hours": 14.1,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -12820,21 +11010,23 @@
       "headline": "主要指標は方向感が交錯、先物とセクター強弱を確認",
       "summary_bullets": [
         "日経平均(2026-07-13): 67,242.73 (-1.92%)",
-        "先物: 67,662.5（現物比 +419.8）",
+        "先物: 67,682.5（現物比 +439.8）",
         "業種: +銀行業 / -電気機器",
-        "直近開示: 7504, 7085, 6342, 7815, 2255, 2012"
+        "ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983"
       ],
       "tags": [
-        "セクター",
-        "適時開示"
+        "ウォッチ",
+        "セクター"
       ],
       "tickers": [
-        "7504",
-        "7085",
-        "6342",
-        "7815",
-        "2255",
-        "2012"
+        "8035",
+        "6857",
+        "6920",
+        "7203",
+        "7267",
+        "9983",
+        "8306",
+        "8316"
       ],
       "url": ""
     },
@@ -12954,21 +11146,23 @@
         "headline": "主要指標は方向感が交錯、先物とセクター強弱を確認",
         "summary_bullets": [
           "日経平均(2026-07-13): 67,242.73 (-1.92%)",
-          "先物: 67,662.5（現物比 +419.8）",
+          "先物: 67,682.5（現物比 +439.8）",
           "業種: +銀行業 / -電気機器",
-          "直近開示: 7504, 7085, 6342, 7815, 2255, 2012"
+          "ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983"
         ],
         "tags": [
-          "セクター",
-          "適時開示"
+          "ウォッチ",
+          "セクター"
         ],
         "tickers": [
-          "7504",
-          "7085",
-          "6342",
-          "7815",
-          "2255",
-          "2012"
+          "8035",
+          "6857",
+          "6920",
+          "7203",
+          "7267",
+          "9983",
+          "8306",
+          "8316"
         ],
         "url": ""
       },
@@ -12976,120 +11170,65 @@
         "date": "2026-07-10",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-07-10): 68,807.80 (+1.57%)",
-          "注目: 6200, 8358, 4527, 4763, 9193, 8713"
+          "日経平均(2026-07-10): 68,807.80 (+1.57%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "6200",
-          "8358",
-          "4527",
-          "4763",
-          "9193",
-          "8713",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-07-10.html"
       },
       {
         "date": "2026-07-09",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-07-09): 68,276.53 (+2.18%)",
-          "注目: 4631, 5711, 2235, 213A, 1698, 1592"
+          "日経平均(2026-07-09): 68,276.53 (+2.18%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "4631",
-          "5711",
-          "2235",
-          "213A",
-          "1698",
-          "1592",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-07-09.html"
       },
       {
         "date": "2026-07-08",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-07-07): 68,256.96 (-2.12%)",
-          "注目: 8601, 402A, 574A, 5594, 5079, 3361"
+          "日経平均(2026-07-07): 68,256.96 (-2.12%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "8601",
-          "402A",
-          "574A",
-          "5594",
-          "5079",
-          "3361",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-07-08.html"
       },
       {
         "date": "2026-07-07",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-07-07): 69,443.00 (-0.42%)",
-          "注目: 4582, 6031, 336A, 1672, 3134, 298A"
+          "日経平均(2026-07-07): 69,443.00 (-0.42%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "4582",
-          "6031",
-          "336A",
-          "1672",
-          "3134",
-          "298A",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-07-07.html"
       },
       {
         "date": "2026-07-06",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-07-06): 69,860.37 (+0.17%)",
-          "注目: 3059, 9235, 4599, 7318, 4970, 298A"
+          "日経平均(2026-07-06): 69,860.37 (+0.17%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "3059",
-          "9235",
-          "4599",
-          "7318",
-          "4970",
-          "298A",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-07-06.html"
       },
       {
@@ -13097,24 +11236,13 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-07-03): 68,148.03 (-0.85%)",
-          "先物: 68,717.5（現物比 +569.5）",
-          "注目: 3289, 4216, 9684, 8975, 6699, 556A"
+          "先物: 68,717.5（現物比 +569.5）"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "3289",
-          "4216",
-          "9684",
-          "8975",
-          "6699",
-          "556A",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-07-03.html"
       },
       {
@@ -13122,24 +11250,13 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-07-02): 69,329.40 (-1.63%)",
-          "先物: 69,692.5（現物比 +363.1）",
-          "注目: 7744, 7128, 5563, 4689, 5253, 3569"
+          "先物: 69,692.5（現物比 +363.1）"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "7744",
-          "7128",
-          "5563",
-          "4689",
-          "5253",
-          "3569",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-07-02.html"
       },
       {
@@ -13147,24 +11264,13 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-07-01): 70,831.30 (+1.10%)",
-          "先物: 70,677.5（現物比 -153.8）",
-          "注目: 6800, 7868, 2749, 6479, 3571, 6788"
+          "先物: 70,677.5（現物比 -153.8）"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "6800",
-          "7868",
-          "2749",
-          "6479",
-          "3571",
-          "6788",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-07-01.html"
       },
       {
@@ -13172,144 +11278,78 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-06-30): 69,532.78 (+0.09%)",
-          "先物: 70,167.5（現物比 +634.7）",
-          "注目: 6800, 7868, 2749, 6479, 3571, 6788"
+          "先物: 70,167.5（現物比 +634.7）"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "6800",
-          "7868",
-          "2749",
-          "6479",
-          "3571",
-          "6788",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-30.html"
       },
       {
         "date": "2026-06-29",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-29): 68,568.69 (-1.14%)",
-          "注目: 9989, 6405, 6928, 7886, 7527, 6857"
+          "日経平均(2026-06-29): 68,568.69 (-1.14%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "9989",
-          "6405",
-          "6928",
-          "7886",
-          "7527",
-          "6857",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-29.html"
       },
       {
         "date": "2026-06-26",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-26): 70,538.62 (-2.53%)",
-          "注目: 2908, 9257, 9639, 9303, 1717, 485A"
+          "日経平均(2026-06-26): 70,538.62 (-2.53%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "2908",
-          "9257",
-          "9639",
-          "9303",
-          "1717",
-          "485A",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-26.html"
       },
       {
         "date": "2026-06-25",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-25): 71,139.44 (+2.84%)",
-          "注目: 9629, 2469, 4167, 8255, 6157, 4502"
+          "日経平均(2026-06-25): 71,139.44 (+2.84%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "9629",
-          "2469",
-          "4167",
-          "8255",
-          "6157",
-          "4502",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-25.html"
       },
       {
         "date": "2026-06-24",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-23): 69,788.38 (-3.55%)",
-          "注目: 8804, 8070, 3656, 3823, 8076, 4005"
+          "日経平均(2026-06-23): 69,788.38 (-3.55%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "8804",
-          "8070",
-          "3656",
-          "3823",
-          "8076",
-          "4005",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-24.html"
       },
       {
         "date": "2026-06-23",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-23): 72,317.48 (-0.05%)",
-          "注目: 5938, 9368, 1485, 2042, 2041, 2040"
+          "日経平均(2026-06-23): 72,317.48 (-0.05%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "5938",
-          "9368",
-          "1485",
-          "2042",
-          "2041",
-          "2040",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-23.html"
       },
       {
@@ -13317,144 +11357,78 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-06-22): 72,407.01 (+1.62%)",
-          "先物: 72,922.5（現物比 +515.5）",
-          "注目: 6407, 7475, 6724, 6562, 6463, 5989"
+          "先物: 72,922.5（現物比 +515.5）"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "6407",
-          "7475",
-          "6724",
-          "6562",
-          "6463",
-          "5989",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-22.html"
       },
       {
         "date": "2026-06-19",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-19): 71,246.93 (+0.27%)",
-          "注目: 2914, 9021, 157A, 9274, 547A, 2181"
+          "日経平均(2026-06-19): 71,246.93 (+0.27%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "2914",
-          "9021",
-          "157A",
-          "9274",
-          "547A",
-          "2181",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-19.html"
       },
       {
         "date": "2026-06-18",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-18): 71,127.18 (+1.75%)",
-          "注目: 5867, 4568, 6349, 195A, 7463, 3803"
+          "日経平均(2026-06-18): 71,127.18 (+1.75%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "5867",
-          "4568",
-          "6349",
-          "195A",
-          "7463",
-          "3803",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-18.html"
       },
       {
         "date": "2026-06-17",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-17): 69,763.87 (+0.52%)",
-          "注目: 4552, 336A, 1401, 4021, 3909, 3271"
+          "日経平均(2026-06-17): 69,763.87 (+0.52%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "4552",
-          "336A",
-          "1401",
-          "4021",
-          "3909",
-          "3271",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-17.html"
       },
       {
         "date": "2026-06-16",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-16): 69,164.02 (-0.22%)",
-          "注目: 3486, 7719, 7482, 368A, 3309, 7050"
+          "日経平均(2026-06-16): 69,164.02 (-0.22%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "3486",
-          "7719",
-          "7482",
-          "368A",
-          "3309",
-          "7050",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-16.html"
       },
       {
         "date": "2026-06-15",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-15): 69,323.08 (+5.00%)",
-          "注目: 4088, 4102, 4028, 3447, 3402, 3371"
+          "日経平均(2026-06-15): 69,323.08 (+5.00%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "4088",
-          "4102",
-          "4028",
-          "3447",
-          "3402",
-          "3371",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-15.html"
       },
       {
@@ -13462,72 +11436,39 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-06-12): 66,076.26 (+2.89%)",
-          "先物: 66,112.5（現物比 +36.2）",
-          "注目: 3070, 567A, 558A, 336A, 1672, 3092"
+          "先物: 66,112.5（現物比 +36.2）"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "3070",
-          "567A",
-          "558A",
-          "336A",
-          "1672",
-          "3092",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-12.html"
       },
       {
         "date": "2026-06-11",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-11): 64,118.38 (-0.09%)",
-          "注目: 6013, 4503, 4308, 4275, 4231, 3611"
+          "日経平均(2026-06-11): 64,118.38 (-0.09%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "6013",
-          "4503",
-          "4308",
-          "4275",
-          "4231",
-          "3611",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-11.html"
       },
       {
         "date": "2026-06-10",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-10): 65,057.18 (-0.55%)",
-          "注目: 5449, 3679, 4765, 6814, 4838, 7723"
+          "日経平均(2026-06-10): 65,057.18 (-0.55%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "5449",
-          "3679",
-          "4765",
-          "6814",
-          "4838",
-          "7723",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-10.html"
       },
       {
@@ -13535,48 +11476,26 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-06-09): 64,554.33 (+0.83%)",
-          "先物: 64,887.5（現物比 +333.2）",
-          "注目: 4875, 475A, 2523, 9616, 242A, 383A"
+          "先物: 64,887.5（現物比 +333.2）"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "4875",
-          "475A",
-          "2523",
-          "9616",
-          "242A",
-          "383A",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-09.html"
       },
       {
         "date": "2026-06-08",
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
-          "日経平均(2026-06-08): 63,839.40 (-4.13%)",
-          "注目: 7357, 5817, 336A, 290A, 1672, 3153"
+          "日経平均(2026-06-08): 63,839.40 (-4.13%)"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "7357",
-          "5817",
-          "336A",
-          "290A",
-          "1672",
-          "3153",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-08.html"
       },
       {
@@ -13584,24 +11503,13 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-06-05): 65,984.82 (-2.20%)",
-          "米株: S&P +0.41% / Nasdaq -0.09%",
-          "注目: 7760, 4578, 1801, 1491, 1447, 1432"
+          "米株: S&P +0.41% / Nasdaq -0.09%"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "7760",
-          "4578",
-          "1801",
-          "1491",
-          "1447",
-          "1432",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-05.html"
       },
       {
@@ -13609,24 +11517,13 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-06-04): 67,135.91 (-1.85%)",
-          "米株: S&P -0.74% / Nasdaq -0.89%",
-          "注目: 8359, 6961, 4344, 2338, 459A, 3199"
+          "米株: S&P -0.74% / Nasdaq -0.89%"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "8359",
-          "6961",
-          "4344",
-          "2338",
-          "459A",
-          "3199",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-04.html"
       },
       {
@@ -13634,24 +11531,13 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-06-03): 68,154.05 (+2.13%)",
-          "米株: S&P +0.13% / Nasdaq +0.03%",
-          "注目: 4047, 3694, 3676, 6054, 352A, 3494"
+          "米株: S&P +0.13% / Nasdaq +0.03%"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "4047",
-          "3694",
-          "3676",
-          "6054",
-          "352A",
-          "3494",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-03.html"
       },
       {
@@ -13659,28 +11545,17 @@
         "headline": "日経・先物ギャップとセクター回転を確認（米株/ドル円/金利/原油を点検）",
         "summary_bullets": [
           "日経平均(2026-06-02): 66,351.50 (-0.87%)",
-          "米株: S&P +0.26% / Nasdaq +0.42%",
-          "注目: 3139, 1827, 4506, 1964, 3454, 3177"
+          "米株: S&P +0.26% / Nasdaq +0.42%"
         ],
         "tags": [
           "セクター",
-          "半導体",
-          "適時開示"
+          "半導体"
         ],
-        "tickers": [
-          "3139",
-          "1827",
-          "4506",
-          "1964",
-          "3454",
-          "3177",
-          "9983",
-          "8035"
-        ],
+        "tickers": [],
         "url": "archive/2026-06-02.html"
       }
     ],
-    "updated_at": "2026-07-13T22:39:28+09:00"
+    "updated_at": "2026-07-13T09:03:38+09:00"
   },
   "no_trade_days": [],
   "pending_recommendations": [

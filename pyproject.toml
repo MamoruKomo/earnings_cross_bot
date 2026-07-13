@@ -1,7 +1,7 @@
 [project]
 name = "earnings-cross-manager"
 version = "0.2.0"
-description = "Unified Japanese market operations manager for earnings, briefs, disclosures, and watchlists."
+description = "Unified Japanese market operations manager for earnings, briefs, and watchlists."
 requires-python = ">=3.11"
 dependencies = [
   "requests>=2.31.0",

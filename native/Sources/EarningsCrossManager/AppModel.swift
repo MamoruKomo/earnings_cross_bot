@@ -38,7 +38,6 @@ import SwiftUI
     func runLearning() { runGitHubJob(job: "learn", label: "自己学習") }
     func runSlackTest() { runGitHubJob(job: "slack-test", label: "Slack接続テスト") }
     func runMarketBrief() { runGitHubJob(job: "market-brief", label: "朝刊生成") }
-    func runDisclosures() { runGitHubJob(job: "tdnet", label: "適時開示更新") }
     func runWatchlist() { runGitHubJob(job: "watchlist-close", label: "ウォッチ更新") }
     func syncLatest() {
         guard !isRunning else { return }
