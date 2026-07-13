@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja" data-watchlist-config="../data/watchlist.json" data-watchlist-snapshots="../data/watchlist_snapshots.json">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>寄り前ブリーフ - ウォッチリスト</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <div class="brand">
+            <div class="brand-title"><a href="../index.html">寄り前ブリーフ</a></div>
+            <div class="brand-sub">ウォッチ（スナップ）</div>
+          </div>
+
+          <form class="sidebar-search" action="../search.html" method="get">
+            <input type="search" name="q" placeholder="材料 / コード / タグ（例: 9983, 円安, 決算）" />
+          </form>
+
+          <nav class="sidebar-nav" aria-label="navigation">
+            <div class="nav-group">
+              <div class="nav-label">ダッシュボード</div>
+              <a class="nav-link" href="../index.html">ホーム</a>
+              <a class="nav-link" href="../watchlist/index.html" aria-current="page">ウォッチ</a>
+              <a class="nav-link" href="../fundamentals/index.html">探す（ファンダ）</a>
+              <a class="nav-link" href="../tdnet/index.html">適時開示</a>
+            </div>
+            <div class="nav-group">
+              <div class="nav-label">ログ</div>
+              <a class="nav-link" href="../archive/index.html">ブリーフ</a>
+              <a class="nav-link" href="../search.html">検索</a>
+              <a class="nav-link" href="../review/index.html">振り返り</a>
+            </div>
+            <div class="nav-group">
+              <div class="nav-label">設定</div>
+              <a class="nav-link" href="../watchlist/manage.html">ウォッチ編集</a>
+            </div>
+          </nav>
+
+          <div class="sidebar-foot">寄り（09:30）/ 引け後（16:00）の記録を蓄積。</div>
+        </div>
+      </aside>
+
+      <div class="app-main">
+        <div class="app-main-inner">
+          <header class="page-head">
+            <div>
+              <h1 class="page-title">ウォッチリスト</h1>
+              <div class="page-meta">寄り（09:30）/ 引け後（16:00）のスナップショットを蓄積し、銘柄と業界を横断して見ます。</div>
+            </div>
+            <div class="page-actions">
+              <a class="go" href="index.html" aria-current="page">スナップ</a>
+              <a class="go" href="fundamentals.html">ファンダ</a>
+              <a class="go" href="manage.html">編集</a>
+            </div>
+          </header>
+
+          <main class="page">
+            <section id="snap">
+              <h2>スナップショット</h2>
+              <div class="controls">
+                <label class="toggle">
+                  日付
+                  <select class="select js-date"></select>
+                </label>
+                <label class="toggle">
+                  対象
+                  <select class="select js-scope">
+                    <option value="auto">自動</option>
+                    <option value="my">マイ</option>
+                    <option value="shared">共有</option>
+                  </select>
+                </label>
+                <label class="toggle">
+                  表示
+                  <select class="select js-view">
+                    <option value="latest">最新</option>
+                    <option value="open">寄り</option>
+                    <option value="close">引け</option>
+                    <option value="both">寄り+引け</option>
+                  </select>
+                </label>
+                <input class="js-search" type="search" placeholder="コード/銘柄で絞り込み（例: 8035, トヨタ）" />
+                <label class="toggle">
+                  <input class="js-toggle-en" type="checkbox" />
+                  英名も表示
+                </label>
+                <div class="muted js-status"></div>
+              </div>
+              <div class="muted js-scope-hint" style="margin-top:6px"></div>
+              <div class="muted js-error"></div>
+              <details class="watch-alerts">
+                <summary>異常検知 <span class="muted js-alerts-count">—</span></summary>
+                <div class="js-alerts" style="margin-top:10px"></div>
+              </details>
+              <div class="js-watchlist" style="margin-top:12px"></div>
+            </section>
+
+            <section id="howto">
+              <details class="watch-howto">
+                <summary>使い方</summary>
+                <ul>
+                  <li>
+                    ブラウザ保存の「マイウォッチ」を作る: <a href="manage.html">編集</a>
+                  </li>
+                  <li>
+                    ウォッチ銘柄は <code>docs/data/watchlist.json</code> を編集して追加できます（業界ごとにグループ化）。
+                  </li>
+                  <li>ファンダ表示: <a href="fundamentals.html">ファンダ</a></li>
+                  <li>スナップショットは GitHub Actions が自動で <code>docs/data/watchlist_snapshots.json</code> に蓄積します。</li>
+                </ul>
+              </details>
+            </section>
+          </main>
+
+          <footer>自動生成</footer>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/watchlist.js"></script>
+  </body>
+</html>
