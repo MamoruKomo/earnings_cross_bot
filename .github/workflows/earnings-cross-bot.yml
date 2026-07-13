@@ -82,6 +82,8 @@ jobs:
 
       - name: Run unit tests
         if: github.event_name == 'workflow_dispatch'
+        env:
+          GITHUB_OUTPUT: ""
         run: |
           python3 -m unittest discover -s tests -q
           cd market_intelligence
