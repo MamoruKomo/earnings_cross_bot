@@ -87,6 +87,15 @@ def init_db(conn: sqlite3.Connection) -> None:
             created_at TEXT NOT NULL
         );
 
+        CREATE TABLE IF NOT EXISTS notification_runs (
+            notification_date TEXT NOT NULL,
+            notification_type TEXT NOT NULL,
+            status TEXT NOT NULL,
+            detail_json TEXT NOT NULL,
+            created_at TEXT NOT NULL,
+            PRIMARY KEY(notification_date, notification_type)
+        );
+
         CREATE TABLE IF NOT EXISTS recommendations (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             recommendation_date TEXT NOT NULL,
@@ -280,6 +289,28 @@ def insert_learning_run(conn: sqlite3.Connection, profile: dict[str, Any]) -> No
     conn.execute(
         "INSERT INTO learning_runs(trained_at, sample_count, status, profile_json, created_at) VALUES (?, ?, ?, ?, ?)",
         (profile["trained_at"], profile["sample_count"], profile["status"], to_json(profile), now_iso()),
+    )
+
+
+def notification_sent(conn: sqlite3.Connection, notification_date: str, notification_type: str) -> bool:
+    row = conn.execute(
+        "SELECT status FROM notification_runs WHERE notification_date=? AND notification_type=?",
+        (notification_date, notification_type),
+    ).fetchone()
+    return bool(row and row["status"] == "sent")
+
+
+def record_notification(
+    conn: sqlite3.Connection, notification_date: str, notification_type: str, status: str, detail: dict[str, Any]
+) -> None:
+    conn.execute(
+        """
+        INSERT INTO notification_runs(notification_date, notification_type, status, detail_json, created_at)
+        VALUES (?, ?, ?, ?, ?)
+        ON CONFLICT(notification_date, notification_type) DO UPDATE SET
+            status=excluded.status, detail_json=excluded.detail_json, created_at=excluded.created_at
+        """,
+        (notification_date, notification_type, status, to_json(detail), now_iso()),
     )
 
 

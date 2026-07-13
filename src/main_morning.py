@@ -22,6 +22,7 @@ from src.trading_calendar import is_trading_day, parse_date, today_jst
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", help="Target date in YYYY-MM-DD")
+    parser.add_argument("--force-post", action="store_true", help="Post even when this date was already notified")
     args = parser.parse_args()
     cfg = load_config()
     cfg.rules["scoring_weights"] = apply_learned_weights(cfg.rules, cfg.learning_profile_path)
@@ -29,6 +30,11 @@ def main() -> None:
 
     conn = db.connect(cfg.db_path)
     db.init_db(conn)
+    target_date_text = target_date.isoformat()
+
+    if not args.force_post and db.notification_sent(conn, target_date_text, "morning"):
+        print(f"[morning] already notified for {target_date_text}. skipped duplicate post.")
+        return
 
     if not is_trading_day(target_date):
         print(f"[morning] {target_date.isoformat()} is not a JP trading day. skipped.")
@@ -75,6 +81,14 @@ def main() -> None:
 
     selected = select_recommendations(scored, cfg.rules)
     payload = generate_recommendation_payload(conn, target_date, selected, scored, cfg.rules)
+    if not events:
+        payload = {
+            "date": target_date_text,
+            "market_note": "決算予定データを取得できなかったため、今日は判定を保留します。",
+            "recommendations": [],
+            "no_trade_reason": "対象銘柄が0件でした。J-Quants認証または手動決算カレンダーを確認してください。",
+            "data_status": "unavailable",
+        }
 
     candidate_by_code = {item["code"]: item for item in selected}
     for rec in payload.get("recommendations", []):
@@ -92,7 +106,11 @@ def main() -> None:
     conn.commit()
 
     message = format_recommendation_message(payload)
-    post_message(message)
+    sent = post_message(message)
+    db.record_notification(conn, target_date_text, "morning", "sent" if sent else "failed", {
+        "candidate_count": len(payload.get("recommendations", [])), "data_status": payload.get("data_status", "ok")
+    })
+    conn.commit()
     print(f"[morning] scored={len(scored)} posted_candidates={len(payload.get('recommendations', []))}")
 
 

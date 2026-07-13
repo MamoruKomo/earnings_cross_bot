@@ -4,6 +4,9 @@ on:
   schedule:
     # 08:30 JST on Monday-Friday (23:30 UTC on Sunday-Thursday)
     - cron: "30 23 * * 0-4"
+    # Fallback retries at 08:45 and 09:00 JST. Successful dates are deduplicated in SQLite.
+    - cron: "45 23 * * 0-4"
+    - cron: "0 0 * * 1-5"
     # 15:45 JST on Monday-Friday
     - cron: "45 6 * * 1-5"
     # 18:00 JST on Friday
@@ -60,7 +63,7 @@ jobs:
           git push || true
 
   morning:
-    if: github.event_name == 'workflow_dispatch' && inputs.job == 'morning' || github.event.schedule == '30 23 * * 0-4'
+    if: github.event_name == 'workflow_dispatch' && inputs.job == 'morning' || github.event.schedule == '30 23 * * 0-4' || github.event.schedule == '45 23 * * 0-4' || github.event.schedule == '0 0 * * 1-5'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
