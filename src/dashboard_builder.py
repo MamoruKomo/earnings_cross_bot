@@ -34,6 +34,7 @@ def build_dashboard_data(conn: sqlite3.Connection) -> dict[str, Any]:
         "pending_recommendations": build_pending(pending),
         "stock_snapshots": build_stock_snapshots(conn, recommendations),
         "learning": fetch_learning_status(conn),
+        "latest_notification": fetch_latest_notification(conn),
         "no_trade_days": sorted(no_trade_days),
     }
 
@@ -255,6 +256,11 @@ def build_pending(rows: list[dict[str, Any]], limit: int = 20) -> list[dict[str,
             "name": row["name"],
             "score": row["score"],
             "action": row["action"],
+            "confidence": row.get("confidence"),
+            "announcement_time": row.get("announcement_time"),
+            "thesis": row.get("thesis"),
+            "risk_factors": row.get("risk_factors") or [],
+            "missing_data": row.get("missing_data") or [],
         }
         for row in ordered[:limit]
     ]
@@ -289,6 +295,27 @@ def build_stock_snapshots(conn: sqlite3.Connection, recommendations: list[dict[s
 def fetch_learning_status(conn: sqlite3.Connection) -> dict[str, Any]:
     row = conn.execute("SELECT profile_json FROM learning_runs ORDER BY id DESC LIMIT 1").fetchone()
     return parse_json_object(row["profile_json"]) if row else {"status": "not_run", "sample_count": 0, "minimum_samples": 30, "message": "未実行"}
+
+
+def fetch_latest_notification(conn: sqlite3.Connection) -> dict[str, Any] | None:
+    row = conn.execute(
+        """
+        SELECT notification_date, notification_type, status, detail_json, created_at
+        FROM notification_runs
+        ORDER BY created_at DESC LIMIT 1
+        """
+    ).fetchone()
+    if not row:
+        return None
+    detail = parse_json_object(row["detail_json"]) or {}
+    return {
+        "date": row["notification_date"],
+        "type": row["notification_type"],
+        "status": row["status"],
+        "created_at": row["created_at"],
+        "candidate_count": detail.get("candidate_count"),
+        "data_status": detail.get("data_status"),
+    }
 
 
 def write_dashboard_files(data: dict[str, Any], dashboard_dir: Path) -> None:

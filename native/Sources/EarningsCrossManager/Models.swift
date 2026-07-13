@@ -11,12 +11,13 @@ struct DashboardData: Codable {
     let pendingRecommendations: [PendingRecommendation]
     let stockSnapshots: [StockSnapshot]
     let learning: LearningStatus
+    let latestNotification: NotificationStatus?
     enum CodingKeys: String, CodingKey {
         case generatedAt = "generated_at"; case summary
         case resultDistribution = "result_distribution"; case weekly
         case equityCurve = "equity_curve"; case byCode = "by_code"
         case recentOutcomes = "recent_outcomes"; case pendingRecommendations = "pending_recommendations"
-        case stockSnapshots = "stock_snapshots"; case learning
+        case stockSnapshots = "stock_snapshots"; case learning; case latestNotification = "latest_notification"
     }
 }
 
@@ -80,8 +81,12 @@ struct Outcome: Codable, Identifiable {
 struct PendingRecommendation: Codable, Identifiable {
     var id: String { "\(eventDate)-\(code)" }
     let recommendationDate, eventDate, code, name: String; let score: Int; let action: String
+    let confidence, announcementTime, thesis: String?
+    let riskFactors, missingData: [String]
     enum CodingKeys: String, CodingKey {
-        case code, name, score, action; case recommendationDate = "recommendation_date"; case eventDate = "event_date"
+        case code, name, score, action, confidence, thesis
+        case recommendationDate = "recommendation_date"; case eventDate = "event_date"
+        case announcementTime = "announcement_time"; case riskFactors = "risk_factors"; case missingData = "missing_data"
     }
 }
 
@@ -107,8 +112,17 @@ struct LearningStatus: Codable {
     enum CodingKeys: String, CodingKey { case status, message; case sampleCount = "sample_count"; case minimumSamples = "minimum_samples" }
 }
 
+struct NotificationStatus: Codable {
+    let date, type, status, createdAt: String
+    let candidateCount: Int?; let dataStatus: String?
+    enum CodingKeys: String, CodingKey {
+        case date, type, status; case createdAt = "created_at"
+        case candidateCount = "candidate_count"; case dataStatus = "data_status"
+    }
+}
+
 enum AppSection: String, CaseIterable, Identifiable {
-    case overview = "概要"; case history = "推奨履歴"; case stocks = "銘柄別成績"; case analysis = "ファンダ・需給"; case operations = "運用"
+    case overview = "今日"; case history = "検証"; case analysis = "銘柄調査"; case operations = "設定・接続"
     var id: String { rawValue }
-    var icon: String { switch self { case .overview: "chart.xyaxis.line"; case .history: "clock.arrow.circlepath"; case .stocks: "building.2"; case .analysis: "scale.3d"; case .operations: "gearshape.2" } }
+    var icon: String { switch self { case .overview: "sun.max"; case .history: "checkmark.seal"; case .analysis: "magnifyingglass"; case .operations: "gearshape" } }
 }

@@ -125,7 +125,15 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-13T04:42:05Z",
+  "generated_at": "2026-07-13T04:45:57Z",
+  "latest_notification": {
+    "candidate_count": 1,
+    "created_at": "2026-07-13T02:42:40Z",
+    "data_status": "ok",
+    "date": "2026-07-13",
+    "status": "sent",
+    "type": "morning"
+  },
   "learning": {
     "feature_evidence": {},
     "message": "学習開始まであと26件",
@@ -140,19 +148,40 @@
   "pending_recommendations": [
     {
       "action": "cross",
+      "announcement_time": "不明",
       "code": "4443",
+      "confidence": "medium",
       "event_date": "2026-07-13",
+      "missing_data": [
+        "announcement_time_unknown",
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "operating_profit_progress_rate",
+        "operating_profit_yoy",
+        "supply_demand"
+      ],
       "name": "Ｓａｎｓａｎ",
       "recommendation_date": "2026-07-13",
-      "score": 71
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 71,
+      "thesis": "総合スコア71点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
     },
     {
       "action": "cross",
+      "announcement_time": "15:30",
       "code": "8306",
+      "confidence": "medium",
       "event_date": "2026-07-10",
+      "missing_data": [],
       "name": "三菱UFJフィナンシャル・グループ",
       "recommendation_date": "2026-07-10",
-      "score": 71
+      "risk_factors": [
+        "好決算でも材料出尽くしになる可能性"
+      ],
+      "score": 71,
+      "thesis": "総合スコア71点。主にhistorical_reaction、earnings_growthが評価され、決算跨ぎ候補として残りました。"
     }
   ],
   "recent_outcomes": [
