@@ -16,12 +16,17 @@ import SwiftUI
 
     func reload() {
         do {
-            guard let source = Self.snapshotLocations(repository: repositoryURL).first(where: { FileManager.default.fileExists(atPath: $0.path) }) else {
+            let candidates = Self.snapshotLocations(repository: repositoryURL).compactMap { source -> DashboardData? in
+                guard FileManager.default.fileExists(atPath: source.path),
+                      let raw = try? Data(contentsOf: source),
+                      let decoded = try? JSONDecoder().decode(DashboardData.self, from: raw) else { return nil }
+                return decoded
+            }
+            guard let latest = candidates.max(by: { $0.generatedAt < $1.generatedAt }) else {
                 throw RunnerError.commandFailed("表示用データがありません。インターネット接続後に同期してください。")
             }
-            let raw = try Data(contentsOf: source)
-            data = try JSONDecoder().decode(DashboardData.self, from: raw)
-            let overall = data?.marketIntelligence?.health?.overall
+            data = latest
+            let overall = latest.marketIntelligence?.health?.overall
             statusMessage = overall == "stale" ? "期限切れデータがあります" : overall == "warning" ? "更新時刻を確認してください" : "最新データを表示中"
             lastError = nil
         } catch { lastError = "ダッシュボードデータを読み込めません: \(error.localizedDescription)"; statusMessage = "読み込みエラー" }
