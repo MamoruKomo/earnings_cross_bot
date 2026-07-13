@@ -113,7 +113,7 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-11T10:23:36Z",
+  "generated_at": "2026-07-13T00:46:48Z",
   "learning": {
     "feature_evidence": {},
     "message": "学習開始まであと26件",
@@ -124,7 +124,9 @@
     "version": 1,
     "weight_multipliers": {}
   },
-  "no_trade_days": [],
+  "no_trade_days": [
+    "2026-07-13"
+  ],
   "pending_recommendations": [
     {
       "action": "cross",
@@ -292,7 +294,7 @@
     "lose_count": 0,
     "lose_rate": 0.0,
     "neutral_count": 3,
-    "no_trade_day_count": 0,
+    "no_trade_day_count": 1,
     "non_loss_rate": 1.0,
     "pending_count": 1,
     "positive_close_rate": 0.75,
