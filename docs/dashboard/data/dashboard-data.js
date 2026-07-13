@@ -2,11 +2,11 @@ window.EARNINGS_DASHBOARD_DATA = {
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.01879306485594519,
-      "evaluated_count": 3,
-      "hit_rate": 0.3333333333333333,
+      "avg_next_close_return": 0.019873475324998502,
+      "evaluated_count": 4,
+      "hit_rate": 0.25,
       "lose": 0,
-      "neutral": 2,
+      "neutral": 3,
       "recommendation_count": 5,
       "win": 1
     },
@@ -47,6 +47,18 @@ window.EARNINGS_DASHBOARD_DATA = {
       "win": 0
     },
     {
+      "avg_next_close_return": 0.02311470673215843,
+      "code": "8306",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-07-10",
+      "lose": 0,
+      "name": "三菱UFJフィナンシャル・グループ",
+      "neutral": 1,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
       "avg_next_close_return": 0.004087121379127812,
       "code": "7974",
       "evaluated_count": 1,
@@ -67,18 +79,6 @@ window.EARNINGS_DASHBOARD_DATA = {
       "lose": 0,
       "name": "日立製作所",
       "neutral": 1,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "8306",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-07-10",
-      "lose": 0,
-      "name": "三菱UFJフィナンシャル・グループ",
-      "neutral": 0,
       "recommendation_count": 1,
       "win": 0
     },
@@ -123,9 +123,16 @@ window.EARNINGS_DASHBOARD_DATA = {
       "date": "2026-07-10",
       "next_close_return": 0.03281249999999991,
       "result": "win"
+    },
+    {
+      "code": "8306",
+      "cumulative_return": 0.08597170672973697,
+      "date": "2026-07-13",
+      "next_close_return": 0.02311470673215843,
+      "result": "neutral"
     }
   ],
-  "generated_at": "2026-07-13T04:45:57Z",
+  "generated_at": "2026-07-13T09:58:20Z",
   "latest_notification": {
     "candidate_count": 1,
     "created_at": "2026-07-13T02:42:40Z",
@@ -167,24 +174,22 @@ window.EARNINGS_DASHBOARD_DATA = {
       ],
       "score": 71,
       "thesis": "総合スコア71点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "15:30",
-      "code": "8306",
-      "confidence": "medium",
-      "event_date": "2026-07-10",
-      "missing_data": [],
-      "name": "三菱UFJフィナンシャル・グループ",
-      "recommendation_date": "2026-07-10",
-      "risk_factors": [
-        "好決算でも材料出尽くしになる可能性"
-      ],
-      "score": 71,
-      "thesis": "総合スコア71点。主にhistorical_reaction、earnings_growthが評価され、決算跨ぎ候補として残りました。"
     }
   ],
   "recent_outcomes": [
+    {
+      "action": "cross",
+      "code": "8306",
+      "evaluation_date": "2026-07-13",
+      "event_date": "2026-07-10",
+      "max_drawdown": 0.007223345853799579,
+      "name": "三菱UFJフィナンシャル・グループ",
+      "next_close_return": 0.02311470673215843,
+      "next_open_return": 0.007512279687951429,
+      "recommendation_date": "2026-07-10",
+      "result": "neutral",
+      "score": 71
+    },
     {
       "action": "cross",
       "code": "7203",
@@ -240,7 +245,7 @@ window.EARNINGS_DASHBOARD_DATA = {
   ],
   "result_distribution": {
     "lose": 0,
-    "neutral": 3,
+    "neutral": 4,
     "win": 1
   },
   "stock_snapshots": [
@@ -336,8 +341,8 @@ window.EARNINGS_DASHBOARD_DATA = {
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.015116578986740847,
-    "avg_next_open_return": 0.008978443122834245,
+    "avg_next_close_return": 0.016716204535824362,
+    "avg_next_open_return": 0.008685210435857682,
     "best": {
       "action": "cross",
       "code": "7203",
@@ -351,15 +356,15 @@ window.EARNINGS_DASHBOARD_DATA = {
       "result": "win",
       "score": 73
     },
-    "evaluated_count": 4,
-    "hit_rate": 0.25,
+    "evaluated_count": 5,
+    "hit_rate": 0.2,
     "lose_count": 0,
     "lose_rate": 0.0,
-    "neutral_count": 3,
+    "neutral_count": 4,
     "no_trade_day_count": 0,
     "non_loss_rate": 1.0,
-    "pending_count": 2,
-    "positive_close_rate": 0.75,
+    "pending_count": 1,
+    "positive_close_rate": 0.8,
     "recommendation_count": 6,
     "win_count": 1,
     "worst": {
@@ -385,6 +390,15 @@ window.EARNINGS_DASHBOARD_DATA = {
       "neutral": 3,
       "week_start": "2026-07-06",
       "win": 1
+    },
+    {
+      "avg_next_close_return": 0.02311470673215843,
+      "count": 1,
+      "hit_rate": 0.0,
+      "lose": 0,
+      "neutral": 1,
+      "week_start": "2026-07-13",
+      "win": 0
     }
   ]
 };
