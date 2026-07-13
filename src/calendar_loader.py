@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from src.jquants_client import JQuantsClient, JQuantsError
+from src.public_data_client import PublicDataError, fetch_earnings_calendar
 
 
 def load_events_for_date(path: Path, target_date: date, client: JQuantsClient | None = None) -> list[dict[str, Any]]:
@@ -22,6 +23,13 @@ def load_events_for_date(path: Path, target_date: date, client: JQuantsClient | 
     for event in load_manual_calendar(path, target_date):
         # Manual rows can fill gaps or override incomplete API fields.
         events[event["code"]] = {**events.get(event["code"], {}), **event}
+
+    if not events:
+        try:
+            for event in fetch_earnings_calendar(target_date): events[event["code"]] = event
+            print(f"[calendar] loaded {len(events)} events from Traders Web")
+        except PublicDataError as exc:
+            print(f"[calendar] public calendar unavailable: {exc}")
 
     return sorted(events.values(), key=lambda row: row.get("code", ""))
 
@@ -65,4 +73,3 @@ def _parse_time(value: str) -> time | None:
         return time(int(hour), int(minute[:2]))
     except (ValueError, TypeError):
         return None
-

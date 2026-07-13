@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from src.jquants_client import JQuantsClient, JQuantsError
+from src.public_data_client import PublicDataError, fetch_traders_financials
 
 
 def fetch_or_load_financials(
@@ -22,7 +23,13 @@ def fetch_or_load_financials(
         except JQuantsError as exc:
             print(f"[financials] J-Quants fallback to mock for {code}: {exc}")
 
-    return load_mock_financials(mock_path, code), "mock"
+    mock = load_mock_financials(mock_path, code)
+    if mock: return mock, "mock"
+    try:
+        return fetch_traders_financials(code), "traders_web"
+    except PublicDataError as exc:
+        print(f"[financials] public financials unavailable for {code}: {exc}")
+        return [], "missing"
 
 
 def load_mock_financials(path: Path, code: str) -> list[dict[str, Any]]:
@@ -76,4 +83,3 @@ def _date_string(value: Any) -> str:
     if len(text) == 8 and text.isdigit():
         return f"{text[:4]}-{text[4:6]}-{text[6:]}"
     return text[:10]
-

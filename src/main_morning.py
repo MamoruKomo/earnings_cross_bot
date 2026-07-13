@@ -81,6 +81,7 @@ def main() -> None:
 
     selected = select_recommendations(scored, cfg.rules)
     payload = generate_recommendation_payload(conn, target_date, selected, scored, cfg.rules)
+    payload["data_sources"] = sorted({str(event.get("source", "unknown")) for event in events})
     if not events:
         payload = {
             "date": target_date_text,
@@ -88,6 +89,7 @@ def main() -> None:
             "recommendations": [],
             "no_trade_reason": "対象銘柄が0件でした。J-Quants認証または手動決算カレンダーを確認してください。",
             "data_status": "unavailable",
+            "data_sources": [],
         }
 
     candidate_by_code = {item["code"]: item for item in selected}

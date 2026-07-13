@@ -71,7 +71,7 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -r requirements.txt
-      - run: python -m src.main_morning
+      - run: python -m src.main_morning ${{ github.event_name == 'workflow_dispatch' && '--force-post' || '' }}
         env:
           JQUANTS_EMAIL: ${{ secrets.JQUANTS_EMAIL }}
           JQUANTS_PASSWORD: ${{ secrets.JQUANTS_PASSWORD }}

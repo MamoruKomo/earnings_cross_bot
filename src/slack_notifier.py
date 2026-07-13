@@ -8,6 +8,10 @@ from urllib import request
 
 def format_recommendation_message(payload: dict[str, Any]) -> str:
     lines = ["【本日の決算跨ぎ候補】", f"日付：{payload.get('date', '')}", ""]
+    sources = payload.get("data_sources") or []
+    if sources:
+        labels = {"traders_web": "トレーダーズ・ウェブ", "jquants": "J-Quants", "manual": "手動CSV", "mock": "検証データ"}
+        lines.extend([f"データ元：{' / '.join(labels.get(source, source) for source in sources)}", ""])
     recommendations = payload.get("recommendations") or []
     if not recommendations:
         lines.append("本日は無理に跨ぐ銘柄なし")

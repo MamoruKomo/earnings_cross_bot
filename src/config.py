@@ -115,7 +115,7 @@ def load_config() -> AppConfig:
     return AppConfig(
         root_dir=ROOT_DIR,
         data_dir=data_dir,
-        db_path=data_dir / "earnings_cross_bot.db",
+        db_path=Path(os.environ.get("DB_PATH", str(data_dir / "earnings_cross_bot.db"))),
         manual_calendar_path=data_dir / "earnings_calendar_manual.csv",
         mock_prices_path=data_dir / "mock_prices.csv",
         mock_financials_path=data_dir / "mock_financials.csv",

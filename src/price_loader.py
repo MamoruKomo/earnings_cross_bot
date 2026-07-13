@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import csv
 import math
+import os
 from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
 from src.jquants_client import JQuantsClient, JQuantsError
 from src.trading_calendar import is_trading_day
+from src.public_data_client import PublicDataError, fetch_yahoo_prices
 
 
 def fetch_or_load_prices(
@@ -25,8 +27,16 @@ def fetch_or_load_prices(
         except JQuantsError as exc:
             print(f"[prices] J-Quants fallback to mock for {code}: {exc}")
 
+    try:
+        public_rows = fetch_yahoo_prices(code, start, end)
+        if public_rows: return _sort_prices(public_rows)
+    except (PublicDataError, ValueError) as exc:
+        print(f"[prices] Yahoo Finance fallback to local data for {code}: {exc}")
+
     mock_rows = load_mock_prices(mock_path, code, start, end)
     if len(mock_rows) >= 65:
+        return _sort_prices(mock_rows)
+    if os.environ.get("ALLOW_GENERATED_MOCKS", "").lower() not in {"1", "true", "yes"}:
         return _sort_prices(mock_rows)
     generated = generate_mock_prices(code, start, end)
     merged = {row["date"]: row for row in generated}
