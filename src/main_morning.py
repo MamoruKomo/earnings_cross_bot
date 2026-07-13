@@ -56,7 +56,14 @@ def main() -> None:
         db.upsert_daily_prices(conn, prices)
         price_features, price_missing = compute_price_features(prices)
 
-        statements, financial_source = fetch_or_load_financials(event["code"], target_date, cfg.mock_financials_path, client)
+        min_turnover = float(cfg.rules.get("thresholds", {}).get("min_average_turnover", 50_000_000))
+        low_liquidity = price_features.get("avg_turnover_20d") is not None and price_features["avg_turnover_20d"] < min_turnover
+        if low_liquidity and not client.enabled():
+            statements, financial_source = [], "skipped_low_liquidity"
+        else:
+            statements, financial_source = fetch_or_load_financials(
+                event["code"], target_date, cfg.mock_financials_path, client
+            )
         financial_features, financial_missing = compute_financial_features(statements)
         db.upsert_financial_features(
             conn,
