@@ -125,7 +125,7 @@ window.EARNINGS_DASHBOARD_DATA = {
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-13T01:05:52Z",
+  "generated_at": "2026-07-13T02:42:40Z",
   "learning": {
     "feature_evidence": {},
     "message": "学習開始まであと26件",
@@ -144,7 +144,7 @@ window.EARNINGS_DASHBOARD_DATA = {
       "event_date": "2026-07-13",
       "name": "Ｓａｎｓａｎ",
       "recommendation_date": "2026-07-13",
-      "score": 70
+      "score": 71
     },
     {
       "action": "cross",
