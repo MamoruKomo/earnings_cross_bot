@@ -7,7 +7,7 @@
       "hit_rate": 0.4,
       "lose": 0,
       "neutral": 3,
-      "recommendation_count": 7,
+      "recommendation_count": 8,
       "win": 2
     },
     {
@@ -120,6 +120,18 @@
     },
     {
       "avg_next_close_return": null,
+      "code": "3608",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-07-14",
+      "lose": 0,
+      "name": "ＴＳＩ ＨＤ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
       "code": "5246",
       "evaluated_count": 0,
       "hit_rate": null,
@@ -175,10 +187,10 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-14T09:03:10Z",
+  "generated_at": "2026-07-14T10:37:20Z",
   "latest_notification": {
     "candidate_count": 3,
-    "created_at": "2026-07-14T00:31:45Z",
+    "created_at": "2026-07-14T10:37:20Z",
     "data_status": "ok",
     "date": "2026-07-14",
     "status": "sent",
@@ -11025,7 +11037,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 9.7,
+          "age_hours": 11.3,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -11033,7 +11045,7 @@
           "updated_at": "2026-07-14T08:20:00+09:00"
         },
         {
-          "age_hours": 1631.6,
+          "age_hours": 1633.2,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -11041,7 +11053,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 33.0,
+          "age_hours": 34.6,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -11643,7 +11655,6 @@
         "announcement_time_unknown",
         "historical_earnings_reaction",
         "operating_margin_change",
-        "operating_profit_progress_rate",
         "operating_profit_yoy",
         "supply_demand"
       ],
@@ -11654,6 +11665,26 @@
       ],
       "score": 72,
       "thesis": "総合スコア72点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
+      "action": "cross",
+      "announcement_time": "不明",
+      "code": "3608",
+      "confidence": "medium",
+      "event_date": "2026-07-14",
+      "missing_data": [
+        "announcement_time_unknown",
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "supply_demand"
+      ],
+      "name": "ＴＳＩ ＨＤ",
+      "recommendation_date": "2026-07-14",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 72,
+      "thesis": "総合スコア72点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
     },
     {
       "action": "cross",
@@ -11672,8 +11703,8 @@
       "risk_factors": [
         "不足データがあるため確信度を抑制"
       ],
-      "score": 78,
-      "thesis": "総合スコア78点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+      "score": 77,
+      "thesis": "総合スコア77点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
     }
   ],
   "recent_outcomes": [
@@ -11778,6 +11809,21 @@
       "supply_demand_source": "missing"
     },
     {
+      "code": "3608",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-07-14",
+      "margin_ratio": null,
+      "name": "ＴＳＩ ＨＤ",
+      "operating_margin": 0.0375,
+      "operating_profit_yoy": 0.7340000000000001,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.19699999999999998,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
       "code": "4443",
       "financial_source": "traders_web",
       "long_margin_outstanding": null,
@@ -11800,10 +11846,10 @@
       "margin_as_of_date": "2026-07-14",
       "margin_ratio": null,
       "name": "ＥＬＥＭＥＮＴＳ",
-      "operating_margin": 0.0,
+      "operating_margin": 0.05357142857142857,
       "operating_profit_yoy": null,
       "revenue_progress_rate": 1.0,
-      "revenue_yoy": 0.309,
+      "revenue_yoy": 0.43799999999999994,
       "short_margin_outstanding": null,
       "supply_demand_source": "missing"
     },
@@ -11815,10 +11861,10 @@
       "margin_as_of_date": "2026-07-14",
       "margin_ratio": null,
       "name": "Ｇ Ｏ",
-      "operating_margin": 0.1715686274509804,
-      "operating_profit_yoy": 1.5659999999999998,
+      "operating_margin": 0.26804123711340205,
+      "operating_profit_yoy": null,
       "revenue_progress_rate": 1.0,
-      "revenue_yoy": 0.298,
+      "revenue_yoy": null,
       "short_margin_outstanding": null,
       "supply_demand_source": "missing"
     },
@@ -11921,9 +11967,9 @@
     "neutral_count": 4,
     "no_trade_day_count": 0,
     "non_loss_rate": 1.0,
-    "pending_count": 3,
+    "pending_count": 4,
     "positive_close_rate": 0.8333333333333334,
-    "recommendation_count": 9,
+    "recommendation_count": 10,
     "win_count": 2,
     "worst": {
       "action": "cross",
