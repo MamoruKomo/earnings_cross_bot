@@ -2,13 +2,13 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.019873475324998502,
-      "evaluated_count": 4,
-      "hit_rate": 0.25,
+      "avg_next_close_return": 0.03418786580572153,
+      "evaluated_count": 5,
+      "hit_rate": 0.4,
       "lose": 0,
       "neutral": 3,
       "recommendation_count": 7,
-      "win": 1
+      "win": 2
     },
     {
       "action": "strong_cross",
@@ -22,6 +22,18 @@
     }
   ],
   "by_code": [
+    {
+      "avg_next_close_return": 0.09144542772861364,
+      "code": "4443",
+      "evaluated_count": 1,
+      "hit_rate": 1.0,
+      "last_recommendation_date": "2026-07-13",
+      "lose": 0,
+      "name": "Ｓａｎｓａｎ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 1
+    },
     {
       "avg_next_close_return": 0.03281249999999991,
       "code": "7203",
@@ -79,18 +91,6 @@
       "lose": 0,
       "name": "日立製作所",
       "neutral": 1,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "4443",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-07-13",
-      "lose": 0,
-      "name": "Ｓａｎｓａｎ",
-      "neutral": 0,
       "recommendation_count": 1,
       "win": 0
     },
@@ -166,9 +166,16 @@
       "date": "2026-07-13",
       "next_close_return": 0.02311470673215843,
       "result": "neutral"
+    },
+    {
+      "code": "4443",
+      "cumulative_return": 0.1852788539528103,
+      "date": "2026-07-14",
+      "next_close_return": 0.09144542772861364,
+      "result": "win"
     }
   ],
-  "generated_at": "2026-07-14T07:28:57Z",
+  "generated_at": "2026-07-14T08:54:27Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-07-14T00:31:45Z",
@@ -11018,7 +11025,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 8.1,
+          "age_hours": 9.6,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -11026,7 +11033,7 @@
           "updated_at": "2026-07-14T08:20:00+09:00"
         },
         {
-          "age_hours": 1630.1,
+          "age_hours": 1631.5,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -11034,7 +11041,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 31.4,
+          "age_hours": 32.8,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -11667,31 +11674,22 @@
       ],
       "score": 78,
       "thesis": "総合スコア78点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "不明",
-      "code": "4443",
-      "confidence": "medium",
-      "event_date": "2026-07-13",
-      "missing_data": [
-        "announcement_time_unknown",
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "operating_profit_progress_rate",
-        "operating_profit_yoy",
-        "supply_demand"
-      ],
-      "name": "Ｓａｎｓａｎ",
-      "recommendation_date": "2026-07-13",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 71,
-      "thesis": "総合スコア71点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
     }
   ],
   "recent_outcomes": [
+    {
+      "action": "cross",
+      "code": "4443",
+      "evaluation_date": "2026-07-14",
+      "event_date": "2026-07-13",
+      "max_drawdown": 0.02595870206489681,
+      "name": "Ｓａｎｓａｎ",
+      "next_close_return": 0.09144542772861364,
+      "next_open_return": 0.0424778761061948,
+      "recommendation_date": "2026-07-13",
+      "result": "win",
+      "score": 71
+    },
     {
       "action": "cross",
       "code": "8306",
@@ -11761,7 +11759,7 @@
   "result_distribution": {
     "lose": 0,
     "neutral": 4,
-    "win": 1
+    "win": 2
   },
   "stock_snapshots": [
     {
@@ -11901,32 +11899,32 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.016716204535824362,
-    "avg_next_open_return": 0.008685210435857682,
+    "avg_next_close_return": 0.02917107506795591,
+    "avg_next_open_return": 0.014317321380913869,
     "best": {
       "action": "cross",
-      "code": "7203",
-      "evaluation_date": "2026-07-10",
-      "event_date": "2026-07-09",
-      "max_drawdown": 0.009374999999999911,
-      "name": "トヨタ自動車",
-      "next_close_return": 0.03281249999999991,
-      "next_open_return": 0.018750000000000044,
-      "recommendation_date": "2026-07-09",
+      "code": "4443",
+      "evaluation_date": "2026-07-14",
+      "event_date": "2026-07-13",
+      "max_drawdown": 0.02595870206489681,
+      "name": "Ｓａｎｓａｎ",
+      "next_close_return": 0.09144542772861364,
+      "next_open_return": 0.0424778761061948,
+      "recommendation_date": "2026-07-13",
       "result": "win",
-      "score": 73
+      "score": 71
     },
-    "evaluated_count": 5,
-    "hit_rate": 0.2,
+    "evaluated_count": 6,
+    "hit_rate": 0.3333333333333333,
     "lose_count": 0,
     "lose_rate": 0.0,
     "neutral_count": 4,
     "no_trade_day_count": 0,
     "non_loss_rate": 1.0,
-    "pending_count": 4,
-    "positive_close_rate": 0.8,
+    "pending_count": 3,
+    "positive_close_rate": 0.8333333333333334,
     "recommendation_count": 9,
-    "win_count": 1,
+    "win_count": 2,
     "worst": {
       "action": "cross",
       "code": "6501",
@@ -11943,13 +11941,13 @@
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.016716204535824362,
-      "correct": 1,
-      "count": 5,
-      "positive_rate": 0.8,
-      "precision": 0.2,
-      "precision_lower_95": 0.03622316096978745,
-      "precision_upper_95": 0.6244717358814613
+      "avg_next_close_return": 0.02917107506795591,
+      "correct": 2,
+      "count": 6,
+      "positive_rate": 0.8333333333333334,
+      "precision": 0.3333333333333333,
+      "precision_lower_95": 0.09676933255921683,
+      "precision_upper_95": 0.7000116786584712
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -11961,9 +11959,9 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと35件",
+    "message": "時系列検証開始まであと34件",
     "required_count": 40,
-    "sample_count": 5,
+    "sample_count": 6,
     "score_bands": [
       {
         "avg_next_close_return": 0.004087121379127812,
@@ -11986,18 +11984,18 @@
         "precision_upper_95": 0.6576280471103807
       },
       {
-        "avg_next_close_return": 0.02796360336607917,
+        "avg_next_close_return": 0.049124211486923995,
         "band": "70-74",
-        "correct": 1,
-        "count": 2,
+        "correct": 2,
+        "count": 3,
         "positive_rate": 1.0,
-        "precision": 0.5,
-        "precision_lower_95": 0.09452865480086614,
-        "precision_upper_95": 0.9054713451991339
+        "precision": 0.6666666666666666,
+        "precision_lower_95": 0.2076549551264879,
+        "precision_upper_95": 0.9385096847238394
       }
     ],
     "status": "collecting",
-    "training_count": 5
+    "training_count": 6
   },
   "weekly": [
     {
@@ -12010,13 +12008,13 @@
       "win": 1
     },
     {
-      "avg_next_close_return": 0.02311470673215843,
-      "count": 1,
-      "hit_rate": 0.0,
+      "avg_next_close_return": 0.057280067230386034,
+      "count": 2,
+      "hit_rate": 0.5,
       "lose": 0,
       "neutral": 1,
       "week_start": "2026-07-13",
-      "win": 0
+      "win": 1
     }
   ]
 }
