@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 
 from src import db
-from src.adaptive_learner import apply_learned_weights, train_profile, write_profile
+from src.adaptive_learner import apply_learned_weights, train_profile, validate_multipliers, write_profile
 
 
 class AdaptiveLearnerTest(unittest.TestCase):
@@ -20,6 +20,16 @@ class AdaptiveLearnerTest(unittest.TestCase):
             path = Path(directory) / "profile.json"
             write_profile({"status": "observing", "weight_multipliers": {"a": 1.1}}, path)
             self.assertEqual(apply_learned_weights(rules, path), {"a": 60.0, "b": 40.0})
+
+    def test_holdout_rejects_adjustment_that_drops_all_candidates(self):
+        rows = [
+            {"score_details_json": '{"components":{"growth":70}}', "next_close_return": 0.04},
+            {"score_details_json": '{"components":{"growth":70}}', "next_close_return": -0.01},
+            {"score_details_json": '{"components":{"growth":70}}', "next_close_return": 0.05},
+        ]
+        result = validate_multipliers(rows, {"growth": 0.9}, {"recommendation": {"minimum_post_score": 70}})
+        self.assertFalse(result["passed"])
+        self.assertEqual(result["selected_count"], 0)
 
 
 if __name__ == "__main__": unittest.main()

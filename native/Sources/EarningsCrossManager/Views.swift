@@ -112,12 +112,12 @@ struct TodayView: View {
                     NotificationBand(status: data.latestNotification)
                     TodayCandidates(items: data.pendingRecommendations)
                     HStack(spacing: 12) {
-                        MetricTile(label: "検証済み", value: "\(data.summary.evaluatedCount)件", detail: "学習開始 30件", color: .blue)
+                        MetricTile(label: "検証済み", value: "\(data.summary.evaluatedCount)件", detail: "時系列検証 40件", color: .blue)
                         MetricTile(label: "勝率", value: percent(data.summary.hitRate), detail: "勝ち \(data.summary.winCount) / 負け \(data.summary.loseCount)", color: .green)
                         MetricTile(label: "平均反応", value: signedPercent(data.summary.avgNextCloseReturn), detail: "翌営業日終値", color: .indigo)
                     }
-                    if data.summary.evaluatedCount < 30 {
-                        NoticeView(icon: "hourglass", text: "まだ検証母数が少ないため、勝率は参考値です。あと \(30 - data.summary.evaluatedCount) 件で重み学習を開始します。")
+                    if data.summary.evaluatedCount < data.validation.requiredCount {
+                        NoticeView(icon: "hourglass", text: "まだ検証母数が少ないため、勝率は参考値です。あと \(data.validation.requiredCount - data.summary.evaluatedCount) 件で時系列検証を開始します。")
                     }
                 }.padding(26)
             } else { LoadErrorView() }
@@ -244,6 +244,7 @@ struct ReviewView: View {
                     MetricTile(label: "負け", value: "\(data.summary.loseCount)", detail: "-3%以下", color: .red)
                     MetricTile(label: "平均", value: signedPercent(data.summary.avgNextCloseReturn), detail: "翌日終値", color: .indigo)
                 }
+                ValidationPanel(report: data.validation)
             }
             Table(rows) {
                 TableColumn("評価日", value: \.evaluationDate).width(90)
@@ -299,7 +300,7 @@ struct SettingsView: View {
                 }
                 HStack(alignment: .top, spacing: 12) {
                     MaintenanceButton(title: "Slack接続テスト", detail: "テスト通知を1件送信", icon: "paperplane", action: model.runSlackTest)
-                    MaintenanceButton(title: "学習を更新", detail: "30件以上で重みを補正", icon: "brain.head.profile", action: model.runLearning)
+                    MaintenanceButton(title: "学習を更新", detail: "30件で学習・直近10件で検証", icon: "brain.head.profile", action: model.runLearning)
                     MaintenanceButton(title: "データを同期", detail: "最新スナップショットを取得", icon: "arrow.triangle.2.circlepath", action: model.syncLatest)
                 }.disabled(model.isRunning)
                 if let learning = model.data?.learning {
@@ -313,6 +314,34 @@ struct SettingsView: View {
         }
     }
 }
+
+struct ValidationPanel: View {
+    let report: ValidationReport
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("時系列検証").font(.headline)
+                    Text(report.message).font(.caption).foregroundStyle(.secondary)
+                }
+                Spacer()
+                Text(report.status == "ready" ? "検証可能" : "データ収集中").font(.caption.bold()).foregroundStyle(report.status == "ready" ? Color.green : Color.orange)
+            }
+            HStack(spacing: 20) {
+                ValidationValue(label: "全期間正答率", value: percent(report.all.precision), detail: "\(report.all.correct)/\(report.all.count)件")
+                ValidationValue(label: "未見データ正答率", value: percent(report.holdout.precision), detail: "直近 \(report.holdoutCount)件")
+                ValidationValue(label: "95%信頼下限", value: percent(report.all.precisionLower95), detail: "偶然の上振れを考慮")
+                ValidationValue(label: "必要件数", value: "\(report.sampleCount)/\(report.requiredCount)", detail: "学習30 + 検証10")
+            }
+            if !report.scoreBands.isEmpty {
+                Divider()
+                HStack { Text("スコア帯").font(.caption.bold()).foregroundStyle(.secondary); Spacer(); ForEach(report.scoreBands) { band in Text("\(band.band): \(percent(band.precision)) (\(band.count)件)").font(.caption.monospacedDigit()).frame(minWidth: 140, alignment: .trailing) } }
+            }
+        }.padding(16).panelStyle()
+    }
+}
+
+struct ValidationValue: View { let label, value, detail: String; var body: some View { VStack(alignment: .leading, spacing: 3) { Text(label).font(.caption).foregroundStyle(.secondary); Text(value).font(.title3.bold()).monospacedDigit(); Text(detail).font(.caption2).foregroundStyle(.secondary) }.frame(maxWidth: .infinity, alignment: .leading) } }
 
 struct StatusFooter: View { @EnvironmentObject private var model: AppModel; var body: some View { HStack(spacing: 8) { Circle().fill(statusColor(model.lastError == nil ? model.data?.marketIntelligence?.health?.overall : "error")).frame(width: 8, height: 8); Text(model.statusMessage).font(.caption).lineLimit(2) }.frame(maxWidth: .infinity, alignment: .leading) } }
 struct RunBanner: View { @EnvironmentObject private var model: AppModel; var body: some View { if model.isRunning { HStack(spacing: 10) { ProgressView(); Text(model.statusMessage).fontWeight(.medium); Spacer() }.padding(12).background(Color.blue.opacity(0.08), in: RoundedRectangle(cornerRadius: 6)) } else if let error = model.lastError { NoticeView(icon: "xmark.octagon.fill", text: error, color: .red) } } }

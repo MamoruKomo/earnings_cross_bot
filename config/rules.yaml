@@ -26,6 +26,8 @@ scoring_weights:
 learning:
   enabled: true
   minimum_samples: 30
+  validation_samples: 10
+  require_holdout_improvement: true
   maximum_weight_change: 0.10
   profile_path: data/learning_profile.json
 

@@ -11,6 +11,7 @@ struct DashboardData: Codable {
     let pendingRecommendations: [PendingRecommendation]
     let stockSnapshots: [StockSnapshot]
     let learning: LearningStatus
+    let validation: ValidationReport
     let latestNotification: NotificationStatus?
     let marketIntelligence: MarketIntelligence?
     enum CodingKeys: String, CodingKey {
@@ -18,7 +19,7 @@ struct DashboardData: Codable {
         case resultDistribution = "result_distribution"; case weekly
         case equityCurve = "equity_curve"; case byCode = "by_code"
         case recentOutcomes = "recent_outcomes"; case pendingRecommendations = "pending_recommendations"
-        case stockSnapshots = "stock_snapshots"; case learning; case latestNotification = "latest_notification"
+        case stockSnapshots = "stock_snapshots"; case learning, validation; case latestNotification = "latest_notification"
         case marketIntelligence = "market_intelligence"
     }
 }
@@ -179,6 +180,32 @@ struct NotificationStatus: Codable {
         case date, type, status; case createdAt = "created_at"
         case candidateCount = "candidate_count"; case dataStatus = "data_status"
     }
+}
+
+struct ValidationReport: Codable {
+    let status, message: String
+    let sampleCount, trainingCount, holdoutCount, requiredCount: Int
+    let all, holdout: ValidationMetrics
+    let scoreBands: [ScoreBand]
+    enum CodingKeys: String, CodingKey {
+        case status, message, all, holdout; case sampleCount = "sample_count"; case trainingCount = "training_count"
+        case holdoutCount = "holdout_count"; case requiredCount = "required_count"; case scoreBands = "score_bands"
+    }
+}
+
+struct ValidationMetrics: Codable {
+    let count, correct: Int
+    let precision, precisionLower95, precisionUpper95, avgNextCloseReturn, positiveRate: Double?
+    enum CodingKeys: String, CodingKey {
+        case count, correct, precision; case precisionLower95 = "precision_lower_95"; case precisionUpper95 = "precision_upper_95"
+        case avgNextCloseReturn = "avg_next_close_return"; case positiveRate = "positive_rate"
+    }
+}
+
+struct ScoreBand: Codable, Identifiable {
+    var id: String { band }
+    let band: String; let count, correct: Int; let precision, avgNextCloseReturn: Double?
+    enum CodingKeys: String, CodingKey { case band, count, correct, precision; case avgNextCloseReturn = "avg_next_close_return" }
 }
 
 enum AppSection: String, CaseIterable, Identifiable {

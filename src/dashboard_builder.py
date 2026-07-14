@@ -9,6 +9,7 @@ from statistics import mean
 from typing import Any
 
 from src import db
+from src.validator import build_validation_report
 
 
 def build_dashboard_data(conn: sqlite3.Connection) -> dict[str, Any]:
@@ -34,6 +35,7 @@ def build_dashboard_data(conn: sqlite3.Connection) -> dict[str, Any]:
         "pending_recommendations": build_pending(pending),
         "stock_snapshots": build_stock_snapshots(conn, recommendations),
         "learning": fetch_learning_status(conn),
+        "validation": build_validation_report(conn, load_rules_for_validation()),
         "latest_notification": fetch_latest_notification(conn),
         "no_trade_days": sorted(no_trade_days),
     }
@@ -316,6 +318,15 @@ def fetch_latest_notification(conn: sqlite3.Connection) -> dict[str, Any] | None
         "candidate_count": detail.get("candidate_count"),
         "data_status": detail.get("data_status"),
     }
+
+
+def load_rules_for_validation() -> dict[str, Any]:
+    # Dashboard generation already runs from the repository root in production.
+    try:
+        import yaml
+        return yaml.safe_load(Path("config/rules.yaml").read_text(encoding="utf-8")) or {}
+    except (ImportError, OSError, ValueError):
+        return {"learning": {"minimum_samples": 30, "validation_samples": 10}}
 
 
 def write_dashboard_files(data: dict[str, Any], output_path: Path) -> None:
