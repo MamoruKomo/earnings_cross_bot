@@ -796,11 +796,132 @@
         "trade_date": "2026-07-15"
       }
     ],
-    "outcomes": [],
+    "outcomes": [
+      {
+        "analysis": {
+          "close_return": 0.026228831061544833,
+          "miss_reasons": [],
+          "prediction_correct": true,
+          "stop_hit": false
+        },
+        "candidate_id": 7,
+        "close": 49690.0,
+        "close_return": 0.026228831061544833,
+        "code": "6920",
+        "created_at": "2026-07-15T09:02:54Z",
+        "high": 50940.0,
+        "id": 5,
+        "low": 48650.0,
+        "max_down": 0.004750103263114314,
+        "max_up": 0.052044609665427455,
+        "reference_price": 48420.0,
+        "stop_hit": 0,
+        "target_hit": 1,
+        "trade_date": "2026-07-15"
+      },
+      {
+        "analysis": {
+          "close_return": -0.0003306878306877925,
+          "miss_reasons": [
+            "選定時にVWAPを回復していなかった",
+            "出来高が継続しなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 6,
+        "close": 1511.5,
+        "close_return": -0.0003306878306877925,
+        "code": "7267",
+        "created_at": "2026-07-15T09:02:54Z",
+        "high": 1520.0,
+        "id": 4,
+        "low": 1506.0,
+        "max_down": -0.003968253968253954,
+        "max_up": 0.005291005291005346,
+        "reference_price": 1512.0,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-15"
+      },
+      {
+        "analysis": {
+          "close_return": 0.0196162657502863,
+          "miss_reasons": [
+            "選定時にVWAPを回復していなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 5,
+        "close": 7121.0,
+        "close_return": 0.0196162657502863,
+        "code": "8316",
+        "created_at": "2026-07-15T09:02:54Z",
+        "high": 7121.0,
+        "id": 3,
+        "low": 6984.0,
+        "max_down": 0.0,
+        "max_up": 0.0196162657502863,
+        "reference_price": 6984.0,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-15"
+      },
+      {
+        "analysis": {
+          "close_return": 0.014822948119681545,
+          "miss_reasons": [
+            "選定時にVWAPを回復していなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 4,
+        "close": 3697.0,
+        "close_return": 0.014822948119681545,
+        "code": "8306",
+        "created_at": "2026-07-15T09:02:54Z",
+        "high": 3697.0,
+        "id": 2,
+        "low": 3646.0,
+        "max_down": 0.0008234971177600858,
+        "max_up": 0.014822948119681545,
+        "reference_price": 3643.0,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-15"
+      },
+      {
+        "analysis": {
+          "close_return": 0.013213530655391104,
+          "miss_reasons": [
+            "選定時にVWAPを回復していなかった",
+            "出来高が継続しなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 3,
+        "close": 2875.5,
+        "close_return": 0.013213530655391104,
+        "code": "7203",
+        "created_at": "2026-07-15T09:02:54Z",
+        "high": 2875.5,
+        "id": 1,
+        "low": 2839.5,
+        "max_down": 0.0005285412262157063,
+        "max_up": 0.013213530655391104,
+        "reference_price": 2838.0,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-15"
+      }
+    ],
     "summary": {
-      "evaluated": 0,
-      "hit_rate": null,
-      "target_hits": 0
+      "evaluated": 5,
+      "hit_rate": 0.2,
+      "target_hits": 1
     }
   },
   "equity_curve": [
@@ -875,7 +996,7 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-15T08:59:51Z",
+  "generated_at": "2026-07-15T09:02:54Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-07-14T10:37:20Z",
@@ -11741,7 +11862,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 56.9,
+          "age_hours": 57.0,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
