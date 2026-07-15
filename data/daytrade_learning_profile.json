@@ -1,0 +1,8 @@
+{
+  "message": "時系列検証開始まであと40件",
+  "required_samples": 40,
+  "sample_count": 0,
+  "status": "observing",
+  "version": 1,
+  "weight_multipliers": {}
+}

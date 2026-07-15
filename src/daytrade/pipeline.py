@@ -13,7 +13,7 @@ from src.daytrade.learner import adjusted_rules
 from src.daytrade.notifier import send_ranking
 from src.daytrade.reasoner import build_comment
 from src.daytrade.scoring import score_candidate, select_ranked
-from src.daytrade.storage import connect, save_run
+from src.daytrade.storage import connect, notification_sent, save_run
 
 
 def run_ranking(root: Path, target_date: date, post_slack: bool = True) -> dict[str, Any]:
@@ -30,9 +30,11 @@ def run_ranking(root: Path, target_date: date, post_slack: bool = True) -> dict[
     selected = select_ranked(scored, rules)
     for rank, row in enumerate(selected, 1): row["rank"] = rank
     payload = {"date": target_date.isoformat(), "universe_count": len(universe), "scored_count": len(scored), "candidates": selected}
-    conn = connect(root / "data" / "daytrade.db"); save_run(conn, target_date.isoformat(), len(universe), selected, payload)
+    conn = connect(root / "data" / "daytrade.db"); already_sent = notification_sent(conn, target_date.isoformat())
+    slack_sent = send_ranking(payload) if post_slack and not already_sent else already_sent
+    save_run(conn, target_date.isoformat(), len(universe), selected, payload, status="sent" if slack_sent else "ranked")
     (root / "data" / "daytrade_latest.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    payload["slack_sent"] = send_ranking(payload) if post_slack else False
+    payload["slack_sent"] = slack_sent
     return payload
 
 

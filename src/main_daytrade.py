@@ -15,7 +15,7 @@ def main() -> None:
     parser.add_argument("--no-slack", action="store_true")
     args = parser.parse_args(); target = parse_date(args.date) if args.date else today_jst("Asia/Tokyo")
     result = run_ranking(ROOT_DIR, target, post_slack=not args.no_slack) if args.command == "rank" else evaluate_day(ROOT_DIR, target)
-    print(f"[daytrade] command={args.command} date={target} count={len(result.get('candidates') or result.get('outcomes') or [])}")
+    print(f"[daytrade] command={args.command} date={target} count={len(result.get('candidates') or result.get('outcomes') or [])} slack_sent={result.get('slack_sent')}")
 
 
 if __name__ == "__main__": main()

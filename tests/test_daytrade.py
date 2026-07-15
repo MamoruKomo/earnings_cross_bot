@@ -10,7 +10,7 @@ from src.daytrade.news import analyze_news
 from src.daytrade.notifier import format_ranking
 from src.daytrade.reasoner import build_comment
 from src.daytrade.scoring import score_candidate, select_ranked
-from src.daytrade.storage import connect, recent_dashboard, save_outcome, save_run
+from src.daytrade.storage import connect, notification_sent, recent_dashboard, save_outcome, save_run
 
 
 class DaytradeTest(unittest.TestCase):
@@ -60,7 +60,8 @@ class DaytradeTest(unittest.TestCase):
         candidate = {"rank": 1, "code": "1234", "name": "Example", "score": 80, "themes": ["AI"], "features": features, "components": {}, "news": [], "comment": {"reasons": ["出来高急増"], "entry_strategy": "VWAP押し目", "take_profit": 1030, "stop_loss": 980, "risks": ["板確認"]}}
         with tempfile.TemporaryDirectory() as directory:
             conn = connect(Path(directory) / "daytrade.db")
-            save_run(conn, "2026-07-15", 8, [candidate], {"date": "2026-07-15"})
+            save_run(conn, "2026-07-15", 8, [candidate], {"date": "2026-07-15"}, status="sent")
+            self.assertTrue(notification_sent(conn, "2026-07-15"))
             row = conn.execute("SELECT * FROM daytrade_candidates").fetchone()
             save_outcome(conn, row, {"reference_price": 1000, "high": 1040, "low": 990, "close": 1020, "max_up": 0.04, "max_down": -0.01, "close_return": 0.02, "target_hit": True, "stop_hit": False, "analysis": {}})
             conn.commit()

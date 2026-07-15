@@ -37,14 +37,19 @@ def init_db(conn: sqlite3.Connection) -> None:
     """); conn.commit()
 
 
-def save_run(conn: sqlite3.Connection, trade_date: str, universe_count: int, candidates: list[dict[str, Any]], payload: dict[str, Any]) -> None:
-    now = _now(); conn.execute("INSERT OR REPLACE INTO daytrade_runs VALUES (?, ?, ?, ?, ?, ?)", (trade_date, "ranked", universe_count, len(candidates), _json(payload), now))
+def save_run(conn: sqlite3.Connection, trade_date: str, universe_count: int, candidates: list[dict[str, Any]], payload: dict[str, Any], status: str = "ranked") -> None:
+    now = _now(); conn.execute("INSERT OR REPLACE INTO daytrade_runs VALUES (?, ?, ?, ?, ?, ?)", (trade_date, status, universe_count, len(candidates), _json(payload), now))
     conn.execute("DELETE FROM daytrade_candidates WHERE trade_date=? AND id NOT IN (SELECT candidate_id FROM daytrade_outcomes)", (trade_date,))
     for rank, row in enumerate(candidates, 1):
         conn.execute("""INSERT INTO daytrade_candidates(trade_date,rank,code,name,score,theme,features_json,components_json,news_json,comment_json,created_at)
           VALUES (?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(trade_date,code) DO UPDATE SET rank=excluded.rank,name=excluded.name,score=excluded.score,
           theme=excluded.theme,features_json=excluded.features_json,components_json=excluded.components_json,news_json=excluded.news_json,comment_json=excluded.comment_json""", (trade_date, rank, row["code"], row.get("name", ""), row["score"], ",".join(row.get("themes") or ["その他"]), _json(row["features"]), _json(row["components"]), _json(row.get("news") or []), _json(row["comment"]), now))
     conn.commit()
+
+
+def notification_sent(conn: sqlite3.Connection, trade_date: str) -> bool:
+    row = conn.execute("SELECT status FROM daytrade_runs WHERE trade_date=?", (trade_date,)).fetchone()
+    return bool(row and row["status"] == "sent")
 
 
 def pending_candidates(conn: sqlite3.Connection, trade_date: str) -> list[sqlite3.Row]:
