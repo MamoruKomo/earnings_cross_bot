@@ -2,26 +2,38 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.03418786580572153,
-      "evaluated_count": 5,
-      "hit_rate": 0.4,
-      "lose": 0,
+      "avg_next_close_return": 0.029724803055894602,
+      "evaluated_count": 8,
+      "hit_rate": 0.5,
+      "lose": 1,
       "neutral": 3,
       "recommendation_count": 8,
-      "win": 2
+      "win": 4
     },
     {
       "action": "strong_cross",
-      "avg_next_close_return": 0.004087121379127812,
-      "evaluated_count": 1,
-      "hit_rate": 0.0,
+      "avg_next_close_return": 0.10408437701609452,
+      "evaluated_count": 2,
+      "hit_rate": 0.5,
       "lose": 0,
       "neutral": 1,
       "recommendation_count": 2,
-      "win": 0
+      "win": 1
     }
   ],
   "by_code": [
+    {
+      "avg_next_close_return": 0.20408163265306123,
+      "code": "581A",
+      "evaluated_count": 1,
+      "hit_rate": 1.0,
+      "last_recommendation_date": "2026-07-14",
+      "lose": 0,
+      "name": "Ｇ Ｏ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 1
+    },
     {
       "avg_next_close_return": 0.09144542772861364,
       "code": "4443",
@@ -30,6 +42,18 @@
       "last_recommendation_date": "2026-07-13",
       "lose": 0,
       "name": "Ｓａｎｓａｎ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 1
+    },
+    {
+      "avg_next_close_return": 0.08761329305135956,
+      "code": "5246",
+      "evaluated_count": 1,
+      "hit_rate": 1.0,
+      "last_recommendation_date": "2026-07-14",
+      "lose": 0,
+      "name": "ＥＬＥＭＥＮＴＳ",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 1
@@ -71,6 +95,18 @@
       "win": 0
     },
     {
+      "avg_next_close_return": 0.01734104046242768,
+      "code": "3608",
+      "evaluated_count": 1,
+      "hit_rate": 1.0,
+      "last_recommendation_date": "2026-07-14",
+      "lose": 0,
+      "name": "ＴＳＩ ＨＤ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 1
+    },
+    {
       "avg_next_close_return": 0.004087121379127812,
       "code": "7974",
       "evaluated_count": 1,
@@ -95,49 +131,13 @@
       "win": 0
     },
     {
-      "avg_next_close_return": null,
-      "code": "581A",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-07-14",
-      "lose": 0,
-      "name": "Ｇ Ｏ",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
+      "avg_next_close_return": -0.03809523809523807,
       "code": "135A",
-      "evaluated_count": 0,
-      "hit_rate": null,
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
       "last_recommendation_date": "2026-07-14",
-      "lose": 0,
+      "lose": 1,
       "name": "ＶＲＡＩＮ",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "3608",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-07-14",
-      "lose": 0,
-      "name": "ＴＳＩ ＨＤ",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "5246",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-07-14",
-      "lose": 0,
-      "name": "ＥＬＥＭＥＮＴＳ",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
@@ -845,9 +845,37 @@
       "date": "2026-07-14",
       "next_close_return": 0.09144542772861364,
       "result": "win"
+    },
+    {
+      "code": "135A",
+      "cumulative_return": 0.140125373802227,
+      "date": "2026-07-15",
+      "next_close_return": -0.03809523809523807,
+      "result": "lose"
+    },
+    {
+      "code": "3608",
+      "cumulative_return": 0.159896334041572,
+      "date": "2026-07-15",
+      "next_close_return": 0.01734104046242768,
+      "result": "win"
+    },
+    {
+      "code": "5246",
+      "cumulative_return": 0.26151867146515384,
+      "date": "2026-07-15",
+      "next_close_return": 0.08761329305135956,
+      "result": "win"
+    },
+    {
+      "code": "581A",
+      "cumulative_return": 0.5189714615600831,
+      "date": "2026-07-15",
+      "next_close_return": 0.20408163265306123,
+      "result": "win"
     }
   ],
-  "generated_at": "2026-07-15T03:43:35Z",
+  "generated_at": "2026-07-15T08:59:51Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-07-14T10:37:20Z",
@@ -11697,7 +11725,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 4.4,
+          "age_hours": 9.7,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -11705,7 +11733,7 @@
           "updated_at": "2026-07-15T08:20:00+09:00"
         },
         {
-          "age_hours": 1650.3,
+          "age_hours": 1655.6,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -11713,7 +11741,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 51.7,
+          "age_hours": 56.9,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -12294,90 +12322,60 @@
     "updated_at": "2026-07-13T09:03:38+09:00"
   },
   "no_trade_days": [],
-  "pending_recommendations": [
+  "pending_recommendations": [],
+  "recent_outcomes": [
     {
       "action": "strong_cross",
-      "announcement_time": "15:30",
       "code": "581A",
-      "confidence": "medium",
+      "evaluation_date": "2026-07-15",
       "event_date": "2026-07-14",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "price_history_60d",
-        "supply_demand"
-      ],
+      "max_drawdown": 0.13591836734693885,
       "name": "Ｇ Ｏ",
+      "next_close_return": 0.20408163265306123,
+      "next_open_return": 0.16326530612244894,
       "recommendation_date": "2026-07-14",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 80,
-      "thesis": "総合スコア80点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+      "result": "win",
+      "score": 80
     },
     {
       "action": "cross",
-      "announcement_time": "不明",
       "code": "5246",
-      "confidence": "medium",
+      "evaluation_date": "2026-07-15",
       "event_date": "2026-07-14",
-      "missing_data": [
-        "announcement_time_unknown",
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "operating_profit_yoy",
-        "supply_demand"
-      ],
+      "max_drawdown": 0.07401812688821763,
       "name": "ＥＬＥＭＥＮＴＳ",
+      "next_close_return": 0.08761329305135956,
+      "next_open_return": 0.08006042296072513,
       "recommendation_date": "2026-07-14",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 72,
-      "thesis": "総合スコア72点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+      "result": "win",
+      "score": 72
     },
     {
       "action": "cross",
-      "announcement_time": "不明",
       "code": "3608",
-      "confidence": "medium",
+      "evaluation_date": "2026-07-15",
       "event_date": "2026-07-14",
-      "missing_data": [
-        "announcement_time_unknown",
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
+      "max_drawdown": 0.006606110652353392,
       "name": "ＴＳＩ ＨＤ",
+      "next_close_return": 0.01734104046242768,
+      "next_open_return": 0.030553261767134687,
       "recommendation_date": "2026-07-14",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 72,
-      "thesis": "総合スコア72点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
+      "result": "win",
+      "score": 72
     },
     {
       "action": "cross",
-      "announcement_time": "不明",
       "code": "135A",
-      "confidence": "medium",
+      "evaluation_date": "2026-07-15",
       "event_date": "2026-07-14",
-      "missing_data": [
-        "announcement_time_unknown",
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
+      "max_drawdown": -0.09047619047619049,
       "name": "ＶＲＡＩＮ",
+      "next_close_return": -0.03809523809523807,
+      "next_open_return": -0.06190476190476191,
       "recommendation_date": "2026-07-14",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 77,
-      "thesis": "総合スコア77点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    }
-  ],
-  "recent_outcomes": [
+      "result": "lose",
+      "score": 77
+    },
     {
       "action": "cross",
       "code": "4443",
@@ -12458,9 +12456,9 @@
     }
   ],
   "result_distribution": {
-    "lose": 0,
+    "lose": 1,
     "neutral": 4,
-    "win": 2
+    "win": 5
   },
   "stock_snapshots": [
     {
@@ -12615,55 +12613,55 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.02917107506795591,
-    "avg_next_open_return": 0.014317321380913869,
+    "avg_next_close_return": 0.044596717847934585,
+    "avg_next_open_return": 0.029787815723103007,
     "best": {
-      "action": "cross",
-      "code": "4443",
-      "evaluation_date": "2026-07-14",
-      "event_date": "2026-07-13",
-      "max_drawdown": 0.02595870206489681,
-      "name": "Ｓａｎｓａｎ",
-      "next_close_return": 0.09144542772861364,
-      "next_open_return": 0.0424778761061948,
-      "recommendation_date": "2026-07-13",
+      "action": "strong_cross",
+      "code": "581A",
+      "evaluation_date": "2026-07-15",
+      "event_date": "2026-07-14",
+      "max_drawdown": 0.13591836734693885,
+      "name": "Ｇ Ｏ",
+      "next_close_return": 0.20408163265306123,
+      "next_open_return": 0.16326530612244894,
+      "recommendation_date": "2026-07-14",
       "result": "win",
-      "score": 71
+      "score": 80
     },
-    "evaluated_count": 6,
-    "hit_rate": 0.3333333333333333,
-    "lose_count": 0,
-    "lose_rate": 0.0,
+    "evaluated_count": 10,
+    "hit_rate": 0.5,
+    "lose_count": 1,
+    "lose_rate": 0.1,
     "neutral_count": 4,
     "no_trade_day_count": 0,
-    "non_loss_rate": 1.0,
-    "pending_count": 4,
-    "positive_close_rate": 0.8333333333333334,
+    "non_loss_rate": 0.9,
+    "pending_count": 0,
+    "positive_close_rate": 0.8,
     "recommendation_count": 10,
-    "win_count": 2,
+    "win_count": 5,
     "worst": {
       "action": "cross",
-      "code": "6501",
-      "evaluation_date": "2026-07-09",
-      "event_date": "2026-07-08",
-      "max_drawdown": -0.014451217050821419,
-      "name": "日立製作所",
-      "next_close_return": -0.0014012951888864311,
-      "next_open_return": -0.002479658153173636,
-      "recommendation_date": "2026-07-08",
-      "result": "neutral",
-      "score": 76
+      "code": "135A",
+      "evaluation_date": "2026-07-15",
+      "event_date": "2026-07-14",
+      "max_drawdown": -0.09047619047619049,
+      "name": "ＶＲＡＩＮ",
+      "next_close_return": -0.03809523809523807,
+      "next_open_return": -0.06190476190476191,
+      "recommendation_date": "2026-07-14",
+      "result": "lose",
+      "score": 77
     }
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.02917107506795591,
-      "correct": 2,
-      "count": 6,
-      "positive_rate": 0.8333333333333334,
-      "precision": 0.3333333333333333,
-      "precision_lower_95": 0.09676933255921683,
-      "precision_upper_95": 0.7000116786584712
+      "avg_next_close_return": 0.044596717847934585,
+      "correct": 5,
+      "count": 10,
+      "positive_rate": 0.8,
+      "precision": 0.5,
+      "precision_lower_95": 0.23658959361548731,
+      "precision_upper_95": 0.7634104063845126
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -12675,43 +12673,43 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと34件",
+    "message": "時系列検証開始まであと30件",
     "required_count": 40,
-    "sample_count": 6,
+    "sample_count": 10,
     "score_bands": [
       {
-        "avg_next_close_return": 0.004087121379127812,
+        "avg_next_close_return": 0.10408437701609452,
         "band": "80-100",
-        "correct": 0,
-        "count": 1,
+        "correct": 1,
+        "count": 2,
         "positive_rate": 1.0,
-        "precision": 0.0,
-        "precision_lower_95": 0.0,
-        "precision_upper_95": 0.7934567085261071
+        "precision": 0.5,
+        "precision_lower_95": 0.09452865480086614,
+        "precision_upper_95": 0.9054713451991339
       },
       {
-        "avg_next_close_return": 0.011783347283917833,
+        "avg_next_close_return": -0.004842847842467468,
         "band": "75-79",
         "correct": 0,
-        "count": 2,
-        "positive_rate": 0.5,
+        "count": 3,
+        "positive_rate": 0.3333333333333333,
         "precision": 0.0,
         "precision_lower_95": 0.0,
-        "precision_upper_95": 0.6576280471103807
+        "precision_upper_95": 0.5615060804490177
       },
       {
-        "avg_next_close_return": 0.049124211486923995,
+        "avg_next_close_return": 0.050465393594911846,
         "band": "70-74",
-        "correct": 2,
-        "count": 3,
+        "correct": 4,
+        "count": 5,
         "positive_rate": 1.0,
-        "precision": 0.6666666666666666,
-        "precision_lower_95": 0.2076549551264879,
-        "precision_upper_95": 0.9385096847238394
+        "precision": 0.8,
+        "precision_lower_95": 0.3755282641185388,
+        "precision_upper_95": 0.9637768390302125
       }
     ],
     "status": "collecting",
-    "training_count": 6
+    "training_count": 10
   },
   "weekly": [
     {
@@ -12724,13 +12722,13 @@
       "win": 1
     },
     {
-      "avg_next_close_return": 0.057280067230386034,
-      "count": 2,
-      "hit_rate": 0.5,
-      "lose": 0,
+      "avg_next_close_return": 0.06425014375539707,
+      "count": 6,
+      "hit_rate": 0.6666666666666666,
+      "lose": 1,
       "neutral": 1,
       "week_start": "2026-07-13",
-      "win": 1
+      "win": 4
     }
   ]
 }
