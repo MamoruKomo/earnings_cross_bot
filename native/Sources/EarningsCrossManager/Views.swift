@@ -19,6 +19,7 @@ struct RootView: View {
             Group {
                 switch model.selectedSection ?? .overview {
                 case .overview: TodayView()
+                case .daytrade: DaytradeView()
                 case .morningBrief: MorningBriefView()
                 case .watchlist: WatchlistView()
                 case .history: ReviewView()
@@ -30,6 +31,51 @@ struct RootView: View {
         .toolbar {
             if model.isRunning { ProgressView().controlSize(.small) }
             Button { model.syncLatest() } label: { Image(systemName: "arrow.triangle.2.circlepath") }.help("最新データを同期")
+        }
+    }
+}
+
+struct DaytradeView: View {
+    @EnvironmentObject private var model: AppModel
+    var dashboard: DaytradeDashboard? { model.data?.daytrade }
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
+                HStack(alignment: .top) {
+                    PageHeading(title: "デイトレ", subtitle: "8:50時点の流動性・材料・テクニカルランキング")
+                    Spacer()
+                    Button { model.runDaytradeEvaluation() } label: { Label("結果評価", systemImage: "checkmark.seal") }.disabled(model.isRunning)
+                    Button { model.runDaytradeRanking() } label: { Label("ランキング更新", systemImage: "bolt.fill") }.buttonStyle(.borderedProminent).disabled(model.isRunning)
+                }
+                RunBanner()
+                NoticeView(icon: "clock", text: "平日8:50にSlackへ投稿し、15:50に当日高値・安値・終値を検証します。板・PTSなど未取得データは加点しません。", color: .cyan)
+                if let summary = dashboard?.summary {
+                    HStack(spacing: 12) {
+                        MetricTile(label: "評価済み", value: "\(summary.evaluated)件", detail: "学習は40件から", color: .blue)
+                        MetricTile(label: "+3%到達", value: "\(summary.targetHits)件", detail: "選定時価格から", color: .green)
+                        MetricTile(label: "的中率", value: percent(summary.hitRate), detail: "最大上昇率基準", color: .indigo)
+                    }
+                }
+                let rows = dashboard?.candidates ?? []
+                if rows.isEmpty {
+                    ContentUnavailableView("ランキング未生成", systemImage: "bolt.horizontal.circle", description: Text("ランキング更新を実行すると候補が表示されます。"))
+                } else {
+                    ForEach(rows.prefix(10)) { row in
+                        VStack(alignment: .leading, spacing: 12) {
+                            HStack { Text("\(row.rank)").font(.title.bold()).frame(width: 34); StockName(name: row.name.isEmpty ? row.code : row.name, code: row.code); Spacer(); Text(row.theme).font(.caption).foregroundStyle(.secondary); ScoreBadge(score: row.score) }
+                            HStack(spacing: 18) {
+                                Fact(icon: "yensign", text: priceText(row.features.price))
+                                Fact(icon: "arrow.up.right", text: "GAP \(signedPercent(row.features.gapRate))")
+                                Fact(icon: "chart.bar", text: "出来高 \(ratioTextPlain(row.features.volumeRatio))")
+                                Fact(icon: "waveform.path.ecg", text: "ATR \(percent1(row.features.atrRate))")
+                            }
+                            Text(row.comment.reasons.joined(separator: " / ")).font(.callout)
+                            Text("戦略: \(row.comment.entryStrategy)").font(.callout).foregroundStyle(.blue)
+                            HStack { Text("利確 \(priceText(row.comment.takeProfit))"); Text("損切り \(priceText(row.comment.stopLoss))"); Spacer(); Text(row.comment.risks.joined(separator: " / ")).foregroundStyle(.orange) }.font(.caption)
+                        }.padding(16).panelStyle()
+                    }
+                }
+            }.padding(26)
         }
     }
 }
@@ -293,9 +339,11 @@ struct SettingsView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("自動スケジュール").font(.headline)
                     ScheduleRow(icon: "sun.max", title: "候補生成とSlack通知", schedule: "平日 8:30 / 失敗時 8:45・9:00", action: model.runMorning)
+                    ScheduleRow(icon: "bolt.horizontal.circle", title: "デイトレランキング", schedule: "平日 8:50", action: model.runDaytradeRanking)
                     ScheduleRow(icon: "newspaper", title: "市場朝刊", schedule: "平日 8:20", action: model.runMarketBrief)
                     ScheduleRow(icon: "list.bullet.rectangle", title: "ウォッチ", schedule: "平日 9:30・16:00", action: model.runWatchlist)
                     ScheduleRow(icon: "checkmark.seal", title: "翌営業日の結果評価", schedule: "平日 15:45", action: model.runEvaluation)
+                    ScheduleRow(icon: "chart.xyaxis.line", title: "デイトレ結果評価", schedule: "平日 15:50", action: model.runDaytradeEvaluation)
                     ScheduleRow(icon: "calendar", title: "週次レビュー", schedule: "金曜 18:00", action: model.runWeeklyReview)
                 }
                 HStack(alignment: .top, spacing: 12) {
@@ -403,6 +451,7 @@ func resultColor(_ result: String) -> Color { result == "win" ? .green : result 
 func returnColor(_ value: Double?) -> Color { guard let value else { return .secondary }; return value > 0 ? .green : value < 0 ? .red : .secondary }
 func compactNumber(_ value: Double?) -> String { guard let value else { return "--" }; return value >= 10_000 ? String(format: "%.1f万", value / 10_000) : String(format: "%.0f", value) }
 func ratioText(_ value: Double?) -> String { guard let value else { return "--" }; return String(format: "%.2f倍", value) }
+func ratioTextPlain(_ value: Double?) -> String { guard let value else { return "--" }; return String(format: "%.1f倍", value) }
 func shortDateTime(_ value: String?) -> String { guard let value, !value.isEmpty else { return "--" }; return String(value.prefix(16)).replacingOccurrences(of: "T", with: " ") }
 func priceText(_ value: Double?) -> String { guard let value else { return "--" }; return value.formatted(.number.precision(.fractionLength(value.rounded() == value ? 0 : 1))) }
 func watchChangeValue(_ item: WatchlistItem) -> Double? { guard let price = item.close ?? item.open, let previous = item.previousClose, previous != 0 else { return nil }; return price / previous - 1 }

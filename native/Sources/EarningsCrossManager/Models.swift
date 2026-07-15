@@ -14,13 +14,61 @@ struct DashboardData: Codable {
     let validation: ValidationReport
     let latestNotification: NotificationStatus?
     let marketIntelligence: MarketIntelligence?
+    let daytrade: DaytradeDashboard?
     enum CodingKeys: String, CodingKey {
         case generatedAt = "generated_at"; case summary
         case resultDistribution = "result_distribution"; case weekly
         case equityCurve = "equity_curve"; case byCode = "by_code"
         case recentOutcomes = "recent_outcomes"; case pendingRecommendations = "pending_recommendations"
         case stockSnapshots = "stock_snapshots"; case learning, validation; case latestNotification = "latest_notification"
-        case marketIntelligence = "market_intelligence"
+        case marketIntelligence = "market_intelligence"; case daytrade
+    }
+}
+
+struct DaytradeDashboard: Codable {
+    let candidates: [DaytradeCandidate]
+    let outcomes: [DaytradeOutcome]
+    let summary: DaytradeSummary
+}
+
+struct DaytradeSummary: Codable {
+    let evaluated, targetHits: Int
+    let hitRate: Double?
+    enum CodingKeys: String, CodingKey { case evaluated; case targetHits = "target_hits"; case hitRate = "hit_rate" }
+}
+
+struct DaytradeCandidate: Codable, Identifiable {
+    let id, rank, score: Int
+    let tradeDate, code, name, theme: String
+    let features: DaytradeFeatures
+    let comment: DaytradeComment
+    enum CodingKeys: String, CodingKey { case id, rank, score, code, name, theme, features, comment; case tradeDate = "trade_date" }
+}
+
+struct DaytradeFeatures: Codable {
+    let price, changeRate, gapRate, volume, volumeRatio, turnover, vwap, atrRate, rsi: Double?
+    let aboveVwap, breakout20d, boxBreakout: Bool?
+    enum CodingKeys: String, CodingKey {
+        case price, volume, turnover, vwap, rsi; case changeRate = "change_rate"; case gapRate = "gap_rate"
+        case volumeRatio = "volume_ratio"; case atrRate = "atr_rate"; case aboveVwap = "above_vwap"
+        case breakout20d = "breakout_20d"; case boxBreakout = "box_breakout"
+    }
+}
+
+struct DaytradeComment: Codable {
+    let reasons, risks: [String]
+    let entryStrategy: String
+    let takeProfit, stopLoss: Double?
+    enum CodingKeys: String, CodingKey { case reasons, risks; case entryStrategy = "entry_strategy"; case takeProfit = "take_profit"; case stopLoss = "stop_loss" }
+}
+
+struct DaytradeOutcome: Codable, Identifiable {
+    let id, candidateId, targetHit, stopHit: Int
+    let tradeDate, code: String
+    let referencePrice, high, low, close, maxUp, maxDown, closeReturn: Double?
+    enum CodingKeys: String, CodingKey {
+        case id, code, high, low, close; case candidateId = "candidate_id"; case targetHit = "target_hit"; case stopHit = "stop_hit"
+        case tradeDate = "trade_date"; case referencePrice = "reference_price"; case maxUp = "max_up"; case maxDown = "max_down"; case closeReturn = "close_return"
     }
 }
 
@@ -209,11 +257,11 @@ struct ScoreBand: Codable, Identifiable {
 }
 
 enum AppSection: String, CaseIterable, Identifiable {
-    case overview = "今日"; case morningBrief = "市況・朝刊"; case watchlist = "ウォッチ"
+    case overview = "今日"; case daytrade = "デイトレ"; case morningBrief = "市況・朝刊"; case watchlist = "ウォッチ"
     case history = "検証"; case analysis = "銘柄調査"; case operations = "設定・接続"
     var id: String { rawValue }
     var icon: String { switch self {
-        case .overview: "sun.max"; case .morningBrief: "newspaper"
+        case .overview: "sun.max"; case .daytrade: "bolt.horizontal.circle"; case .morningBrief: "newspaper"
         case .watchlist: "list.bullet.rectangle"; case .history: "checkmark.seal"
         case .analysis: "magnifyingglass"; case .operations: "gearshape"
     } }

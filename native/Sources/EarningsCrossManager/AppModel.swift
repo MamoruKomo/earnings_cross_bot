@@ -39,6 +39,8 @@ import SwiftUI
     func runSlackTest() { runGitHubJob(job: "slack-test", label: "Slack接続テスト") }
     func runMarketBrief() { runGitHubJob(job: "market-brief", label: "朝刊生成") }
     func runWatchlist() { runGitHubJob(job: "watchlist-close", label: "ウォッチ更新") }
+    func runDaytradeRanking() { runGitHubJob(job: "daytrade-rank", label: "デイトレランキング") }
+    func runDaytradeEvaluation() { runGitHubJob(job: "daytrade-evaluate", label: "デイトレ結果評価") }
     func syncLatest() {
         guard !isRunning else { return }
         isRunning = true; lastError = nil; statusMessage = "最新データを同期中"

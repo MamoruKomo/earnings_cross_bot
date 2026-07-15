@@ -1,0 +1,32 @@
+version: daytrade-0.1
+ranking:
+  max_candidates: 10
+  minimum_score: 55
+  minimum_turnover: 100000000
+  minimum_price: 100
+  maximum_price: 50000
+weights:
+  liquidity: 20
+  volatility: 15
+  news: 20
+  theme: 10
+  technical: 20
+  order_book: 5
+  risk_reward: 10
+evaluation:
+  target_return: 0.03
+  stop_return: -0.02
+learning:
+  minimum_samples: 30
+  validation_samples: 10
+  maximum_weight_change: 0.10
+themes:
+  AI: ["AI", "生成AI", "人工知能", "LLM"]
+  半導体: ["半導体", "チップ", "GPU", "HBM"]
+  防衛: ["防衛", "防衛省", "ミサイル", "レーダー"]
+  データセンター: ["データセンター", "クラウド", "サーバー"]
+  宇宙: ["宇宙", "衛星", "ロケット"]
+  バイオ: ["バイオ", "治験", "医薬", "創薬"]
+  SaaS: ["SaaS", "サブスクリプション", "クラウドサービス"]
+  FinTech: ["FinTech", "決済", "ブロックチェーン", "金融DX"]
+  ロボティクス: ["ロボット", "自動化", "FA"]

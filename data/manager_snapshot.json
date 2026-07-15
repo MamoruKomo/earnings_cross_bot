@@ -143,6 +143,85 @@
       "win": 0
     }
   ],
+  "daytrade": {
+    "candidates": [
+      {
+        "code": "8306",
+        "comment": {
+          "entry_strategy": "VWAP回復を確認するまで待機",
+          "reasons": [
+            "出来高ペースが平常の1.5倍",
+            "直近レンジを上抜け"
+          ],
+          "risks": [
+            "RSI過熱",
+            "板情報未取得のため約定前に気配確認必須"
+          ],
+          "stop_loss": 3595.885714285714,
+          "take_profit": 3730.714285714286
+        },
+        "components": {
+          "liquidity": 18.31,
+          "news": 4.0,
+          "order_book": 1.75,
+          "risk_reward": 7.13,
+          "technical": 12.0,
+          "theme": 2.5,
+          "volatility": 9.28
+        },
+        "created_at": "2026-07-15T01:56:15Z",
+        "features": {
+          "above_ma20": true,
+          "above_ma5": true,
+          "above_vwap": false,
+          "atr": 81.71428571428571,
+          "atr_rate": 0.022698412698412697,
+          "avg_volume_20d": 34925555.0,
+          "box_breakout": false,
+          "breakout_20d": true,
+          "change_rate": 0.013611111111111018,
+          "data_as_of": "2026-07-15T01:41:13+00:00",
+          "gap_rate": 0.03166666666666673,
+          "high_update": true,
+          "intraday_high": 3733.0,
+          "intraday_low": 3643.0,
+          "ma20": 3338.45,
+          "ma5": 3489.8,
+          "macd": 100.41671254499352,
+          "market_cap": null,
+          "open": 3714.0,
+          "previous_close": 3600.0,
+          "price": 3649.0,
+          "projected_turnover": 193222137029.70297,
+          "rsi": 86.91588785046729,
+          "turnover": 65051452800.0,
+          "unavailable": [
+            "margin_interest",
+            "short_ratio",
+            "pts",
+            "order_book"
+          ],
+          "volatility_20d": 0.24668939058247982,
+          "volume": 17827200.0,
+          "volume_ratio": 1.516141381516222,
+          "vwap": 3697.3239319691256
+        },
+        "id": 2,
+        "name": "三菱UFJ",
+        "news": [],
+        "rank": 1,
+        "score": 55,
+        "theme": "その他",
+        "trade_date": "2026-07-15"
+      }
+    ],
+    "outcomes": [],
+    "summary": {
+      "evaluated": 0,
+      "hit_rate": null,
+      "target_hits": 0
+    }
+  },
   "equity_curve": [
     {
       "code": "7974",
@@ -187,7 +266,7 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-15T00:09:51Z",
+  "generated_at": "2026-07-15T01:59:18Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-07-14T10:37:20Z",
@@ -11037,7 +11116,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 0.8,
+          "age_hours": 2.7,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -11045,7 +11124,7 @@
           "updated_at": "2026-07-15T08:20:00+09:00"
         },
         {
-          "age_hours": 1646.7,
+          "age_hours": 1648.6,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -11053,7 +11132,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 48.1,
+          "age_hours": 49.9,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",

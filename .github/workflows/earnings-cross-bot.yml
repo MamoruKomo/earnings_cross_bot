@@ -5,8 +5,10 @@ on:
     - cron: "5 23 * * 0-4"       # 08:05 JST fundamentals
     - cron: "20 23 * * 0-4"      # 08:20 JST market brief
     - cron: "30 23 * * 0-4"      # 08:30 JST earnings candidates
+    - cron: "50 23 * * 0-4"      # 08:50 JST day-trade ranking
     - cron: "30 0 * * 1-5"       # 09:30 JST watchlist open
     - cron: "45 6 * * 1-5"       # 15:45 JST evaluation
+    - cron: "50 6 * * 1-5"       # 15:50 JST day-trade evaluation
     - cron: "0 7 * * 1-5"        # 16:00 JST watchlist close
     - cron: "0 9 * * 5"          # 18:00 JST weekly review
   workflow_dispatch:
@@ -22,6 +24,8 @@ on:
           - weekly
           - learn
           - slack-test
+          - daytrade-rank
+          - daytrade-evaluate
           - market-brief
           - watchlist-open
           - watchlist-close
@@ -66,8 +70,10 @@ jobs:
               "5 23 * * 0-4") task="fundamentals" ;;
               "20 23 * * 0-4") task="market-brief" ;;
               "30 23 * * 0-4") task="morning" ;;
+              "50 23 * * 0-4") task="daytrade-rank" ;;
               "30 0 * * 1-5") task="watchlist-open" ;;
               "45 6 * * 1-5") task="evaluate" ;;
+              "50 6 * * 1-5") task="daytrade-evaluate" ;;
               "0 7 * * 1-5") task="watchlist-close" ;;
               "0 9 * * 5") task="weekly" ;;
               *) task="refresh-manager" ;;
@@ -76,7 +82,7 @@ jobs:
           echo "task=$task" >> "$GITHUB_OUTPUT"
 
       - name: Install earnings dependencies
-        if: github.event_name == 'workflow_dispatch' || contains(fromJSON('["morning","evaluate","weekly","learn","slack-test"]'), steps.task.outputs.task)
+        if: github.event_name == 'workflow_dispatch' || contains(fromJSON('["morning","evaluate","weekly","learn","slack-test","daytrade-rank","daytrade-evaluate"]'), steps.task.outputs.task)
         run: python3 -m pip install -r requirements.txt
 
       - name: Run unit tests
@@ -89,7 +95,7 @@ jobs:
           python3 -m unittest discover -s tests -q
 
       - name: Run earnings operation
-        if: contains(fromJSON('["morning","evaluate","weekly","learn","slack-test"]'), steps.task.outputs.task)
+        if: contains(fromJSON('["morning","evaluate","weekly","learn","slack-test","daytrade-rank","daytrade-evaluate"]'), steps.task.outputs.task)
         env:
           JQUANTS_EMAIL: ${{ secrets.JQUANTS_EMAIL }}
           JQUANTS_PASSWORD: ${{ secrets.JQUANTS_PASSWORD }}
@@ -104,6 +110,8 @@ jobs:
             weekly) python3 -m src.main_weekly_review ;;
             learn) python3 -m src.main_learn ;;
             slack-test) python3 -m src.main_slack_test ;;
+            daytrade-rank) python3 -m src.main_daytrade rank ;;
+            daytrade-evaluate) python3 -m src.main_daytrade evaluate ;;
           esac
 
       - name: Run market intelligence operation
@@ -138,7 +146,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/earnings_cross_bot.db data/lessons.jsonl data/learning_profile.json data/manager_snapshot.json config/rules_suggestion.yaml market_intelligence/docs/data || true
+          git add data/earnings_cross_bot.db data/daytrade.db data/daytrade_latest.json data/daytrade_learning_profile.json data/lessons.jsonl data/learning_profile.json data/manager_snapshot.json config/rules_suggestion.yaml market_intelligence/docs/data || true
           git diff --cached --quiet || git commit -m "Update Earnings Cross Manager data"
           git push
 
