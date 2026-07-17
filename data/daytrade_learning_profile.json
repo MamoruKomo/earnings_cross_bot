@@ -1,9 +1,9 @@
 {
-  "message": "時系列検証開始まであと30件",
+  "message": "時系列検証開始まであと25件",
   "required_samples": 40,
-  "sample_count": 10,
+  "sample_count": 15,
   "status": "observing",
-  "trained_at": "2026-07-16T09:05:52Z",
+  "trained_at": "2026-07-17T09:00:59Z",
   "version": 1,
   "weight_multipliers": {}
 }
