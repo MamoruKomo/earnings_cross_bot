@@ -3,61 +3,62 @@
     {
       "code": "7203",
       "comment": {
-        "entry_strategy": "VWAP回復を確認するまで待機",
+        "entry_strategy": "VWAP付近の押し目または朝高値更新で分割エントリー",
         "reasons": [
-          "流動性・値幅・テクニカルの総合点が基準を上回る"
+          "株価がVWAPを上回る",
+          "好材料: ［新連載］逆襲のファーウェイ、トヨタが車載OS採用 EV・半導体で狙う新覇権 - 日経ビジネス電子版"
         ],
         "risks": [
           "板情報未取得のため約定前に気配確認必須"
         ],
-        "stop_loss": 2862.575,
-        "take_profit": 2969.0
+        "stop_loss": 2891.294336888863,
+        "take_profit": 2971.785714285714
       },
       "components": {
-        "liquidity": 16.94,
-        "news": 12.0,
+        "liquidity": 17.89,
+        "news": 16.5,
         "order_book": 1.75,
         "risk_reward": 10.0,
-        "technical": 9.4,
+        "technical": 11.8,
         "theme": 7.5,
-        "volatility": 9.13
+        "volatility": 9.14
       },
       "excluded": [],
       "features": {
         "above_ma20": true,
         "above_ma5": true,
-        "above_vwap": false,
-        "atr": 64.5,
-        "atr_rate": 0.022430881585811163,
-        "avg_volume_20d": 26265695.0,
+        "above_vwap": true,
+        "atr": 65.28571428571429,
+        "atr_rate": 0.02244266561901488,
+        "avg_volume_20d": 26371260.0,
         "box_breakout": false,
         "breakout_20d": false,
-        "change_rate": 0.010085202573465457,
-        "data_as_of": "2026-07-16T00:53:56+00:00",
-        "gap_rate": 0.003999304468788045,
+        "change_rate": -0.0008594018563080619,
+        "data_as_of": "2026-07-17T00:57:03+00:00",
+        "gap_rate": -0.007906497078033703,
         "high_update": false,
-        "intraday_high": 2921.0,
-        "intraday_low": 2883.0,
-        "ma20": 2797.0,
-        "ma5": 2833.5,
-        "macd": 2.0574655140089817,
+        "intraday_high": 2913.5,
+        "intraday_low": 2857.0,
+        "ma20": 2802.775,
+        "ma5": 2850.5,
+        "macd": 9.240088750028917,
         "market_cap": null,
-        "open": 2887.0,
-        "previous_close": 2875.5,
-        "price": 2904.5,
-        "projected_turnover": 85824686886.79245,
-        "rsi": 65.9090909090909,
-        "turnover": 15162361350.0,
+        "open": 2886.0,
+        "previous_close": 2909.0,
+        "price": 2906.5,
+        "projected_turnover": 106986735263.15788,
+        "rsi": 63.662790697674424,
+        "turnover": 20327479700.0,
         "unavailable": [
           "margin_interest",
           "short_ratio",
           "pts",
           "order_book"
         ],
-        "volatility_20d": 0.23981219029683906,
-        "volume": 5220300.0,
-        "volume_ratio": 1.124998517059164,
-        "vwap": 2906.198692284607
+        "volatility_20d": 0.24090049669575414,
+        "volume": 6993800.0,
+        "volume_ratio": 1.3958177836102834,
+        "vwap": 2891.294336888863
       },
       "name": "トヨタ",
       "news": [
@@ -66,9 +67,9 @@
           "sentiment": "neutral",
           "signals": [],
           "source": "market_brief",
-          "summary": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-15): 68,751.51 (+1.49%) / 業種: +非鉄金属 / -鉱業 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
+          "summary": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-16): 66,835.54 (-2.79%) / 業種: +輸送用機器 / -非鉄金属 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
           "themes": [],
-          "title": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-15): 68,751.51 (+1.49%) / 業種: +非鉄金属 / -鉱業 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
+          "title": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-16): 66,835.54 (-2.79%) / 業種: +輸送用機器 / -非鉄金属 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
           "url": ""
         },
         {
@@ -76,61 +77,67 @@
           "sentiment": "neutral",
           "signals": [],
           "source": "日経",
-          "summary": "NVIDIA、トヨタの実証都市ウーブンを支援 フィジカルAI向け技術提供 - 日本経済新聞",
+          "summary": "NVIDIA、トヨタのウーブン・シティを支援 フィジカルAI向け技術提供 - 日本経済新聞",
           "themes": [
             "AI"
           ],
-          "title": "NVIDIA、トヨタの実証都市ウーブンを支援 フィジカルAI向け技術提供 - 日本経済新聞",
+          "title": "NVIDIA、トヨタのウーブン・シティを支援 フィジカルAI向け技術提供 - 日本経済新聞",
           "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBvYUppSWFPUEl6Wjlxb2g4dnF0NVQtYVRyUUtkaHZDQkFyU2xxM0EzMDdSU2Qwa2FyTndYYjZwUWZZMUZkMFhuTFRIdG5IWC1uZmF3cktBZ2U5ekMtRFpxVFotUmlRUDRxak1xMQ?oc=5"
         },
         {
           "code": "7203",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "日経",
-          "summary": "日本車はソフトで稼げるか 保有台数で勝負、トヨタ世界1.5億台 - 日本経済新聞",
-          "themes": [],
-          "title": "日本車はソフトで稼げるか 保有台数で勝負、トヨタ世界1.5億台 - 日本経済新聞",
-          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5XcGdqU3BmTDFUTFJyOFNSWTUwY1IyZl9fT0VFZmFjQmZqT2s4WEl3S0EweVNtb2NfSXRYZEhNcGhYZzFEUUlrdE5YclM3U0xsaTFXMFdaa1dDRE5IeWMwLXUtWUQ3RnZBYjhhdw?oc=5"
-        },
-        {
-          "code": "7203",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "日経",
-          "summary": "トヨタがヒト型ロボ、工場自動化 ｢バスケ｣で判断力学ぶ - 日本経済新聞",
-          "themes": [
-            "ロボティクス"
+          "sentiment": "positive",
+          "signals": [
+            "採用"
           ],
-          "title": "トヨタがヒト型ロボ、工場自動化 ｢バスケ｣で判断力学ぶ - 日本経済新聞",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPWktFdThvVG9ZeVFrMm4yT0o1bTRpeFE0U095a1k3ZnMtRThLSmtwQmVlQ040MlQ4ZV9IT3hyZ0RSSW9tY2dBLWNPX2o0WV9FLThaWUVBZjF0QUNQWDMxdG9wd1AwZzZ6eVJZcEItRVhJT3VORjRFTjlmMTNBQnNLQWt5cG1DSUJkNElIY3RmWWp4bWxseWRxeW5nTW1qTWQ5Rm4xYw?oc=5"
+          "source": "theme_news",
+          "summary": "［新連載］逆襲のファーウェイ、トヨタが車載OS採用 EV・半導体で狙う新覇権 - 日経ビジネス電子版",
+          "themes": [
+            "半導体"
+          ],
+          "title": "［新連載］逆襲のファーウェイ、トヨタが車載OS採用 EV・半導体で狙う新覇権 - 日経ビジネス電子版",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBDMWJNV1l0YjVBMzk3TU1mMHdZMmQ1cnNKbjN6UWRKYTFWbHdBNVVNTC1qMzk1c3NHc0FnOFVaa2N3NjAzR3M1a2NFYmYwZXUxVXFNZHNDQjI2R3lsTXotdXNtSVlDczQ?oc=5"
         },
         {
           "code": "7203",
           "sentiment": "neutral",
           "signals": [],
-          "source": "PR TIMES",
-          "summary": "【 名鉄トヨタホテル 】『諸星和己Xmas Dinner Show2026』12月6日 (日)開催！ - PR TIMES",
+          "source": "theme_news",
+          "summary": "ファーウェイとトヨタの共通点 - 日経ビジネス電子版",
           "themes": [],
-          "title": "【 名鉄トヨタホテル 】『諸星和己Xmas Dinner Show2026』12月6日 (日)開催！ - PR TIMES",
-          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBpb1k0bDB3WjV0RUZxWjVBc2htQWtHbVVyazNmNzNVZGNzR2p0X2FOenVIb3ZZejJfVFhPZ0JkTGZ6NUltU01VakU0b2NPX2p1U2F2cWprZjhSOFFjS05yazZINVc5cXV2TXc?oc=5"
+          "title": "ファーウェイとトヨタの共通点 - 日経ビジネス電子版",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9SQ0hTRUpZemI5VEJxWWE1S1pHSmlpU3Z3c1RRT1pyMlVYVEhBb0hRbHFYRUs1Vm5iRUhiLWQxWFpVYWpQU2FpMTk4VGdJOVdxNFlENGhnVWpla1hNWDRrMThn?oc=5"
         },
         {
           "code": "7203",
           "sentiment": "neutral",
           "signals": [],
-          "source": "日経",
-          "summary": "沈むな日本車（下） 「ソフトで稼ぐ」が競争軸 トヨタ、走る1.5億台に命運 - 日本経済新聞",
-          "themes": [],
-          "title": "沈むな日本車（下） 「ソフトで稼ぐ」が競争軸 トヨタ、走る1.5億台に命運 - 日本経済新聞",
-          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB6S09fT2RzVTNXZUwzTndsQTUwdlp1eHNyREpBc0dwMDVFLTFORjNtdkpLdGVsV0ZLOEhfM2I3ZTd4WGxjVlZpNzIyVXVTcDE3T1ZzZUhjTGxUa1c2MzV2enNYTUNJYUV2MGlKcQ?oc=5"
+          "source": "theme_news",
+          "summary": "ファーウェイの逆襲 トヨタも車載OSで頼る 半導体はTSMCに挑む - 日経ビジネス電子版",
+          "themes": [
+            "半導体"
+          ],
+          "title": "ファーウェイの逆襲 トヨタも車載OSで頼る 半導体はTSMCに挑む - 日経ビジネス電子版",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5XRU1QYXRJTF8wNlk0U0Q1c3R0ZmFHUFpBeV9ZM01FVFRwdDJESTI2bXZabGpTcHBFaFBlbkhpdnpFQlEtUkVrd3VCdmROX01fN3QtS1V4NldtWkZ0VEdNYmVBWGg?oc=5"
+        },
+        {
+          "code": "7203",
+          "sentiment": "neutral",
+          "signals": [],
+          "source": "theme_news",
+          "summary": "NVIDIAがトヨタなど日本産業界と連携強化、フィジカルAI向け新製品も発表 - 日経クロステック",
+          "themes": [
+            "AI"
+          ],
+          "title": "NVIDIAがトヨタなど日本産業界と連携強化、フィジカルAI向け新製品も発表 - 日経クロステック",
+          "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5lcXJqTFNmaS1BdFpOeGNtbDVyMDh4NnROcXRtWUp2aHVJaXVTbElnbDMxbHJxZkFXa3JZX190eFB0cllJT1FPcUdOTVNZdTlqZ2hrWkJ5WEh6Qm1r?oc=5"
         }
       ],
       "rank": 1,
-      "score": 67,
+      "score": 75,
       "themes": [
         "AI",
-        "ロボティクス"
+        "半導体"
       ]
     },
     {
@@ -143,54 +150,54 @@
         "risks": [
           "板情報未取得のため約定前に気配確認必須"
         ],
-        "stop_loss": 1540.6987277224366,
-        "take_profit": 1582.6785714285713
+        "stop_loss": 1540.6099712368168,
+        "take_profit": 1581.392857142857
       },
       "components": {
-        "liquidity": 15.17,
+        "liquidity": 15.15,
         "news": 12.0,
         "order_book": 1.75,
         "risk_reward": 10.0,
-        "technical": 13.6,
-        "theme": 2.5,
-        "volatility": 10.37
+        "technical": 11.8,
+        "theme": 5.0,
+        "volatility": 10.43
       },
       "excluded": [],
       "features": {
         "above_ma20": true,
         "above_ma5": true,
         "above_vwap": true,
-        "atr": 39.17857142857143,
-        "atr_rate": 0.025920325126411795,
-        "avg_volume_20d": 17983530.0,
+        "atr": 39.892857142857146,
+        "atr_rate": 0.02559695678078739,
+        "avg_volume_20d": 17858360.0,
         "box_breakout": false,
         "breakout_20d": false,
-        "change_rate": 0.021171022163413822,
-        "data_as_of": "2026-07-16T00:53:53+00:00",
-        "gap_rate": 0.009262322196493589,
+        "change_rate": -0.010907924286172599,
+        "data_as_of": "2026-07-17T00:57:03+00:00",
+        "gap_rate": -0.010266281681103662,
         "high_update": false,
-        "intraday_high": 1549.0,
-        "intraday_low": 1524.0,
-        "ma20": 1480.5,
-        "ma5": 1503.5,
-        "macd": 28.1808834608496,
+        "intraday_high": 1550.5,
+        "intraday_low": 1529.5,
+        "ma20": 1487.725,
+        "ma5": 1514.8,
+        "macd": 30.145852226919715,
         "market_cap": null,
-        "open": 1525.5,
-        "previous_close": 1511.5,
-        "price": 1543.5,
-        "projected_turnover": 17190512830.18868,
-        "rsi": 65.0231124807396,
-        "turnover": 3036990600.0,
+        "open": 1542.5,
+        "previous_close": 1558.5,
+        "price": 1541.5,
+        "projected_turnover": 16924047368.421053,
+        "rsi": 66.2202380952381,
+        "turnover": 3215569000.0,
         "unavailable": [
           "margin_interest",
           "short_ratio",
           "pts",
           "order_book"
         ],
-        "volatility_20d": 0.2591225637060418,
-        "volume": 1967600.0,
-        "volume_ratio": 0.6193088059221987,
-        "vwap": 1540.6987277224366
+        "volatility_20d": 0.2754843440664005,
+        "volume": 2086000.0,
+        "volume_ratio": 0.6147791492847637,
+        "vwap": 1540.6099712368168
       },
       "name": "ホンダ",
       "news": [
@@ -199,10 +206,32 @@
           "sentiment": "neutral",
           "signals": [],
           "source": "market_brief",
-          "summary": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-15): 68,751.51 (+1.49%) / 業種: +非鉄金属 / -鉱業 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
+          "summary": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-16): 66,835.54 (-2.79%) / 業種: +輸送用機器 / -非鉄金属 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
           "themes": [],
-          "title": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-15): 68,751.51 (+1.49%) / 業種: +非鉄金属 / -鉱業 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
+          "title": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-16): 66,835.54 (-2.79%) / 業種: +輸送用機器 / -非鉄金属 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
           "url": ""
+        },
+        {
+          "code": "7267",
+          "sentiment": "neutral",
+          "signals": [],
+          "source": "日経",
+          "summary": "国産AIに44社連合、ホンダやソニーなど出資 国が1兆円支援 - 日本経済新聞",
+          "themes": [
+            "AI"
+          ],
+          "title": "国産AIに44社連合、ホンダやソニーなど出資 国が1兆円支援 - 日本経済新聞",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE80MGxrU09NeEhtM2h2ZFR0VExvajVNeHdqT0EwRm11TnBHWmZ0T1k1Z1UwNEhUOVRBMkZlLVpKYzNnTVYxa2JVZVlvaXE2STVuNkxIUnNweUV5SFdCa0tkQXRRU3lSTU1maGJoVA?oc=5"
+        },
+        {
+          "code": "7267",
+          "sentiment": "neutral",
+          "signals": [],
+          "source": "日経",
+          "summary": "ホンダ、改良版N-BOXを17日発売 - 日本経済新聞",
+          "themes": [],
+          "title": "ホンダ、改良版N-BOXを17日発売 - 日本経済新聞",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5ZYnZkXzUwc1lIOWlxa3JXNWNjLUE3dF90R0VUQmZuNXRHek41akNqMGFYSEd2c2M5ZlN1SkgwNmlzTmVIS0NnX2lfaGxhNXVDRllJUEcyamdfX1UtUm9mWDl1eU4wVEt3REQzNQ?oc=5"
         },
         {
           "code": "7267",
@@ -217,112 +246,221 @@
         {
           "code": "7267",
           "sentiment": "neutral",
-          "signals": [
-            "受注",
-            "中止"
-          ],
-          "source": "theme_news",
-          "summary": "2位は「ホンダEV開発中止影響、部品19社 『全量受注で補償請求』」40代の注目トップ10 - 日経クロステック",
+          "signals": [],
+          "source": "日経",
+          "summary": "ホンダ、ベトナムで電動二輪生産 新型を9月にも - 日本経済新聞",
           "themes": [],
-          "title": "2位は「ホンダEV開発中止影響、部品19社 『全量受注で補償請求』」40代の注目トップ10 - 日経クロステック",
-          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBxU0hMQnBYVlhkTkN3aTJUbGxVM1hiMzY3VVhhR29OWnA5VlpXMUxOTkc2TXpsb2tZdlQ0elp4TXFSNXYxTGhwT3A5dXQ5Q2dqUGZmWVdkb2FYRy13YmZobHVhXzlJUFJHT21kRQ?oc=5"
+          "title": "ホンダ、ベトナムで電動二輪生産 新型を9月にも - 日本経済新聞",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1SSV9SbmJPT25hQTd5NjRBeTJJUmxuelVybGxZTnBoOUtxdWNvZFlZaUhfR3dBenJwTDAwSU95R1NlM3FGMnRGM3NUbGlGMms3MlRPRUxYRFI0bDFiUUFoMWVqOGRrdkhHclo3Mg?oc=5"
         },
         {
           "code": "7267",
           "sentiment": "neutral",
           "signals": [],
           "source": "日経",
-          "summary": "ホンダ[7267]：コーポレート・ガバナンスに関する報告書 2026/07/14 2026年7月14日(適時開示) ：日経会社情報DIGITAL - 日本経済新聞",
+          "summary": "ホンダ、軽自動車「N-BOX」をマイナーモデルチェンジし発売 - 日本経済新聞",
           "themes": [],
-          "title": "ホンダ[7267]：コーポレート・ガバナンスに関する報告書 2026/07/14 2026年7月14日(適時開示) ：日経会社情報DIGITAL - 日本経済新聞",
-          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE00OGJXYjFQbXE5YUpCTWg2SGNwNW9ualhNemZNTk5jRXY0bnlldnFrUXJJTkQwanZaUzJabENqWnFkRjN2ZG1JQ01nTHZFa0tlVGZBNzYyU1RRdXpDb1pHSWFGLUpQMGlJSWc?oc=5"
-        },
-        {
-          "code": "7267",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "Kabutan",
-          "summary": "ホンダ【7267】2026年07月14日 開示情報 - コーポレート・ガバナンスに関する報告書 2026/07/14 - 株探",
-          "themes": [],
-          "title": "ホンダ【7267】2026年07月14日 開示情報 - コーポレート・ガバナンスに関する報告書 2026/07/14 - 株探",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE11cnNsWDhiQzRhNnVHY3VCa21kSWJZbXE5QUNSY0w5dHROSGtGbVFLRWxYUHZZV29VVUQ3RjhUdG9aVWR3emxrZV93VUZxNDd4WWR2aDdDMzI1R3JhRGtadm9kYzJ6R1c4TEpla3NfMjU?oc=5"
-        },
-        {
-          "code": "7267",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "日経",
-          "summary": "三菱ふそうの新社長｢日野自と協業､新技術への投資で｣ - 日本経済新聞",
-          "themes": [],
-          "title": "三菱ふそうの新社長｢日野自と協業､新技術への投資で｣ - 日本経済新聞",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE50T0dzWUZnalJWaTJvZV93TElRNnhYdDduRG52bm5peDRHRWlPelBWNEt6TTUtOTcyYnhkUGxFbXpkcUo0OWlhTEFuQUF5TGdDaTdOMk9ZblMxTnZ4bVpQazRyOFl1dlNEMC1SODBXc084N1VXbFlGSkt4clU3Wm8?oc=5"
+          "title": "ホンダ、軽自動車「N-BOX」をマイナーモデルチェンジし発売 - 日本経済新聞",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5GU3JJQi0xQXhPNC0wOHFpcGF4LXZ4aVVIM3R6cl9jbngzdG5NRTRTeE1DbjZJc2xCdVRGMVN1bDZfcG5WdjNFdTE4bFhlSVhrVjRmRFhVME5DaXVMRlU4SWpqc1E0c0lzdzhEeg?oc=5"
         }
       ],
       "rank": 2,
-      "score": 65,
+      "score": 66,
       "themes": [
-        "その他"
+        "AI"
       ]
     },
     {
-      "code": "8316",
+      "code": "8306",
       "comment": {
-        "entry_strategy": "VWAP回復を確認するまで待機",
+        "entry_strategy": "VWAP付近の押し目または朝高値更新で分割エントリー",
         "reasons": [
-          "流動性・値幅・テクニカルの総合点が基準を上回る"
+          "出来高ペースが平常の1.7倍",
+          "株価がVWAPを上回る"
         ],
         "risks": [
           "RSI過熱",
           "板情報未取得のため約定前に気配確認必須"
         ],
-        "stop_loss": 6999.403571428571,
-        "take_profit": 7242.071428571428
+        "stop_loss": 3540.6037375180913,
+        "take_profit": 3636.1428571428573
       },
       "components": {
-        "liquidity": 17.06,
+        "liquidity": 18.81,
         "news": 12.0,
         "order_book": 1.75,
-        "risk_reward": 9.86,
+        "risk_reward": 9.73,
         "technical": 7.8,
         "theme": 5.0,
-        "volatility": 9.06
+        "volatility": 9.48
       },
       "excluded": [],
       "features": {
         "above_ma20": true,
-        "above_ma5": true,
-        "above_vwap": false,
-        "atr": 147.07142857142858,
-        "atr_rate": 0.020653198788292176,
-        "avg_volume_20d": 11946870.0,
+        "above_ma5": false,
+        "above_vwap": true,
+        "atr": 84.14285714285714,
+        "atr_rate": 0.023186237845923708,
+        "avg_volume_20d": 34825495.0,
         "box_breakout": false,
         "breakout_20d": false,
-        "change_rate": -0.0036511725881196444,
-        "data_as_of": "2026-07-16T00:53:57+00:00",
-        "gap_rate": -0.004774610307541116,
+        "change_rate": -0.021217966381923414,
+        "data_as_of": "2026-07-17T00:57:01+00:00",
+        "gap_rate": -0.012124552218241935,
         "high_update": false,
-        "intraday_high": 7116.0,
-        "intraday_low": 7073.0,
-        "ma20": 6641.7,
-        "ma5": 6928.6,
-        "macd": 206.71571562638837,
+        "intraday_high": 3593.0,
+        "intraday_low": 3515.0,
+        "ma20": 3372.45,
+        "ma5": 3585.6,
+        "macd": 121.54677759765491,
         "market_cap": null,
-        "open": 7087.0,
-        "previous_close": 7121.0,
-        "price": 7095.0,
-        "projected_turnover": 98376860377.35849,
-        "rsi": 94.32463110102157,
-        "turnover": 17379912000.0,
+        "open": 3585.0,
+        "previous_close": 3629.0,
+        "price": 3552.0,
+        "projected_turnover": 205378509473.68423,
+        "rsi": 79.0909090909091,
+        "turnover": 39021916800.0,
         "unavailable": [
           "margin_interest",
           "short_ratio",
           "pts",
           "order_book"
         ],
-        "volatility_20d": 0.2866107751563073,
-        "volume": 2449600.0,
-        "volume_ratio": 1.1606103002174202,
-        "vwap": 7095.813017091226
+        "volatility_20d": 0.2529004838360579,
+        "volume": 10985900.0,
+        "volume_ratio": 1.6602930214140381,
+        "vwap": 3540.6037375180913
+      },
+      "name": "三菱UFJ",
+      "news": [
+        {
+          "code": "8306",
+          "sentiment": "neutral",
+          "signals": [],
+          "source": "market_brief",
+          "summary": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-16): 66,835.54 (-2.79%) / 業種: +輸送用機器 / -非鉄金属 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
+          "themes": [],
+          "title": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-16): 66,835.54 (-2.79%) / 業種: +輸送用機器 / -非鉄金属 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
+          "url": ""
+        },
+        {
+          "code": "8306",
+          "sentiment": "neutral",
+          "signals": [],
+          "source": "PR TIMES",
+          "summary": "JCB・三菱UFJニコス・UCカードの出資会社JMS、CARDNETが提供する「Tap on Mobile」の取扱い開始 - PR TIMES",
+          "themes": [],
+          "title": "JCB・三菱UFJニコス・UCカードの出資会社JMS、CARDNETが提供する「Tap on Mobile」の取扱い開始 - PR TIMES",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9Teno0M3VidjF2SE9LcV9jVEdBYkJJWXBLWmRRSmIyRXlRM1lsakFPdV9zLUhkMGY5T1FXc2VBYXB5dm5ITzJFbTFUbmphVnBlR1MteHd2X0lwRE9Ka21KSG5LX195MmQ3cXc?oc=5"
+        },
+        {
+          "code": "8306",
+          "sentiment": "neutral",
+          "signals": [],
+          "source": "日経",
+          "summary": "日本株ADR15日、買い優勢 野村や三菱UFJ高い - 日本経済新聞",
+          "themes": [],
+          "title": "日本株ADR15日、買い優勢 野村や三菱UFJ高い - 日本経済新聞",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA3QnAyYllocG5yVlVIOWxDQlYySmdzZUpXbDl4aWtaaXAyblBSY0E1Qlpmejd0VWFEMmx5UDBVekc4dkNnNFpMcXdOb2ZicEY4SHdNeDdnSzVWMzBSRVZvVFFTUmtmSXhpYzhscQ?oc=5"
+        },
+        {
+          "code": "8306",
+          "sentiment": "neutral",
+          "signals": [],
+          "source": "Kabutan",
+          "summary": "本日の【上場来高値更新】 三菱ＵＦＪ、リコーリースなど24銘柄 - 株探",
+          "themes": [],
+          "title": "本日の【上場来高値更新】 三菱ＵＦＪ、リコーリースなど24銘柄 - 株探",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE8waUJiTEY1empqcGVlSmNJbzNzWlJfUndBbWVZd2hWamdZckk3TGNuU3YzdFJRcGpQN0NFRkpZdS1aM3lrSU1uUUtYSTd2TEdFOXc?oc=5"
+        },
+        {
+          "code": "8306",
+          "sentiment": "neutral",
+          "signals": [],
+          "source": "日経",
+          "summary": "三菱UFJ銀行、支店の空きスペースに高校生向け学習施設 - 日本経済新聞",
+          "themes": [],
+          "title": "三菱UFJ銀行、支店の空きスペースに高校生向け学習施設 - 日本経済新聞",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1jaHgwYUhhRFRQOHRGV0NXRjYtdTFrTjBfY0NCTzJxek03amxJN0ZVWnlfRFZVT3E3OHBYa21HekFYNmJtcW1RamdWZ2dNWGtmUXVrWVQwMFBSZGpfSzB3T2RoMFVmOFNENDZ0OQ?oc=5"
+        },
+        {
+          "code": "8306",
+          "sentiment": "neutral",
+          "signals": [],
+          "source": "PR TIMES",
+          "summary": "【新レポート発刊】JSS Clairvoyance（第239号）「GPIF、『2025年度業務概況書』を公表」他 - PR TIMES",
+          "themes": [
+            "AI"
+          ],
+          "title": "【新レポート発刊】JSS Clairvoyance（第239号）「GPIF、『2025年度業務概況書』を公表」他 - PR TIMES",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1ENnlnTVJ4dlVPbkozMDdFWVIzNGJwOUM1V2hLNHE2RGd2QU9DeFZTLUJXVHU0ZEZCNU9KbHNsdFh6SzBjR042OEpOSG1uRFJPeFB1R05NLWhLVnBPd3Z6RENJVUsyVTB5eXc?oc=5"
+        }
+      ],
+      "rank": 3,
+      "score": 65,
+      "themes": [
+        "AI"
+      ]
+    },
+    {
+      "code": "8316",
+      "comment": {
+        "entry_strategy": "VWAP付近の押し目または朝高値更新で分割エントリー",
+        "reasons": [
+          "株価がVWAPを上回る"
+        ],
+        "risks": [
+          "RSI過熱",
+          "板情報未取得のため約定前に気配確認必須"
+        ],
+        "stop_loss": 6895.611043121446,
+        "take_profit": 7067.857142857143
+      },
+      "components": {
+        "liquidity": 17.32,
+        "news": 12.0,
+        "order_book": 1.75,
+        "risk_reward": 9.78,
+        "technical": 7.8,
+        "theme": 5.0,
+        "volatility": 9.09
+      },
+      "excluded": [],
+      "features": {
+        "above_ma20": true,
+        "above_ma5": false,
+        "above_vwap": true,
+        "atr": 152.85714285714286,
+        "atr_rate": 0.021743548059337533,
+        "avg_volume_20d": 11852785.0,
+        "box_breakout": false,
+        "breakout_20d": false,
+        "change_rate": -0.016358463726884764,
+        "data_as_of": "2026-07-17T00:57:04+00:00",
+        "gap_rate": -0.008108108108108136,
+        "high_update": false,
+        "intraday_high": 6993.0,
+        "intraday_low": 6845.0,
+        "ma20": 6656.8,
+        "ma5": 6971.4,
+        "macd": 212.9004413727007,
+        "market_cap": null,
+        "open": 6973.0,
+        "previous_close": 7030.0,
+        "price": 6915.0,
+        "projected_turnover": 101111857894.73683,
+        "rsi": 84.69055374592834,
+        "turnover": 19211253000.0,
+        "unavailable": [
+          "margin_interest",
+          "short_ratio",
+          "pts",
+          "order_book"
+        ],
+        "volatility_20d": 0.25699099361204797,
+        "volume": 2778200.0,
+        "volume_ratio": 1.2336430014682536,
+        "vwap": 6895.611043121446
       },
       "name": "三井住友FG",
       "news": [
@@ -331,20 +469,10 @@
           "sentiment": "neutral",
           "signals": [],
           "source": "market_brief",
-          "summary": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-15): 68,751.51 (+1.49%) / 業種: +非鉄金属 / -鉱業 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
+          "summary": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-16): 66,835.54 (-2.79%) / 業種: +輸送用機器 / -非鉄金属 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
           "themes": [],
-          "title": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-15): 68,751.51 (+1.49%) / 業種: +非鉄金属 / -鉱業 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
+          "title": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-16): 66,835.54 (-2.79%) / 業種: +輸送用機器 / -非鉄金属 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
           "url": ""
-        },
-        {
-          "code": "8316",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "Kabutan",
-          "summary": "寄前【成行注文】買い越しランキング 三井住友ＦＧ、第一ライフ、ＧＯ [08:36] - 株探",
-          "themes": [],
-          "title": "寄前【成行注文】買い越しランキング 三井住友ＦＧ、第一ライフ、ＧＯ [08:36] - 株探",
-          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9GU1dPTkJMS2pBOGZrOGk3djVLSldQb2F4QXdlTU5LVW92ZnM0VkxsUUZ3amNJNmdlekY3RTQ2QWR6RHNZTllwSHdtNFZjTEFUblBEU1hrQ1VYTkR5VXFwSg?oc=5"
         },
         {
           "code": "8316",
@@ -385,141 +513,20 @@
           "sentiment": "neutral",
           "signals": [],
           "source": "日経",
-          "summary": "ａｎｄ ＵＳ[597A]の株価・株主優待など。 - 日本経済新聞",
+          "summary": "日本株ADR15日、買い優勢 野村や三菱UFJ高い - 日本経済新聞",
           "themes": [],
-          "title": "ａｎｄ ＵＳ[597A]の株価・株主優待など。 - 日本経済新聞",
-          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE8weVlrVmNHZnBPMW5NdDRoRi1kb3pvN2lsTzNSc21heWdMbnBRZXZQZkZrYjdZeXQtdzJNLWVXSS1tcC1yYnQ5OVBOZmp3YXZLMnY4RTRrMUM5aDBFeUVBeTZJMmRya0VTRkhtdlNxV3FhQQ?oc=5"
-        }
-      ],
-      "rank": 3,
-      "score": 63,
-      "themes": [
-        "AI"
-      ]
-    },
-    {
-      "code": "8306",
-      "comment": {
-        "entry_strategy": "VWAP回復を確認するまで待機",
-        "reasons": [
-          "流動性・値幅・テクニカルの総合点が基準を上回る"
-        ],
-        "risks": [
-          "RSI過熱",
-          "板情報未取得のため約定前に気配確認必須"
-        ],
-        "stop_loss": 3620.2785714285715,
-        "take_profit": 3751.5714285714284
-      },
-      "components": {
-        "liquidity": 17.18,
-        "news": 12.0,
-        "order_book": 1.75,
-        "risk_reward": 10.0,
-        "technical": 7.8,
-        "theme": 5.0,
-        "volatility": 9.02
-      },
-      "excluded": [],
-      "features": {
-        "above_ma20": true,
-        "above_ma5": true,
-        "above_vwap": false,
-        "atr": 79.57142857142857,
-        "atr_rate": 0.021523242783724254,
-        "avg_volume_20d": 35380415.0,
-        "box_breakout": false,
-        "breakout_20d": false,
-        "change_rate": -0.0067622396537733165,
-        "data_as_of": "2026-07-16T00:53:57+00:00",
-        "gap_rate": -0.005139302136867752,
-        "high_update": false,
-        "intraday_high": 3695.0,
-        "intraday_low": 3662.0,
-        "ma20": 3359.7,
-        "ma5": 3542.6,
-        "macd": 115.37517424361931,
-        "market_cap": null,
-        "open": 3678.0,
-        "previous_close": 3697.0,
-        "price": 3672.0,
-        "projected_turnover": 155123986415.09433,
-        "rsi": 88.41059602649007,
-        "turnover": 27405237600.0,
-        "unavailable": [
-          "margin_interest",
-          "short_ratio",
-          "pts",
-          "order_book"
-        ],
-        "volatility_20d": 0.25627202445321523,
-        "volume": 7463300.0,
-        "volume_ratio": 1.1940248394379387,
-        "vwap": 3679.843943027883
-      },
-      "name": "三菱UFJ",
-      "news": [
-        {
-          "code": "8306",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "market_brief",
-          "summary": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-15): 68,751.51 (+1.49%) / 業種: +非鉄金属 / -鉱業 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
-          "themes": [],
-          "title": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-15): 68,751.51 (+1.49%) / 業種: +非鉄金属 / -鉱業 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
-          "url": ""
+          "title": "日本株ADR15日、買い優勢 野村や三菱UFJ高い - 日本経済新聞",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA3QnAyYllocG5yVlVIOWxDQlYySmdzZUpXbDl4aWtaaXAyblBSY0E1Qlpmejd0VWFEMmx5UDBVekc4dkNnNFpMcXdOb2ZicEY4SHdNeDdnSzVWMzBSRVZvVFFTUmtmSXhpYzhscQ?oc=5"
         },
         {
-          "code": "8306",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "日経",
-          "summary": "日本株ADR14日、ほぼ全面高 三菱UFJやオリックス上昇 - 日本経済新聞",
-          "themes": [],
-          "title": "日本株ADR14日、ほぼ全面高 三菱UFJやオリックス上昇 - 日本経済新聞",
-          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE44YVlWMHZnLVdYV1AzQmxkNjJTc2VoZG9Gc2dpOVI5RVBSSWpXZTdWcXFtcXNyallBblNMdUFRMU8yRThyTGt5dXZaZ2FOaS03Nl9DNVdUUFNhd2IwY3l6Yk9UQTd3dElUU0FrZA?oc=5"
-        },
-        {
-          "code": "8306",
+          "code": "8316",
           "sentiment": "neutral",
           "signals": [],
           "source": "Kabutan",
-          "summary": "本日の【上場来高値更新】 三菱ＵＦＪ、リコーリースなど24銘柄 - 株探",
+          "summary": "日本株ＡＤＲ・円換算終値 - 株探",
           "themes": [],
-          "title": "本日の【上場来高値更新】 三菱ＵＦＪ、リコーリースなど24銘柄 - 株探",
-          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9MVnZDVDVQdGRTWHpqaE1HR1ZVQ3lzdzlkQjdkZXJFNDlvcUdCRVVBZVJsTWFMdVhvRC1SdUVjM2EzM0FQS0RiR25GM3NQR3F1ZUZFYXh6TGVnM0ItVlNQRQ?oc=5"
-        },
-        {
-          "code": "8306",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "Kabutan",
-          "summary": "三菱ＵＦＪが連日新高値、米金融大手の好決算相次ぎメガバンク選好姿勢強まる - 株探",
-          "themes": [],
-          "title": "三菱ＵＦＪが連日新高値、米金融大手の好決算相次ぎメガバンク選好姿勢強まる - 株探",
-          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB3bnBJdFhEbS1uVUktaFByTWwzRHVzM251c2NYS29IcGRLbGFsMjVUS293eDJxTGFsckx4dXlOemk5RmFiZldQODhzTDlYblJjWWJaaXhVaFRLUGVCXy1OYg?oc=5"
-        },
-        {
-          "code": "8306",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "PR TIMES",
-          "summary": "中堅・中小企業のバックオフィスコンサルティングサービス「F&M Club」三菱UFJ 銀行と媒介契約を締結 - PR TIMES",
-          "themes": [],
-          "title": "中堅・中小企業のバックオフィスコンサルティングサービス「F&M Club」三菱UFJ 銀行と媒介契約を締結 - PR TIMES",
-          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE15b1pkcFFUSk9SeHdHVjVLYk5NVHZWTlVZVnptR0l6WGpiRHJWaWJLb0FhRVNROU1pNWpNTjN6ekRONnhxbkFPZE96UHJxMURoN01VSWhhUk15UWVqNE42ZUxYLWZrN2c4cmc?oc=5"
-        },
-        {
-          "code": "8306",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "PR TIMES",
-          "summary": "三菱UFJ信託銀行の「FDUAアワード2026 大賞」受賞案件において、カサナレが生成AI活用を支援 - PR TIMES",
-          "themes": [
-            "AI"
-          ],
-          "title": "三菱UFJ信託銀行の「FDUAアワード2026 大賞」受賞案件において、カサナレが生成AI活用を支援 - PR TIMES",
-          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE92WkRROEZ0Yklnek55TmFOS2tjV2VpeEtETFB3NzZwMDREc1hBZVBlSjJWaDBRbG9VTk01SzZsM2J5Tmh4cXlvQ3IyQjkyZGZaNkVPb0ppV0RaQVVTZHY1VjlXVmM5ZmpSTmc?oc=5"
+          "title": "日本株ＡＤＲ・円換算終値 - 株探",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBDUFNFamFFUzRjRC1kNk9YZDRmVlp5Q0dIdGV6SWJTMmxSNy1JTlFHYkxUUVpkM000SEY1U1JJN2lyUERwcEtseFAzZUFiZUVvd1h5a2J2LTZlSHh5UjVtalBB?oc=5"
         }
       ],
       "rank": 4,
@@ -533,59 +540,60 @@
       "comment": {
         "entry_strategy": "VWAP付近の押し目または朝高値更新で分割エントリー",
         "reasons": [
+          "出来高ペースが平常の1.9倍",
           "株価がVWAPを上回る"
         ],
         "risks": [
           "板情報未取得のため約定前に気配確認必須"
         ],
-        "stop_loss": 47065.26255026076,
-        "take_profit": 50493.57142857143
+        "stop_loss": 41577.21098304721,
+        "take_profit": 45637.142857142855
       },
       "components": {
-        "liquidity": 17.56,
+        "liquidity": 19.62,
         "news": 12.0,
         "order_book": 1.75,
         "risk_reward": 10.0,
-        "technical": 7.8,
-        "theme": 7.5,
-        "volatility": 2.59
+        "technical": 5.4,
+        "theme": 5.0,
+        "volatility": 1.53
       },
       "excluded": [],
       "features": {
         "above_ma20": false,
-        "above_ma5": true,
+        "above_ma5": false,
         "above_vwap": true,
-        "atr": 3273.5714285714284,
-        "atr_rate": 0.06587988385130666,
-        "avg_volume_20d": 3634330.0,
+        "atr": 3477.1428571428573,
+        "atr_rate": 0.07498690655904372,
+        "avg_volume_20d": 3452375.0,
         "box_breakout": false,
         "breakout_20d": false,
-        "change_rate": -0.04970819078285371,
-        "data_as_of": "2026-07-16T00:53:57+00:00",
-        "gap_rate": -0.05111692493459452,
+        "change_rate": -0.09079145999568683,
+        "data_as_of": "2026-07-17T00:57:04+00:00",
+        "gap_rate": -0.07267629933146436,
         "high_update": false,
-        "intraday_high": 47860.0,
-        "intraday_low": 46280.0,
-        "ma20": 48998.0,
-        "ma5": 45392.0,
-        "macd": -76.57168663126504,
+        "intraday_high": 43050.0,
+        "intraday_low": 40560.0,
+        "ma20": 48494.0,
+        "ma5": 46062.0,
+        "macd": -57.34130746196752,
         "market_cap": null,
-        "open": 47150.0,
-        "previous_close": 49690.0,
-        "price": 47220.0,
-        "projected_turnover": 223796071698.11322,
-        "rsi": 42.08616780045352,
-        "turnover": 39537306000.0,
+        "open": 43000.0,
+        "previous_close": 46370.0,
+        "price": 42160.0,
+        "projected_turnover": 275304800000.0,
+        "rsi": 41.82063992789545,
+        "turnover": 52307912000.0,
         "unavailable": [
           "margin_interest",
           "short_ratio",
           "pts",
           "order_book"
         ],
-        "volatility_20d": 0.7641255104824076,
-        "volume": 837300.0,
-        "volume_ratio": 1.3040736428073816,
-        "vwap": 47065.26255026076
+        "volatility_20d": 0.7471054495948936,
+        "volume": 1240700.0,
+        "volume_ratio": 1.8914515369854086,
+        "vwap": 41577.21098304721
       },
       "name": "レーザーテック",
       "news": [
@@ -594,20 +602,10 @@
           "sentiment": "neutral",
           "signals": [],
           "source": "market_brief",
-          "summary": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-15): 68,751.51 (+1.49%) / 業種: +非鉄金属 / -鉱業 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
+          "summary": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-16): 66,835.54 (-2.79%) / 業種: +輸送用機器 / -非鉄金属 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
           "themes": [],
-          "title": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-15): 68,751.51 (+1.49%) / 業種: +非鉄金属 / -鉱業 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
+          "title": "主要指標の取得不足、更新時刻と寄り前データを確認 / 日経平均(2026-07-16): 66,835.54 (-2.79%) / 業種: +輸送用機器 / -非鉄金属 / ウォッチ: 8035, 6857, 6920, 7203, 7267, 9983",
           "url": ""
-        },
-        {
-          "code": "6920",
-          "sentiment": "neutral",
-          "signals": [],
-          "source": "Kabutan",
-          "summary": "日経平均は246円高でスタート、レーザーテックや太陽誘電などが上昇／寄り付き概況 - 株探",
-          "themes": [],
-          "title": "日経平均は246円高でスタート、レーザーテックや太陽誘電などが上昇／寄り付き概況 - 株探",
-          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAzS1didGhZaDg2dE1KQ1NNS0tucV9XZlNlZWVlZG5tLUNhcHI1VVdrQkphZll2dHhyYko0eUhXVWtud0Rhc2I0VF9LY05saDQxT3c?oc=5"
         },
         {
           "code": "6920",
@@ -634,33 +632,40 @@
           "sentiment": "neutral",
           "signals": [],
           "source": "Kabutan",
-          "summary": "日経平均寄与度ランキング（大引け）～日経平均は大幅続伸、アドバンテストや東エレクが2銘柄で約731円分押し上げ - 株探",
+          "summary": "日経平均2700円安、ハイテクに売り殺到 キオクシア一時ストップ安 - 株探",
           "themes": [],
-          "title": "日経平均寄与度ランキング（大引け）～日経平均は大幅続伸、アドバンテストや東エレクが2銘柄で約731円分押し上げ - 株探",
-          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9UdU1feHd6RG50VUNQUUV2bzVOMEQ1VHZpQUF2Yk9RUDBoeHhGVkxYcWVuX29DZDhuYWUzWXRUVXMydEF2UmFlSFN0WDA3UFhUZDRRWDNDbGVOTU1xaGtyTU53?oc=5"
+          "title": "日経平均2700円安、ハイテクに売り殺到 キオクシア一時ストップ安 - 株探",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1xcUpHaDVzNThYMTlGSmc1YlRTRWtPRkoxSERVdDdGRTFjUG1CWm9zd1EtRExzRHl2dklBdVRvM1ZjcFpyQmU4bkI3bGdEMzVvS1JzSTlzUHVxUmhXc0ozTUlB?oc=5"
         },
         {
           "code": "6920",
           "sentiment": "neutral",
           "signals": [],
-          "source": "日経",
-          "summary": "AIが分ける優勝劣敗 日経平均 米IBMショック波及 - 日本経済新聞",
-          "themes": [
-            "AI"
-          ],
-          "title": "AIが分ける優勝劣敗 日経平均 米IBMショック波及 - 日本経済新聞",
-          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBGNS1ZSGVMRWF1b2szMWRJR1dxQXBvN3dyOTFwNkk4YWhCRnNBZW9zb1BKLXYwYzhEdVR0RlhXVEs3OWR5RE40SVVHd2ctVmN2NXd2UngweVpBSGl4N1ZqaW5XU25aM0JfMWR4bw?oc=5"
+          "source": "Kabutan",
+          "summary": "日経平均は大幅反落、売り優勢で下げ幅拡大／相場概況 - 株探",
+          "themes": [],
+          "title": "日経平均は大幅反落、売り優勢で下げ幅拡大／相場概況 - 株探",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5OQ3BPMGhoVXppeFhyRDhZVWJWWkd0ZFItS29QNkI3UmxyaVowVEp3VmczenM0Nm5uVExabmY5U0IxWndMVkFLWFd3WGx3aE56OWZmV3lTWjJENEZKMHR4TQ?oc=5"
+        },
+        {
+          "code": "6920",
+          "sentiment": "neutral",
+          "signals": [],
+          "source": "Kabutan",
+          "summary": "日経平均寄与度ランキング（大引け）～日経平均は大幅続伸、アドバンテストや東エレクが2銘柄で約731円分押し上げ - 株探",
+          "themes": [],
+          "title": "日経平均寄与度ランキング（大引け）～日経平均は大幅続伸、アドバンテストや東エレクが2銘柄で約731円分押し上げ - 株探",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9UdU1feHd6RG50VUNQUUV2bzVOMEQ1VHZpQUF2Yk9RUDBoeHhGVkxYcWVuX29DZDhuYWUzWXRUVXMydEF2UmFlSFN0WDA3UFhUZDRRWDNDbGVOTU1xaGtyTU53?oc=5"
         }
       ],
       "rank": 5,
-      "score": 59,
+      "score": 55,
       "themes": [
-        "AI",
         "半導体"
       ]
     }
   ],
-  "date": "2026-07-16",
+  "date": "2026-07-17",
   "scored_count": 8,
   "universe_count": 8
 }
