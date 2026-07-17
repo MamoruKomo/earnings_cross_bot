@@ -1773,12 +1773,12 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-17T00:15:47Z",
+  "generated_at": "2026-07-17T01:03:17Z",
   "latest_notification": {
     "candidate_count": 0,
-    "created_at": "2026-07-16T04:42:53Z",
+    "created_at": "2026-07-17T01:03:16Z",
     "data_status": "ok",
-    "date": "2026-07-16",
+    "date": "2026-07-17",
     "status": "sent",
     "type": "morning"
   },
@@ -12623,7 +12623,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 0.9,
+          "age_hours": 1.7,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -12631,7 +12631,7 @@
           "updated_at": "2026-07-17T08:20:00+09:00"
         },
         {
-          "age_hours": 1694.8,
+          "age_hours": 1695.6,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -12639,7 +12639,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 96.2,
+          "age_hours": 97.0,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -13240,7 +13240,8 @@
     "updated_at": "2026-07-13T09:03:38+09:00"
   },
   "no_trade_days": [
-    "2026-07-16"
+    "2026-07-16",
+    "2026-07-17"
   ],
   "pending_recommendations": [],
   "recent_outcomes": [
@@ -13553,7 +13554,7 @@
     "lose_count": 1,
     "lose_rate": 0.1,
     "neutral_count": 4,
-    "no_trade_day_count": 1,
+    "no_trade_day_count": 2,
     "non_loss_rate": 0.9,
     "pending_count": 0,
     "positive_close_rate": 0.8,
