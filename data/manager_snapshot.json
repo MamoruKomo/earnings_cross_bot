@@ -2753,6 +2753,150 @@
     "outcomes": [
       {
         "analysis": {
+          "close_return": -0.015659955257270708,
+          "miss_reasons": [
+            "材料またはテーマの資金流入が持続しなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": true
+        },
+        "candidate_id": 33,
+        "close": 30800.0,
+        "close_return": -0.015659955257270708,
+        "code": "6857",
+        "created_at": "2026-07-23T09:15:38Z",
+        "high": 31540.0,
+        "id": 31,
+        "low": 30650.0,
+        "max_down": -0.020453819111537208,
+        "max_up": 0.00798977309044413,
+        "reference_price": 31290.0,
+        "stop_hit": 1,
+        "target_hit": 0,
+        "trade_date": "2026-07-23"
+      },
+      {
+        "analysis": {
+          "close_return": 0.00665415458112939,
+          "miss_reasons": [
+            "出来高が継続しなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 32,
+        "close": 2950.0,
+        "close_return": 0.00665415458112939,
+        "code": "7203",
+        "created_at": "2026-07-23T09:15:38Z",
+        "high": 2950.0,
+        "id": 30,
+        "low": 2927.5,
+        "max_down": -0.0010237160894045472,
+        "max_up": 0.00665415458112939,
+        "reference_price": 2930.5,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-23"
+      },
+      {
+        "analysis": {
+          "close_return": 0.009993552546744056,
+          "miss_reasons": [
+            "出来高が継続しなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 31,
+        "close": 1566.5,
+        "close_return": 0.009993552546744056,
+        "code": "7267",
+        "created_at": "2026-07-23T09:15:38Z",
+        "high": 1566.5,
+        "id": 29,
+        "low": 1545.5,
+        "max_down": -0.0035460992907800915,
+        "max_up": 0.009993552546744056,
+        "reference_price": 1551.0,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-23"
+      },
+      {
+        "analysis": {
+          "close_return": -0.03382573324769855,
+          "miss_reasons": [
+            "材料またはテーマの資金流入が持続しなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": true
+        },
+        "candidate_id": 30,
+        "close": 45130.0,
+        "close_return": -0.03382573324769855,
+        "code": "6920",
+        "created_at": "2026-07-23T09:15:38Z",
+        "high": 46720.0,
+        "id": 28,
+        "low": 44740.0,
+        "max_down": -0.04217512309997862,
+        "max_up": 0.00021408691928925805,
+        "reference_price": 46710.0,
+        "stop_hit": 1,
+        "target_hit": 0,
+        "trade_date": "2026-07-23"
+      },
+      {
+        "analysis": {
+          "close_return": -0.002782802281897867,
+          "miss_reasons": [
+            "材料またはテーマの資金流入が持続しなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 29,
+        "close": 7167.0,
+        "close_return": -0.002782802281897867,
+        "code": "8316",
+        "created_at": "2026-07-23T09:15:37Z",
+        "high": 7212.0,
+        "id": 27,
+        "low": 7147.0,
+        "max_down": -0.005565604563795734,
+        "max_up": 0.0034785028523722783,
+        "reference_price": 7187.0,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-23"
+      },
+      {
+        "analysis": {
+          "close_return": 0.008064516129032251,
+          "miss_reasons": [
+            "材料またはテーマの資金流入が持続しなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 28,
+        "close": 3750.0,
+        "close_return": 0.008064516129032251,
+        "code": "8306",
+        "created_at": "2026-07-23T09:15:37Z",
+        "high": 3778.0,
+        "id": 26,
+        "low": 3710.0,
+        "max_down": -0.0026881720430107503,
+        "max_up": 0.015591397849462396,
+        "reference_price": 3720.0,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-23"
+      },
+      {
+        "analysis": {
           "close_return": -0.04441214470284238,
           "miss_reasons": [
             "材料またはテーマの資金流入が持続しなかった"
@@ -3084,150 +3228,6 @@
         "stop_hit": 0,
         "target_hit": 0,
         "trade_date": "2026-07-17"
-      },
-      {
-        "analysis": {
-          "close_return": -0.0024083949767761403,
-          "miss_reasons": [
-            "材料またはテーマの資金流入が持続しなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": false
-        },
-        "candidate_id": 13,
-        "close": 2899.5,
-        "close_return": -0.0024083949767761403,
-        "code": "7203",
-        "created_at": "2026-07-17T09:00:58Z",
-        "high": 2912.0,
-        "id": 11,
-        "low": 2861.5,
-        "max_down": -0.015482539136418394,
-        "max_up": 0.0018923103388954754,
-        "reference_price": 2906.5,
-        "stop_hit": 0,
-        "target_hit": 0,
-        "trade_date": "2026-07-17"
-      },
-      {
-        "analysis": {
-          "close_return": -0.01800084709868699,
-          "miss_reasons": [
-            "材料またはテーマの資金流入が持続しなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": true
-        },
-        "candidate_id": 12,
-        "close": 46370.0,
-        "close_return": -0.01800084709868699,
-        "code": "6920",
-        "created_at": "2026-07-16T09:05:52Z",
-        "high": 47100.0,
-        "id": 10,
-        "low": 45330.0,
-        "max_down": -0.04002541296060991,
-        "max_up": -0.0025412960609910717,
-        "reference_price": 47220.0,
-        "stop_hit": 1,
-        "target_hit": 0,
-        "trade_date": "2026-07-16"
-      },
-      {
-        "analysis": {
-          "close_return": -0.011710239651416154,
-          "miss_reasons": [
-            "選定時にVWAPを回復していなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": false
-        },
-        "candidate_id": 11,
-        "close": 3629.0,
-        "close_return": -0.011710239651416154,
-        "code": "8306",
-        "created_at": "2026-07-16T09:05:52Z",
-        "high": 3683.0,
-        "id": 9,
-        "low": 3625.0,
-        "max_down": -0.012799564270152497,
-        "max_up": 0.00299564270152497,
-        "reference_price": 3672.0,
-        "stop_hit": 0,
-        "target_hit": 0,
-        "trade_date": "2026-07-16"
-      },
-      {
-        "analysis": {
-          "close_return": -0.009161381254404466,
-          "miss_reasons": [
-            "選定時にVWAPを回復していなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": false
-        },
-        "candidate_id": 10,
-        "close": 7030.0,
-        "close_return": -0.009161381254404466,
-        "code": "8316",
-        "created_at": "2026-07-16T09:05:52Z",
-        "high": 7102.0,
-        "id": 8,
-        "low": 6999.0,
-        "max_down": -0.013530655391120527,
-        "max_up": 0.000986610288935763,
-        "reference_price": 7095.0,
-        "stop_hit": 0,
-        "target_hit": 0,
-        "trade_date": "2026-07-16"
-      },
-      {
-        "analysis": {
-          "close_return": 0.009718172983479212,
-          "miss_reasons": [
-            "出来高が継続しなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": false
-        },
-        "candidate_id": 9,
-        "close": 1558.5,
-        "close_return": 0.009718172983479212,
-        "code": "7267",
-        "created_at": "2026-07-16T09:05:52Z",
-        "high": 1563.5,
-        "id": 7,
-        "low": 1542.0,
-        "max_down": -0.0009718172983479434,
-        "max_up": 0.012957563977972208,
-        "reference_price": 1543.5,
-        "stop_hit": 0,
-        "target_hit": 0,
-        "trade_date": "2026-07-16"
-      },
-      {
-        "analysis": {
-          "close_return": 0.001549320020657552,
-          "miss_reasons": [
-            "選定時にVWAPを回復していなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": false
-        },
-        "candidate_id": 8,
-        "close": 2909.0,
-        "close_return": 0.001549320020657552,
-        "code": "7203",
-        "created_at": "2026-07-16T09:05:52Z",
-        "high": 2935.5,
-        "id": 6,
-        "low": 2904.5,
-        "max_down": 0.0,
-        "max_up": 0.01067309347564116,
-        "reference_price": 2904.5,
-        "stop_hit": 0,
-        "target_hit": 0,
-        "trade_date": "2026-07-16"
       }
     ],
     "summary": {
@@ -3308,7 +3308,7 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-23T09:13:30Z",
+  "generated_at": "2026-07-23T09:15:39Z",
   "latest_notification": {
     "candidate_count": 0,
     "created_at": "2026-07-23T01:03:37Z",
