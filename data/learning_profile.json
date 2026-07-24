@@ -5,7 +5,7 @@
   "required_samples": 40,
   "sample_count": 10,
   "status": "observing",
-  "trained_at": "2026-07-17T10:41:13Z",
+  "trained_at": "2026-07-24T10:58:05Z",
   "validation_samples": 10,
   "version": 1,
   "weight_multipliers": {}
