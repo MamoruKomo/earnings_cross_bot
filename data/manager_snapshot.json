@@ -2,11 +2,11 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.029724803055894602,
-      "evaluated_count": 8,
-      "hit_rate": 0.5,
+      "avg_next_close_return": 0.01998281349989972,
+      "evaluated_count": 10,
+      "hit_rate": 0.4,
       "lose": 1,
-      "neutral": 3,
+      "neutral": 5,
       "recommendation_count": 11,
       "win": 4
     },
@@ -107,6 +107,18 @@
       "win": 1
     },
     {
+      "avg_next_close_return": 0.010526315789473717,
+      "code": "8707",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-07-24",
+      "lose": 0,
+      "name": "岩井コスモ",
+      "neutral": 1,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
       "avg_next_close_return": 0.004087121379127812,
       "code": "7974",
       "evaluated_count": 1,
@@ -143,26 +155,14 @@
       "win": 0
     },
     {
-      "avg_next_close_return": null,
-      "code": "8707",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-07-24",
-      "lose": 0,
-      "name": "岩井コスモ",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
+      "avg_next_close_return": -0.04849660523763333,
       "code": "6629",
-      "evaluated_count": 0,
-      "hit_rate": null,
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
       "last_recommendation_date": "2026-07-24",
       "lose": 0,
       "name": "テクノＨＲ",
-      "neutral": 0,
+      "neutral": 1,
       "recommendation_count": 1,
       "win": 0
     },
@@ -3340,9 +3340,23 @@
       "date": "2026-07-15",
       "next_close_return": 0.20408163265306123,
       "result": "win"
+    },
+    {
+      "code": "6629",
+      "cumulative_return": 0.44530650222157275,
+      "date": "2026-07-27",
+      "next_close_return": -0.04849660523763333,
+      "result": "neutral"
+    },
+    {
+      "code": "8707",
+      "cumulative_return": 0.4605202548765368,
+      "date": "2026-07-27",
+      "next_close_return": 0.010526315789473717,
+      "result": "neutral"
     }
   ],
-  "generated_at": "2026-07-27T07:01:35Z",
+  "generated_at": "2026-07-27T10:29:01Z",
   "latest_notification": {
     "candidate_count": 1,
     "created_at": "2026-07-27T01:09:55Z",
@@ -14192,7 +14206,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 7.7,
+          "age_hours": 11.2,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14200,7 +14214,7 @@
           "updated_at": "2026-07-27T08:20:00+09:00"
         },
         {
-          "age_hours": 1941.6,
+          "age_hours": 1945.1,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14208,7 +14222,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 343.0,
+          "age_hours": 346.4,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -14899,48 +14913,35 @@
       ],
       "score": 78,
       "thesis": "総合スコア78点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "不明",
-      "code": "8707",
-      "confidence": "medium",
-      "event_date": "2026-07-24",
-      "missing_data": [
-        "announcement_time_unknown",
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "岩井コスモ",
-      "recommendation_date": "2026-07-24",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 74,
-      "thesis": "総合スコア74点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "16:00",
-      "code": "6629",
-      "confidence": "medium",
-      "event_date": "2026-07-24",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "テクノＨＲ",
-      "recommendation_date": "2026-07-24",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 70,
-      "thesis": "総合スコア70点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
     }
   ],
   "recent_outcomes": [
+    {
+      "action": "cross",
+      "code": "8707",
+      "evaluation_date": "2026-07-27",
+      "event_date": "2026-07-24",
+      "max_drawdown": -0.021052631578947323,
+      "name": "岩井コスモ",
+      "next_close_return": 0.010526315789473717,
+      "next_open_return": -0.0035087719298245723,
+      "recommendation_date": "2026-07-24",
+      "result": "neutral",
+      "score": 74
+    },
+    {
+      "action": "cross",
+      "code": "6629",
+      "evaluation_date": "2026-07-27",
+      "event_date": "2026-07-24",
+      "max_drawdown": -0.05916585838991273,
+      "name": "テクノＨＲ",
+      "next_close_return": -0.04849660523763333,
+      "next_open_return": 0.02812803103782735,
+      "recommendation_date": "2026-07-24",
+      "result": "neutral",
+      "score": 70
+    },
     {
       "action": "strong_cross",
       "code": "581A",
@@ -15074,7 +15075,7 @@
   ],
   "result_distribution": {
     "lose": 1,
-    "neutral": 4,
+    "neutral": 6,
     "win": 5
   },
   "stock_snapshots": [
@@ -15275,8 +15276,8 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.044596717847934585,
-    "avg_next_open_return": 0.029787815723103007,
+    "avg_next_close_return": 0.03399974075259885,
+    "avg_next_open_return": 0.026874784694919402,
     "best": {
       "action": "strong_cross",
       "code": "581A",
@@ -15290,40 +15291,40 @@
       "result": "win",
       "score": 80
     },
-    "evaluated_count": 10,
-    "hit_rate": 0.5,
+    "evaluated_count": 12,
+    "hit_rate": 0.4166666666666667,
     "lose_count": 1,
-    "lose_rate": 0.1,
-    "neutral_count": 4,
+    "lose_rate": 0.08333333333333333,
+    "neutral_count": 6,
     "no_trade_day_count": 5,
-    "non_loss_rate": 0.9,
-    "pending_count": 3,
-    "positive_close_rate": 0.8,
+    "non_loss_rate": 0.9166666666666666,
+    "pending_count": 1,
+    "positive_close_rate": 0.75,
     "recommendation_count": 13,
     "win_count": 5,
     "worst": {
       "action": "cross",
-      "code": "135A",
-      "evaluation_date": "2026-07-15",
-      "event_date": "2026-07-14",
-      "max_drawdown": -0.09047619047619049,
-      "name": "ＶＲＡＩＮ",
-      "next_close_return": -0.03809523809523807,
-      "next_open_return": -0.06190476190476191,
-      "recommendation_date": "2026-07-14",
-      "result": "lose",
-      "score": 77
+      "code": "6629",
+      "evaluation_date": "2026-07-27",
+      "event_date": "2026-07-24",
+      "max_drawdown": -0.05916585838991273,
+      "name": "テクノＨＲ",
+      "next_close_return": -0.04849660523763333,
+      "next_open_return": 0.02812803103782735,
+      "recommendation_date": "2026-07-24",
+      "result": "neutral",
+      "score": 70
     }
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.044596717847934585,
+      "avg_next_close_return": 0.03399974075259885,
       "correct": 5,
-      "count": 10,
-      "positive_rate": 0.8,
-      "precision": 0.5,
-      "precision_lower_95": 0.23658959361548731,
-      "precision_upper_95": 0.7634104063845126
+      "count": 12,
+      "positive_rate": 0.75,
+      "precision": 0.4166666666666667,
+      "precision_lower_95": 0.19325746190524654,
+      "precision_upper_95": 0.6804926643446272
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -15335,9 +15336,9 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと30件",
+    "message": "時系列検証開始まであと28件",
     "required_count": 40,
-    "sample_count": 10,
+    "sample_count": 12,
     "score_bands": [
       {
         "avg_next_close_return": 0.10408437701609452,
@@ -15360,18 +15361,18 @@
         "precision_upper_95": 0.5615060804490177
       },
       {
-        "avg_next_close_return": 0.050465393594911846,
+        "avg_next_close_return": 0.030622382646628515,
         "band": "70-74",
         "correct": 4,
-        "count": 5,
-        "positive_rate": 1.0,
-        "precision": 0.8,
-        "precision_lower_95": 0.3755282641185388,
-        "precision_upper_95": 0.9637768390302125
+        "count": 7,
+        "positive_rate": 0.8571428571428571,
+        "precision": 0.5714285714285714,
+        "precision_lower_95": 0.2504542304090258,
+        "precision_upper_95": 0.8417830777373732
       }
     ],
     "status": "collecting",
-    "training_count": 10
+    "training_count": 12
   },
   "weekly": [
     {
@@ -15391,6 +15392,15 @@
       "neutral": 1,
       "week_start": "2026-07-13",
       "win": 4
+    },
+    {
+      "avg_next_close_return": -0.018985144724079805,
+      "count": 2,
+      "hit_rate": 0.0,
+      "lose": 0,
+      "neutral": 2,
+      "week_start": "2026-07-27",
+      "win": 0
     }
   ]
 }
