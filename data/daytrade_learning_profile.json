@@ -1,9 +1,24 @@
 {
-  "message": "時系列検証開始まであと4件",
+  "message": "未見データで精度悪化がないため補正を採用",
   "required_samples": 40,
-  "sample_count": 36,
-  "status": "observing",
-  "trained_at": "2026-07-24T09:12:25Z",
+  "sample_count": 41,
+  "status": "active",
+  "trained_at": "2026-07-27T10:30:23Z",
+  "validation": {
+    "adjusted_precision": 0,
+    "base_precision": 0,
+    "coverage": 1.0,
+    "holdout_count": 10,
+    "passed": true,
+    "selected_count": 10
+  },
   "version": 1,
-  "weight_multipliers": {}
+  "weight_multipliers": {
+    "liquidity": 1.0556,
+    "news": 0.9643,
+    "risk_reward": 1.0417,
+    "technical": 0.9,
+    "theme": 1.0588,
+    "volatility": 0.9
+  }
 }
