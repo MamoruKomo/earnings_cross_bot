@@ -2,11 +2,11 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.020055705616500535,
-      "evaluated_count": 6,
-      "hit_rate": 0.5,
+      "avg_next_close_return": 0.020674925371634605,
+      "evaluated_count": 7,
+      "hit_rate": 0.42857142857142855,
       "lose": 1,
-      "neutral": 2,
+      "neutral": 3,
       "recommendation_count": 8,
       "win": 3
     },
@@ -59,6 +59,18 @@
       "win": 1
     },
     {
+      "avg_next_close_return": 0.024390243902439046,
+      "code": "4765",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-07-27",
+      "lose": 0,
+      "name": "ＳＢＩＧアセット",
+      "neutral": 1,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
       "avg_next_close_return": 0.01734104046242768,
       "code": "3608",
       "evaluated_count": 1,
@@ -103,18 +115,6 @@
       "lose": 0,
       "name": "テクノＨＲ",
       "neutral": 1,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "4765",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-07-27",
-      "lose": 0,
-      "name": "ＳＢＩＧアセット",
-      "neutral": 0,
       "recommendation_count": 1,
       "win": 0
     },
@@ -3288,9 +3288,16 @@
       "date": "2026-07-27",
       "next_close_return": 0.010526315789473717,
       "result": "neutral"
+    },
+    {
+      "code": "4765",
+      "cumulative_return": 0.3776995209413587,
+      "date": "2026-07-28",
+      "next_close_return": 0.024390243902439046,
+      "result": "neutral"
     }
   ],
-  "generated_at": "2026-07-28T03:45:03Z",
+  "generated_at": "2026-07-28T09:22:50Z",
   "latest_notification": {
     "candidate_count": 1,
     "created_at": "2026-07-28T00:57:46Z",
@@ -14140,7 +14147,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 4.4,
+          "age_hours": 10.0,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14148,7 +14155,7 @@
           "updated_at": "2026-07-28T08:20:00+09:00"
         },
         {
-          "age_hours": 1962.3,
+          "age_hours": 1968.0,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14156,7 +14163,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 363.7,
+          "age_hours": 369.3,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -14858,29 +14865,22 @@
       ],
       "score": 72,
       "thesis": "総合スコア72点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "不明",
-      "code": "4765",
-      "confidence": "medium",
-      "event_date": "2026-07-27",
-      "missing_data": [
-        "announcement_time_unknown",
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "ＳＢＩＧアセット",
-      "recommendation_date": "2026-07-27",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 78,
-      "thesis": "総合スコア78点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
     }
   ],
   "recent_outcomes": [
+    {
+      "action": "cross",
+      "code": "4765",
+      "evaluation_date": "2026-07-28",
+      "event_date": "2026-07-27",
+      "max_drawdown": -0.020905923344947785,
+      "name": "ＳＢＩＧアセット",
+      "next_close_return": 0.024390243902439046,
+      "next_open_return": 0.0,
+      "recommendation_date": "2026-07-27",
+      "result": "neutral",
+      "score": 78
+    },
     {
       "action": "cross",
       "code": "8707",
@@ -14975,7 +14975,7 @@
   ],
   "result_distribution": {
     "lose": 1,
-    "neutral": 2,
+    "neutral": 3,
     "win": 4
   },
   "stock_snapshots": [
@@ -15116,8 +15116,8 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.04634512376458063,
-    "avg_next_open_return": 0.039867337737106344,
+    "avg_next_close_return": 0.043600763781812935,
+    "avg_next_open_return": 0.034883920519968054,
     "best": {
       "action": "strong_cross",
       "code": "581A",
@@ -15131,15 +15131,15 @@
       "result": "win",
       "score": 80
     },
-    "evaluated_count": 7,
-    "hit_rate": 0.5714285714285714,
+    "evaluated_count": 8,
+    "hit_rate": 0.5,
     "lose_count": 1,
-    "lose_rate": 0.14285714285714285,
-    "neutral_count": 2,
+    "lose_rate": 0.125,
+    "neutral_count": 3,
     "no_trade_day_count": 6,
-    "non_loss_rate": 0.8571428571428571,
-    "pending_count": 2,
-    "positive_close_rate": 0.7142857142857143,
+    "non_loss_rate": 0.875,
+    "pending_count": 1,
+    "positive_close_rate": 0.75,
     "recommendation_count": 9,
     "win_count": 4,
     "worst": {
@@ -15158,13 +15158,13 @@
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.04634512376458063,
+      "avg_next_close_return": 0.043600763781812935,
       "correct": 4,
-      "count": 7,
-      "positive_rate": 0.7142857142857143,
-      "precision": 0.5714285714285714,
-      "precision_lower_95": 0.2504542304090258,
-      "precision_upper_95": 0.8417830777373732
+      "count": 8,
+      "positive_rate": 0.75,
+      "precision": 0.5,
+      "precision_lower_95": 0.21521252682444186,
+      "precision_upper_95": 0.7847874731755582
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -15176,9 +15176,9 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと33件",
+    "message": "時系列検証開始まであと32件",
     "required_count": 40,
-    "sample_count": 7,
+    "sample_count": 8,
     "score_bands": [
       {
         "avg_next_close_return": 0.20408163265306123,
@@ -15191,14 +15191,14 @@
         "precision_upper_95": 1.0
       },
       {
-        "avg_next_close_return": -0.03809523809523807,
+        "avg_next_close_return": -0.006852497096399512,
         "band": "75-79",
         "correct": 0,
-        "count": 1,
-        "positive_rate": 0.0,
+        "count": 2,
+        "positive_rate": 0.5,
         "precision": 0.0,
         "precision_lower_95": 0.0,
-        "precision_upper_95": 0.7934567085261071
+        "precision_upper_95": 0.6576280471103807
       },
       {
         "avg_next_close_return": 0.031685894358848256,
@@ -15212,7 +15212,7 @@
       }
     ],
     "status": "collecting",
-    "training_count": 7
+    "training_count": 8
   },
   "weekly": [
     {
@@ -15225,11 +15225,11 @@
       "win": 4
     },
     {
-      "avg_next_close_return": -0.018985144724079805,
-      "count": 2,
+      "avg_next_close_return": -0.004526681848573522,
+      "count": 3,
       "hit_rate": 0.0,
       "lose": 0,
-      "neutral": 2,
+      "neutral": 3,
       "week_start": "2026-07-27",
       "win": 0
     }
