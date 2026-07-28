@@ -2751,6 +2751,127 @@
     "outcomes": [
       {
         "analysis": {
+          "close_return": -0.016007714561234287,
+          "miss_reasons": [
+            "選定時にVWAPを回復していなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": true
+        },
+        "candidate_id": 48,
+        "close": 25510.0,
+        "close_return": -0.016007714561234287,
+        "code": "6857",
+        "created_at": "2026-07-28T09:28:51Z",
+        "high": 26005.0,
+        "id": 46,
+        "low": 25250.0,
+        "max_down": -0.026036644165863043,
+        "max_up": 0.003085824493731959,
+        "reference_price": 25925.0,
+        "stop_hit": 1,
+        "target_hit": 0,
+        "trade_date": "2026-07-28"
+      },
+      {
+        "analysis": {
+          "close_return": 0.023477373256209688,
+          "miss_reasons": [
+            "選定時にVWAPを回復していなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 47,
+        "close": 3008.0,
+        "close_return": 0.023477373256209688,
+        "code": "7203",
+        "created_at": "2026-07-28T09:28:51Z",
+        "high": 3015.0,
+        "id": 45,
+        "low": 2938.0,
+        "max_down": -0.0003402517863219101,
+        "max_up": 0.025859135760462726,
+        "reference_price": 2939.0,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-28"
+      },
+      {
+        "analysis": {
+          "close_return": 0.019930401771591333,
+          "miss_reasons": [
+            "選定時にVWAPを回復していなかった",
+            "出来高が継続しなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 46,
+        "close": 1612.0,
+        "close_return": 0.019930401771591333,
+        "code": "7267",
+        "created_at": "2026-07-28T09:28:51Z",
+        "high": 1616.0,
+        "id": 44,
+        "low": 1582.0,
+        "max_down": 0.000949066751028127,
+        "max_up": 0.02246124644099967,
+        "reference_price": 1580.5,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-28"
+      },
+      {
+        "analysis": {
+          "close_return": -0.0048794489092996995,
+          "miss_reasons": [
+            "選定時にVWAPを回復していなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 45,
+        "close": 6934.0,
+        "close_return": -0.0048794489092996995,
+        "code": "8316",
+        "created_at": "2026-07-28T09:28:51Z",
+        "high": 7041.0,
+        "id": 43,
+        "low": 6923.0,
+        "max_down": -0.006458094144661364,
+        "max_up": 0.010476463834672822,
+        "reference_price": 6968.0,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-28"
+      },
+      {
+        "analysis": {
+          "close_return": 0.0016415868673049783,
+          "miss_reasons": [
+            "選定時にVWAPを回復していなかった"
+          ],
+          "prediction_correct": false,
+          "stop_hit": false
+        },
+        "candidate_id": 44,
+        "close": 3661.0,
+        "close_return": 0.0016415868673049783,
+        "code": "8306",
+        "created_at": "2026-07-28T09:28:51Z",
+        "high": 3715.0,
+        "id": 42,
+        "low": 3630.0,
+        "max_down": -0.0068399452804377425,
+        "max_up": 0.01641586867305067,
+        "reference_price": 3655.0,
+        "stop_hit": 0,
+        "target_hit": 0,
+        "trade_date": "2026-07-28"
+      },
+      {
+        "analysis": {
           "close_return": 0.011945088251025249,
           "miss_reasons": [
             "選定時にVWAPを回復していなかった"
@@ -3111,126 +3232,6 @@
         "stop_hit": 0,
         "target_hit": 0,
         "trade_date": "2026-07-23"
-      },
-      {
-        "analysis": {
-          "close_return": 0.008064516129032251,
-          "miss_reasons": [
-            "材料またはテーマの資金流入が持続しなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": false
-        },
-        "candidate_id": 28,
-        "close": 3750.0,
-        "close_return": 0.008064516129032251,
-        "code": "8306",
-        "created_at": "2026-07-23T09:15:37Z",
-        "high": 3778.0,
-        "id": 26,
-        "low": 3710.0,
-        "max_down": -0.0026881720430107503,
-        "max_up": 0.015591397849462396,
-        "reference_price": 3720.0,
-        "stop_hit": 0,
-        "target_hit": 0,
-        "trade_date": "2026-07-23"
-      },
-      {
-        "analysis": {
-          "close_return": -0.04441214470284238,
-          "miss_reasons": [
-            "材料またはテーマの資金流入が持続しなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": true
-        },
-        "candidate_id": 27,
-        "close": 29585.0,
-        "close_return": -0.04441214470284238,
-        "code": "6857",
-        "created_at": "2026-07-22T09:17:24Z",
-        "high": 31580.0,
-        "id": 25,
-        "low": 29535.0,
-        "max_down": -0.04602713178294571,
-        "max_up": 0.020025839793281763,
-        "reference_price": 30960.0,
-        "stop_hit": 1,
-        "target_hit": 0,
-        "trade_date": "2026-07-22"
-      },
-      {
-        "analysis": {
-          "close_return": 0.001928020565552746,
-          "miss_reasons": [
-            "出来高が継続しなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": false
-        },
-        "candidate_id": 26,
-        "close": 1559.0,
-        "close_return": 0.001928020565552746,
-        "code": "7267",
-        "created_at": "2026-07-22T09:17:24Z",
-        "high": 1566.5,
-        "id": 24,
-        "low": 1555.0,
-        "max_down": -0.0006426735218508783,
-        "max_up": 0.006748071979434389,
-        "reference_price": 1556.0,
-        "stop_hit": 0,
-        "target_hit": 0,
-        "trade_date": "2026-07-22"
-      },
-      {
-        "analysis": {
-          "close_return": -0.0003401360544217358,
-          "miss_reasons": [
-            "出来高が継続しなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": false
-        },
-        "candidate_id": 25,
-        "close": 2939.0,
-        "close_return": -0.0003401360544217358,
-        "code": "7203",
-        "created_at": "2026-07-22T09:17:24Z",
-        "high": 2951.0,
-        "id": 23,
-        "low": 2923.5,
-        "max_down": -0.0056122448979591955,
-        "max_up": 0.0037414965986395377,
-        "reference_price": 2940.0,
-        "stop_hit": 0,
-        "target_hit": 0,
-        "trade_date": "2026-07-22"
-      },
-      {
-        "analysis": {
-          "close_return": 0.003831417624521105,
-          "miss_reasons": [
-            "材料またはテーマの資金流入が持続しなかった"
-          ],
-          "prediction_correct": false,
-          "stop_hit": false
-        },
-        "candidate_id": 24,
-        "close": 3668.0,
-        "close_return": 0.003831417624521105,
-        "code": "8306",
-        "created_at": "2026-07-22T09:17:24Z",
-        "high": 3685.0,
-        "id": 22,
-        "low": 3641.0,
-        "max_down": -0.003557744937055296,
-        "max_up": 0.008483853311439526,
-        "reference_price": 3654.0,
-        "stop_hit": 0,
-        "target_hit": 0,
-        "trade_date": "2026-07-22"
       }
     ],
     "summary": {
@@ -3297,7 +3298,7 @@
       "result": "neutral"
     }
   ],
-  "generated_at": "2026-07-28T09:22:50Z",
+  "generated_at": "2026-07-28T09:28:51Z",
   "latest_notification": {
     "candidate_count": 1,
     "created_at": "2026-07-28T00:57:46Z",
@@ -14147,7 +14148,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 10.0,
+          "age_hours": 10.1,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14155,7 +14156,7 @@
           "updated_at": "2026-07-28T08:20:00+09:00"
         },
         {
-          "age_hours": 1968.0,
+          "age_hours": 1968.1,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14163,7 +14164,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 369.3,
+          "age_hours": 369.4,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
