@@ -66,6 +66,10 @@ python3 -m src.main_daytrade evaluate
 
 ネイティブアプリの「検証」画面では、全期間と未見データの正答率、95%信頼下限、スコア帯別精度を確認できます。
 
+### 本番データの保証
+
+GitHub Actionsと`src.main_morning`は、決算予定にJ-QuantsまたはTraders Web、株価にJ-QuantsまたはYahoo Financeのみを使用します。モックCSV、生成価格、検証用手動カレンダーは本番推薦・ダッシュボード集計・学習・週次レビューから除外されます。公開データを取得できない日はダミーへフォールバックせず、判定保留として扱います。
+
 ## デイトレ銘柄選定AI
 
 - 平日8:50 JST: Yahooの日足・5分足、TDnet蓄積データ、市場朝刊、PR TIMES・日経・Kabutanの公開見出しから最大10銘柄をランキングし、Slackへ投稿します。

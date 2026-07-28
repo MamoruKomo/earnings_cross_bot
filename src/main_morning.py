@@ -6,7 +6,7 @@ from datetime import timedelta
 from src import db
 from src.calendar_loader import is_after_close_announcement, load_events_for_date
 from src.config import load_config
-from src.earnings_reaction import aggregate_reactions, load_reactions
+from src.earnings_reaction import aggregate_reactions, load_production_reactions
 from src.feature_engineering import compute_financial_features, compute_price_features
 from src.financial_loader import fetch_or_load_financials
 from src.jquants_client import JQuantsClient
@@ -41,18 +41,26 @@ def main() -> None:
         return
 
     client = JQuantsClient.from_env()
-    events = load_events_for_date(cfg.manual_calendar_path, target_date, client)
+    events = load_events_for_date(cfg.manual_calendar_path, target_date, client, allow_manual=False)
     scored: list[dict] = []
 
     start = target_date - timedelta(days=190)
     for event in events:
+        if str(event.get("source", "")).lower() not in {"jquants", "traders_web"}:
+            print(f"[morning] exclude non-production event source: {event['code']} {event.get('source')}")
+            continue
         allowed, event_risk = is_after_close_announcement(event.get("announcement_time"))
         db.upsert_earnings_event(conn, event)
         if not allowed:
             print(f"[morning] exclude intraday earnings: {event['code']} {event.get('announcement_time')}")
             continue
 
-        prices = fetch_or_load_prices(event["code"], start, target_date, cfg.mock_prices_path, client)
+        prices = fetch_or_load_prices(
+            event["code"], start, target_date, cfg.mock_prices_path, client, allow_mock=False
+        )
+        if len(prices) < 20 or any("mock" in str(row.get("source", "")).lower() for row in prices):
+            print(f"[morning] exclude unavailable/non-production prices: {event['code']}")
+            continue
         db.upsert_daily_prices(conn, prices)
         price_features, price_missing = compute_price_features(prices)
 
@@ -62,7 +70,7 @@ def main() -> None:
             statements, financial_source = [], "skipped_low_liquidity"
         else:
             statements, financial_source = fetch_or_load_financials(
-                event["code"], target_date, cfg.mock_financials_path, client
+                event["code"], target_date, cfg.mock_financials_path, client, allow_mock=False
             )
         financial_features, financial_missing = compute_financial_features(statements)
         db.upsert_financial_features(
@@ -74,7 +82,7 @@ def main() -> None:
             financial_source,
         )
 
-        reactions = load_reactions(cfg.mock_reactions_path, event["code"])
+        reactions = load_production_reactions(conn, event["code"], target_date)
         db.upsert_earnings_reactions(conn, reactions)
         reaction_features, reaction_missing = aggregate_reactions(reactions)
 
@@ -94,7 +102,7 @@ def main() -> None:
             "date": target_date_text,
             "market_note": "決算予定データを取得できなかったため、今日は判定を保留します。",
             "recommendations": [],
-            "no_trade_reason": "対象銘柄が0件でした。J-Quants認証または手動決算カレンダーを確認してください。",
+            "no_trade_reason": "公開決算カレンダーを取得できませんでした。ダミーデータは使用せず判定を保留します。",
             "data_status": "unavailable",
             "data_sources": [],
         }

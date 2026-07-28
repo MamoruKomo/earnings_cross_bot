@@ -18,6 +18,8 @@ def fetch_or_load_prices(
     end: date,
     mock_path: Path,
     client: JQuantsClient | None = None,
+    *,
+    allow_mock: bool = True,
 ) -> list[dict[str, Any]]:
     if client and client.enabled():
         try:
@@ -25,13 +27,16 @@ def fetch_or_load_prices(
             if rows:
                 return _sort_prices(rows)
         except JQuantsError as exc:
-            print(f"[prices] J-Quants fallback to mock for {code}: {exc}")
+            print(f"[prices] J-Quants unavailable for {code}: {exc}")
 
     try:
         public_rows = fetch_yahoo_prices(code, start, end)
         if public_rows: return _sort_prices(public_rows)
     except (PublicDataError, ValueError) as exc:
-        print(f"[prices] Yahoo Finance fallback to local data for {code}: {exc}")
+        print(f"[prices] Yahoo Finance unavailable for {code}: {exc}")
+
+    if not allow_mock:
+        return []
 
     mock_rows = load_mock_prices(mock_path, code, start, end)
     if len(mock_rows) >= 65:

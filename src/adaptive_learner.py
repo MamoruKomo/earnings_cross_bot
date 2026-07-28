@@ -12,7 +12,13 @@ def train_profile(conn: sqlite3.Connection, rules: dict[str, Any]) -> dict[str, 
     rows = conn.execute("""
         SELECT r.score_details_json, o.next_close_return
         FROM recommendations r JOIN outcomes o ON o.recommendation_id = r.id
-        WHERE o.next_close_return IS NOT NULL ORDER BY o.evaluation_date, r.code
+        WHERE o.next_close_return IS NOT NULL
+          AND NOT EXISTS (
+            SELECT 1 FROM earnings_events e
+            WHERE e.date=r.event_date AND e.code=r.code
+              AND (LOWER(e.source) LIKE '%mock%' OR LOWER(e.source)='manual')
+          )
+        ORDER BY o.evaluation_date, r.code
     """).fetchall()
     learning_rules = rules.get("learning", {})
     minimum = int(learning_rules.get("minimum_samples", 30))

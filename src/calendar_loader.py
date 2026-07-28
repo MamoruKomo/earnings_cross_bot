@@ -9,7 +9,9 @@ from src.jquants_client import JQuantsClient, JQuantsError
 from src.public_data_client import PublicDataError, fetch_earnings_calendar
 
 
-def load_events_for_date(path: Path, target_date: date, client: JQuantsClient | None = None) -> list[dict[str, Any]]:
+def load_events_for_date(
+    path: Path, target_date: date, client: JQuantsClient | None = None, *, allow_manual: bool = True
+) -> list[dict[str, Any]]:
     events: dict[str, dict[str, Any]] = {}
 
     if client and client.enabled():
@@ -20,9 +22,10 @@ def load_events_for_date(path: Path, target_date: date, client: JQuantsClient | 
         except JQuantsError as exc:
             print(f"[calendar] J-Quants calendar fallback to CSV: {exc}")
 
-    for event in load_manual_calendar(path, target_date):
-        # Manual rows can fill gaps or override incomplete API fields.
-        events[event["code"]] = {**events.get(event["code"], {}), **event}
+    if allow_manual:
+        for event in load_manual_calendar(path, target_date):
+            # Manual rows are intended for local verification only.
+            events[event["code"]] = {**events.get(event["code"], {}), **event}
 
     if not events:
         try:

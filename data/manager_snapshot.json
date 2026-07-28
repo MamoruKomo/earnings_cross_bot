@@ -2,22 +2,22 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.01998281349989972,
-      "evaluated_count": 10,
-      "hit_rate": 0.4,
+      "avg_next_close_return": 0.020055705616500535,
+      "evaluated_count": 6,
+      "hit_rate": 0.5,
       "lose": 1,
-      "neutral": 5,
-      "recommendation_count": 12,
-      "win": 4
+      "neutral": 2,
+      "recommendation_count": 8,
+      "win": 3
     },
     {
       "action": "strong_cross",
-      "avg_next_close_return": 0.10408437701609452,
-      "evaluated_count": 2,
-      "hit_rate": 0.5,
+      "avg_next_close_return": 0.20408163265306123,
+      "evaluated_count": 1,
+      "hit_rate": 1.0,
       "lose": 0,
-      "neutral": 1,
-      "recommendation_count": 2,
+      "neutral": 0,
+      "recommendation_count": 1,
       "win": 1
     }
   ],
@@ -59,42 +59,6 @@
       "win": 1
     },
     {
-      "avg_next_close_return": 0.03281249999999991,
-      "code": "7203",
-      "evaluated_count": 1,
-      "hit_rate": 1.0,
-      "last_recommendation_date": "2026-07-09",
-      "lose": 0,
-      "name": "トヨタ自動車",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 1
-    },
-    {
-      "avg_next_close_return": 0.024967989756722098,
-      "code": "6758",
-      "evaluated_count": 1,
-      "hit_rate": 0.0,
-      "last_recommendation_date": "2026-07-09",
-      "lose": 0,
-      "name": "ソニーグループ",
-      "neutral": 1,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": 0.02311470673215843,
-      "code": "8306",
-      "evaluated_count": 1,
-      "hit_rate": 0.0,
-      "last_recommendation_date": "2026-07-10",
-      "lose": 0,
-      "name": "三菱UFJフィナンシャル・グループ",
-      "neutral": 1,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
       "avg_next_close_return": 0.01734104046242768,
       "code": "3608",
       "evaluated_count": 1,
@@ -114,30 +78,6 @@
       "last_recommendation_date": "2026-07-24",
       "lose": 0,
       "name": "岩井コスモ",
-      "neutral": 1,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": 0.004087121379127812,
-      "code": "7974",
-      "evaluated_count": 1,
-      "hit_rate": 0.0,
-      "last_recommendation_date": "2026-07-07",
-      "lose": 0,
-      "name": "任天堂",
-      "neutral": 1,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": -0.0014012951888864311,
-      "code": "6501",
-      "evaluated_count": 1,
-      "hit_rate": 0.0,
-      "last_recommendation_date": "2026-07-08",
-      "lose": 0,
-      "name": "日立製作所",
       "neutral": 1,
       "recommendation_count": 1,
       "win": 0
@@ -3301,91 +3241,56 @@
   },
   "equity_curve": [
     {
-      "code": "7974",
-      "cumulative_return": 0.004087121379127812,
-      "date": "2026-07-08",
-      "next_close_return": 0.004087121379127812,
-      "result": "neutral"
-    },
-    {
-      "code": "6501",
-      "cumulative_return": 0.00268009892671639,
-      "date": "2026-07-09",
-      "next_close_return": -0.0014012951888864311,
-      "result": "neutral"
-    },
-    {
-      "code": "6758",
-      "cumulative_return": 0.02771500536598781,
-      "date": "2026-07-10",
-      "next_close_return": 0.024967989756722098,
-      "result": "neutral"
-    },
-    {
-      "code": "7203",
-      "cumulative_return": 0.061436903979559254,
-      "date": "2026-07-10",
-      "next_close_return": 0.03281249999999991,
-      "result": "win"
-    },
-    {
-      "code": "8306",
-      "cumulative_return": 0.08597170672973697,
-      "date": "2026-07-13",
-      "next_close_return": 0.02311470673215843,
-      "result": "neutral"
-    },
-    {
       "code": "4443",
-      "cumulative_return": 0.1852788539528103,
+      "cumulative_return": 0.09144542772861364,
       "date": "2026-07-14",
       "next_close_return": 0.09144542772861364,
       "result": "win"
     },
     {
       "code": "135A",
-      "cumulative_return": 0.140125373802227,
+      "cumulative_return": 0.04986655429133324,
       "date": "2026-07-15",
       "next_close_return": -0.03809523809523807,
       "result": "lose"
     },
     {
       "code": "3608",
-      "cumulative_return": 0.159896334041572,
+      "cumulative_return": 0.06807233268944879,
       "date": "2026-07-15",
       "next_close_return": 0.01734104046242768,
       "result": "win"
     },
     {
       "code": "5246",
-      "cumulative_return": 0.26151867146515384,
+      "cumulative_return": 0.16164966697341865,
       "date": "2026-07-15",
       "next_close_return": 0.08761329305135956,
       "result": "win"
     },
     {
       "code": "581A",
-      "cumulative_return": 0.5189714615600831,
+      "cumulative_return": 0.39872102758023886,
       "date": "2026-07-15",
       "next_close_return": 0.20408163265306123,
       "result": "win"
     },
     {
       "code": "6629",
-      "cumulative_return": 0.44530650222157275,
+      "cumulative_return": 0.3308878060681031,
       "date": "2026-07-27",
       "next_close_return": -0.04849660523763333,
       "result": "neutral"
     },
     {
       "code": "8707",
-      "cumulative_return": 0.4605202548765368,
+      "cumulative_return": 0.34489715139513577,
       "date": "2026-07-27",
       "next_close_return": 0.010526315789473717,
       "result": "neutral"
     }
   ],
-  "generated_at": "2026-07-28T01:05:39Z",
+  "generated_at": "2026-07-28T01:12:10Z",
   "latest_notification": {
     "candidate_count": 1,
     "created_at": "2026-07-28T00:57:46Z",
@@ -3396,12 +3301,12 @@
   },
   "learning": {
     "feature_evidence": {},
-    "message": "時系列検証開始まであと30件",
+    "message": "時系列検証開始まであと33件",
     "minimum_samples": 30,
     "required_samples": 40,
-    "sample_count": 10,
+    "sample_count": 7,
     "status": "observing",
-    "trained_at": "2026-07-24T10:58:05Z",
+    "trained_at": "2026-07-28T01:12:10Z",
     "validation_samples": 10,
     "version": 1,
     "weight_multipliers": {}
@@ -14235,7 +14140,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 1.8,
+          "age_hours": 1.9,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14243,7 +14148,7 @@
           "updated_at": "2026-07-28T08:20:00+09:00"
         },
         {
-          "age_hours": 1959.7,
+          "age_hours": 1959.8,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14251,7 +14156,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 361.0,
+          "age_hours": 361.1,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -14927,6 +14832,7 @@
     "updated_at": "2026-07-13T09:03:38+09:00"
   },
   "no_trade_days": [
+    "2026-07-09",
     "2026-07-16",
     "2026-07-17",
     "2026-07-21",
@@ -15065,77 +14971,12 @@
       "recommendation_date": "2026-07-13",
       "result": "win",
       "score": 71
-    },
-    {
-      "action": "cross",
-      "code": "8306",
-      "evaluation_date": "2026-07-13",
-      "event_date": "2026-07-10",
-      "max_drawdown": 0.007223345853799579,
-      "name": "三菱UFJフィナンシャル・グループ",
-      "next_close_return": 0.02311470673215843,
-      "next_open_return": 0.007512279687951429,
-      "recommendation_date": "2026-07-10",
-      "result": "neutral",
-      "score": 71
-    },
-    {
-      "action": "cross",
-      "code": "7203",
-      "evaluation_date": "2026-07-10",
-      "event_date": "2026-07-09",
-      "max_drawdown": 0.009374999999999911,
-      "name": "トヨタ自動車",
-      "next_close_return": 0.03281249999999991,
-      "next_open_return": 0.018750000000000044,
-      "recommendation_date": "2026-07-09",
-      "result": "win",
-      "score": 73
-    },
-    {
-      "action": "cross",
-      "code": "6758",
-      "evaluation_date": "2026-07-10",
-      "event_date": "2026-07-09",
-      "max_drawdown": 0.010883482714468595,
-      "name": "ソニーグループ",
-      "next_close_return": 0.024967989756722098,
-      "next_open_return": 0.016645326504481472,
-      "recommendation_date": "2026-07-09",
-      "result": "neutral",
-      "score": 78
-    },
-    {
-      "action": "cross",
-      "code": "6501",
-      "evaluation_date": "2026-07-09",
-      "event_date": "2026-07-08",
-      "max_drawdown": -0.014451217050821419,
-      "name": "日立製作所",
-      "next_close_return": -0.0014012951888864311,
-      "next_open_return": -0.002479658153173636,
-      "recommendation_date": "2026-07-08",
-      "result": "neutral",
-      "score": 76
-    },
-    {
-      "action": "strong_cross",
-      "code": "7974",
-      "evaluation_date": "2026-07-08",
-      "event_date": "2026-07-07",
-      "max_drawdown": -0.009038402186852479,
-      "name": "任天堂",
-      "next_close_return": 0.004087121379127812,
-      "next_open_return": 0.002998104140029101,
-      "recommendation_date": "2026-07-07",
-      "result": "neutral",
-      "score": 82
     }
   ],
   "result_distribution": {
     "lose": 1,
-    "neutral": 6,
-    "win": 5
+    "neutral": 2,
+    "win": 4
   },
   "stock_snapshots": [
     {
@@ -15229,21 +15070,6 @@
       "supply_demand_source": "missing"
     },
     {
-      "code": "6501",
-      "financial_source": "mock",
-      "long_margin_outstanding": 15100000.0,
-      "long_weekly_change": 0.08633093525179847,
-      "margin_as_of_date": "2026-07-03",
-      "margin_ratio": 3.026052104208417,
-      "name": "日立製作所",
-      "operating_margin": 0.096,
-      "operating_profit_yoy": 0.26,
-      "revenue_progress_rate": 0.25257731958762886,
-      "revenue_yoy": 0.11,
-      "short_margin_outstanding": 4990000.0,
-      "supply_demand_source": "mock"
-    },
-    {
       "code": "6629",
       "financial_source": "traders_web",
       "long_margin_outstanding": null,
@@ -15259,36 +15085,6 @@
       "supply_demand_source": "missing"
     },
     {
-      "code": "6758",
-      "financial_source": "mock",
-      "long_margin_outstanding": 11200000.0,
-      "long_weekly_change": -0.05084745762711862,
-      "margin_as_of_date": "2026-07-03",
-      "margin_ratio": 2.2266401590457257,
-      "name": "ソニーグループ",
-      "operating_margin": 0.127,
-      "operating_profit_yoy": 0.22,
-      "revenue_progress_rate": 0.2578125,
-      "revenue_yoy": 0.12,
-      "short_margin_outstanding": 5030000.0,
-      "supply_demand_source": "mock"
-    },
-    {
-      "code": "7203",
-      "financial_source": "mock",
-      "long_margin_outstanding": 27400000.0,
-      "long_weekly_change": -0.02491103202846978,
-      "margin_as_of_date": "2026-07-03",
-      "margin_ratio": 2.860125260960334,
-      "name": "トヨタ自動車",
-      "operating_margin": 0.108,
-      "operating_profit_yoy": 0.18,
-      "revenue_progress_rate": 0.2608695652173913,
-      "revenue_yoy": 0.09,
-      "short_margin_outstanding": 9580000.0,
-      "supply_demand_source": "mock"
-    },
-    {
       "code": "7735",
       "financial_source": "traders_web",
       "long_margin_outstanding": null,
@@ -15302,36 +15098,6 @@
       "revenue_yoy": 0.19699999999999998,
       "short_margin_outstanding": null,
       "supply_demand_source": "missing"
-    },
-    {
-      "code": "7974",
-      "financial_source": "mock",
-      "long_margin_outstanding": 3090000.0,
-      "long_weekly_change": -0.05214723926380371,
-      "margin_as_of_date": "2026-07-03",
-      "margin_ratio": 2.1914893617021276,
-      "name": "任天堂",
-      "operating_margin": 0.347,
-      "operating_profit_yoy": 0.28,
-      "revenue_progress_rate": 0.29523809523809524,
-      "revenue_yoy": 0.16,
-      "short_margin_outstanding": 1410000.0,
-      "supply_demand_source": "mock"
-    },
-    {
-      "code": "8306",
-      "financial_source": "mock",
-      "long_margin_outstanding": 72100000.0,
-      "long_weekly_change": 0.05409356725146197,
-      "margin_as_of_date": "2026-07-03",
-      "margin_ratio": 4.073446327683616,
-      "name": "三菱UFJフィナンシャル・グループ",
-      "operating_margin": 0.35,
-      "operating_profit_yoy": 0.19,
-      "revenue_progress_rate": 0.25,
-      "revenue_yoy": 0.08,
-      "short_margin_outstanding": 17700000.0,
-      "supply_demand_source": "mock"
     },
     {
       "code": "8707",
@@ -15350,8 +15116,8 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.03399974075259885,
-    "avg_next_open_return": 0.026874784694919402,
+    "avg_next_close_return": 0.04634512376458063,
+    "avg_next_open_return": 0.039867337737106344,
     "best": {
       "action": "strong_cross",
       "code": "581A",
@@ -15365,17 +15131,17 @@
       "result": "win",
       "score": 80
     },
-    "evaluated_count": 12,
-    "hit_rate": 0.4166666666666667,
+    "evaluated_count": 7,
+    "hit_rate": 0.5714285714285714,
     "lose_count": 1,
-    "lose_rate": 0.08333333333333333,
-    "neutral_count": 6,
-    "no_trade_day_count": 5,
-    "non_loss_rate": 0.9166666666666666,
+    "lose_rate": 0.14285714285714285,
+    "neutral_count": 2,
+    "no_trade_day_count": 6,
+    "non_loss_rate": 0.8571428571428571,
     "pending_count": 2,
-    "positive_close_rate": 0.75,
-    "recommendation_count": 14,
-    "win_count": 5,
+    "positive_close_rate": 0.7142857142857143,
+    "recommendation_count": 9,
+    "win_count": 4,
     "worst": {
       "action": "cross",
       "code": "6629",
@@ -15392,13 +15158,13 @@
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.03399974075259885,
-      "correct": 5,
-      "count": 12,
-      "positive_rate": 0.75,
-      "precision": 0.4166666666666667,
-      "precision_lower_95": 0.19325746190524654,
-      "precision_upper_95": 0.6804926643446272
+      "avg_next_close_return": 0.04634512376458063,
+      "correct": 4,
+      "count": 7,
+      "positive_rate": 0.7142857142857143,
+      "precision": 0.5714285714285714,
+      "precision_lower_95": 0.2504542304090258,
+      "precision_upper_95": 0.8417830777373732
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -15410,60 +15176,51 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと28件",
+    "message": "時系列検証開始まであと33件",
     "required_count": 40,
-    "sample_count": 12,
+    "sample_count": 7,
     "score_bands": [
       {
-        "avg_next_close_return": 0.10408437701609452,
+        "avg_next_close_return": 0.20408163265306123,
         "band": "80-100",
         "correct": 1,
-        "count": 2,
+        "count": 1,
         "positive_rate": 1.0,
-        "precision": 0.5,
-        "precision_lower_95": 0.09452865480086614,
-        "precision_upper_95": 0.9054713451991339
+        "precision": 1.0,
+        "precision_lower_95": 0.20654329147389294,
+        "precision_upper_95": 1.0
       },
       {
-        "avg_next_close_return": -0.004842847842467468,
+        "avg_next_close_return": -0.03809523809523807,
         "band": "75-79",
         "correct": 0,
-        "count": 3,
-        "positive_rate": 0.3333333333333333,
+        "count": 1,
+        "positive_rate": 0.0,
         "precision": 0.0,
         "precision_lower_95": 0.0,
-        "precision_upper_95": 0.5615060804490177
+        "precision_upper_95": 0.7934567085261071
       },
       {
-        "avg_next_close_return": 0.030622382646628515,
+        "avg_next_close_return": 0.031685894358848256,
         "band": "70-74",
-        "correct": 4,
-        "count": 7,
-        "positive_rate": 0.8571428571428571,
-        "precision": 0.5714285714285714,
-        "precision_lower_95": 0.2504542304090258,
-        "precision_upper_95": 0.8417830777373732
+        "correct": 3,
+        "count": 5,
+        "positive_rate": 0.8,
+        "precision": 0.6,
+        "precision_lower_95": 0.23071993220883708,
+        "precision_upper_95": 0.8823817688407467
       }
     ],
     "status": "collecting",
-    "training_count": 12
+    "training_count": 7
   },
   "weekly": [
     {
-      "avg_next_close_return": 0.015116578986740847,
-      "count": 4,
-      "hit_rate": 0.25,
-      "lose": 0,
-      "neutral": 3,
-      "week_start": "2026-07-06",
-      "win": 1
-    },
-    {
-      "avg_next_close_return": 0.06425014375539707,
-      "count": 6,
-      "hit_rate": 0.6666666666666666,
+      "avg_next_close_return": 0.07247723116004481,
+      "count": 5,
+      "hit_rate": 0.8,
       "lose": 1,
-      "neutral": 1,
+      "neutral": 0,
       "week_start": "2026-07-13",
       "win": 4
     },

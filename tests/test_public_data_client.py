@@ -1,10 +1,16 @@
 import unittest
+from unittest.mock import patch
+import requests
 from datetime import date
 
-from src.public_data_client import CalendarTableParser, metric
+from src.public_data_client import CalendarTableParser, PublicDataError, fetch_earnings_calendar, metric
 
 
 class PublicDataClientTest(unittest.TestCase):
+    def test_network_error_is_normalized(self):
+        with patch("src.public_data_client.requests.get", side_effect=requests.ConnectionError("offline")):
+            with self.assertRaises(PublicDataError):
+                fetch_earnings_calendar(date(2026, 7, 28))
     def test_calendar_table_parser(self):
         parser = CalendarTableParser()
         parser.feed("""

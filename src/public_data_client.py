@@ -41,10 +41,13 @@ class CalendarTableParser(HTMLParser):
 
 
 def fetch_earnings_calendar(target_date: date, timeout: int = 25) -> list[dict[str, Any]]:
-    response = requests.get(
-        "https://www.traders.co.jp/market_jp/earnings_calendar",
-        headers={"User-Agent": USER_AGENT}, timeout=timeout,
-    )
+    try:
+        response = requests.get(
+            "https://www.traders.co.jp/market_jp/earnings_calendar",
+            headers={"User-Agent": USER_AGENT}, timeout=timeout,
+        )
+    except requests.RequestException as exc:
+        raise PublicDataError(f"calendar request failed: {exc}") from exc
     if response.status_code >= 400: raise PublicDataError(f"calendar HTTP {response.status_code}")
     parser = CalendarTableParser(); parser.feed(response.text)
     target = target_date.strftime("%m/%d")
@@ -65,11 +68,14 @@ def fetch_earnings_calendar(target_date: date, timeout: int = 25) -> list[dict[s
 
 
 def fetch_yahoo_prices(code: str, start: date, end: date, timeout: int = 25) -> list[dict[str, Any]]:
-    response = requests.get(
-        f"https://query1.finance.yahoo.com/v8/finance/chart/{code}.T",
-        params={"period1": unix_start(start), "period2": unix_start(end) + 86400, "interval": "1d", "events": "history"},
-        headers={"User-Agent": USER_AGENT}, timeout=timeout,
-    )
+    try:
+        response = requests.get(
+            f"https://query1.finance.yahoo.com/v8/finance/chart/{code}.T",
+            params={"period1": unix_start(start), "period2": unix_start(end) + 86400, "interval": "1d", "events": "history"},
+            headers={"User-Agent": USER_AGENT}, timeout=timeout,
+        )
+    except requests.RequestException as exc:
+        raise PublicDataError(f"Yahoo prices request failed: {exc}") from exc
     if response.status_code >= 400: raise PublicDataError(f"Yahoo prices HTTP {response.status_code}")
     payload = response.json().get("chart", {})
     if payload.get("error"): raise PublicDataError(str(payload["error"]))
@@ -92,10 +98,13 @@ def fetch_yahoo_prices(code: str, start: date, end: date, timeout: int = 25) -> 
 
 
 def fetch_traders_financials(code: str, timeout: int = 25) -> list[dict[str, Any]]:
-    response = requests.get(
-        f"https://www.traders.co.jp/stocks/{code}/achievement",
-        headers={"User-Agent": USER_AGENT}, timeout=timeout,
-    )
+    try:
+        response = requests.get(
+            f"https://www.traders.co.jp/stocks/{code}/achievement",
+            headers={"User-Agent": USER_AGENT}, timeout=timeout,
+        )
+    except requests.RequestException as exc:
+        raise PublicDataError(f"financials request failed: {exc}") from exc
     if response.status_code >= 400: raise PublicDataError(f"financials HTTP {response.status_code}")
     text = response.text
     revenue, revenue_yoy = metric(text, "売上高")

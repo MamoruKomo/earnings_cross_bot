@@ -470,7 +470,17 @@ def insert_lesson(conn: sqlite3.Connection, outcome_id: int | None, lesson_date:
 def fetch_outcomes_between(conn: sqlite3.Connection, start: str, end: str) -> list[sqlite3.Row]:
     return list(
         conn.execute(
-            "SELECT * FROM outcomes WHERE evaluation_date BETWEEN ? AND ? ORDER BY evaluation_date, code",
+            """
+            SELECT o.* FROM outcomes o
+            JOIN recommendations r ON r.id=o.recommendation_id
+            WHERE o.evaluation_date BETWEEN ? AND ?
+              AND NOT EXISTS (
+                SELECT 1 FROM earnings_events e
+                WHERE e.date=r.event_date AND e.code=r.code
+                  AND (LOWER(e.source) LIKE '%mock%' OR LOWER(e.source)='manual')
+              )
+            ORDER BY o.evaluation_date, o.code
+            """,
             (start, end),
         ).fetchall()
     )

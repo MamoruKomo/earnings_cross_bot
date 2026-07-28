@@ -45,6 +45,7 @@ def main() -> None:
             expected_eval_date,
             cfg.mock_prices_path,
             client,
+            allow_mock=False,
         )
         db.upsert_daily_prices(conn, prices)
         event_price = find_price_on_or_before(prices, event_date)
@@ -82,4 +83,3 @@ def append_lesson(path, lesson: dict) -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -14,6 +14,8 @@ def fetch_or_load_financials(
     as_of_date: date,
     mock_path: Path,
     client: JQuantsClient | None = None,
+    *,
+    allow_mock: bool = True,
 ) -> tuple[list[dict[str, Any]], str]:
     if client and client.enabled():
         try:
@@ -21,15 +23,16 @@ def fetch_or_load_financials(
             if rows:
                 return [normalize_statement(row, code) for row in rows], "jquants"
         except JQuantsError as exc:
-            print(f"[financials] J-Quants fallback to mock for {code}: {exc}")
+            print(f"[financials] J-Quants unavailable for {code}: {exc}")
 
-    mock = load_mock_financials(mock_path, code)
-    if mock: return mock, "mock"
     try:
         return fetch_traders_financials(code), "traders_web"
     except PublicDataError as exc:
         print(f"[financials] public financials unavailable for {code}: {exc}")
-        return [], "missing"
+    if allow_mock:
+        mock = load_mock_financials(mock_path, code)
+        if mock: return mock, "mock"
+    return [], "missing"
 
 
 def load_mock_financials(path: Path, code: str) -> list[dict[str, Any]]:

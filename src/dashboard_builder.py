@@ -66,6 +66,11 @@ def fetch_recommendation_rows(conn: sqlite3.Connection) -> list[dict[str, Any]]:
             o.result
         FROM recommendations r
         LEFT JOIN outcomes o ON o.recommendation_id = r.id
+        WHERE NOT EXISTS (
+            SELECT 1 FROM earnings_events e
+            WHERE e.date=r.event_date AND e.code=r.code
+              AND (LOWER(e.source) LIKE '%mock%' OR LOWER(e.source)='manual')
+        )
         ORDER BY r.recommendation_date ASC, r.score DESC, r.code ASC
         """
     ).fetchall()
