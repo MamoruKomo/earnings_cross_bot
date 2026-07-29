@@ -2,10 +2,10 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.020674925371634605,
-      "evaluated_count": 7,
-      "hit_rate": 0.42857142857142855,
-      "lose": 1,
+      "avg_next_close_return": -0.0034702868606662773,
+      "evaluated_count": 8,
+      "hit_rate": 0.375,
+      "lose": 2,
       "neutral": 3,
       "recommendation_count": 9,
       "win": 3
@@ -119,12 +119,12 @@
       "win": 0
     },
     {
-      "avg_next_close_return": null,
+      "avg_next_close_return": -0.17248677248677247,
       "code": "7735",
-      "evaluated_count": 0,
-      "hit_rate": null,
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
       "last_recommendation_date": "2026-07-28",
-      "lose": 0,
+      "lose": 1,
       "name": "スクリン",
       "neutral": 0,
       "recommendation_count": 1,
@@ -3312,9 +3312,16 @@
       "date": "2026-07-28",
       "next_close_return": 0.024390243902439046,
       "result": "neutral"
+    },
+    {
+      "code": "7735",
+      "cumulative_return": 0.14006457711761122,
+      "date": "2026-07-29",
+      "next_close_return": -0.17248677248677247,
+      "result": "lose"
     }
   ],
-  "generated_at": "2026-07-29T07:01:11Z",
+  "generated_at": "2026-07-29T09:28:15Z",
   "latest_notification": {
     "candidate_count": 1,
     "created_at": "2026-07-29T01:00:02Z",
@@ -14164,7 +14171,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 7.7,
+          "age_hours": 10.1,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14172,7 +14179,7 @@
           "updated_at": "2026-07-29T08:20:00+09:00"
         },
         {
-          "age_hours": 1989.6,
+          "age_hours": 1992.1,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14180,7 +14187,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 391.0,
+          "age_hours": 393.4,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -14893,28 +14900,22 @@
       ],
       "score": 76,
       "thesis": "総合スコア76点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "15:35",
-      "code": "7735",
-      "confidence": "medium",
-      "event_date": "2026-07-28",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "スクリン",
-      "recommendation_date": "2026-07-28",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 72,
-      "thesis": "総合スコア72点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
     }
   ],
   "recent_outcomes": [
+    {
+      "action": "cross",
+      "code": "7735",
+      "evaluation_date": "2026-07-29",
+      "event_date": "2026-07-28",
+      "max_drawdown": -0.19788359788359788,
+      "name": "スクリン",
+      "next_close_return": -0.17248677248677247,
+      "next_open_return": -0.08465608465608465,
+      "recommendation_date": "2026-07-28",
+      "result": "lose",
+      "score": 72
+    },
     {
       "action": "cross",
       "code": "4765",
@@ -15021,7 +15022,7 @@
     }
   ],
   "result_distribution": {
-    "lose": 1,
+    "lose": 2,
     "neutral": 3,
     "win": 4
   },
@@ -15178,8 +15179,8 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.043600763781812935,
-    "avg_next_open_return": 0.034883920519968054,
+    "avg_next_close_return": 0.01959103752974789,
+    "avg_next_open_return": 0.021601697722628863,
     "best": {
       "action": "strong_cross",
       "code": "581A",
@@ -15193,40 +15194,40 @@
       "result": "win",
       "score": 80
     },
-    "evaluated_count": 8,
-    "hit_rate": 0.5,
-    "lose_count": 1,
-    "lose_rate": 0.125,
+    "evaluated_count": 9,
+    "hit_rate": 0.4444444444444444,
+    "lose_count": 2,
+    "lose_rate": 0.2222222222222222,
     "neutral_count": 3,
     "no_trade_day_count": 6,
-    "non_loss_rate": 0.875,
-    "pending_count": 2,
-    "positive_close_rate": 0.75,
+    "non_loss_rate": 0.7777777777777778,
+    "pending_count": 1,
+    "positive_close_rate": 0.6666666666666666,
     "recommendation_count": 10,
     "win_count": 4,
     "worst": {
       "action": "cross",
-      "code": "6629",
-      "evaluation_date": "2026-07-27",
-      "event_date": "2026-07-24",
-      "max_drawdown": -0.05916585838991273,
-      "name": "テクノＨＲ",
-      "next_close_return": -0.04849660523763333,
-      "next_open_return": 0.02812803103782735,
-      "recommendation_date": "2026-07-24",
-      "result": "neutral",
-      "score": 70
+      "code": "7735",
+      "evaluation_date": "2026-07-29",
+      "event_date": "2026-07-28",
+      "max_drawdown": -0.19788359788359788,
+      "name": "スクリン",
+      "next_close_return": -0.17248677248677247,
+      "next_open_return": -0.08465608465608465,
+      "recommendation_date": "2026-07-28",
+      "result": "lose",
+      "score": 72
     }
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.043600763781812935,
+      "avg_next_close_return": 0.01959103752974789,
       "correct": 4,
-      "count": 8,
-      "positive_rate": 0.75,
-      "precision": 0.5,
-      "precision_lower_95": 0.21521252682444186,
-      "precision_upper_95": 0.7847874731755582
+      "count": 9,
+      "positive_rate": 0.6666666666666666,
+      "precision": 0.4444444444444444,
+      "precision_lower_95": 0.188775429471914,
+      "precision_upper_95": 0.7333526542559703
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -15238,9 +15239,9 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと32件",
+    "message": "時系列検証開始まであと31件",
     "required_count": 40,
-    "sample_count": 8,
+    "sample_count": 9,
     "score_bands": [
       {
         "avg_next_close_return": 0.20408163265306123,
@@ -15263,18 +15264,18 @@
         "precision_upper_95": 0.6576280471103807
       },
       {
-        "avg_next_close_return": 0.031685894358848256,
+        "avg_next_close_return": -0.002342883448755199,
         "band": "70-74",
         "correct": 3,
-        "count": 5,
-        "positive_rate": 0.8,
-        "precision": 0.6,
-        "precision_lower_95": 0.23071993220883708,
-        "precision_upper_95": 0.8823817688407467
+        "count": 6,
+        "positive_rate": 0.6666666666666666,
+        "precision": 0.5,
+        "precision_lower_95": 0.18761280689940868,
+        "precision_upper_95": 0.8123871931005913
       }
     ],
     "status": "collecting",
-    "training_count": 8
+    "training_count": 9
   },
   "weekly": [
     {
@@ -15287,10 +15288,10 @@
       "win": 4
     },
     {
-      "avg_next_close_return": -0.004526681848573522,
-      "count": 3,
+      "avg_next_close_return": -0.04651670450812326,
+      "count": 4,
       "hit_rate": 0.0,
-      "lose": 0,
+      "lose": 1,
       "neutral": 3,
       "week_start": "2026-07-27",
       "win": 0
