@@ -1,12 +1,12 @@
 {
   "message": "未見データで精度悪化がないため補正を採用",
   "required_samples": 40,
-  "sample_count": 46,
+  "sample_count": 51,
   "status": "active",
-  "trained_at": "2026-07-28T09:28:51Z",
+  "trained_at": "2026-07-29T09:30:33Z",
   "validation": {
-    "adjusted_precision": 0,
-    "base_precision": 0,
+    "adjusted_precision": 0.1,
+    "base_precision": 0.1,
     "coverage": 1.0,
     "holdout_count": 10,
     "passed": true,
@@ -14,11 +14,11 @@
   },
   "version": 1,
   "weight_multipliers": {
-    "liquidity": 1.05,
-    "news": 0.9688,
-    "risk_reward": 1.0357,
-    "technical": 0.9333,
-    "theme": 1.0526,
+    "liquidity": 1.0455,
+    "news": 0.9722,
+    "risk_reward": 1.0323,
+    "technical": 0.9375,
+    "theme": 1.0435,
     "volatility": 0.9
   }
 }
