@@ -7,7 +7,7 @@
       "hit_rate": 0.42857142857142855,
       "lose": 1,
       "neutral": 3,
-      "recommendation_count": 8,
+      "recommendation_count": 9,
       "win": 3
     },
     {
@@ -126,6 +126,18 @@
       "last_recommendation_date": "2026-07-28",
       "lose": 0,
       "name": "スクリン",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "6857",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-07-29",
+      "lose": 0,
+      "name": "アドバンテ",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
@@ -3298,12 +3310,12 @@
       "result": "neutral"
     }
   ],
-  "generated_at": "2026-07-29T00:13:33Z",
+  "generated_at": "2026-07-29T01:00:02Z",
   "latest_notification": {
     "candidate_count": 1,
-    "created_at": "2026-07-28T00:57:46Z",
+    "created_at": "2026-07-29T01:00:02Z",
     "data_status": "ok",
-    "date": "2026-07-28",
+    "date": "2026-07-29",
     "status": "sent",
     "type": "morning"
   },
@@ -14148,7 +14160,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 0.9,
+          "age_hours": 1.7,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14156,7 +14168,7 @@
           "updated_at": "2026-07-29T08:20:00+09:00"
         },
         {
-          "age_hours": 1982.8,
+          "age_hours": 1983.6,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14164,7 +14176,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 384.2,
+          "age_hours": 384.9,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -14861,6 +14873,25 @@
   "pending_recommendations": [
     {
       "action": "cross",
+      "announcement_time": "15:30",
+      "code": "6857",
+      "confidence": "medium",
+      "event_date": "2026-07-29",
+      "missing_data": [
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "supply_demand"
+      ],
+      "name": "アドバンテ",
+      "recommendation_date": "2026-07-29",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 76,
+      "thesis": "総合スコア76点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
+      "action": "cross",
       "announcement_time": "15:35",
       "code": "7735",
       "confidence": "medium",
@@ -15097,6 +15128,21 @@
       "supply_demand_source": "missing"
     },
     {
+      "code": "6857",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-07-29",
+      "margin_ratio": null,
+      "name": "アドバンテ",
+      "operating_margin": 0.44190140845070425,
+      "operating_profit_yoy": 0.257,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.258,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
       "code": "7735",
       "financial_source": "traders_web",
       "long_margin_outstanding": null,
@@ -15150,9 +15196,9 @@
     "neutral_count": 3,
     "no_trade_day_count": 6,
     "non_loss_rate": 0.875,
-    "pending_count": 1,
+    "pending_count": 2,
     "positive_close_rate": 0.75,
-    "recommendation_count": 9,
+    "recommendation_count": 10,
     "win_count": 4,
     "worst": {
       "action": "cross",
