@@ -2,13 +2,13 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": -0.0034702868606662773,
-      "evaluated_count": 8,
-      "hit_rate": 0.375,
+      "avg_next_close_return": 0.008974383460712875,
+      "evaluated_count": 9,
+      "hit_rate": 0.4444444444444444,
       "lose": 2,
       "neutral": 3,
       "recommendation_count": 11,
-      "win": 3
+      "win": 4
     },
     {
       "action": "strong_cross",
@@ -30,6 +30,18 @@
       "last_recommendation_date": "2026-07-14",
       "lose": 0,
       "name": "Ｇ Ｏ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 1
+    },
+    {
+      "avg_next_close_return": 0.10853174603174609,
+      "code": "6857",
+      "evaluated_count": 1,
+      "hit_rate": 1.0,
+      "last_recommendation_date": "2026-07-29",
+      "lose": 0,
+      "name": "アドバンテ",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 1
@@ -126,18 +138,6 @@
       "last_recommendation_date": "2026-07-28",
       "lose": 1,
       "name": "スクリン",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "6857",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-07-29",
-      "lose": 0,
-      "name": "アドバンテ",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
@@ -3341,9 +3341,16 @@
       "date": "2026-07-29",
       "next_close_return": -0.17248677248677247,
       "result": "lose"
+    },
+    {
+      "code": "6857",
+      "cumulative_return": 0.2637977762611299,
+      "date": "2026-07-30",
+      "next_close_return": 0.10853174603174609,
+      "result": "win"
     }
   ],
-  "generated_at": "2026-07-30T07:01:11Z",
+  "generated_at": "2026-07-30T09:18:18Z",
   "latest_notification": {
     "candidate_count": 2,
     "created_at": "2026-07-30T01:07:44Z",
@@ -14193,7 +14200,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 7.7,
+          "age_hours": 10.0,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14201,7 +14208,7 @@
           "updated_at": "2026-07-30T08:20:00+09:00"
         },
         {
-          "age_hours": 2013.6,
+          "age_hours": 2015.9,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14209,7 +14216,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 415.0,
+          "age_hours": 417.2,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -14952,28 +14959,22 @@
       ],
       "score": 72,
       "thesis": "総合スコア72点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "15:30",
-      "code": "6857",
-      "confidence": "medium",
-      "event_date": "2026-07-29",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "アドバンテ",
-      "recommendation_date": "2026-07-29",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 76,
-      "thesis": "総合スコア76点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
     }
   ],
   "recent_outcomes": [
+    {
+      "action": "cross",
+      "code": "6857",
+      "evaluation_date": "2026-07-30",
+      "event_date": "2026-07-29",
+      "max_drawdown": 0.08650793650793642,
+      "name": "アドバンテ",
+      "next_close_return": 0.10853174603174609,
+      "next_open_return": 0.13015873015873014,
+      "recommendation_date": "2026-07-29",
+      "result": "win",
+      "score": 76
+    },
     {
       "action": "cross",
       "code": "7735",
@@ -15095,7 +15096,7 @@
   "result_distribution": {
     "lose": 2,
     "neutral": 3,
-    "win": 4
+    "win": 5
   },
   "stock_snapshots": [
     {
@@ -15280,8 +15281,8 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.01959103752974789,
-    "avg_next_open_return": 0.021601697722628863,
+    "avg_next_close_return": 0.02848510837994771,
+    "avg_next_open_return": 0.03245740096623899,
     "best": {
       "action": "strong_cross",
       "code": "581A",
@@ -15295,17 +15296,17 @@
       "result": "win",
       "score": 80
     },
-    "evaluated_count": 9,
-    "hit_rate": 0.4444444444444444,
+    "evaluated_count": 10,
+    "hit_rate": 0.5,
     "lose_count": 2,
-    "lose_rate": 0.2222222222222222,
+    "lose_rate": 0.2,
     "neutral_count": 3,
     "no_trade_day_count": 6,
-    "non_loss_rate": 0.7777777777777778,
-    "pending_count": 3,
-    "positive_close_rate": 0.6666666666666666,
+    "non_loss_rate": 0.8,
+    "pending_count": 2,
+    "positive_close_rate": 0.7,
     "recommendation_count": 12,
-    "win_count": 4,
+    "win_count": 5,
     "worst": {
       "action": "cross",
       "code": "7735",
@@ -15322,13 +15323,13 @@
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.01959103752974789,
-      "correct": 4,
-      "count": 9,
-      "positive_rate": 0.6666666666666666,
-      "precision": 0.4444444444444444,
-      "precision_lower_95": 0.188775429471914,
-      "precision_upper_95": 0.7333526542559703
+      "avg_next_close_return": 0.02848510837994771,
+      "correct": 5,
+      "count": 10,
+      "positive_rate": 0.7,
+      "precision": 0.5,
+      "precision_lower_95": 0.23658959361548731,
+      "precision_upper_95": 0.7634104063845126
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -15340,9 +15341,9 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと31件",
+    "message": "時系列検証開始まであと30件",
     "required_count": 40,
-    "sample_count": 9,
+    "sample_count": 10,
     "score_bands": [
       {
         "avg_next_close_return": 0.20408163265306123,
@@ -15355,14 +15356,14 @@
         "precision_upper_95": 1.0
       },
       {
-        "avg_next_close_return": -0.006852497096399512,
+        "avg_next_close_return": 0.03160891727964902,
         "band": "75-79",
-        "correct": 0,
-        "count": 2,
-        "positive_rate": 0.5,
-        "precision": 0.0,
-        "precision_lower_95": 0.0,
-        "precision_upper_95": 0.6576280471103807
+        "correct": 1,
+        "count": 3,
+        "positive_rate": 0.6666666666666666,
+        "precision": 0.3333333333333333,
+        "precision_lower_95": 0.0614903152761605,
+        "precision_upper_95": 0.7923450448735121
       },
       {
         "avg_next_close_return": -0.002342883448755199,
@@ -15376,7 +15377,7 @@
       }
     ],
     "status": "collecting",
-    "training_count": 9
+    "training_count": 10
   },
   "weekly": [
     {
@@ -15389,13 +15390,13 @@
       "win": 4
     },
     {
-      "avg_next_close_return": -0.04651670450812326,
-      "count": 4,
-      "hit_rate": 0.0,
+      "avg_next_close_return": -0.015507014400149389,
+      "count": 5,
+      "hit_rate": 0.2,
       "lose": 1,
       "neutral": 3,
       "week_start": "2026-07-27",
-      "win": 0
+      "win": 1
     }
   ]
 }
