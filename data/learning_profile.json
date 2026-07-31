@@ -1,11 +1,11 @@
 {
   "feature_evidence": {},
-  "message": "時系列検証開始まであと33件",
+  "message": "時系列検証開始まであと28件",
   "minimum_samples": 30,
   "required_samples": 40,
-  "sample_count": 7,
+  "sample_count": 12,
   "status": "observing",
-  "trained_at": "2026-07-28T01:12:10Z",
+  "trained_at": "2026-07-31T11:25:27Z",
   "validation_samples": 10,
   "version": 1,
   "weight_multipliers": {}
