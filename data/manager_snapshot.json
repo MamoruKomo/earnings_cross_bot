@@ -2,11 +2,11 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.008974383460712875,
-      "evaluated_count": 9,
-      "hit_rate": 0.4444444444444444,
-      "lose": 2,
-      "neutral": 3,
+      "avg_next_close_return": 0.00225116921713564,
+      "evaluated_count": 11,
+      "hit_rate": 0.36363636363636365,
+      "lose": 3,
+      "neutral": 4,
       "recommendation_count": 11,
       "win": 4
     },
@@ -107,6 +107,18 @@
       "win": 0
     },
     {
+      "avg_next_close_return": -0.006403415154749181,
+      "code": "3496",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-07-30",
+      "lose": 0,
+      "name": "アズーム",
+      "neutral": 1,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
       "avg_next_close_return": -0.03809523809523807,
       "code": "135A",
       "evaluated_count": 1,
@@ -131,6 +143,18 @@
       "win": 0
     },
     {
+      "avg_next_close_return": -0.04960317460317465,
+      "code": "4552",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-07-30",
+      "lose": 1,
+      "name": "ＪＣＲファーマ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
       "avg_next_close_return": -0.17248677248677247,
       "code": "7735",
       "evaluated_count": 1,
@@ -138,30 +162,6 @@
       "last_recommendation_date": "2026-07-28",
       "lose": 1,
       "name": "スクリン",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "3496",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-07-30",
-      "lose": 0,
-      "name": "アズーム",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "4552",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-07-30",
-      "lose": 0,
-      "name": "ＪＣＲファーマ",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
@@ -3365,9 +3365,23 @@
       "date": "2026-07-30",
       "next_close_return": 0.10853174603174609,
       "result": "win"
+    },
+    {
+      "code": "3496",
+      "cumulative_return": 0.25570515442808106,
+      "date": "2026-07-31",
+      "next_close_return": -0.006403415154749181,
+      "result": "neutral"
+    },
+    {
+      "code": "4552",
+      "cumulative_return": 0.1934181924028786,
+      "date": "2026-07-31",
+      "next_close_return": -0.04960317460317465,
+      "result": "lose"
     }
   ],
-  "generated_at": "2026-07-31T03:59:26Z",
+  "generated_at": "2026-07-31T09:31:58Z",
   "latest_notification": {
     "candidate_count": 2,
     "created_at": "2026-07-30T01:07:44Z",
@@ -14217,7 +14231,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 4.7,
+          "age_hours": 10.2,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14225,7 +14239,7 @@
           "updated_at": "2026-07-31T08:20:00+09:00"
         },
         {
-          "age_hours": 2034.6,
+          "age_hours": 2040.1,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14233,7 +14247,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 435.9,
+          "age_hours": 441.5,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -14949,47 +14963,34 @@
     "2026-07-22",
     "2026-07-23"
   ],
-  "pending_recommendations": [
+  "pending_recommendations": [],
+  "recent_outcomes": [
     {
       "action": "cross",
-      "announcement_time": "15:30",
       "code": "4552",
-      "confidence": "medium",
+      "evaluation_date": "2026-07-31",
       "event_date": "2026-07-30",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
+      "max_drawdown": -0.10119047619047616,
       "name": "ＪＣＲファーマ",
+      "next_close_return": -0.04960317460317465,
+      "next_open_return": -0.06746031746031744,
       "recommendation_date": "2026-07-30",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 70,
-      "thesis": "総合スコア70点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
+      "result": "lose",
+      "score": 70
     },
     {
       "action": "cross",
-      "announcement_time": "15:30",
       "code": "3496",
-      "confidence": "medium",
+      "evaluation_date": "2026-07-31",
       "event_date": "2026-07-30",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
+      "max_drawdown": -0.0138740661686233,
       "name": "アズーム",
+      "next_close_return": -0.006403415154749181,
+      "next_open_return": 0.014941302027748238,
       "recommendation_date": "2026-07-30",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 72,
-      "thesis": "総合スコア72点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    }
-  ],
-  "recent_outcomes": [
+      "result": "neutral",
+      "score": 72
+    },
     {
       "action": "cross",
       "code": "6857",
@@ -15122,8 +15123,8 @@
     }
   ],
   "result_distribution": {
-    "lose": 2,
-    "neutral": 3,
+    "lose": 3,
+    "neutral": 4,
     "win": 5
   },
   "stock_snapshots": [
@@ -15309,8 +15310,8 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.02848510837994771,
-    "avg_next_open_return": 0.03245740096623899,
+    "avg_next_close_return": 0.019070374503462773,
+    "avg_next_open_return": 0.022671249519151726,
     "best": {
       "action": "strong_cross",
       "code": "581A",
@@ -15324,15 +15325,15 @@
       "result": "win",
       "score": 80
     },
-    "evaluated_count": 10,
-    "hit_rate": 0.5,
-    "lose_count": 2,
-    "lose_rate": 0.2,
-    "neutral_count": 3,
+    "evaluated_count": 12,
+    "hit_rate": 0.4166666666666667,
+    "lose_count": 3,
+    "lose_rate": 0.25,
+    "neutral_count": 4,
     "no_trade_day_count": 6,
-    "non_loss_rate": 0.8,
-    "pending_count": 2,
-    "positive_close_rate": 0.7,
+    "non_loss_rate": 0.75,
+    "pending_count": 0,
+    "positive_close_rate": 0.5833333333333334,
     "recommendation_count": 12,
     "win_count": 5,
     "worst": {
@@ -15351,13 +15352,13 @@
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.02848510837994771,
+      "avg_next_close_return": 0.019070374503462773,
       "correct": 5,
-      "count": 10,
-      "positive_rate": 0.7,
-      "precision": 0.5,
-      "precision_lower_95": 0.23658959361548731,
-      "precision_upper_95": 0.7634104063845126
+      "count": 12,
+      "positive_rate": 0.5833333333333334,
+      "precision": 0.4166666666666667,
+      "precision_lower_95": 0.19325746190524654,
+      "precision_upper_95": 0.6804926643446272
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -15369,9 +15370,9 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと30件",
+    "message": "時系列検証開始まであと28件",
     "required_count": 40,
-    "sample_count": 10,
+    "sample_count": 12,
     "score_bands": [
       {
         "avg_next_close_return": 0.20408163265306123,
@@ -15394,18 +15395,18 @@
         "precision_upper_95": 0.7923450448735121
       },
       {
-        "avg_next_close_return": -0.002342883448755199,
+        "avg_next_close_return": -0.008757986306306878,
         "band": "70-74",
         "correct": 3,
-        "count": 6,
-        "positive_rate": 0.6666666666666666,
-        "precision": 0.5,
-        "precision_lower_95": 0.18761280689940868,
-        "precision_upper_95": 0.8123871931005913
+        "count": 8,
+        "positive_rate": 0.5,
+        "precision": 0.375,
+        "precision_lower_95": 0.13684175946152105,
+        "precision_upper_95": 0.6942621454161981
       }
     ],
     "status": "collecting",
-    "training_count": 10
+    "training_count": 12
   },
   "weekly": [
     {
@@ -15418,11 +15419,11 @@
       "win": 4
     },
     {
-      "avg_next_close_return": -0.015507014400149389,
-      "count": 5,
-      "hit_rate": 0.2,
-      "lose": 1,
-      "neutral": 3,
+      "avg_next_close_return": -0.01907738025123868,
+      "count": 7,
+      "hit_rate": 0.14285714285714285,
+      "lose": 2,
+      "neutral": 4,
       "week_start": "2026-07-27",
       "win": 1
     }
