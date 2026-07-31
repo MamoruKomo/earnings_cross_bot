@@ -1,9 +1,9 @@
 {
   "message": "未見データで精度悪化がないため補正を採用",
   "required_samples": 40,
-  "sample_count": 51,
+  "sample_count": 57,
   "status": "active",
-  "trained_at": "2026-07-30T09:22:58Z",
+  "trained_at": "2026-07-31T09:35:02Z",
   "validation": {
     "adjusted_precision": 0.1,
     "base_precision": 0.1,
@@ -14,11 +14,12 @@
   },
   "version": 1,
   "weight_multipliers": {
-    "liquidity": 1.0455,
-    "news": 0.9722,
-    "risk_reward": 1.0323,
-    "technical": 0.9375,
-    "theme": 1.0435,
-    "volatility": 0.9
+    "liquidity": 1.0046,
+    "news": 0.9762,
+    "order_book": 0.9756,
+    "risk_reward": 1.0286,
+    "technical": 0.9524,
+    "theme": 1.037,
+    "volatility": 0.9091
   }
 }
