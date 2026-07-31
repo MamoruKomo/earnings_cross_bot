@@ -3367,7 +3367,7 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-07-31T01:26:14Z",
+  "generated_at": "2026-07-31T03:59:26Z",
   "latest_notification": {
     "candidate_count": 2,
     "created_at": "2026-07-30T01:07:44Z",
@@ -14217,7 +14217,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 2.1,
+          "age_hours": 4.7,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14225,7 +14225,7 @@
           "updated_at": "2026-07-31T08:20:00+09:00"
         },
         {
-          "age_hours": 2032.0,
+          "age_hours": 2034.6,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14233,7 +14233,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 433.4,
+          "age_hours": 435.9,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
