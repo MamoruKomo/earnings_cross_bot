@@ -3440,7 +3440,7 @@
       "result": "lose"
     }
   ],
-  "generated_at": "2026-08-04T01:07:27Z",
+  "generated_at": "2026-08-04T03:46:24Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-08-04T01:05:58Z",
@@ -14290,7 +14290,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 1.8,
+          "age_hours": 4.4,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14298,7 +14298,7 @@
           "updated_at": "2026-08-04T08:20:00+09:00"
         },
         {
-          "age_hours": 2127.7,
+          "age_hours": 2130.4,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14306,7 +14306,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 529.1,
+          "age_hours": 531.7,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
