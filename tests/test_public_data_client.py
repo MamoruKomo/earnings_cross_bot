@@ -19,6 +19,18 @@ class PublicDataClientTest(unittest.TestCase):
         """)
         self.assertEqual(parser.rows[0][:4], ["07/13", "-", "カネコ種 (1376/東S)", "連本決算"])
 
+    @patch("src.public_data_client.requests.get")
+    def test_calendar_fetches_code_and_time_from_same_row(self, get):
+        get.return_value.status_code = 200
+        get.return_value.text = """
+        <table><tr><td>08/04</td><td>15:40</td><td>イビデン (4062/東P)</td>
+        <td>連１決算</td></tr></table>
+        """
+        events = fetch_earnings_calendar(date(2026, 8, 4))
+        self.assertEqual("4062", events[0]["code"])
+        self.assertEqual("15:40", events[0]["announcement_time"])
+        self.assertEqual("traders_web", events[0]["source"])
+
     def test_financial_metric(self):
         source = '<tr><th>営業利益<br>(百万円)</th><td>1,900<br><span>+25.7%</span></td></tr>'
         value, yoy = metric(source, "営業利益")

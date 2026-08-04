@@ -17,5 +17,16 @@ class SlackNotifierTest(unittest.TestCase):
             request = urlopen.call_args.args[0]
             self.assertIn("接続テスト".encode("utf-8"), request.data)
 
+    def test_formats_traders_web_announcement_time(self):
+        message = format_recommendation_message({
+            "date": "2026-08-04",
+            "recommendations": [{
+                "code": "4062", "name": "イビデン", "score": 74, "action": "cross",
+                "announcement_time": "15:40", "announcement_time_source": "traders_web",
+                "positive_factors": [], "risk_factors": [],
+            }],
+        })
+        self.assertIn("決算発表時刻：15:40（Traders Web取得）", message)
+
 
 if __name__ == "__main__": unittest.main()

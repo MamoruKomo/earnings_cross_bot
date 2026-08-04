@@ -26,7 +26,7 @@ def format_recommendation_message(payload: dict[str, Any]) -> str:
                 f"{index}. {rec.get('name', '')}（{rec.get('code', '')}）",
                 f"   スコア：{rec.get('score', '')}点",
                 f"   判断：{rec.get('action', '')}",
-                f"   発表予定：{rec.get('announcement_time', '')}",
+                f"   決算発表時刻：{rec.get('announcement_time') or '不明'}{_time_source_label(rec.get('announcement_time_source'))}",
                 f"   セクター地合い：{(rec.get('sector_context') or {}).get('summary', '不明')}",
                 f"   決算前チャート：{rec.get('chart_context') or '不明'}",
                 f"   前回決算比較：{rec.get('previous_earnings_context') or '比較データなし'}",
@@ -62,3 +62,8 @@ def post_message(message: str, webhook_url: str | None = None) -> bool:
 
 def webhook_configured() -> bool:
     return bool(os.environ.get("SLACK_WEBHOOK_URL"))
+
+
+def _time_source_label(source: str | None) -> str:
+    labels = {"traders_web": "（Traders Web取得）", "jquants": "（J-Quants取得）"}
+    return labels.get(str(source or "").lower(), "")

@@ -50,6 +50,7 @@ def score_candidate(
         "code": event["code"],
         "name": event.get("name", ""),
         "announcement_time": event.get("announcement_time", ""),
+        "announcement_time_source": event.get("source", ""),
         "score": total,
         "action": action,
         "components": {key: round(value, 2) for key, value in components.items()},

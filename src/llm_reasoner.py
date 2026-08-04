@@ -140,6 +140,7 @@ def fallback_recommendation_payload(
                 "action": item.get("action", "cross"),
                 "confidence": confidence_for_score(int(item.get("score", 0))),
                 "announcement_time": item.get("announcement_time") or "不明",
+                "announcement_time_source": item.get("announcement_time_source") or "",
                 "thesis": build_thesis(item),
                 "positive_factors": positive_factors(item),
                 "risk_factors": risk_factors(item),
@@ -166,6 +167,9 @@ def enrich_recommendation_context(payload: dict[str, Any], candidates: list[dict
         if not item:
             continue
         recommendation["sector_context"] = item.get("sector_context", {})
+        # The source calendar is authoritative; never let generated text alter the disclosure time.
+        recommendation["announcement_time"] = item.get("announcement_time") or "不明"
+        recommendation["announcement_time_source"] = item.get("announcement_time_source") or ""
         recommendation["chart_context"] = item.get("price_features", {}).get("chart_summary", "")
         recommendation["previous_earnings_context"] = previous_earnings_summary(item)
 
