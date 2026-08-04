@@ -11,6 +11,7 @@ from src.feature_engineering import compute_financial_features, compute_price_fe
 from src.financial_loader import fetch_or_load_financials
 from src.jquants_client import JQuantsClient
 from src.llm_reasoner import generate_recommendation_payload
+from src.market_context import load_sector_context
 from src.price_loader import fetch_or_load_prices
 from src.scorer import score_candidate, select_recommendations
 from src.supply_demand_loader import fetch_or_load_supply_demand
@@ -89,10 +90,12 @@ def main() -> None:
         supply_demand, supply_missing = fetch_or_load_supply_demand(event["code"], target_date, cfg.margin_interest_path, client)
         db.upsert_supply_demand(conn, supply_demand)
 
-        missing = price_missing + financial_missing + reaction_missing + supply_missing
+        sector_context, sector_missing = load_sector_context(cfg.root_dir, event["code"], target_date)
+
+        missing = price_missing + financial_missing + reaction_missing + supply_missing + sector_missing
         if event_risk:
             missing.append(event_risk)
-        scored.append(score_candidate(event, price_features, financial_features, reaction_features, supply_demand, missing, cfg.rules))
+        scored.append(score_candidate(event, price_features, financial_features, reaction_features, supply_demand, missing, cfg.rules, sector_context))
 
     selected = select_recommendations(scored, cfg.rules)
     payload = generate_recommendation_payload(conn, target_date, selected, scored, cfg.rules)

@@ -37,6 +37,7 @@ def generate_recommendation_payload(
 
     try:
         payload = call_openai_json(api_key, model, prompt, input_data, rules)
+        enrich_recommendation_context(payload, selected_candidates)
         db.insert_llm_run(conn, "recommendation", model, prompt, input_data, payload, "success")
         return payload
     except Exception as exc:  # noqa: BLE001 - capture external API failures for audit.
@@ -55,7 +56,8 @@ def build_recommendation_prompt(
         "投資助言ではなく、ルールスコアの理由をJSONだけで返してください。"
         "必ず候補なしを許可し、無理に銘柄を選ばないでください。"
         "観点: 決算が良さそうか、織り込み済みか、決算前に上がりすぎていないか、"
-        "流動性、過去決算後反応、相場テーマ、信用買残・売残・信用倍率、悪材料や出尽くしリスク。"
+        "流動性、過去決算後反応、相場テーマ、信用買残・売残・信用倍率、悪材料や出尽くしリスク、"
+        "セクター地合い、決算前チャートの移動平均と過熱感、前回決算時との業績・株価反応比較。"
         "\n\n"
         f"日付: {target_date.isoformat()}\n"
         f"投稿候補: {json.dumps(selected_candidates, ensure_ascii=False)}\n"
@@ -144,6 +146,9 @@ def fallback_recommendation_payload(
                 "expected_reaction": expected_reaction(item),
                 "evaluation_rule": EVALUATION_RULE,
                 "missing_data": item.get("missing_data", []),
+                "sector_context": item.get("sector_context", {}),
+                "chart_context": item.get("price_features", {}).get("chart_summary", ""),
+                "previous_earnings_context": previous_earnings_summary(item),
             }
         )
     return {
@@ -152,6 +157,17 @@ def fallback_recommendation_payload(
         "recommendations": recommendations,
         "no_trade_reason": "",
     }
+
+
+def enrich_recommendation_context(payload: dict[str, Any], candidates: list[dict[str, Any]]) -> None:
+    by_code = {str(item.get("code")): item for item in candidates}
+    for recommendation in payload.get("recommendations") or []:
+        item = by_code.get(str(recommendation.get("code")))
+        if not item:
+            continue
+        recommendation["sector_context"] = item.get("sector_context", {})
+        recommendation["chart_context"] = item.get("price_features", {}).get("chart_summary", "")
+        recommendation["previous_earnings_context"] = previous_earnings_summary(item)
 
 
 def confidence_for_score(score: int) -> str:
@@ -174,6 +190,7 @@ def positive_factors(item: dict[str, Any]) -> list[str]:
     price = item.get("price_features", {})
     reaction = item.get("reaction_features", {})
     demand = item.get("supply_demand_features", {})
+    sector = item.get("sector_context", {})
     factors = []
     if financial.get("operating_profit_yoy") is not None:
         factors.append(f"営業利益前年同期比が{financial['operating_profit_yoy']:.1%}で成長評価がある")
@@ -185,21 +202,38 @@ def positive_factors(item: dict[str, Any]) -> list[str]:
         factors.append(f"過去決算後の陽性反応比率は{reaction['positive_reaction_ratio']:.0%}")
     if demand.get("margin_ratio") is not None and demand["margin_ratio"] <= 3:
         factors.append(f"信用倍率は{demand['margin_ratio']:.2f}倍で需給負担が比較的軽い")
-    return factors[:3] or ["ルールスコアが基準を上回った"]
+    if sector.get("mood") == "strong":
+        factors.append(f"{sector.get('sector')}セクターが上位で地合いが追い風")
+    return factors[:4] or ["ルールスコアが基準を上回った"]
 
 
 def risk_factors(item: dict[str, Any]) -> list[str]:
     flags = list(item.get("risk_flags") or [])
     demand = item.get("supply_demand_features", {})
+    sector = item.get("sector_context", {})
+    comparison = item.get("financial_features", {}).get("previous_comparison", {})
     if demand.get("margin_ratio") is not None and demand["margin_ratio"] >= 8:
         flags.append(f"信用倍率が{demand['margin_ratio']:.2f}倍と高く、戻り売りリスク")
     if demand.get("long_weekly_change") is not None and demand["long_weekly_change"] >= 0.10:
         flags.append(f"信用買残が前週比{demand['long_weekly_change']:.1%}増加")
     if item.get("missing_data"):
         flags.append("不足データがあるため確信度を抑制")
+    if sector.get("mood") == "weak":
+        flags.append(f"{sector.get('sector')}セクターが下位で地合いが逆風")
+    if comparison.get("direction") == "worsening":
+        flags.append("業績モメンタムが前回決算時より悪化")
     if not flags:
         flags.append("好決算でも材料出尽くしになる可能性")
     return flags[:3]
+
+
+def previous_earnings_summary(item: dict[str, Any]) -> str:
+    financial = item.get("financial_features", {}).get("previous_comparison", {})
+    reaction = item.get("reaction_features", {})
+    parts = [financial.get("summary", "前回業績比較なし")]
+    if reaction.get("previous_close_return") is not None:
+        parts.append(f"前回決算翌日終値 {reaction['previous_close_return']:+.1%}")
+    return " / ".join(parts)
 
 
 def expected_reaction(item: dict[str, Any]) -> str:

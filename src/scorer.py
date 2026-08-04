@@ -11,6 +11,7 @@ def score_candidate(
     supply_demand_features: dict[str, Any] | None,
     missing_data: list[str],
     rules: dict[str, Any],
+    sector_context: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     weights = rules.get("scoring_weights", {})
     thresholds = rules.get("thresholds", {})
@@ -18,6 +19,7 @@ def score_candidate(
     risk_flags = list(financial_features.get("risk_flags") or [])
 
     supply_demand_features = supply_demand_features or {}
+    sector_context = sector_context or {}
     components = {
         "earnings_growth": _earnings_growth(financial_features, weights.get("earnings_growth", 20)),
         "progress_revision": _progress_revision(financial_features, weights.get("progress_revision", 20)),
@@ -29,7 +31,15 @@ def score_candidate(
         "low_risk": _low_risk(missing, risk_flags, event, weights.get("low_risk", 5), thresholds),
     }
 
-    total = int(round(sum(components.values())))
+    context_adjustments = {
+        "sector_mood": _sector_adjustment(sector_context),
+        "chart_setup": _chart_adjustment(price_features),
+        "previous_earnings": _previous_adjustment(financial_features, reaction_features),
+    }
+    context_total = max(-6, min(6, sum(context_adjustments.values())))
+    context_adjustments["total"] = context_total
+    total = int(round(sum(components.values()) + context_total))
+    total = max(0, min(100, total))
     exclude_reasons = exclusion_reasons(price_features, financial_features, missing, thresholds)
     if exclude_reasons:
         risk_flags.extend(exclude_reasons)
@@ -43,13 +53,44 @@ def score_candidate(
         "score": total,
         "action": action,
         "components": {key: round(value, 2) for key, value in components.items()},
+        "context_adjustments": context_adjustments,
         "missing_data": missing,
         "risk_flags": sorted(set(risk_flags)),
         "price_features": price_features,
         "financial_features": financial_features,
         "reaction_features": reaction_features,
         "supply_demand_features": supply_demand_features,
+        "sector_context": sector_context,
     }
+
+
+def _sector_adjustment(context: dict[str, Any]) -> int:
+    mood = context.get("mood")
+    market_return = context.get("market_return")
+    value = 2 if mood == "strong" else -2 if mood == "weak" else 0
+    if market_return is not None:
+        value += 1 if market_return >= 0.01 else -1 if market_return <= -0.01 else 0
+    return max(-3, min(3, value))
+
+
+def _chart_adjustment(price: dict[str, Any]) -> int:
+    trend = price.get("chart_trend")
+    runup = price.get("return_20d")
+    value = {"strong_uptrend": 2, "uptrend": 1, "sideways": 0, "downtrend": -1, "strong_downtrend": -2}.get(trend, 0)
+    if runup is not None and runup >= 0.25:
+        value -= 2
+    if runup is not None and runup <= -0.20:
+        value -= 1
+    return max(-3, min(2, value))
+
+
+def _previous_adjustment(financial: dict[str, Any], reaction: dict[str, Any]) -> int:
+    comparison = financial.get("previous_comparison") or {}
+    value = {"improving": 2, "worsening": -2}.get(comparison.get("direction"), 0)
+    previous_close = reaction.get("previous_close_return")
+    if previous_close is not None:
+        value += 1 if previous_close >= 0.03 else -1 if previous_close <= -0.03 else 0
+    return max(-3, min(3, value))
 
 
 def classify_score(score: int) -> str:

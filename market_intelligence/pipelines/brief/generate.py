@@ -1032,6 +1032,8 @@ def main() -> int:
         "summary_bullets": summary_bullets,
         "tickers": watch_codes[:12],
         "tags": sorted({t for t in tags if t})[:12],
+        "sector_leaders": [{"name": item.name, "return": item.pct / 100.0} for item in top3],
+        "sector_laggards": [{"name": item.name, "return": item.pct / 100.0} for item in bot3],
     }
 
     try:

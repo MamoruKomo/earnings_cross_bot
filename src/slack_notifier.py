@@ -27,6 +27,9 @@ def format_recommendation_message(payload: dict[str, Any]) -> str:
                 f"   スコア：{rec.get('score', '')}点",
                 f"   判断：{rec.get('action', '')}",
                 f"   発表予定：{rec.get('announcement_time', '')}",
+                f"   セクター地合い：{(rec.get('sector_context') or {}).get('summary', '不明')}",
+                f"   決算前チャート：{rec.get('chart_context') or '不明'}",
+                f"   前回決算比較：{rec.get('previous_earnings_context') or '比較データなし'}",
                 "",
                 "理由：",
             ]

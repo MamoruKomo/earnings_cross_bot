@@ -71,6 +71,9 @@ def aggregate_reactions(rows: list[dict[str, Any]]) -> tuple[dict[str, Any], lis
             "positive_reaction_ratio": positive_count / len(close_returns) if close_returns else None,
             "avg_next_open_return": mean(open_returns) if open_returns else None,
             "avg_next_close_return": mean(close_returns) if close_returns else None,
+            "previous_event_date": rows[0].get("event_date"),
+            "previous_open_return": _non_null(rows[0].get("next_open_return")),
+            "previous_close_return": _non_null(rows[0].get("next_close_return")),
         },
         [],
     )
