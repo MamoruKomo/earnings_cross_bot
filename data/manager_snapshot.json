@@ -7,7 +7,7 @@
       "hit_rate": 0.36363636363636365,
       "lose": 3,
       "neutral": 4,
-      "recommendation_count": 12,
+      "recommendation_count": 15,
       "win": 4
     },
     {
@@ -186,6 +186,42 @@
       "last_recommendation_date": "2026-08-03",
       "lose": 0,
       "name": "ＦＵＪＩ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "166A",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-08-04",
+      "lose": 0,
+      "name": "タスキＨＤ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "4062",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-08-04",
+      "lose": 0,
+      "name": "イビデン",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "6395",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-08-04",
+      "lose": 0,
+      "name": "タダノ",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
@@ -3398,12 +3434,12 @@
       "result": "lose"
     }
   ],
-  "generated_at": "2026-08-04T00:56:57Z",
+  "generated_at": "2026-08-04T01:05:59Z",
   "latest_notification": {
-    "candidate_count": 2,
-    "created_at": "2026-08-03T01:10:54Z",
+    "candidate_count": 3,
+    "created_at": "2026-08-04T01:05:58Z",
     "data_status": "ok",
-    "date": "2026-08-03",
+    "date": "2026-08-04",
     "status": "sent",
     "type": "morning"
   },
@@ -14248,7 +14284,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 1.6,
+          "age_hours": 1.8,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14256,7 +14292,7 @@
           "updated_at": "2026-08-04T08:20:00+09:00"
         },
         {
-          "age_hours": 2127.5,
+          "age_hours": 2127.7,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14264,7 +14300,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 528.9,
+          "age_hours": 529.0,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -15005,6 +15041,63 @@
     {
       "action": "cross",
       "announcement_time": "15:30",
+      "code": "6395",
+      "confidence": "medium",
+      "event_date": "2026-08-04",
+      "missing_data": [
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "supply_demand"
+      ],
+      "name": "タダノ",
+      "recommendation_date": "2026-08-04",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 74,
+      "thesis": "総合スコア74点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
+      "action": "cross",
+      "announcement_time": "15:40",
+      "code": "4062",
+      "confidence": "medium",
+      "event_date": "2026-08-04",
+      "missing_data": [
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "supply_demand"
+      ],
+      "name": "イビデン",
+      "recommendation_date": "2026-08-04",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 74,
+      "thesis": "総合スコア74点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
+      "action": "cross",
+      "announcement_time": "15:30",
+      "code": "166A",
+      "confidence": "medium",
+      "event_date": "2026-08-04",
+      "missing_data": [
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "supply_demand"
+      ],
+      "name": "タスキＨＤ",
+      "recommendation_date": "2026-08-04",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 79,
+      "thesis": "総合スコア79点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
+      "action": "cross",
+      "announcement_time": "15:30",
       "code": "6134",
       "confidence": "medium",
       "event_date": "2026-08-03",
@@ -15221,6 +15314,21 @@
       "supply_demand_source": "missing"
     },
     {
+      "code": "166A",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-08-04",
+      "margin_ratio": null,
+      "name": "タスキＨＤ",
+      "operating_margin": 0.1095072175211548,
+      "operating_profit_yoy": 0.248,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.35,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
       "code": "3496",
       "financial_source": "traders_web",
       "long_margin_outstanding": null,
@@ -15247,6 +15355,21 @@
       "operating_profit_yoy": 0.7340000000000001,
       "revenue_progress_rate": 1.0,
       "revenue_yoy": 0.19699999999999998,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
+      "code": "4062",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-08-04",
+      "margin_ratio": null,
+      "name": "イビデン",
+      "operating_margin": 0.18,
+      "operating_profit_yoy": 0.451,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.201,
       "short_margin_outstanding": null,
       "supply_demand_source": "missing"
     },
@@ -15356,6 +15479,21 @@
       "supply_demand_source": "missing"
     },
     {
+      "code": "6395",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-08-04",
+      "margin_ratio": null,
+      "name": "タダノ",
+      "operating_margin": 0.0625,
+      "operating_profit_yoy": 0.348,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.145,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
       "code": "6629",
       "financial_source": "traders_web",
       "long_margin_outstanding": null,
@@ -15439,9 +15577,9 @@
     "neutral_count": 4,
     "no_trade_day_count": 6,
     "non_loss_rate": 0.75,
-    "pending_count": 2,
+    "pending_count": 5,
     "positive_close_rate": 0.5833333333333334,
-    "recommendation_count": 14,
+    "recommendation_count": 17,
     "win_count": 5,
     "worst": {
       "action": "cross",
