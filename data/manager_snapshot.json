@@ -2,21 +2,21 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.00225116921713564,
-      "evaluated_count": 11,
-      "hit_rate": 0.36363636363636365,
+      "avg_next_close_return": 0.009876421569703642,
+      "evaluated_count": 12,
+      "hit_rate": 0.4166666666666667,
       "lose": 3,
       "neutral": 4,
       "recommendation_count": 15,
-      "win": 4
+      "win": 5
     },
     {
       "action": "strong_cross",
-      "avg_next_close_return": 0.20408163265306123,
-      "evaluated_count": 1,
-      "hit_rate": 1.0,
+      "avg_next_close_return": 0.08073669350438123,
+      "evaluated_count": 2,
+      "hit_rate": 0.5,
       "lose": 0,
-      "neutral": 0,
+      "neutral": 1,
       "recommendation_count": 2,
       "win": 1
     }
@@ -42,6 +42,18 @@
       "last_recommendation_date": "2026-07-29",
       "lose": 0,
       "name": "アドバンテ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 1
+    },
+    {
+      "avg_next_close_return": 0.09375419744795166,
+      "code": "6134",
+      "evaluated_count": 1,
+      "hit_rate": 1.0,
+      "last_recommendation_date": "2026-08-03",
+      "lose": 0,
+      "name": "ＦＵＪＩ",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 1
@@ -131,6 +143,18 @@
       "win": 0
     },
     {
+      "avg_next_close_return": -0.04260824564429877,
+      "code": "4507",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-08-03",
+      "lose": 0,
+      "name": "塩野義",
+      "neutral": 1,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
       "avg_next_close_return": -0.04849660523763333,
       "code": "6629",
       "evaluated_count": 1,
@@ -162,30 +186,6 @@
       "last_recommendation_date": "2026-07-28",
       "lose": 1,
       "name": "スクリン",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "4507",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-08-03",
-      "lose": 0,
-      "name": "塩野義",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "6134",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-08-03",
-      "lose": 0,
-      "name": "ＦＵＪＩ",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
@@ -3438,9 +3438,23 @@
       "date": "2026-07-31",
       "next_close_return": -0.04960317460317465,
       "result": "lose"
+    },
+    {
+      "code": "4507",
+      "cumulative_return": 0.1425687369046018,
+      "date": "2026-08-04",
+      "next_close_return": -0.04260824564429877,
+      "result": "neutral"
+    },
+    {
+      "code": "6134",
+      "cumulative_return": 0.24968935186221253,
+      "date": "2026-08-04",
+      "next_close_return": 0.09375419744795166,
+      "result": "win"
     }
   ],
-  "generated_at": "2026-08-04T07:24:55Z",
+  "generated_at": "2026-08-04T09:28:36Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-08-04T01:05:58Z",
@@ -14290,7 +14304,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 8.1,
+          "age_hours": 10.1,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14298,7 +14312,7 @@
           "updated_at": "2026-08-04T08:20:00+09:00"
         },
         {
-          "age_hours": 2134.0,
+          "age_hours": 2136.1,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14306,7 +14320,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 535.4,
+          "age_hours": 537.4,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -15100,47 +15114,35 @@
       ],
       "score": 79,
       "thesis": "総合スコア79点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "15:30",
-      "code": "6134",
-      "confidence": "medium",
-      "event_date": "2026-08-03",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "ＦＵＪＩ",
-      "recommendation_date": "2026-08-03",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 73,
-      "thesis": "総合スコア73点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "strong_cross",
-      "announcement_time": "15:00",
-      "code": "4507",
-      "confidence": "medium",
-      "event_date": "2026-08-03",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "塩野義",
-      "recommendation_date": "2026-08-03",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 80,
-      "thesis": "総合スコア80点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
     }
   ],
   "recent_outcomes": [
+    {
+      "action": "cross",
+      "code": "6134",
+      "evaluation_date": "2026-08-04",
+      "event_date": "2026-08-03",
+      "max_drawdown": 0.06850235057085285,
+      "name": "ＦＵＪＩ",
+      "next_close_return": 0.09375419744795166,
+      "next_open_return": 0.14036265950302207,
+      "recommendation_date": "2026-08-03",
+      "result": "win",
+      "score": 73
+    },
+    {
+      "action": "strong_cross",
+      "code": "4507",
+      "evaluation_date": "2026-08-04",
+      "event_date": "2026-08-03",
+      "max_drawdown": -0.0436432637571158,
+      "name": "塩野義",
+      "next_close_return": -0.04260824564429877,
+      "next_open_return": -0.01569777471105749,
+      "recommendation_date": "2026-08-03",
+      "result": "neutral",
+      "score": 80
+    },
     {
       "action": "cross",
       "code": "4552",
@@ -15300,8 +15302,8 @@
   ],
   "result_distribution": {
     "lose": 3,
-    "neutral": 4,
-    "win": 5
+    "neutral": 5,
+    "win": 6
   },
   "stock_snapshots": [
     {
@@ -15561,8 +15563,8 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.019070374503462773,
-    "avg_next_open_return": 0.022671249519151726,
+    "avg_next_close_return": 0.01999931756037187,
+    "avg_next_open_return": 0.028337134215841806,
     "best": {
       "action": "strong_cross",
       "code": "581A",
@@ -15576,17 +15578,17 @@
       "result": "win",
       "score": 80
     },
-    "evaluated_count": 12,
-    "hit_rate": 0.4166666666666667,
+    "evaluated_count": 14,
+    "hit_rate": 0.42857142857142855,
     "lose_count": 3,
-    "lose_rate": 0.25,
-    "neutral_count": 4,
+    "lose_rate": 0.21428571428571427,
+    "neutral_count": 5,
     "no_trade_day_count": 6,
-    "non_loss_rate": 0.75,
-    "pending_count": 5,
-    "positive_close_rate": 0.5833333333333334,
+    "non_loss_rate": 0.7857142857142857,
+    "pending_count": 3,
+    "positive_close_rate": 0.5714285714285714,
     "recommendation_count": 17,
-    "win_count": 5,
+    "win_count": 6,
     "worst": {
       "action": "cross",
       "code": "7735",
@@ -15603,13 +15605,13 @@
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.019070374503462773,
-      "correct": 5,
-      "count": 12,
-      "positive_rate": 0.5833333333333334,
-      "precision": 0.4166666666666667,
-      "precision_lower_95": 0.19325746190524654,
-      "precision_upper_95": 0.6804926643446272
+      "avg_next_close_return": 0.01999931756037187,
+      "correct": 6,
+      "count": 14,
+      "positive_rate": 0.5714285714285714,
+      "precision": 0.42857142857142855,
+      "precision_lower_95": 0.21380509930400526,
+      "precision_upper_95": 0.6740973309713064
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -15621,19 +15623,19 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと28件",
+    "message": "時系列検証開始まであと26件",
     "required_count": 40,
-    "sample_count": 12,
+    "sample_count": 14,
     "score_bands": [
       {
-        "avg_next_close_return": 0.20408163265306123,
+        "avg_next_close_return": 0.08073669350438123,
         "band": "80-100",
         "correct": 1,
-        "count": 1,
-        "positive_rate": 1.0,
-        "precision": 1.0,
-        "precision_lower_95": 0.20654329147389294,
-        "precision_upper_95": 1.0
+        "count": 2,
+        "positive_rate": 0.5,
+        "precision": 0.5,
+        "precision_lower_95": 0.09452865480086614,
+        "precision_upper_95": 0.9054713451991339
       },
       {
         "avg_next_close_return": 0.03160891727964902,
@@ -15646,18 +15648,18 @@
         "precision_upper_95": 0.7923450448735121
       },
       {
-        "avg_next_close_return": -0.008757986306306878,
+        "avg_next_close_return": 0.002632256333055182,
         "band": "70-74",
-        "correct": 3,
-        "count": 8,
-        "positive_rate": 0.5,
-        "precision": 0.375,
-        "precision_lower_95": 0.13684175946152105,
-        "precision_upper_95": 0.6942621454161981
+        "correct": 4,
+        "count": 9,
+        "positive_rate": 0.5555555555555556,
+        "precision": 0.4444444444444444,
+        "precision_lower_95": 0.188775429471914,
+        "precision_upper_95": 0.7333526542559703
       }
     ],
     "status": "collecting",
-    "training_count": 12
+    "training_count": 14
   },
   "weekly": [
     {
@@ -15676,6 +15678,15 @@
       "lose": 2,
       "neutral": 4,
       "week_start": "2026-07-27",
+      "win": 1
+    },
+    {
+      "avg_next_close_return": 0.025572975901826445,
+      "count": 2,
+      "hit_rate": 0.5,
+      "lose": 0,
+      "neutral": 1,
+      "week_start": "2026-08-03",
       "win": 1
     }
   ]
