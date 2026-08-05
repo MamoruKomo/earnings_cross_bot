@@ -3510,7 +3510,7 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-08-05T09:23:38Z",
+  "generated_at": "2026-08-05T09:28:13Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-08-05T01:07:27Z",
@@ -14368,7 +14368,7 @@
           "updated_at": "2026-08-05T08:20:00+09:00"
         },
         {
-          "age_hours": 2160.0,
+          "age_hours": 2160.1,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14376,7 +14376,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 561.3,
+          "age_hours": 561.4,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",

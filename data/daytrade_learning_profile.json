@@ -3,7 +3,7 @@
   "required_samples": 40,
   "sample_count": 69,
   "status": "active",
-  "trained_at": "2026-08-04T09:30:57Z",
+  "trained_at": "2026-08-05T09:28:13Z",
   "validation": {
     "adjusted_precision": 0.2,
     "base_precision": 0.2,
