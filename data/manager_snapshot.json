@@ -2,13 +2,13 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.009876421569703642,
-      "evaluated_count": 12,
-      "hit_rate": 0.4166666666666667,
+      "avg_next_close_return": 0.027133005859545648,
+      "evaluated_count": 15,
+      "hit_rate": 0.4666666666666667,
       "lose": 3,
-      "neutral": 4,
+      "neutral": 5,
       "recommendation_count": 17,
-      "win": 5
+      "win": 7
     },
     {
       "action": "strong_cross",
@@ -22,6 +22,18 @@
     }
   ],
   "by_code": [
+    {
+      "avg_next_close_return": 0.24494794856093072,
+      "code": "4062",
+      "evaluated_count": 1,
+      "hit_rate": 1.0,
+      "last_recommendation_date": "2026-08-04",
+      "lose": 0,
+      "name": "イビデン",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 1
+    },
     {
       "avg_next_close_return": 0.20408163265306123,
       "code": "581A",
@@ -83,6 +95,18 @@
       "win": 1
     },
     {
+      "avg_next_close_return": 0.029154518950437414,
+      "code": "6395",
+      "evaluated_count": 1,
+      "hit_rate": 1.0,
+      "last_recommendation_date": "2026-08-04",
+      "lose": 0,
+      "name": "タダノ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 1
+    },
+    {
       "avg_next_close_return": 0.024390243902439046,
       "code": "4765",
       "evaluated_count": 1,
@@ -105,6 +129,18 @@
       "neutral": 0,
       "recommendation_count": 1,
       "win": 1
+    },
+    {
+      "avg_next_close_return": 0.014375561545372895,
+      "code": "166A",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-08-04",
+      "lose": 0,
+      "name": "タスキＨＤ",
+      "neutral": 1,
+      "recommendation_count": 1,
+      "win": 0
     },
     {
       "avg_next_close_return": 0.010526315789473717,
@@ -186,42 +222,6 @@
       "last_recommendation_date": "2026-07-28",
       "lose": 1,
       "name": "スクリン",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "166A",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-08-04",
-      "lose": 0,
-      "name": "タスキＨＤ",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "4062",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-08-04",
-      "lose": 0,
-      "name": "イビデン",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "6395",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-08-04",
-      "lose": 0,
-      "name": "タダノ",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
@@ -3487,9 +3487,30 @@
       "date": "2026-08-04",
       "next_close_return": 0.09375419744795166,
       "result": "win"
+    },
+    {
+      "code": "166A",
+      "cumulative_return": 0.26765433805250494,
+      "date": "2026-08-05",
+      "next_close_return": 0.014375561545372895,
+      "result": "neutral"
+    },
+    {
+      "code": "4062",
+      "cumulative_return": 0.5781636676428306,
+      "date": "2026-08-05",
+      "next_close_return": 0.24494794856093072,
+      "result": "win"
+    },
+    {
+      "code": "6395",
+      "cumulative_return": 0.6241742701980153,
+      "date": "2026-08-05",
+      "next_close_return": 0.029154518950437414,
+      "result": "win"
     }
   ],
-  "generated_at": "2026-08-05T07:01:00Z",
+  "generated_at": "2026-08-05T09:23:38Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-08-05T01:07:27Z",
@@ -14339,7 +14360,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 7.7,
+          "age_hours": 10.1,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14347,7 +14368,7 @@
           "updated_at": "2026-08-05T08:20:00+09:00"
         },
         {
-          "age_hours": 2157.6,
+          "age_hours": 2160.0,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14355,7 +14376,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 559.0,
+          "age_hours": 561.3,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -15219,66 +15240,48 @@
       ],
       "score": 78,
       "thesis": "総合スコア78点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "15:30",
-      "code": "6395",
-      "confidence": "medium",
-      "event_date": "2026-08-04",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "タダノ",
-      "recommendation_date": "2026-08-04",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 74,
-      "thesis": "総合スコア74点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "15:40",
-      "code": "4062",
-      "confidence": "medium",
-      "event_date": "2026-08-04",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "イビデン",
-      "recommendation_date": "2026-08-04",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 74,
-      "thesis": "総合スコア74点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "15:30",
-      "code": "166A",
-      "confidence": "medium",
-      "event_date": "2026-08-04",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "タスキＨＤ",
-      "recommendation_date": "2026-08-04",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 79,
-      "thesis": "総合スコア79点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
     }
   ],
   "recent_outcomes": [
+    {
+      "action": "cross",
+      "code": "6395",
+      "evaluation_date": "2026-08-05",
+      "event_date": "2026-08-04",
+      "max_drawdown": 0.010204081632652962,
+      "name": "タダノ",
+      "next_close_return": 0.029154518950437414,
+      "next_open_return": 0.10641399416909625,
+      "recommendation_date": "2026-08-04",
+      "result": "win",
+      "score": 74
+    },
+    {
+      "action": "cross",
+      "code": "4062",
+      "evaluation_date": "2026-08-05",
+      "event_date": "2026-08-04",
+      "max_drawdown": 0.1729944886711574,
+      "name": "イビデン",
+      "next_close_return": 0.24494794856093072,
+      "next_open_return": 0.22045315370483776,
+      "recommendation_date": "2026-08-04",
+      "result": "win",
+      "score": 74
+    },
+    {
+      "action": "cross",
+      "code": "166A",
+      "evaluation_date": "2026-08-05",
+      "event_date": "2026-08-04",
+      "max_drawdown": -0.012578616352201255,
+      "name": "タスキＨＤ",
+      "next_close_return": 0.014375561545372895,
+      "next_open_return": 0.005390835579514919,
+      "recommendation_date": "2026-08-04",
+      "result": "neutral",
+      "score": 79
+    },
     {
       "action": "cross",
       "code": "6134",
@@ -15464,8 +15467,8 @@
   ],
   "result_distribution": {
     "lose": 3,
-    "neutral": 5,
-    "win": 6
+    "neutral": 6,
+    "win": 8
   },
   "stock_snapshots": [
     {
@@ -15770,32 +15773,32 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.01999931756037187,
-    "avg_next_open_return": 0.028337134215841806,
+    "avg_next_close_return": 0.03343932205305572,
+    "avg_next_open_return": 0.04288105073383731,
     "best": {
-      "action": "strong_cross",
-      "code": "581A",
-      "evaluation_date": "2026-07-15",
-      "event_date": "2026-07-14",
-      "max_drawdown": 0.13591836734693885,
-      "name": "Ｇ Ｏ",
-      "next_close_return": 0.20408163265306123,
-      "next_open_return": 0.16326530612244894,
-      "recommendation_date": "2026-07-14",
+      "action": "cross",
+      "code": "4062",
+      "evaluation_date": "2026-08-05",
+      "event_date": "2026-08-04",
+      "max_drawdown": 0.1729944886711574,
+      "name": "イビデン",
+      "next_close_return": 0.24494794856093072,
+      "next_open_return": 0.22045315370483776,
+      "recommendation_date": "2026-08-04",
       "result": "win",
-      "score": 80
+      "score": 74
     },
-    "evaluated_count": 14,
-    "hit_rate": 0.42857142857142855,
+    "evaluated_count": 17,
+    "hit_rate": 0.47058823529411764,
     "lose_count": 3,
-    "lose_rate": 0.21428571428571427,
-    "neutral_count": 5,
+    "lose_rate": 0.17647058823529413,
+    "neutral_count": 6,
     "no_trade_day_count": 6,
-    "non_loss_rate": 0.7857142857142857,
-    "pending_count": 6,
-    "positive_close_rate": 0.5714285714285714,
+    "non_loss_rate": 0.8235294117647058,
+    "pending_count": 3,
+    "positive_close_rate": 0.6470588235294118,
     "recommendation_count": 20,
-    "win_count": 6,
+    "win_count": 8,
     "worst": {
       "action": "cross",
       "code": "7735",
@@ -15812,13 +15815,13 @@
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.01999931756037187,
-      "correct": 6,
-      "count": 14,
-      "positive_rate": 0.5714285714285714,
-      "precision": 0.42857142857142855,
-      "precision_lower_95": 0.21380509930400526,
-      "precision_upper_95": 0.6740973309713064
+      "avg_next_close_return": 0.03343932205305572,
+      "correct": 8,
+      "count": 17,
+      "positive_rate": 0.6470588235294118,
+      "precision": 0.47058823529411764,
+      "precision_lower_95": 0.26164801196088106,
+      "precision_upper_95": 0.6903710268845051
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -15830,9 +15833,9 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと26件",
+    "message": "時系列検証開始まであと23件",
     "required_count": 40,
-    "sample_count": 14,
+    "sample_count": 17,
     "score_bands": [
       {
         "avg_next_close_return": 0.08073669350438123,
@@ -15845,28 +15848,28 @@
         "precision_upper_95": 0.9054713451991339
       },
       {
-        "avg_next_close_return": 0.03160891727964902,
+        "avg_next_close_return": 0.02730057834607999,
         "band": "75-79",
         "correct": 1,
-        "count": 3,
-        "positive_rate": 0.6666666666666666,
-        "precision": 0.3333333333333333,
-        "precision_lower_95": 0.0614903152761605,
-        "precision_upper_95": 0.7923450448735121
+        "count": 4,
+        "positive_rate": 0.75,
+        "precision": 0.25,
+        "precision_lower_95": 0.045586062644636216,
+        "precision_upper_95": 0.6993639475573634
       },
       {
-        "avg_next_close_return": 0.002632256333055182,
+        "avg_next_close_return": 0.027072070409896797,
         "band": "70-74",
-        "correct": 4,
-        "count": 9,
-        "positive_rate": 0.5555555555555556,
-        "precision": 0.4444444444444444,
-        "precision_lower_95": 0.188775429471914,
-        "precision_upper_95": 0.7333526542559703
+        "correct": 6,
+        "count": 11,
+        "positive_rate": 0.6363636363636364,
+        "precision": 0.5454545454545454,
+        "precision_lower_95": 0.28008775568998817,
+        "precision_upper_95": 0.7872904245601196
       }
     ],
     "status": "collecting",
-    "training_count": 14
+    "training_count": 17
   },
   "weekly": [
     {
@@ -15888,13 +15891,13 @@
       "win": 1
     },
     {
-      "avg_next_close_return": 0.025572975901826445,
-      "count": 2,
-      "hit_rate": 0.5,
+      "avg_next_close_return": 0.06792479617207878,
+      "count": 5,
+      "hit_rate": 0.6,
       "lose": 0,
-      "neutral": 1,
+      "neutral": 2,
       "week_start": "2026-08-03",
-      "win": 1
+      "win": 3
     }
   ]
 }
