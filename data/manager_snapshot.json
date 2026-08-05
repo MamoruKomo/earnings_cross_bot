@@ -7,7 +7,7 @@
       "hit_rate": 0.4166666666666667,
       "lose": 3,
       "neutral": 4,
-      "recommendation_count": 15,
+      "recommendation_count": 17,
       "win": 5
     },
     {
@@ -17,7 +17,7 @@
       "hit_rate": 0.5,
       "lose": 0,
       "neutral": 1,
-      "recommendation_count": 2,
+      "recommendation_count": 3,
       "win": 1
     }
   ],
@@ -222,6 +222,42 @@
       "last_recommendation_date": "2026-08-04",
       "lose": 0,
       "name": "タダノ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "4477",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-08-05",
+      "lose": 0,
+      "name": "ＢＡＳＥ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "2980",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-08-05",
+      "lose": 0,
+      "name": "ＳＲＥＨＤ",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "3110",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-08-05",
+      "lose": 0,
+      "name": "日東紡",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
@@ -3453,12 +3489,12 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-08-05T00:17:01Z",
+  "generated_at": "2026-08-05T01:07:27Z",
   "latest_notification": {
     "candidate_count": 3,
-    "created_at": "2026-08-04T01:05:58Z",
+    "created_at": "2026-08-05T01:07:27Z",
     "data_status": "ok",
-    "date": "2026-08-04",
+    "date": "2026-08-05",
     "status": "sent",
     "type": "morning"
   },
@@ -14303,7 +14339,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 1.0,
+          "age_hours": 1.8,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14311,7 +14347,7 @@
           "updated_at": "2026-08-05T08:20:00+09:00"
         },
         {
-          "age_hours": 2150.9,
+          "age_hours": 2151.7,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14319,7 +14355,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 552.2,
+          "age_hours": 553.1,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -15125,6 +15161,66 @@
   ],
   "pending_recommendations": [
     {
+      "action": "strong_cross",
+      "announcement_time": "不明",
+      "code": "4477",
+      "confidence": "medium",
+      "event_date": "2026-08-05",
+      "missing_data": [
+        "announcement_time_unknown",
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "sector_classification",
+        "supply_demand"
+      ],
+      "name": "ＢＡＳＥ",
+      "recommendation_date": "2026-08-05",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 80,
+      "thesis": "総合スコア80点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
+      "action": "cross",
+      "announcement_time": "15:30",
+      "code": "3110",
+      "confidence": "medium",
+      "event_date": "2026-08-05",
+      "missing_data": [
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "supply_demand"
+      ],
+      "name": "日東紡",
+      "recommendation_date": "2026-08-05",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 77,
+      "thesis": "総合スコア77点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
+      "action": "cross",
+      "announcement_time": "15:30",
+      "code": "2980",
+      "confidence": "medium",
+      "event_date": "2026-08-05",
+      "missing_data": [
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "sector_classification",
+        "supply_demand"
+      ],
+      "name": "ＳＲＥＨＤ",
+      "recommendation_date": "2026-08-05",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 78,
+      "thesis": "総合スコア78点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
       "action": "cross",
       "announcement_time": "15:30",
       "code": "6395",
@@ -15403,6 +15499,36 @@
       "supply_demand_source": "missing"
     },
     {
+      "code": "2980",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-08-05",
+      "margin_ratio": null,
+      "name": "ＳＲＥＨＤ",
+      "operating_margin": 0.12511961722488038,
+      "operating_profit_yoy": 0.251,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.272,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
+      "code": "3110",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-08-05",
+      "margin_ratio": null,
+      "name": "日東紡",
+      "operating_margin": 0.1897810218978102,
+      "operating_profit_yoy": 0.249,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.159,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
       "code": "3496",
       "financial_source": "traders_web",
       "long_margin_outstanding": null,
@@ -15459,6 +15585,21 @@
       "operating_profit_yoy": null,
       "revenue_progress_rate": 1.0,
       "revenue_yoy": 0.24,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
+      "code": "4477",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-08-05",
+      "margin_ratio": null,
+      "name": "ＢＡＳＥ",
+      "operating_margin": 0.08001127912304819,
+      "operating_profit_yoy": 0.34600000000000003,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.369,
       "short_margin_outstanding": null,
       "supply_demand_source": "missing"
     },
@@ -15651,9 +15792,9 @@
     "neutral_count": 5,
     "no_trade_day_count": 6,
     "non_loss_rate": 0.7857142857142857,
-    "pending_count": 3,
+    "pending_count": 6,
     "positive_close_rate": 0.5714285714285714,
-    "recommendation_count": 17,
+    "recommendation_count": 20,
     "win_count": 6,
     "worst": {
       "action": "cross",
