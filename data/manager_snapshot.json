@@ -7,7 +7,7 @@
       "hit_rate": 0.4666666666666667,
       "lose": 3,
       "neutral": 5,
-      "recommendation_count": 17,
+      "recommendation_count": 20,
       "win": 7
     },
     {
@@ -258,6 +258,42 @@
       "last_recommendation_date": "2026-08-05",
       "lose": 0,
       "name": "日東紡",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "3482",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-08-06",
+      "lose": 0,
+      "name": "ロードスター",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "1945",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-08-06",
+      "lose": 0,
+      "name": "東京エネシス",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
+      "avg_next_close_return": null,
+      "code": "3449",
+      "evaluated_count": 0,
+      "hit_rate": null,
+      "last_recommendation_date": "2026-08-06",
+      "lose": 0,
+      "name": "テクノフレックス",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
@@ -3510,12 +3546,12 @@
       "result": "win"
     }
   ],
-  "generated_at": "2026-08-06T00:13:56Z",
+  "generated_at": "2026-08-06T01:05:47Z",
   "latest_notification": {
     "candidate_count": 3,
-    "created_at": "2026-08-05T01:07:27Z",
+    "created_at": "2026-08-06T01:05:47Z",
     "data_status": "ok",
-    "date": "2026-08-05",
+    "date": "2026-08-06",
     "status": "sent",
     "type": "morning"
   },
@@ -14360,7 +14396,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 0.9,
+          "age_hours": 1.8,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14368,7 +14404,7 @@
           "updated_at": "2026-08-06T08:20:00+09:00"
         },
         {
-          "age_hours": 2174.8,
+          "age_hours": 2175.7,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14376,7 +14412,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 576.2,
+          "age_hours": 577.0,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -15221,6 +15257,65 @@
   ],
   "pending_recommendations": [
     {
+      "action": "cross",
+      "announcement_time": "15:30",
+      "code": "3482",
+      "confidence": "medium",
+      "event_date": "2026-08-06",
+      "missing_data": [
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "supply_demand"
+      ],
+      "name": "ロードスター",
+      "recommendation_date": "2026-08-06",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 77,
+      "thesis": "総合スコア77点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
+      "action": "cross",
+      "announcement_time": "15:30",
+      "code": "3449",
+      "confidence": "medium",
+      "event_date": "2026-08-06",
+      "missing_data": [
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "sector_classification",
+        "supply_demand"
+      ],
+      "name": "テクノフレックス",
+      "recommendation_date": "2026-08-06",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 74,
+      "thesis": "総合スコア74点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
+      "action": "cross",
+      "announcement_time": "16:00",
+      "code": "1945",
+      "confidence": "medium",
+      "event_date": "2026-08-06",
+      "missing_data": [
+        "historical_earnings_reaction",
+        "operating_margin_change",
+        "sector_classification",
+        "supply_demand"
+      ],
+      "name": "東京エネシス",
+      "recommendation_date": "2026-08-06",
+      "risk_factors": [
+        "不足データがあるため確信度を抑制"
+      ],
+      "score": 75,
+      "thesis": "総合スコア75点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
+    },
+    {
       "action": "strong_cross",
       "announcement_time": "不明",
       "code": "4477",
@@ -15541,6 +15636,21 @@
       "supply_demand_source": "missing"
     },
     {
+      "code": "1945",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-08-06",
+      "margin_ratio": null,
+      "name": "東京エネシス",
+      "operating_margin": 0.07684210526315789,
+      "operating_profit_yoy": 0.541,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.14300000000000002,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
       "code": "2980",
       "financial_source": "traders_web",
       "long_margin_outstanding": null,
@@ -15567,6 +15677,36 @@
       "operating_profit_yoy": 0.249,
       "revenue_progress_rate": 1.0,
       "revenue_yoy": 0.159,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
+      "code": "3449",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-08-06",
+      "margin_ratio": null,
+      "name": "テクノフレックス",
+      "operating_margin": 0.1875,
+      "operating_profit_yoy": 0.531,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.23,
+      "short_margin_outstanding": null,
+      "supply_demand_source": "missing"
+    },
+    {
+      "code": "3482",
+      "financial_source": "traders_web",
+      "long_margin_outstanding": null,
+      "long_weekly_change": null,
+      "margin_as_of_date": "2026-08-06",
+      "margin_ratio": null,
+      "name": "ロードスター",
+      "operating_margin": 0.28452359750667855,
+      "operating_profit_yoy": 0.191,
+      "revenue_progress_rate": 1.0,
+      "revenue_yoy": 0.258,
       "short_margin_outstanding": null,
       "supply_demand_source": "missing"
     },
@@ -15834,9 +15974,9 @@
     "neutral_count": 6,
     "no_trade_day_count": 6,
     "non_loss_rate": 0.8235294117647058,
-    "pending_count": 3,
+    "pending_count": 6,
     "positive_close_rate": 0.6470588235294118,
-    "recommendation_count": 20,
+    "recommendation_count": 23,
     "win_count": 8,
     "worst": {
       "action": "cross",
