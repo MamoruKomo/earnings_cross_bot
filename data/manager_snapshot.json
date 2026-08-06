@@ -3567,7 +3567,7 @@
       "result": "lose"
     }
   ],
-  "generated_at": "2026-08-06T09:29:23Z",
+  "generated_at": "2026-08-06T09:32:31Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-08-06T01:05:47Z",
@@ -14433,7 +14433,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 585.4,
+          "age_hours": 585.5,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
