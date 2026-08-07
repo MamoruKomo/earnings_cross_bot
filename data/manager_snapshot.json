@@ -2,11 +2,11 @@
   "by_action": [
     {
       "action": "cross",
-      "avg_next_close_return": 0.008544621721519192,
-      "evaluated_count": 17,
-      "hit_rate": 0.4117647058823529,
-      "lose": 4,
-      "neutral": 6,
+      "avg_next_close_return": -0.002882860591970926,
+      "evaluated_count": 20,
+      "hit_rate": 0.35,
+      "lose": 6,
+      "neutral": 7,
       "recommendation_count": 20,
       "win": 7
     },
@@ -155,6 +155,18 @@
       "win": 0
     },
     {
+      "avg_next_close_return": -0.00389294403892948,
+      "code": "1945",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-08-06",
+      "lose": 0,
+      "name": "東京エネシス",
+      "neutral": 1,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
       "avg_next_close_return": -0.006403415154749181,
       "code": "3496",
       "evaluated_count": 1,
@@ -215,6 +227,18 @@
       "win": 0
     },
     {
+      "avg_next_close_return": -0.05760869565217386,
+      "code": "3482",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-08-06",
+      "lose": 1,
+      "name": "ロードスター",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
       "avg_next_close_return": -0.0721311475409836,
       "code": "4477",
       "evaluated_count": 1,
@@ -239,6 +263,18 @@
       "win": 0
     },
     {
+      "avg_next_close_return": -0.14141414141414144,
+      "code": "3449",
+      "evaluated_count": 1,
+      "hit_rate": 0.0,
+      "last_recommendation_date": "2026-08-06",
+      "lose": 1,
+      "name": "テクノフレックス",
+      "neutral": 0,
+      "recommendation_count": 1,
+      "win": 0
+    },
+    {
       "avg_next_close_return": -0.17248677248677247,
       "code": "7735",
       "evaluated_count": 1,
@@ -258,42 +294,6 @@
       "last_recommendation_date": "2026-08-05",
       "lose": 1,
       "name": "日東紡",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "3482",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-08-06",
-      "lose": 0,
-      "name": "ロードスター",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "1945",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-08-06",
-      "lose": 0,
-      "name": "東京エネシス",
-      "neutral": 0,
-      "recommendation_count": 1,
-      "win": 0
-    },
-    {
-      "avg_next_close_return": null,
-      "code": "3449",
-      "evaluated_count": 0,
-      "hit_rate": null,
-      "last_recommendation_date": "2026-08-06",
-      "lose": 0,
-      "name": "テクノフレックス",
       "neutral": 0,
       "recommendation_count": 1,
       "win": 0
@@ -3544,9 +3544,30 @@
       "date": "2026-08-06",
       "next_close_return": -0.0721311475409836,
       "result": "lose"
+    },
+    {
+      "code": "1945",
+      "cumulative_return": 0.13045232465900325,
+      "date": "2026-08-07",
+      "next_close_return": -0.00389294403892948,
+      "result": "neutral"
+    },
+    {
+      "code": "3449",
+      "cumulative_return": -0.029409620242270007,
+      "date": "2026-08-07",
+      "next_close_return": -0.14141414141414144,
+      "result": "lose"
+    },
+    {
+      "code": "3482",
+      "cumulative_return": -0.08532406603266096,
+      "date": "2026-08-07",
+      "next_close_return": -0.05760869565217386,
+      "result": "lose"
     }
   ],
-  "generated_at": "2026-08-07T07:01:26Z",
+  "generated_at": "2026-08-07T07:58:52Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-08-06T01:05:47Z",
@@ -14396,7 +14417,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 7.7,
+          "age_hours": 8.6,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14404,7 +14425,7 @@
           "updated_at": "2026-08-07T08:20:00+09:00"
         },
         {
-          "age_hours": 2205.6,
+          "age_hours": 2206.6,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14412,7 +14433,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 607.0,
+          "age_hours": 607.9,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
@@ -15294,68 +15315,47 @@
     "2026-07-22",
     "2026-07-23"
   ],
-  "pending_recommendations": [
-    {
-      "action": "cross",
-      "announcement_time": "15:30",
-      "code": "3482",
-      "confidence": "medium",
-      "event_date": "2026-08-06",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "supply_demand"
-      ],
-      "name": "ロードスター",
-      "recommendation_date": "2026-08-06",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 77,
-      "thesis": "総合スコア77点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "15:30",
-      "code": "3449",
-      "confidence": "medium",
-      "event_date": "2026-08-06",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "sector_classification",
-        "supply_demand"
-      ],
-      "name": "テクノフレックス",
-      "recommendation_date": "2026-08-06",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 74,
-      "thesis": "総合スコア74点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
-    },
-    {
-      "action": "cross",
-      "announcement_time": "16:00",
-      "code": "1945",
-      "confidence": "medium",
-      "event_date": "2026-08-06",
-      "missing_data": [
-        "historical_earnings_reaction",
-        "operating_margin_change",
-        "sector_classification",
-        "supply_demand"
-      ],
-      "name": "東京エネシス",
-      "recommendation_date": "2026-08-06",
-      "risk_factors": [
-        "不足データがあるため確信度を抑制"
-      ],
-      "score": 75,
-      "thesis": "総合スコア75点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
-    }
-  ],
+  "pending_recommendations": [],
   "recent_outcomes": [
+    {
+      "action": "cross",
+      "code": "3482",
+      "evaluation_date": "2026-08-07",
+      "event_date": "2026-08-06",
+      "max_drawdown": -0.06413043478260871,
+      "name": "ロードスター",
+      "next_close_return": -0.05760869565217386,
+      "next_open_return": -0.047101449275362306,
+      "recommendation_date": "2026-08-06",
+      "result": "lose",
+      "score": 77
+    },
+    {
+      "action": "cross",
+      "code": "3449",
+      "evaluation_date": "2026-08-07",
+      "event_date": "2026-08-06",
+      "max_drawdown": -0.14141414141414144,
+      "name": "テクノフレックス",
+      "next_close_return": -0.14141414141414144,
+      "next_open_return": -0.11111111111111116,
+      "recommendation_date": "2026-08-06",
+      "result": "lose",
+      "score": 74
+    },
+    {
+      "action": "cross",
+      "code": "1945",
+      "evaluation_date": "2026-08-07",
+      "event_date": "2026-08-06",
+      "max_drawdown": -0.041362530413625254,
+      "name": "東京エネシス",
+      "next_close_return": -0.00389294403892948,
+      "next_open_return": -0.024330900243308973,
+      "recommendation_date": "2026-08-06",
+      "result": "neutral",
+      "score": 75
+    },
     {
       "action": "strong_cross",
       "code": "4477",
@@ -15618,8 +15618,8 @@
     }
   ],
   "result_distribution": {
-    "lose": 5,
-    "neutral": 7,
+    "lose": 7,
+    "neutral": 8,
     "win": 8
   },
   "stock_snapshots": [
@@ -15970,8 +15970,8 @@
     }
   ],
   "summary": {
-    "avg_next_close_return": 0.011730040436680255,
-    "avg_next_open_return": 0.026626849940633402,
+    "avg_next_close_return": 0.0013776098968852322,
+    "avg_next_open_return": 0.015217110355777634,
     "best": {
       "action": "cross",
       "code": "4062",
@@ -15985,15 +15985,15 @@
       "result": "win",
       "score": 74
     },
-    "evaluated_count": 20,
-    "hit_rate": 0.4,
-    "lose_count": 5,
-    "lose_rate": 0.25,
-    "neutral_count": 7,
+    "evaluated_count": 23,
+    "hit_rate": 0.34782608695652173,
+    "lose_count": 7,
+    "lose_rate": 0.30434782608695654,
+    "neutral_count": 8,
     "no_trade_day_count": 6,
-    "non_loss_rate": 0.75,
-    "pending_count": 3,
-    "positive_close_rate": 0.55,
+    "non_loss_rate": 0.6956521739130435,
+    "pending_count": 0,
+    "positive_close_rate": 0.4782608695652174,
     "recommendation_count": 23,
     "win_count": 8,
     "worst": {
@@ -16012,13 +16012,13 @@
   },
   "validation": {
     "all": {
-      "avg_next_close_return": 0.011730040436680255,
+      "avg_next_close_return": 0.0013776098968852322,
       "correct": 8,
-      "count": 20,
-      "positive_rate": 0.55,
-      "precision": 0.4,
-      "precision_lower_95": 0.21880396741419272,
-      "precision_upper_95": 0.613422057684794
+      "count": 23,
+      "positive_rate": 0.4782608695652174,
+      "precision": 0.34782608695652173,
+      "precision_lower_95": 0.18811054636982238,
+      "precision_upper_95": 0.5511002309310836
     },
     "holdout": {
       "avg_next_close_return": null,
@@ -16030,9 +16030,9 @@
       "precision_upper_95": null
     },
     "holdout_count": 0,
-    "message": "時系列検証開始まであと20件",
+    "message": "時系列検証開始まであと17件",
     "required_count": 40,
-    "sample_count": 20,
+    "sample_count": 23,
     "score_bands": [
       {
         "avg_next_close_return": 0.02978074648925962,
@@ -16045,28 +16045,28 @@
         "precision_upper_95": 0.7923450448735121
       },
       {
-        "avg_next_close_return": -0.02542236754050642,
+        "avg_next_close_return": -0.02675448061676773,
         "band": "75-79",
         "correct": 1,
-        "count": 6,
-        "positive_rate": 0.5,
-        "precision": 0.16666666666666666,
-        "precision_lower_95": 0.03005258587173032,
-        "precision_upper_95": 0.563509436563646
+        "count": 8,
+        "positive_rate": 0.375,
+        "precision": 0.125,
+        "precision_lower_95": 0.02241690886329617,
+        "precision_upper_95": 0.4708948057698615
       },
       {
-        "avg_next_close_return": 0.027072070409896797,
+        "avg_next_close_return": 0.01303155275789361,
         "band": "70-74",
         "correct": 6,
-        "count": 11,
-        "positive_rate": 0.6363636363636364,
-        "precision": 0.5454545454545454,
-        "precision_lower_95": 0.28008775568998817,
-        "precision_upper_95": 0.7872904245601196
+        "count": 12,
+        "positive_rate": 0.5833333333333334,
+        "precision": 0.5,
+        "precision_lower_95": 0.2537781703934222,
+        "precision_upper_95": 0.7462218296065778
       }
     ],
     "status": "collecting",
-    "training_count": 20
+    "training_count": 23
   },
   "weekly": [
     {
@@ -16088,11 +16088,11 @@
       "win": 1
     },
     {
-      "avg_next_close_return": 0.0007195393365064806,
-      "count": 8,
-      "hit_rate": 0.375,
-      "lose": 2,
-      "neutral": 3,
+      "avg_next_close_return": -0.017923587855744813,
+      "count": 11,
+      "hit_rate": 0.2727272727272727,
+      "lose": 4,
+      "neutral": 4,
       "week_start": "2026-08-03",
       "win": 3
     }
