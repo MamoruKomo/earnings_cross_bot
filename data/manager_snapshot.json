@@ -3568,7 +3568,7 @@
       "result": "lose"
     }
   ],
-  "generated_at": "2026-08-07T08:11:22Z",
+  "generated_at": "2026-08-07T09:55:26Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-08-06T01:05:47Z",
@@ -3579,12 +3579,12 @@
   },
   "learning": {
     "feature_evidence": {},
-    "message": "時系列検証開始まであと28件",
+    "message": "時系列検証開始まであと17件",
     "minimum_samples": 30,
     "required_samples": 40,
-    "sample_count": 12,
+    "sample_count": 23,
     "status": "observing",
-    "trained_at": "2026-07-31T11:25:27Z",
+    "trained_at": "2026-08-07T09:55:26Z",
     "validation_samples": 10,
     "version": 1,
     "weight_multipliers": {}
@@ -14418,7 +14418,7 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 8.9,
+          "age_hours": 10.6,
           "key": "morning_brief",
           "label": "市場朝刊",
           "message": "更新済み",
@@ -14426,7 +14426,7 @@
           "updated_at": "2026-08-07T08:20:00+09:00"
         },
         {
-          "age_hours": 2206.8,
+          "age_hours": 2208.5,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14434,7 +14434,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 608.1,
+          "age_hours": 609.9,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",
