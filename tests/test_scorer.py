@@ -27,6 +27,16 @@ def rules():
 
 
 class ScorerTest(unittest.TestCase):
+    def test_unknown_announcement_time_cannot_be_recommended(self):
+        scored = score_candidate(
+            {"code": "1234", "name": "Test", "announcement_time": "不明"},
+            {"return_20d": 0.0, "distance_from_recent_high": -0.05, "avg_turnover_20d": 1_000_000_000, "avg_volume_20d": 1_000_000},
+            {"revenue_yoy": 0.5, "operating_profit_yoy": 0.5, "operating_margin_change": 0.1, "revision_expectation_score": 100},
+            {"positive_reaction_ratio": 1.0, "avg_next_close_return": 0.1}, {}, [],
+            {"scoring_weights": {"earnings_growth": 20, "progress_revision": 20, "low_overheat": 15, "historical_reaction": 15, "liquidity": 10, "low_risk": 5}, "thresholds": {}},
+        )
+        self.assertLess(scored["score"], 60)
+        self.assertIn("announcement_time_unverified", scored["risk_flags"])
     def test_classify_score_thresholds(self):
         self.assertEqual(classify_score(80), "strong_cross")
         self.assertEqual(classify_score(70), "cross")

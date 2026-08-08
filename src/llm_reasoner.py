@@ -32,16 +32,18 @@ def generate_recommendation_payload(
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         payload = fallback_recommendation_payload(target_date, selected_candidates, all_scored)
+        normalize_recommendation_payload(payload, selected_candidates)
         db.insert_llm_run(conn, "recommendation", model, prompt, input_data, payload, "fallback_no_api_key")
         return payload
 
     try:
         payload = call_openai_json(api_key, model, prompt, input_data, rules)
-        enrich_recommendation_context(payload, selected_candidates)
+        normalize_recommendation_payload(payload, selected_candidates)
         db.insert_llm_run(conn, "recommendation", model, prompt, input_data, payload, "success")
         return payload
     except Exception as exc:  # noqa: BLE001 - capture external API failures for audit.
         payload = fallback_recommendation_payload(target_date, selected_candidates, all_scored)
+        normalize_recommendation_payload(payload, selected_candidates)
         db.insert_llm_run(conn, "recommendation", model, prompt, input_data, payload, "fallback_error", str(exc))
         return payload
 
@@ -160,18 +162,46 @@ def fallback_recommendation_payload(
     }
 
 
-def enrich_recommendation_context(payload: dict[str, Any], candidates: list[dict[str, Any]]) -> None:
-    by_code = {str(item.get("code")): item for item in candidates}
-    for recommendation in payload.get("recommendations") or []:
-        item = by_code.get(str(recommendation.get("code")))
-        if not item:
-            continue
-        recommendation["sector_context"] = item.get("sector_context", {})
-        # The source calendar is authoritative; never let generated text alter the disclosure time.
-        recommendation["announcement_time"] = item.get("announcement_time") or "不明"
-        recommendation["announcement_time_source"] = item.get("announcement_time_source") or ""
-        recommendation["chart_context"] = item.get("price_features", {}).get("chart_summary", "")
-        recommendation["previous_earnings_context"] = previous_earnings_summary(item)
+def normalize_recommendation_payload(payload: dict[str, Any], candidates: list[dict[str, Any]]) -> None:
+    """Keep narrative fields from the model while making rule-selected facts authoritative."""
+    generated = {
+        str(item.get("code")): item
+        for item in (payload.get("recommendations") or [])
+        if isinstance(item, dict)
+    }
+    normalized = []
+    for item in candidates:
+        code = str(item.get("code"))
+        model_row = generated.get(code, {})
+        deterministic_positive = positive_factors(item)
+        deterministic_risks = risk_factors(item)
+        normalized.append({
+            "code": code,
+            "name": item.get("name", ""),
+            "score": int(item.get("score", 0)),
+            "action": item.get("action", "cross"),
+            "confidence": confidence_for_score(int(item.get("score", 0))),
+            "announcement_time": item.get("announcement_time") or "不明",
+            "announcement_time_source": item.get("announcement_time_source") or "",
+            "thesis": model_row.get("thesis") or build_thesis(item),
+            "positive_factors": _merge_unique(model_row.get("positive_factors"), deterministic_positive, limit=4),
+            "risk_factors": _merge_unique(model_row.get("risk_factors"), deterministic_risks, limit=4),
+            "expected_reaction": model_row.get("expected_reaction") or expected_reaction(item),
+            "evaluation_rule": EVALUATION_RULE,
+            "missing_data": item.get("missing_data", []),
+            "sector_context": item.get("sector_context", {}),
+            "chart_context": item.get("price_features", {}).get("chart_summary", ""),
+            "previous_earnings_context": previous_earnings_summary(item),
+        })
+    payload["recommendations"] = normalized
+
+
+def _merge_unique(primary: Any, required: list[str], limit: int) -> list[str]:
+    values = list(primary) if isinstance(primary, list) else []
+    for item in required:
+        if item not in values:
+            values.append(item)
+    return [str(item) for item in values if item][:limit]
 
 
 def confidence_for_score(score: int) -> str:

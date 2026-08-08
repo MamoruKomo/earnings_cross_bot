@@ -41,6 +41,8 @@ def score_candidate(
     total = int(round(sum(components.values()) + context_total))
     total = max(0, min(100, total))
     exclude_reasons = exclusion_reasons(price_features, financial_features, missing, thresholds)
+    if not _verified_after_close(event.get("announcement_time")):
+        exclude_reasons.append("announcement_time_unverified")
     if exclude_reasons:
         risk_flags.extend(exclude_reasons)
         total = min(total, 59)
@@ -231,6 +233,15 @@ def _growth_score(value: Any) -> float | None:
         return None
     value = float(value)
     return max(0.0, min(1.0, (value + 0.10) / 0.35))
+
+
+def _verified_after_close(value: Any) -> bool:
+    text = str(value or "").replace("以降", "").strip()
+    try:
+        hour, minute = text.split(":", 1)
+        return (int(hour), int(minute[:2])) >= (15, 0)
+    except (TypeError, ValueError):
+        return False
 
 
 def _progress_score(value: Any) -> float | None:

@@ -6,9 +6,9 @@ struct RootView: View {
     var body: some View {
         NavigationSplitView {
             VStack(spacing: 0) {
-                VStack(alignment: .leading, spacing: 3) {
-                    Text("MARKET OPERATIONS").font(.caption.bold()).foregroundStyle(.secondary)
-                    Text("Earnings Cross Manager").font(.title3.weight(.semibold))
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("EARNINGS CROSS").font(.caption.bold()).foregroundStyle(.secondary)
+                    Text("決算判断マネージャー").font(.title3.weight(.semibold))
                 }.frame(maxWidth: .infinity, alignment: .leading).padding(18)
                 List(AppSection.allCases, selection: $model.selectedSection) { item in
                     Label(item.rawValue, systemImage: item.icon).tag(item)
@@ -144,32 +144,184 @@ struct TodayView: View {
     var body: some View {
         ScrollView {
             if let data = model.data {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 18) {
                     HStack(alignment: .top) {
-                        PageHeading(title: "今日の判断", subtitle: todayDisplay())
+                        PageHeading(title: "決算跨ぎ 判断センター", subtitle: "候補、見送り理由、検証状況を一か所で確認")
                         Spacer()
-                        Button { model.runMorning() } label: { Label("候補を再判定", systemImage: "sparkles") }
-                            .buttonStyle(.borderedProminent).disabled(model.isRunning)
+                        Button { model.syncLatest() } label: { Label("最新データ", systemImage: "arrow.triangle.2.circlepath") }
+                            .disabled(model.isRunning)
                     }
                     RunBanner()
-                    MarketHealthBand()
-                    NoticeView(icon: "shield.lefthalf.filled", text: "このアプリは判断支援用です。注文は行いません。発表時刻、データ欠損、損失リスクを確認して最終判断してください。", color: .indigo)
-                    MarketOverviewPanel(market: data.marketIntelligence)
-                    NotificationBand(status: data.latestNotification)
-                    TodayCandidates(items: data.pendingRecommendations)
-                    HStack(spacing: 12) {
-                        MetricTile(label: "検証済み", value: "\(data.summary.evaluatedCount)件", detail: "時系列検証 40件", color: .blue)
-                        MetricTile(label: "勝率", value: percent(data.summary.hitRate), detail: "勝ち \(data.summary.winCount) / 負け \(data.summary.loseCount)", color: .green)
-                        MetricTile(label: "平均反応", value: signedPercent(data.summary.avgNextCloseReturn), detail: "翌営業日終値", color: .indigo)
+                    if let center = data.decisionCenter {
+                        DecisionStatusBand(center: center)
+                        if center.recommendations.isEmpty {
+                            DecisionEmptyState(center: center)
+                        } else {
+                            VStack(alignment: .leading, spacing: 10) {
+                                SectionHeading(title: "推奨", detail: "最大3銘柄 / 発表時刻確認済み")
+                                ForEach(center.recommendations) { DecisionCandidateView(item: $0) }
+                            }
+                        }
+                        if !center.considered.isEmpty { ConsideredCandidates(items: center.considered) }
+                    } else {
+                        NoticeView(icon: "exclamationmark.triangle", text: "判断センターデータがありません。最新データへ同期してください。", color: .orange)
                     }
-                    if data.summary.evaluatedCount < data.validation.requiredCount {
-                        NoticeView(icon: "hourglass", text: "まだ検証母数が少ないため、勝率は参考値です。あと \(data.validation.requiredCount - data.summary.evaluatedCount) 件で時系列検証を開始します。")
+                    SectionHeading(title: "検証スナップショット", detail: "実データのみ")
+                    HStack(spacing: 10) {
+                        MetricTile(label: "評価済み", value: "\(data.summary.evaluatedCount)件", detail: "必要 \(data.validation.requiredCount)件", color: .blue)
+                        MetricTile(label: "正答率", value: percent(data.summary.hitRate), detail: "95%下限 \(percent(data.validation.all.precisionLower95))", color: .green)
+                        MetricTile(label: "非負け率", value: percent(data.summary.nonLossRate), detail: "勝ち＋中立", color: .teal)
+                        MetricTile(label: "平均終値", value: signedPercent(data.summary.avgNextCloseReturn), detail: "翌営業日", color: .indigo)
                     }
+                    RecentOutcomeBand(items: data.recentOutcomes)
                 }.padding(26)
             } else { LoadErrorView() }
         }
     }
 }
+
+struct DecisionStatusBand: View {
+    let center: DecisionCenter
+    var body: some View {
+        HStack(spacing: 16) {
+            Image(systemName: decisionStateIcon(center.state)).font(.system(size: 24, weight: .semibold)).foregroundStyle(decisionStateColor(center.state))
+            VStack(alignment: .leading, spacing: 3) {
+                HStack(spacing: 8) {
+                    Text(decisionStateLabel(center.state)).font(.headline)
+                    Text(center.date ?? "未実行").font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                }
+                Text(center.marketNote?.isEmpty == false ? center.marketNote! : "市場メモはありません").font(.callout).foregroundStyle(.secondary).lineLimit(2)
+            }
+            Spacer()
+            StatusValue(label: "スキャン", value: "\(center.scoredCount)銘柄")
+            StatusValue(label: "推奨", value: "\(center.eligibleCount)銘柄")
+            StatusValue(label: "Slack", value: center.notificationStatus == "sent" ? "送信済み" : "未送信")
+            Divider().frame(height: 34)
+            VStack(alignment: .leading, spacing: 2) {
+                Text("次の処理").font(.caption).foregroundStyle(.secondary)
+                Text(center.nextStep ?? "--").font(.callout.bold())
+            }.frame(minWidth: 150, alignment: .leading)
+        }
+        .padding(.horizontal, 16).padding(.vertical, 14)
+        .background(decisionStateColor(center.state).opacity(0.07), in: RoundedRectangle(cornerRadius: 7))
+        .overlay(RoundedRectangle(cornerRadius: 7).stroke(decisionStateColor(center.state).opacity(0.18)))
+    }
+}
+
+struct DecisionEmptyState: View {
+    let center: DecisionCenter
+    var body: some View {
+        HStack(alignment: .top, spacing: 16) {
+            Image(systemName: center.state == "data_unavailable" ? "wifi.exclamationmark" : "hand.raised.fill")
+                .font(.system(size: 30)).foregroundStyle(center.state == "data_unavailable" ? .red : .orange).frame(width: 42)
+            VStack(alignment: .leading, spacing: 6) {
+                Text(center.state == "data_unavailable" ? "データ不足のため判定保留" : "今回は見送り").font(.title3.bold())
+                Text(center.noTradeReason?.isEmpty == false ? center.noTradeReason! : "基準点、発表時刻、流動性、データ品質を満たす銘柄がありませんでした。")
+                    .font(.callout).foregroundStyle(.secondary)
+            }
+        }.padding(18).frame(maxWidth: .infinity, alignment: .leading).panelStyle()
+    }
+}
+
+struct DecisionCandidateView: View {
+    let item: DecisionCandidate
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(alignment: .top, spacing: 14) {
+                VStack(spacing: 1) {
+                    Text("\(item.score)").font(.system(size: 29, weight: .bold, design: .rounded)).monospacedDigit()
+                    Text("SCORE").font(.system(size: 9, weight: .bold)).foregroundStyle(.secondary)
+                }.frame(width: 62, height: 54).background(actionColor(item.action).opacity(0.10), in: RoundedRectangle(cornerRadius: 6))
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(spacing: 8) {
+                        Text(item.name).font(.title3.bold())
+                        Text(item.code).font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                        Text(actionLabel(item.action)).font(.caption.bold()).foregroundStyle(actionColor(item.action))
+                    }
+                    Text(item.thesis.isEmpty ? "ルールスコアと安全条件を満たした候補です。" : item.thesis).font(.callout).foregroundStyle(.secondary).lineLimit(2)
+                }
+                Spacer()
+                VStack(alignment: .trailing, spacing: 4) {
+                    Label(item.announcementTime, systemImage: "clock.fill").font(.headline.monospacedDigit())
+                    Text(timeSourceLabel(item.announcementTimeSource)).font(.caption).foregroundStyle(.secondary)
+                }
+            }
+            Divider()
+            HStack(alignment: .top, spacing: 0) {
+                ContextColumn(icon: "chart.bar.xaxis", title: "セクター地合い", value: item.sector.summary, color: sectorMoodColor(item.sector.mood))
+                Divider().frame(height: 50).padding(.horizontal, 14)
+                ContextColumn(icon: "chart.xyaxis.line", title: "決算前チャート", value: item.chart.summary, color: trendColor(item.chart.trend))
+                Divider().frame(height: 50).padding(.horizontal, 14)
+                ContextColumn(icon: "arrow.triangle.2.circlepath", title: "前回決算比較", value: item.previousEarnings.summary, color: comparisonColor(item.previousEarnings.direction))
+            }
+            HStack(spacing: 18) {
+                Fact(icon: "chart.line.uptrend.xyaxis", text: "営利成長 \(signedPercent(item.fundamentals.operatingProfitYoy))")
+                Fact(icon: "arrow.up.forward", text: "修正期待 \(scoreText(item.fundamentals.revisionScore))")
+                Fact(icon: "scale.3d", text: "信用倍率 \(ratioText(item.supplyDemand.marginRatio))")
+                Fact(icon: "checkmark.shield", text: dataQualityLabel(item.dataQuality))
+            }
+            if !item.positiveFactors.isEmpty { TagLine(title: "根拠", values: item.positiveFactors, color: .green) }
+            if !item.riskFactors.isEmpty { TagLine(title: "リスク", values: item.riskFactors, color: .orange) }
+            if !item.missingData.isEmpty { TagLine(title: "欠損", values: item.missingData.map(dataFieldLabel), color: .gray) }
+        }.padding(17).panelStyle()
+    }
+}
+
+struct ContextColumn: View {
+    let icon, title, value: String
+    let color: Color
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Label(title, systemImage: icon).font(.caption.bold()).foregroundStyle(color)
+            Text(value).font(.callout).fixedSize(horizontal: false, vertical: true).lineLimit(2)
+        }.frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+struct ConsideredCandidates: View {
+    let items: [DecisionCandidate]
+    var body: some View {
+        DisclosureGroup {
+            VStack(spacing: 0) {
+                ForEach(items) { item in
+                    HStack(spacing: 12) {
+                        ScoreBadge(score: item.score)
+                        StockName(name: item.name, code: item.code)
+                        Text(actionLabel(item.action)).font(.caption).foregroundStyle(actionColor(item.action)).frame(width: 58, alignment: .leading)
+                        Text(item.riskFactors.first ?? item.missingData.first ?? "基準点未満").font(.caption).foregroundStyle(.secondary).lineLimit(1)
+                        Spacer()
+                        Text(item.announcementTime).font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                    }.padding(.vertical, 8)
+                    if item.id != items.last?.id { Divider() }
+                }
+            }.padding(.top, 8)
+        } label: {
+            HStack { Text("候補外の上位銘柄").font(.headline); Text("\(items.count)銘柄").font(.caption).foregroundStyle(.secondary) }
+        }.padding(15).panelStyle()
+    }
+}
+
+struct RecentOutcomeBand: View {
+    let items: [Outcome]
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            SectionHeading(title: "最近の検証", detail: "直近5件")
+            HStack(spacing: 0) {
+                ForEach(Array(items.prefix(5))) { item in
+                    VStack(alignment: .leading, spacing: 4) {
+                        HStack { Text(item.code).font(.caption.monospacedDigit()); Spacer(); ResultBadge(result: item.result) }
+                        Text(item.name).font(.callout.bold()).lineLimit(1)
+                        Text(signedPercent(item.nextCloseReturn)).font(.title3.bold()).monospacedDigit().foregroundStyle(returnColor(item.nextCloseReturn))
+                    }.padding(.horizontal, 12).frame(maxWidth: .infinity, alignment: .leading)
+                    if item.id != items.prefix(5).last?.id { Divider().frame(height: 54) }
+                }
+            }.padding(.vertical, 12).panelStyle()
+        }
+    }
+}
+
+struct SectionHeading: View { let title, detail: String; var body: some View { HStack(alignment: .firstTextBaseline) { Text(title).font(.title3.bold()); Text(detail).font(.caption).foregroundStyle(.secondary); Spacer() } } }
+struct StatusValue: View { let label, value: String; var body: some View { VStack(alignment: .leading, spacing: 2) { Text(label).font(.caption).foregroundStyle(.secondary); Text(value).font(.callout.bold()).monospacedDigit() }.frame(minWidth: 66, alignment: .leading) } }
 
 struct MarketOverviewPanel: View {
     @EnvironmentObject private var model: AppModel
@@ -225,52 +377,6 @@ struct MarketFact: View {
     }
 }
 
-struct TodayCandidates: View {
-    let items: [PendingRecommendation]
-    private var todayItems: [PendingRecommendation] { items.filter { $0.eventDate == todayISO() } }
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack { Text(todayItems.isEmpty ? "本日は見送り" : "跨ぎ候補 \(todayItems.count)銘柄").font(.title2.bold()); Spacer(); Text("最大3銘柄").font(.caption).foregroundStyle(.secondary) }
-            if todayItems.isEmpty {
-                HStack(spacing: 14) {
-                    Image(systemName: "hand.raised.fill").font(.system(size: 30)).foregroundStyle(.orange)
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("無理に跨ぐ銘柄はありません").font(.headline)
-                        Text("候補生成前、または基準点を満たす銘柄がない状態です。通知状態も確認してください。")
-                            .font(.callout).foregroundStyle(.secondary)
-                    }
-                }.padding(18).frame(maxWidth: .infinity, alignment: .leading).panelStyle()
-            } else {
-                ForEach(todayItems) { item in CandidateCard(item: item) }
-            }
-        }
-    }
-}
-
-struct CandidateCard: View {
-    let item: PendingRecommendation
-    var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            HStack(alignment: .top) {
-                StockName(name: item.name, code: item.code)
-                Spacer()
-                VStack(alignment: .trailing, spacing: 5) {
-                    ScoreBadge(score: item.score)
-                    Text(actionLabel(item.action)).font(.caption.bold()).foregroundStyle(actionColor(item.action))
-                }
-            }
-            if let thesis = item.thesis, !thesis.isEmpty {
-                Label(thesis, systemImage: "lightbulb.fill").font(.callout).fixedSize(horizontal: false, vertical: true)
-            }
-            HStack(spacing: 18) {
-                Fact(icon: "clock", text: item.announcementTime ?? "時刻未取得")
-                Fact(icon: "gauge.with.dots.needle.50percent", text: "確信度 \(confidenceLabel(item.confidence))")
-            }
-            if !item.riskFactors.isEmpty { TagLine(title: "注意", values: item.riskFactors, color: .orange) }
-            if !item.missingData.isEmpty { TagLine(title: "未取得", values: item.missingData, color: .gray) }
-        }.padding(17).panelStyle()
-    }
-}
 
 struct ReviewView: View {
     @EnvironmentObject private var model: AppModel
@@ -463,3 +569,26 @@ func todayISO() -> String { let f = DateFormatter(); f.calendar = Calendar(ident
 func todayDisplay() -> String { let f = DateFormatter(); f.locale = Locale(identifier: "ja_JP"); f.timeZone = TimeZone(identifier: "Asia/Tokyo"); f.dateFormat = "M月d日（E）"; return f.string(from: Date()) }
 func statusColor(_ status: String?) -> Color { status == "fresh" ? .green : status == "warning" ? .orange : status == "stale" || status == "missing" || status == "error" ? .red : .gray }
 func healthLabel(_ status: String) -> String { status == "fresh" ? "市場データは更新済みです" : status == "warning" ? "更新時刻に注意が必要なデータがあります" : "期限切れまたは欠損データがあります。数値を判断に使用しないでください" }
+func decisionStateLabel(_ value: String?) -> String {
+    switch value { case "awaiting_results": "推薦済み・結果待ち"; case "evaluation_overdue": "結果評価が遅延"; case "evaluated": "評価完了"; case "no_trade": "見送り"; case "data_unavailable": "判定保留"; default: "未実行" }
+}
+func decisionStateIcon(_ value: String?) -> String {
+    switch value { case "awaiting_results": "clock.badge.checkmark"; case "evaluation_overdue": "exclamationmark.arrow.triangle.2.circlepath"; case "evaluated": "checkmark.seal.fill"; case "no_trade": "hand.raised.fill"; case "data_unavailable": "exclamationmark.triangle.fill"; default: "circle.dashed" }
+}
+func decisionStateColor(_ value: String?) -> Color {
+    switch value { case "awaiting_results": .blue; case "evaluation_overdue": .red; case "evaluated": .green; case "no_trade": .orange; case "data_unavailable": .red; default: .gray }
+}
+func sectorMoodColor(_ value: String) -> Color { value == "strong" ? .green : value == "weak" ? .red : .secondary }
+func trendColor(_ value: String) -> Color { value.contains("uptrend") ? .green : value.contains("downtrend") ? .red : .secondary }
+func comparisonColor(_ value: String) -> Color { value == "improving" ? .green : value == "worsening" ? .red : .secondary }
+func timeSourceLabel(_ value: String) -> String { value == "traders_web" ? "Traders Web" : value == "jquants" ? "J-Quants" : "時刻ソース不明" }
+func scoreText(_ value: Double?) -> String { guard let value else { return "--" }; return String(format: "%.0f点", value) }
+func dataQualityLabel(_ value: String) -> String { value == "complete" ? "データ充足" : value == "partial" ? "一部欠損" : "要注意" }
+func dataFieldLabel(_ value: String) -> String {
+    let labels = [
+        "historical_earnings_reaction": "過去決算反応", "operating_margin_change": "利益率変化",
+        "supply_demand": "信用需給", "sector_classification": "業種分類", "sector_mood": "セクター地合い",
+        "financial_statement": "財務データ", "announcement_time_unknown": "発表時刻",
+    ]
+    return labels[value] ?? value
+}

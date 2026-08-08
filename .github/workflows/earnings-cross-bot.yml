@@ -5,9 +5,12 @@ on:
     - cron: "5 23 * * 0-4"       # 08:05 JST fundamentals
     - cron: "20 23 * * 0-4"      # 08:20 JST market brief
     - cron: "30 23 * * 0-4"      # 08:30 JST earnings candidates
+    - cron: "45 23 * * 0-4"      # 08:45 JST earnings retry (deduplicated)
+    - cron: "0 0 * * 1-5"        # 09:00 JST earnings retry (deduplicated)
     - cron: "50 23 * * 0-4"      # 08:50 JST day-trade ranking
     - cron: "30 0 * * 1-5"       # 09:30 JST watchlist open
     - cron: "45 6 * * 1-5"       # 15:45 JST evaluation
+    - cron: "15 7 * * 1-5"       # 16:15 JST evaluation retry
     - cron: "50 6 * * 1-5"       # 15:50 JST day-trade evaluation
     - cron: "0 7 * * 1-5"        # 16:00 JST watchlist close
     - cron: "0 9 * * 5"          # 18:00 JST weekly review
@@ -70,9 +73,12 @@ jobs:
               "5 23 * * 0-4") task="fundamentals" ;;
               "20 23 * * 0-4") task="market-brief" ;;
               "30 23 * * 0-4") task="morning" ;;
+              "45 23 * * 0-4") task="morning" ;;
+              "0 0 * * 1-5") task="morning" ;;
               "50 23 * * 0-4") task="daytrade-rank" ;;
               "30 0 * * 1-5") task="watchlist-open" ;;
               "45 6 * * 1-5") task="evaluate" ;;
+              "15 7 * * 1-5") task="evaluate" ;;
               "50 6 * * 1-5") task="daytrade-evaluate" ;;
               "0 7 * * 1-5") task="watchlist-close" ;;
               "0 9 * * 5") task="weekly" ;;
@@ -105,7 +111,7 @@ jobs:
           TASK: ${{ steps.task.outputs.task }}
         run: |
           case "$TASK" in
-            morning) python3 -m src.main_morning ${{ github.event_name == 'workflow_dispatch' && '--force-post' || '' }} ;;
+            morning) python3 -m src.main_morning ;;
             evaluate) python3 -m src.main_evaluate ;;
             weekly) python3 -m src.main_weekly_review ;;
             learn) python3 -m src.main_learn ;;

@@ -23,6 +23,7 @@ def build_dashboard_data(conn: sqlite3.Connection) -> dict[str, Any]:
     recommendation_dates = {str(row["recommendation_date"]) for row in recommendations}
     no_trade_days = count_no_trade_days(llm_runs, recommendation_dates)
 
+    latest_notification = fetch_latest_notification(conn)
     return {
         "generated_at": generated_at,
         "summary": build_summary(recommendations, evaluated, pending, result_counts, no_trade_days),
@@ -33,10 +34,11 @@ def build_dashboard_data(conn: sqlite3.Connection) -> dict[str, Any]:
         "by_action": build_by_action(recommendations),
         "recent_outcomes": build_recent_outcomes(evaluated),
         "pending_recommendations": build_pending(pending),
+        "decision_center": build_decision_center(recommendations, llm_runs, latest_notification),
         "stock_snapshots": build_stock_snapshots(conn, recommendations),
         "learning": fetch_learning_status(conn),
         "validation": build_validation_report(conn, load_rules_for_validation()),
-        "latest_notification": fetch_latest_notification(conn),
+        "latest_notification": latest_notification,
         "no_trade_days": sorted(no_trade_days),
     }
 
@@ -57,6 +59,7 @@ def fetch_recommendation_rows(conn: sqlite3.Connection) -> list[dict[str, Any]]:
             r.thesis,
             r.missing_data_json,
             r.risk_factors_json,
+            (SELECT e.source FROM earnings_events e WHERE e.date=r.event_date AND e.code=r.code LIMIT 1) AS event_source,
             o.evaluation_date,
             o.next_open_return,
             o.next_high_return,
@@ -85,13 +88,18 @@ def fetch_recommendation_rows(conn: sqlite3.Connection) -> list[dict[str, Any]]:
 
 def fetch_recommendation_llm_runs(conn: sqlite3.Connection) -> list[dict[str, Any]]:
     rows = conn.execute(
-        "SELECT created_at, output_json FROM llm_runs WHERE run_type = 'recommendation' ORDER BY created_at ASC"
+        "SELECT created_at, status, input_json, output_json FROM llm_runs WHERE run_type = 'recommendation' ORDER BY created_at ASC"
     ).fetchall()
     runs = []
     for row in rows:
         payload = parse_json_object(row["output_json"])
         if payload:
-            runs.append({"created_at": row["created_at"], "output": payload})
+            runs.append({
+                "created_at": row["created_at"],
+                "status": row["status"],
+                "input": parse_json_object(row["input_json"]) or {},
+                "output": payload,
+            })
     return runs
 
 
@@ -271,6 +279,133 @@ def build_pending(rows: list[dict[str, Any]], limit: int = 20) -> list[dict[str,
         }
         for row in ordered[:limit]
     ]
+
+
+def build_decision_center(
+    recommendations: list[dict[str, Any]],
+    llm_runs: list[dict[str, Any]],
+    notification: dict[str, Any] | None,
+) -> dict[str, Any]:
+    if not llm_runs:
+        return {
+            "date": None, "state": "not_run", "market_note": "候補判定はまだ実行されていません。",
+            "no_trade_reason": "", "recommendations": [], "considered": [], "scored_count": 0,
+            "eligible_count": 0, "next_step": "8:30の候補判定を待機", "model_status": "not_run",
+        }
+
+    run = llm_runs[-1]
+    inputs = run.get("input") or {}
+    output = run.get("output") or {}
+    target_date = str(output.get("date") or inputs.get("date") or "")
+    scored = [row for row in inputs.get("all_scored", []) if isinstance(row, dict)]
+    generated = {
+        str(row.get("code")): row for row in output.get("recommendations", []) if isinstance(row, dict)
+    }
+    selected_codes = set(generated)
+    matching = [row for row in recommendations if str(row.get("event_date")) == target_date]
+    event_sources = {str(row.get("code")): row.get("event_source") for row in matching}
+    for row in scored:
+        if not row.get("announcement_time_source") and event_sources.get(str(row.get("code"))):
+            row["announcement_time_source"] = event_sources[str(row.get("code"))]
+    recommendation_rows = [
+        _decision_candidate(row, generated.get(str(row.get("code")), {}), selected=True)
+        for row in scored if str(row.get("code")) in selected_codes
+    ]
+    recommendation_rows.sort(key=lambda row: (row["score"], row["code"]), reverse=True)
+    considered = [
+        _decision_candidate(row, {}, selected=False)
+        for row in sorted(scored, key=lambda item: (item.get("score", 0), item.get("code", "")), reverse=True)
+        if str(row.get("code")) not in selected_codes
+    ][:10]
+
+    pending_count = sum(1 for row in matching if not row.get("result"))
+    data_status = notification.get("data_status") if notification and notification.get("date") == target_date else None
+    if data_status == "unavailable":
+        state, next_step = "data_unavailable", "公開データ回復後に再判定"
+    elif recommendation_rows and pending_count and target_date < date.today().isoformat():
+        state, next_step = "evaluation_overdue", "結果評価を再実行"
+    elif recommendation_rows and pending_count:
+        state, next_step = "awaiting_results", "翌営業日15:45の結果評価"
+    elif recommendation_rows:
+        state, next_step = "evaluated", "金曜18:00の週次検証"
+    else:
+        state, next_step = "no_trade", "次の営業日8:30まで待機"
+
+    return {
+        "date": target_date or None,
+        "generated_at": run.get("created_at"),
+        "state": state,
+        "market_note": output.get("market_note") or "",
+        "no_trade_reason": output.get("no_trade_reason") or "",
+        "recommendations": recommendation_rows,
+        "considered": considered,
+        "scored_count": len(scored),
+        "eligible_count": len(recommendation_rows),
+        "next_step": next_step,
+        "model_status": run.get("status") or "unknown",
+        "notification_status": notification.get("status") if notification and notification.get("date") == target_date else None,
+        "data_status": data_status,
+    }
+
+
+def _decision_candidate(scored: dict[str, Any], generated: dict[str, Any], selected: bool) -> dict[str, Any]:
+    price = scored.get("price_features") or {}
+    financial = scored.get("financial_features") or {}
+    reaction = scored.get("reaction_features") or {}
+    demand = scored.get("supply_demand_features") or {}
+    sector = scored.get("sector_context") or generated.get("sector_context") or {}
+    missing = list(scored.get("missing_data") or generated.get("missing_data") or [])
+    risk_flags = list(scored.get("risk_flags") or [])
+    return {
+        "code": str(scored.get("code") or generated.get("code") or ""),
+        "name": scored.get("name") or generated.get("name") or "",
+        "score": int(scored.get("score") or generated.get("score") or 0),
+        "action": scored.get("action") or generated.get("action") or "avoid",
+        "selected": selected,
+        "confidence": generated.get("confidence"),
+        "announcement_time": scored.get("announcement_time") or generated.get("announcement_time") or "不明",
+        "announcement_time_source": scored.get("announcement_time_source") or generated.get("announcement_time_source") or "",
+        "thesis": generated.get("thesis") or "",
+        "positive_factors": generated.get("positive_factors") or [],
+        "risk_factors": generated.get("risk_factors") or risk_flags,
+        "missing_data": missing,
+        "data_quality": "complete" if not missing else "partial" if len(missing) <= 3 else "insufficient",
+        "components": scored.get("components") or {},
+        "context_adjustments": scored.get("context_adjustments") or {},
+        "sector": {
+            "name": sector.get("sector") or "不明", "mood": sector.get("mood") or "unknown",
+            "summary": sector.get("summary") or "セクター地合い未取得",
+        },
+        "chart": {
+            "summary": generated.get("chart_context") or price.get("chart_summary") or _legacy_chart_summary(price),
+            "trend": price.get("chart_trend") or "unknown", "return_5d": price.get("return_5d"),
+            "return_20d": price.get("return_20d"), "distance_from_high": price.get("distance_from_recent_high"),
+            "volume_ratio": price.get("volume_ratio_5d_20d"),
+        },
+        "previous_earnings": {
+            "summary": generated.get("previous_earnings_context") or (financial.get("previous_comparison") or {}).get("summary") or "前回比較データなし",
+            "direction": (financial.get("previous_comparison") or {}).get("direction") or "unknown",
+            "previous_close_return": reaction.get("previous_close_return"),
+        },
+        "fundamentals": {
+            "revenue_yoy": financial.get("revenue_yoy"), "operating_profit_yoy": financial.get("operating_profit_yoy"),
+            "revision_score": financial.get("revision_expectation_score"),
+        },
+        "supply_demand": {"margin_ratio": demand.get("margin_ratio"), "long_weekly_change": demand.get("long_weekly_change")},
+    }
+
+
+def _legacy_chart_summary(price: dict[str, Any]) -> str:
+    return_20d = price.get("return_20d")
+    high = price.get("distance_from_recent_high")
+    if return_20d is None and high is None:
+        return "チャートデータなし"
+    parts = []
+    if return_20d is not None:
+        parts.append(f"20日 {float(return_20d):+.1%}")
+    if high is not None:
+        parts.append(f"高値比 {float(high):+.1%}")
+    return " / ".join(parts)
 
 
 def build_stock_snapshots(conn: sqlite3.Connection, recommendations: list[dict[str, Any]]) -> list[dict[str, Any]]:

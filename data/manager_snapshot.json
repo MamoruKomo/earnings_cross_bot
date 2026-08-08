@@ -3405,6 +3405,859 @@
       "target_hits": 3
     }
   },
+  "decision_center": {
+    "considered": [
+      {
+        "action": "cross",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.2905027932960894,
+          "return_20d": 0.22705314009661826,
+          "return_5d": 0.15454545454545454,
+          "summary": "上昇基調（20日 +22.7% / 高値比 -29.1%）",
+          "trend": "uptrend",
+          "volume_ratio": 1.1811364055817237
+        },
+        "code": "3656",
+        "components": {
+          "earnings_growth": 20.0,
+          "historical_reaction": 5.25,
+          "liquidity": 10.0,
+          "low_overheat": 4.57,
+          "low_risk": 3.25,
+          "progress_revision": 20.0,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": null,
+        "context_adjustments": {
+          "chart_setup": 1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 2
+        },
+        "data_quality": "insufficient",
+        "fundamentals": {
+          "operating_profit_yoy": null,
+          "revenue_yoy": 1.48,
+          "revision_score": 100.0
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "operating_profit_yoy",
+          "sector_classification",
+          "supply_demand"
+        ],
+        "name": "ＫＬａｂ",
+        "positive_factors": [],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [],
+        "score": 71,
+        "sector": {
+          "mood": "market_only",
+          "name": "不明",
+          "summary": "日経平均 +3.66%、業種分類は未取得"
+        },
+        "selected": false,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": ""
+      },
+      {
+        "action": "cross",
+        "announcement_time": "15:00",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.1438775510204081,
+          "return_20d": -0.0007939658594680044,
+          "return_5d": 0.04526578073089693,
+          "summary": "上昇基調（20日 -0.1% / 高値比 -14.4%）",
+          "trend": "uptrend",
+          "volume_ratio": 0.8665137933430617
+        },
+        "code": "1968",
+        "components": {
+          "earnings_growth": 14.34,
+          "historical_reaction": 5.25,
+          "liquidity": 9.16,
+          "low_overheat": 13.43,
+          "low_risk": 3.6,
+          "progress_revision": 16.28,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": null,
+        "context_adjustments": {
+          "chart_setup": 1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 2
+        },
+        "data_quality": "insufficient",
+        "fundamentals": {
+          "operating_profit_yoy": 0.17300000000000001,
+          "revenue_yoy": 0.129,
+          "revision_score": 81.38
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "sector_classification",
+          "supply_demand"
+        ],
+        "name": "太平電",
+        "positive_factors": [],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [],
+        "score": 70,
+        "sector": {
+          "mood": "market_only",
+          "name": "不明",
+          "summary": "日経平均 +3.66%、業種分類は未取得"
+        },
+        "selected": false,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": ""
+      },
+      {
+        "action": "watch",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.07239657631954355,
+          "return_20d": -0.019969856819894494,
+          "return_5d": -0.06168831168831168,
+          "summary": "下落基調（20日 -2.0% / 高値比 -7.2%）",
+          "trend": "downtrend",
+          "volume_ratio": 1.0205276705276705
+        },
+        "code": "3289",
+        "components": {
+          "earnings_growth": 13.23,
+          "historical_reaction": 5.25,
+          "liquidity": 10.0,
+          "low_overheat": 15.0,
+          "low_risk": 3.6,
+          "progress_revision": 15.79,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": null,
+        "context_adjustments": {
+          "chart_setup": -1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 0
+        },
+        "data_quality": "insufficient",
+        "fundamentals": {
+          "operating_profit_yoy": 0.139,
+          "revenue_yoy": 0.124,
+          "revision_score": 78.94
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "sector_classification",
+          "supply_demand"
+        ],
+        "name": "東急不ＨＤ",
+        "positive_factors": [],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [],
+        "score": 69,
+        "sector": {
+          "mood": "market_only",
+          "name": "不明",
+          "summary": "日経平均 +3.66%、業種分類は未取得"
+        },
+        "selected": false,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": ""
+      },
+      {
+        "action": "watch",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.11164314516129037,
+          "return_20d": -0.08107403545359748,
+          "return_5d": -0.08726048679440701,
+          "summary": "下落基調（20日 -8.1% / 高値比 -11.2%）",
+          "trend": "downtrend",
+          "volume_ratio": 1.0496103629776472
+        },
+        "code": "2413",
+        "components": {
+          "earnings_growth": 12.17,
+          "historical_reaction": 5.25,
+          "liquidity": 10.0,
+          "low_overheat": 15.0,
+          "low_risk": 3.95,
+          "progress_revision": 15.32,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": null,
+        "context_adjustments": {
+          "chart_setup": -1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 0
+        },
+        "data_quality": "partial",
+        "fundamentals": {
+          "operating_profit_yoy": 0.08800000000000001,
+          "revenue_yoy": 0.138,
+          "revision_score": 76.62
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "supply_demand"
+        ],
+        "name": "エムスリー",
+        "positive_factors": [],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [],
+        "score": 68,
+        "sector": {
+          "mood": "neutral",
+          "name": "サービス業",
+          "summary": "日経平均 +3.66%、サービス業は中立"
+        },
+        "selected": false,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": ""
+      },
+      {
+        "action": "watch",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.08010335917312661,
+          "return_20d": -0.05853314527503528,
+          "return_5d": -0.05753618072714439,
+          "summary": "下落基調（20日 -5.9% / 高値比 -8.0%）",
+          "trend": "downtrend",
+          "volume_ratio": 0.9171843223743634
+        },
+        "code": "1808",
+        "components": {
+          "earnings_growth": 11.37,
+          "historical_reaction": 5.25,
+          "liquidity": 10.0,
+          "low_overheat": 15.0,
+          "low_risk": 3.6,
+          "progress_revision": 14.98,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": null,
+        "context_adjustments": {
+          "chart_setup": -1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 0
+        },
+        "data_quality": "insufficient",
+        "fundamentals": {
+          "operating_profit_yoy": 0.114,
+          "revenue_yoy": 0.084,
+          "revision_score": 74.88
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "sector_classification",
+          "supply_demand"
+        ],
+        "name": "長谷工",
+        "positive_factors": [],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [],
+        "score": 66,
+        "sector": {
+          "mood": "market_only",
+          "name": "不明",
+          "summary": "日経平均 +3.66%、業種分類は未取得"
+        },
+        "selected": false,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": ""
+      },
+      {
+        "action": "watch",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.1366801619433199,
+          "return_20d": -0.06506488951245182,
+          "return_5d": 0.10167389956602602,
+          "summary": "上昇基調（20日 -6.5% / 高値比 -13.7%）",
+          "trend": "uptrend",
+          "volume_ratio": 1.0815598887253868
+        },
+        "code": "2802",
+        "components": {
+          "earnings_growth": 10.74,
+          "historical_reaction": 5.25,
+          "liquidity": 10.0,
+          "low_overheat": 13.43,
+          "low_risk": 3.25,
+          "progress_revision": 14.7,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": null,
+        "context_adjustments": {
+          "chart_setup": 1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 2
+        },
+        "data_quality": "insufficient",
+        "fundamentals": {
+          "operating_profit_yoy": null,
+          "revenue_yoy": 0.08800000000000001,
+          "revision_score": 73.5
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "operating_profit_progress_rate",
+          "operating_profit_yoy",
+          "supply_demand"
+        ],
+        "name": "味の素",
+        "positive_factors": [],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [],
+        "score": 65,
+        "sector": {
+          "mood": "neutral",
+          "name": "食料品",
+          "summary": "日経平均 +3.66%、食料品は中立"
+        },
+        "selected": false,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": ""
+      },
+      {
+        "action": "watch",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.01241534988713322,
+          "return_20d": 0.02820211515863691,
+          "return_5d": -0.006810442678774176,
+          "summary": "強い上昇基調（20日 +2.8% / 高値比 -1.2%）",
+          "trend": "strong_uptrend",
+          "volume_ratio": 0.899906629318394
+        },
+        "code": "1852",
+        "components": {
+          "earnings_growth": 8.0,
+          "historical_reaction": 5.25,
+          "liquidity": 10.0,
+          "low_overheat": 13.9,
+          "low_risk": 3.95,
+          "progress_revision": 13.5,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": null,
+        "context_adjustments": {
+          "chart_setup": 2,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 3
+        },
+        "data_quality": "partial",
+        "fundamentals": {
+          "operating_profit_yoy": 0.079,
+          "revenue_yoy": 0.001,
+          "revision_score": 67.5
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "supply_demand"
+        ],
+        "name": "浅沼組",
+        "positive_factors": [],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [],
+        "score": 64,
+        "sector": {
+          "mood": "neutral",
+          "name": "建設業",
+          "summary": "日経平均 +3.66%、建設業は中立"
+        },
+        "selected": false,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": ""
+      },
+      {
+        "action": "watch",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.0814285714285714,
+          "return_20d": -0.059081763307115454,
+          "return_5d": -0.06285297868464201,
+          "summary": "下落基調（20日 -5.9% / 高値比 -8.1%）",
+          "trend": "downtrend",
+          "volume_ratio": 1.186663850161949
+        },
+        "code": "2201",
+        "components": {
+          "earnings_growth": 8.69,
+          "historical_reaction": 5.25,
+          "liquidity": 10.0,
+          "low_overheat": 15.0,
+          "low_risk": 3.6,
+          "progress_revision": 13.8,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": null,
+        "context_adjustments": {
+          "chart_setup": -1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 0
+        },
+        "data_quality": "insufficient",
+        "fundamentals": {
+          "operating_profit_yoy": 0.018000000000000002,
+          "revenue_yoy": 0.086,
+          "revision_score": 69.0
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "sector_classification",
+          "supply_demand"
+        ],
+        "name": "森永菓",
+        "positive_factors": [],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [],
+        "score": 62,
+        "sector": {
+          "mood": "market_only",
+          "name": "不明",
+          "summary": "日経平均 +3.66%、業種分類は未取得"
+        },
+        "selected": false,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": ""
+      },
+      {
+        "action": "watch",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.07506255212677226,
+          "return_20d": -0.05375426621160406,
+          "return_5d": -0.07506255212677226,
+          "summary": "下落基調（20日 -5.4% / 高値比 -7.5%）",
+          "trend": "downtrend",
+          "volume_ratio": 0.9758931937637223
+        },
+        "code": "3167",
+        "components": {
+          "earnings_growth": 7.94,
+          "historical_reaction": 5.25,
+          "liquidity": 10.0,
+          "low_overheat": 15.0,
+          "low_risk": 3.6,
+          "progress_revision": 13.48,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": null,
+        "context_adjustments": {
+          "chart_setup": -1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 0
+        },
+        "data_quality": "insufficient",
+        "fundamentals": {
+          "operating_profit_yoy": 0.016,
+          "revenue_yoy": 0.062,
+          "revision_score": 67.38
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "sector_classification",
+          "supply_demand"
+        ],
+        "name": "ＴＯＫＡＩ ＨＤ",
+        "positive_factors": [],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [],
+        "score": 61,
+        "sector": {
+          "mood": "market_only",
+          "name": "不明",
+          "summary": "日経平均 +3.66%、業種分類は未取得"
+        },
+        "selected": false,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": ""
+      },
+      {
+        "action": "watch",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.061118335500650156,
+          "return_20d": 0.015471167369901506,
+          "return_5d": -0.05249343832021003,
+          "summary": "下落基調（20日 +1.5% / 高値比 -6.1%）",
+          "trend": "downtrend",
+          "volume_ratio": 0.7757494876316667
+        },
+        "code": "3028",
+        "components": {
+          "earnings_growth": 8.77,
+          "historical_reaction": 5.25,
+          "liquidity": 8.57,
+          "low_overheat": 14.4,
+          "low_risk": 3.6,
+          "progress_revision": 13.84,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": null,
+        "context_adjustments": {
+          "chart_setup": -1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 0
+        },
+        "data_quality": "insufficient",
+        "fundamentals": {
+          "operating_profit_yoy": 0.057,
+          "revenue_yoy": 0.05,
+          "revision_score": 69.19
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "sector_classification",
+          "supply_demand"
+        ],
+        "name": "アルペン",
+        "positive_factors": [],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [],
+        "score": 60,
+        "sector": {
+          "mood": "market_only",
+          "name": "不明",
+          "summary": "日経平均 +3.66%、業種分類は未取得"
+        },
+        "selected": false,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": ""
+      }
+    ],
+    "data_status": "ok",
+    "date": "2026-08-06",
+    "eligible_count": 3,
+    "generated_at": "2026-08-06T01:05:47Z",
+    "market_note": "ルールスコアで70点以上の銘柄に限定し、過熱感と流動性を確認したうえで候補化しています。",
+    "model_status": "fallback_no_api_key",
+    "next_step": "金曜18:00の週次検証",
+    "no_trade_reason": "",
+    "notification_status": "sent",
+    "recommendations": [
+      {
+        "action": "cross",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.11916264090177131,
+          "return_20d": 0.01371386212008896,
+          "return_5d": 0.01635079895949465,
+          "summary": "上昇基調（20日 +1.4% / 高値比 -11.9%）",
+          "trend": "uptrend",
+          "volume_ratio": 0.7751729590828227
+        },
+        "code": "3482",
+        "components": {
+          "earnings_growth": 18.31,
+          "historical_reaction": 5.25,
+          "liquidity": 8.9,
+          "low_overheat": 14.47,
+          "low_risk": 3.95,
+          "progress_revision": 18.11,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": "medium",
+        "context_adjustments": {
+          "chart_setup": 1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 2
+        },
+        "data_quality": "partial",
+        "fundamentals": {
+          "operating_profit_yoy": 0.191,
+          "revenue_yoy": 0.258,
+          "revision_score": 90.56
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "supply_demand"
+        ],
+        "name": "ロードスター",
+        "positive_factors": [
+          "営業利益前年同期比が19.1%で成長評価がある",
+          "上方修正期待スコアが90.6点",
+          "決算前20営業日リターンは1.4%で過熱感を確認済み"
+        ],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [
+          "不足データがあるため確信度を抑制"
+        ],
+        "score": 77,
+        "sector": {
+          "mood": "neutral",
+          "name": "不動産業",
+          "summary": "日経平均 +3.66%、不動産業は中立"
+        },
+        "selected": true,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": "総合スコア77点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+      },
+      {
+        "action": "cross",
+        "announcement_time": "16:00",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.20771850170261064,
+          "return_20d": 0.011594202898550732,
+          "return_5d": 0.07605344295991778,
+          "summary": "上昇基調（20日 +1.2% / 高値比 -20.8%）",
+          "trend": "uptrend",
+          "volume_ratio": 0.73008980558571
+        },
+        "code": "1945",
+        "components": {
+          "earnings_growth": 16.94,
+          "historical_reaction": 5.25,
+          "liquidity": 10.0,
+          "low_overheat": 12.97,
+          "low_risk": 3.6,
+          "progress_revision": 18.04,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": "medium",
+        "context_adjustments": {
+          "chart_setup": 1,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": 2
+        },
+        "data_quality": "insufficient",
+        "fundamentals": {
+          "operating_profit_yoy": 0.541,
+          "revenue_yoy": 0.14300000000000002,
+          "revision_score": 90.19
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "sector_classification",
+          "supply_demand"
+        ],
+        "name": "東京エネシス",
+        "positive_factors": [
+          "営業利益前年同期比が54.1%で成長評価がある",
+          "上方修正期待スコアが90.2点",
+          "決算前20営業日リターンは1.2%で過熱感を確認済み"
+        ],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [
+          "不足データがあるため確信度を抑制"
+        ],
+        "score": 75,
+        "sector": {
+          "mood": "market_only",
+          "name": "不明",
+          "summary": "日経平均 +3.66%、業種分類は未取得"
+        },
+        "selected": true,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": "総合スコア75点。主にprogress_revision、earnings_growthが評価され、決算跨ぎ候補として残りました。"
+      },
+      {
+        "action": "cross",
+        "announcement_time": "15:30",
+        "announcement_time_source": "traders_web",
+        "chart": {
+          "distance_from_high": -0.5341555977229602,
+          "return_20d": -0.26934523809523814,
+          "return_5d": 0.18028846153846145,
+          "summary": "下落基調（20日 -26.9% / 高値比 -53.4%）",
+          "trend": "downtrend",
+          "volume_ratio": 0.5860574698136228
+        },
+        "code": "3449",
+        "components": {
+          "earnings_growth": 19.43,
+          "historical_reaction": 5.25,
+          "liquidity": 10.0,
+          "low_overheat": 11.47,
+          "low_risk": 3.6,
+          "progress_revision": 19.12,
+          "supply_demand": 3.5,
+          "theme": 2.5
+        },
+        "confidence": "medium",
+        "context_adjustments": {
+          "chart_setup": -2,
+          "previous_earnings": 0,
+          "sector_mood": 1,
+          "total": -1
+        },
+        "data_quality": "insufficient",
+        "fundamentals": {
+          "operating_profit_yoy": 0.531,
+          "revenue_yoy": 0.23,
+          "revision_score": 95.62
+        },
+        "missing_data": [
+          "historical_earnings_reaction",
+          "operating_margin_change",
+          "sector_classification",
+          "supply_demand"
+        ],
+        "name": "テクノフレックス",
+        "positive_factors": [
+          "営業利益前年同期比が53.1%で成長評価がある",
+          "上方修正期待スコアが95.6点",
+          "決算前20営業日リターンは-26.9%で過熱感を確認済み"
+        ],
+        "previous_earnings": {
+          "direction": "unknown",
+          "previous_close_return": null,
+          "summary": "前回決算データなし"
+        },
+        "risk_factors": [
+          "不足データがあるため確信度を抑制"
+        ],
+        "score": 74,
+        "sector": {
+          "mood": "market_only",
+          "name": "不明",
+          "summary": "日経平均 +3.66%、業種分類は未取得"
+        },
+        "selected": true,
+        "supply_demand": {
+          "long_weekly_change": null,
+          "margin_ratio": null
+        },
+        "thesis": "総合スコア74点。主にearnings_growth、progress_revisionが評価され、決算跨ぎ候補として残りました。"
+      }
+    ],
+    "scored_count": 250,
+    "state": "evaluated"
+  },
   "equity_curve": [
     {
       "code": "4443",
@@ -3568,7 +4421,7 @@
       "result": "lose"
     }
   ],
-  "generated_at": "2026-08-07T09:55:26Z",
+  "generated_at": "2026-08-08T10:56:55Z",
   "latest_notification": {
     "candidate_count": 3,
     "created_at": "2026-08-06T01:05:47Z",
@@ -14418,15 +15271,15 @@
       "overall": "stale",
       "sources": [
         {
-          "age_hours": 10.6,
+          "age_hours": 35.6,
           "key": "morning_brief",
           "label": "市場朝刊",
-          "message": "更新済み",
-          "status": "fresh",
+          "message": "更新時刻を確認してください",
+          "status": "warning",
           "updated_at": "2026-08-07T08:20:00+09:00"
         },
         {
-          "age_hours": 2208.5,
+          "age_hours": 2233.5,
           "key": "watchlist",
           "label": "ウォッチリスト",
           "message": "更新期限を超えています。判断に使用しないでください",
@@ -14434,7 +15287,7 @@
           "updated_at": "2026-05-07T18:25:09+09:00"
         },
         {
-          "age_hours": 609.9,
+          "age_hours": 634.9,
           "key": "fundamentals",
           "label": "ファンダメンタルズ",
           "message": "更新済み",

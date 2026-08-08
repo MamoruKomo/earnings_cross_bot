@@ -86,6 +86,46 @@ class DashboardBuilderTest(unittest.TestCase):
         self.assertEqual(data["latest_notification"]["status"], "sent")
         self.assertEqual(data["latest_notification"]["candidate_count"], 1)
 
+    def test_decision_center_explains_selected_and_rejected_candidates(self):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        db.init_db(conn)
+        selected = {
+            "code": "4062", "name": "イビデン", "score": 76, "action": "cross",
+            "announcement_time": "15:40", "announcement_time_source": "traders_web",
+            "missing_data": ["supply_demand"], "risk_flags": [],
+            "price_features": {"chart_summary": "上昇基調", "return_20d": 0.08},
+            "financial_features": {"operating_profit_yoy": 0.3, "revision_expectation_score": 90},
+            "reaction_features": {}, "supply_demand_features": {},
+            "sector_context": {"sector": "電気機器", "mood": "strong", "summary": "電気機器は追い風"},
+            "components": {"earnings_growth": 18}, "context_adjustments": {"total": 3},
+        }
+        rejected = {
+            "code": "9999", "name": "見送り", "score": 58, "action": "avoid",
+            "announcement_time": "不明", "missing_data": ["announcement_time_unknown"],
+            "risk_flags": ["announcement_time_unverified"], "price_features": {},
+            "financial_features": {}, "reaction_features": {}, "supply_demand_features": {},
+        }
+        output = {"date": "2026-08-04", "market_note": "テスト", "no_trade_reason": "", "recommendations": [{
+            "code": "4062", "name": "イビデン", "score": 76, "action": "cross", "announcement_time": "15:40",
+            "thesis": "業績と地合いを評価", "positive_factors": ["増益"], "risk_factors": ["需給未取得"],
+        }]}
+        db.insert_llm_run(conn, "recommendation", "test", "prompt", {
+            "date": "2026-08-04", "selected_candidates": [selected], "all_scored": [selected, rejected]
+        }, output, "success")
+        db.insert_recommendation(
+            conn, "2026-08-04", "2026-08-04", output["recommendations"][0], selected, "test", "test", output
+        )
+        db.record_notification(conn, "2026-08-04", "morning", "sent", {"candidate_count": 1, "data_status": "ok"})
+        conn.commit()
+
+        center = build_dashboard_data(conn)["decision_center"]
+        self.assertEqual("evaluation_overdue", center["state"])
+        self.assertEqual("15:40", center["recommendations"][0]["announcement_time"])
+        self.assertEqual("電気機器は追い風", center["recommendations"][0]["sector"]["summary"])
+        self.assertEqual("9999", center["considered"][0]["code"])
+        self.assertIn("announcement_time_unverified", center["considered"][0]["risk_factors"])
+
 
 if __name__ == "__main__":
     unittest.main()

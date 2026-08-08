@@ -15,14 +15,73 @@ struct DashboardData: Codable {
     let latestNotification: NotificationStatus?
     let marketIntelligence: MarketIntelligence?
     let daytrade: DaytradeDashboard?
+    let decisionCenter: DecisionCenter?
     enum CodingKeys: String, CodingKey {
         case generatedAt = "generated_at"; case summary
         case resultDistribution = "result_distribution"; case weekly
         case equityCurve = "equity_curve"; case byCode = "by_code"
         case recentOutcomes = "recent_outcomes"; case pendingRecommendations = "pending_recommendations"
         case stockSnapshots = "stock_snapshots"; case learning, validation; case latestNotification = "latest_notification"
-        case marketIntelligence = "market_intelligence"; case daytrade
+        case marketIntelligence = "market_intelligence"; case daytrade; case decisionCenter = "decision_center"
     }
+}
+
+struct DecisionCenter: Codable {
+    let date, generatedAt, state, marketNote, noTradeReason, nextStep, modelStatus: String?
+    let notificationStatus, dataStatus: String?
+    let recommendations, considered: [DecisionCandidate]
+    let scoredCount, eligibleCount: Int
+    enum CodingKeys: String, CodingKey {
+        case date, state, recommendations, considered
+        case generatedAt = "generated_at"; case marketNote = "market_note"; case noTradeReason = "no_trade_reason"
+        case nextStep = "next_step"; case modelStatus = "model_status"; case notificationStatus = "notification_status"
+        case dataStatus = "data_status"; case scoredCount = "scored_count"; case eligibleCount = "eligible_count"
+    }
+}
+
+struct DecisionCandidate: Codable, Identifiable {
+    var id: String { code }
+    let code, name, action, announcementTime, announcementTimeSource, thesis, dataQuality: String
+    let score: Int
+    let selected: Bool
+    let confidence: String?
+    let positiveFactors, riskFactors, missingData: [String]
+    let components, contextAdjustments: [String: Double]
+    let sector: DecisionSector
+    let chart: DecisionChart
+    let previousEarnings: PreviousEarnings
+    let fundamentals: DecisionFundamentals
+    let supplyDemand: DecisionSupplyDemand
+    enum CodingKeys: String, CodingKey {
+        case code, name, score, action, selected, confidence, thesis, components, sector, chart, fundamentals
+        case announcementTime = "announcement_time"; case announcementTimeSource = "announcement_time_source"
+        case positiveFactors = "positive_factors"; case riskFactors = "risk_factors"; case missingData = "missing_data"
+        case dataQuality = "data_quality"; case contextAdjustments = "context_adjustments"
+        case previousEarnings = "previous_earnings"; case supplyDemand = "supply_demand"
+    }
+}
+
+struct DecisionSector: Codable { let name, mood, summary: String }
+struct DecisionChart: Codable {
+    let summary, trend: String
+    let return5d, return20d, distanceFromHigh, volumeRatio: Double?
+    enum CodingKeys: String, CodingKey {
+        case summary, trend; case return5d = "return_5d"; case return20d = "return_20d"
+        case distanceFromHigh = "distance_from_high"; case volumeRatio = "volume_ratio"
+    }
+}
+struct PreviousEarnings: Codable {
+    let summary, direction: String
+    let previousCloseReturn: Double?
+    enum CodingKeys: String, CodingKey { case summary, direction; case previousCloseReturn = "previous_close_return" }
+}
+struct DecisionFundamentals: Codable {
+    let revenueYoy, operatingProfitYoy, revisionScore: Double?
+    enum CodingKeys: String, CodingKey { case revenueYoy = "revenue_yoy"; case operatingProfitYoy = "operating_profit_yoy"; case revisionScore = "revision_score" }
+}
+struct DecisionSupplyDemand: Codable {
+    let marginRatio, longWeeklyChange: Double?
+    enum CodingKeys: String, CodingKey { case marginRatio = "margin_ratio"; case longWeeklyChange = "long_weekly_change" }
 }
 
 struct DaytradeDashboard: Codable {
@@ -257,8 +316,8 @@ struct ScoreBand: Codable, Identifiable {
 }
 
 enum AppSection: String, CaseIterable, Identifiable {
-    case overview = "今日"; case daytrade = "デイトレ"; case morningBrief = "市況・朝刊"; case watchlist = "ウォッチ"
-    case history = "検証"; case analysis = "銘柄調査"; case operations = "設定・接続"
+    case overview = "判断センター"; case history = "成績・学習"; case analysis = "銘柄比較"
+    case morningBrief = "市場環境"; case watchlist = "ウォッチ"; case daytrade = "デイトレ"; case operations = "運用"
     var id: String { rawValue }
     var icon: String { switch self {
         case .overview: "sun.max"; case .daytrade: "bolt.horizontal.circle"; case .morningBrief: "newspaper"
